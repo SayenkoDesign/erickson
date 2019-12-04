@@ -31,13 +31,24 @@ if( function_exists('acf_add_options_sub_page') ) {
 	));
     
     acf_add_options_sub_page(array(
-		'page_title' 	=> 'Social',
-		'menu_title' 	=> 'Social',
+		'page_title' 	=> 'Social Profiles',
+		'menu_title' 	=> 'Social Profiles',
         'menu_slug' 	=> 'theme-settings-social',
         'parent' 		=> 'theme-settings',
 		'capability' => 'edit_posts',
  		'redirect' 	=> false,
         'autoload' => false,
 	));    
+    
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Company',
+		'menu_title' 	=> 'Company',
+        'menu_slug' 	=> 'theme-settings-company',
+        'parent' 		=> 'theme-settings',
+		'capability' => 'edit_posts',
+ 		'redirect' 	=> false,
+        'autoload' => false,
+	));  
+      
 
 }

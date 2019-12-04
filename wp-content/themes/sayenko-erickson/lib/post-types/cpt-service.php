@@ -57,8 +57,8 @@ $cpt_service_categories = array(
 
 register_via_taxonomy_core( $cpt_service_categories, 
 	array(
-		'public' => false,
-        'rewrite' => false,
+		'public' => true,
+        'rewrite' => true,
 	), 
 	array( CPT_Service::POST_TYPE ) 
 );

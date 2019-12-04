@@ -6,20 +6,21 @@
 .site-footer {
     
     @include breakpoint(large) {
-        background: linear-gradient(to left, #fff 50%, $dark-gray 50%);   
+        .cell.shrink {
+            flex: 0 0 auto;
+        }
     }
     
     .copyright {
         
-        
         p {
-            color: #CADADE;
+            color: $dark-gray;
             font-size: rem-calc(15);
             line-height: 1.866666667;  
             
             a {
                 text-decoration: underline;
-                color: #CADADE;
+                color: $dark-gray;
                 
                 &:hover {
                     color: $red;   
@@ -27,7 +28,11 @@
             }
             
             span {
-                display: block;   
+                display: block; 
+                
+                @include breakpoint(xlarge) {
+                    display: inline;
+                }
             }
         }
     }
@@ -70,47 +75,13 @@
         }
     }
     
-    .left {
-        padding-top: rem-calc(50); 
-        padding-bottom: rem-calc(50);
-        background-color: $dark-gray;  
-        
-        @include breakpoint(large) {
-            padding-bottom: rem-calc(25);
-            padding-top: rem-calc(100);
-        }
-    }
     
-    .right {
-               
-       padding-top: rem-calc(50);  
-       padding-bottom: rem-calc(50); 
-        
-        @include breakpoint(large) {
-            padding-bottom: rem-calc(25);
-            padding-top: rem-calc(100);
-        }
-       
-       .content {
-            
-            h2 {
-                
-                line-height: 1.138888889;   
-                margin-bottom: rem-calc(60);
-            }
-       }
-    }
-    
-    .white{
-        background: #fff;   
-    }
 
 	.widget {
         
         margin-bottom: rem-calc(35);
 
 		.widget-title {
-            color: $white;
 			font-size: rem-calc(20);
 		}
         

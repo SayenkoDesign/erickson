@@ -23,6 +23,10 @@
 /****************************************
 	Functions
 *****************************************/
+
+    include_once( 'functions/sayenko.php' );
+
+    include_once( 'functions/gutenberg.php' );
     
     include_once( 'functions/disable-editor.php' );
     
