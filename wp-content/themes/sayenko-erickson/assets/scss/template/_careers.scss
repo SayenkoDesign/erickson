@@ -1,0 +1,339 @@
+// Careers
+
+.template-careers {
+    
+    .section-hero {
+        padding: rem-calc(75 0);
+        text-align: center;
+        
+        background-color: $red;
+     
+        &.background-image {        
+            background-color: transparent;
+            background-size: cover;
+            position: relative;
+                    
+            &:after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgba( $dark-gray, .5);
+            }
+            
+            .wrap {
+                position: relative;
+                z-index: 3;   
+            }
+        } 
+        
+        .grid-x {
+            min-height: 25vw;   
+        }
+        
+        h1 {
+            color: #fff;    
+        }
+
+    }
+    
+    .site-main section:last-child {
+        padding-bottom: rem-calc(50);
+        
+        @include breakpoint(xxlarge) {
+            padding-bottom: rem-calc(100);
+        }   
+    }
+    
+    .section-why {
+        padding-top: rem-calc(75);  
+        
+        .full-screen-scroll-section-element {
+            padding: rem-calc(0 0 0 0);  
+        } 
+    }
+    
+    .section-benefits {
+        
+        background: $gray;
+        
+        padding-top: rem-calc(75);
+            
+        @include breakpoint(large) {
+            padding-top: rem-calc(150);
+        } 
+        
+        
+        padding-bottom: rem-calc(50);
+        
+        @include breakpoint(xxlarge) {
+            padding-bottom: rem-calc(100);
+        }   
+                
+        
+        h2 {
+            text-align: center;   
+        }
+        
+        .grid {
+            
+            padding-top: rem-calc(50);
+            
+            @include breakpoint(large) {
+                padding-top: rem-calc(100);
+            } 
+            
+            margin-bottom: rem-calc(map-get($grid-margin-gutters, small) * -1);
+                
+            @include breakpoint(large) {
+                margin-bottom: rem-calc(map-get($grid-margin-gutters, large) * -1);
+            }   
+            
+            .cell {
+                
+                background: #fff;
+                
+                margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
+                
+                @include breakpoint(large) {
+                    margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
+                }   
+            }
+                     
+            .grid-item {
+                display: block;
+                position: relative;
+                
+                text-align: center;
+                
+                padding: rem-calc( 75 map-get($grid-margin-gutters, small));
+                padding-bottom: rem-calc(75); 
+                
+                @include breakpoint(large) {
+                    padding: rem-calc( 125 map-get($grid-margin-gutters, large)); 
+                    padding-bottom: rem-calc(75); 
+                }
+                
+                span.number {
+                    font-size: 20px;
+                    font-weight: 900;
+                    letter-spacing: 1px;
+                    line-height: 24px;
+                    
+                    position: absolute;
+                    top: 50px;
+                    left: 50px
+                }
+                
+                .grid-image {
+                    margin-bottom: rem-calc(70);  
+                    color: $medium-gray;
+                    
+                    img,
+                    svg {
+                        max-width: rem-calc(120);   
+                        height: auto;
+                    }
+                    
+                    svg {
+                        fill: $medium-gray;   
+                    }
+                }
+                
+                header {
+                    margin-bottom: rem-calc(40);   
+                }
+                
+                p {
+                    color: $dark-gray;   
+                }
+                
+            }
+            
+        }
+    }
+    
+    
+    .section-jobs {
+        
+        padding-top: rem-calc(45);
+        @include breakpoint(large) {
+            padding-top: rem-calc(120);
+        } 
+        
+        
+        padding-bottom: rem-calc(75);
+        @include breakpoint(xxlarge) {
+            padding-bottom: rem-calc(150);
+        }   
+        
+        
+        h2 {
+            text-align: center; 
+            
+            margin-bottom: rem-calc(10);  
+            
+            @include breakpoint(medium-large) {
+                margin-bottom: rem-calc(100);   
+            }
+        }
+     
+        .wrap {
+            // max-width: rem-calc(1300); 
+            margin: 0 auto;  
+        }
+        
+        #BambooHR {
+            
+            @include breakpoint(medium) {
+                margin-top: rem-calc(-30);
+            }
+            
+            h2 {
+                display: none;   
+            }
+            
+            ul > li > div {
+                font-size: rem-calc(30);  
+                color: $dark-gray;
+                font-weight: 700; 
+                margin-top: rem-calc(30);
+                margin-bottom: rem-calc(30);
+            }
+            
+            ul > li > ul {
+                padding-bottom: rem-calc(30);   
+            }
+            
+            ul > li > ul > li {
+                font-size: rem-calc(18);   
+            }
+        }
+        
+    }
+    
+    
+    .section-testimonials {
+        
+        .container {
+            position: relative;   
+        }
+        
+        .slider {
+            
+            opacity: 0;
+            visibility: hidden;
+            
+            &.images-loaded {
+                opacity: 1;
+                visibility: visible;
+            }
+        
+        }
+        
+        background: $gray;
+        
+        
+        padding-top: rem-calc(75);
+        @include breakpoint(large) {
+            padding-top: rem-calc(150);
+        } 
+        
+        
+        padding-bottom: rem-calc(75);
+        @include breakpoint(xxlarge) {
+            padding-bottom: rem-calc(150);
+        }   
+        
+                
+        .slider {
+            
+            position: relative;
+            
+            .cell {
+                                
+                margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
+                
+                @include breakpoint(large) {
+                    margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
+                }                 
+            }
+            
+            img {
+                margin: 0 auto   
+            }
+        }
+        
+        .slick-arrows {
+            width: rem-calc(180);
+            display: flex;
+            margin: 0 auto;
+            
+            @include breakpoint(xxlarge) {
+                position: absolute;
+                bottom: rem-calc(map-get($grid-margin-gutters, large));
+                right: 0;
+            }
+            
+            .slick-prev,
+            .slick-next {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                transform: none;
+            }
+            
+        }
+        
+        .slick-dots {
+            display: none!important;
+                        
+            position: absolute;
+            top: 50%;
+            transform: transtaeY(-50%);
+            right: 0;
+            bottom: auto;
+            width: auto;  
+            
+            li {
+                display: block;   
+            }
+        }
+        
+        .quote-mark {
+            position: relative;
+            margin-bottom: rem-calc(10);
+            
+            span {
+                color: $medium-gray;
+                font-size: 150px;
+                height: 80px;
+                line-height: 1;
+                display: block;
+            }
+        }
+        
+        .quote {
+            
+            p {
+                color: #454C54;
+                font-size: rem-calc(22);   
+                line-height: 1.636363636;
+            }
+            
+            h6 {
+               color: #454C54;
+               letter-spacing: 0.7px;
+               line-height: 1.444444444;
+               margin-top: rem-calc(25);
+               font-weight: 500;
+            }
+        }
+        
+    }
+       
+}

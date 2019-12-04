@@ -1,0 +1,150 @@
+// Theme mixins
+
+@mixin full-width {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;  
+    overflow: hidden;
+    
+    .wrap {
+        max-width: $global-width;
+        margin: 0 auto;   
+        
+        padding-left: rem-calc(map-get($grid-column-gutter, small)/2); 
+        padding-right: rem-calc(map-get($grid-column-gutter, small)/2); 
+       
+        @include breakpoint(medium) {
+            padding-left: rem-calc(map-get($grid-column-gutter, medium)/2); 
+            padding-right: rem-calc(map-get($grid-column-gutter, medium)/2); 
+        }
+        
+        @include breakpoint(large) {
+            padding-left: rem-calc(map-get($grid-column-gutter, large)/2); 
+            padding-right: rem-calc(map-get($grid-column-gutter, large)/2);          
+        }
+        
+    }   
+}
+
+@mixin bullets($color: #596975) {        
+    @include list-reset;
+    margin-bottom: rem-calc($global-margin);
+    $color: str-replace(#{$color}, '#', '');
+        
+    li {
+        position: relative;
+        min-height: rem-calc(24);
+        padding-left: rem-calc(30);
+        line-height: inherit;
+        margin: rem-calc(0 auto 5 0);
+        
+        &:before {
+            content: '';
+            width: 18px;
+            height: 5px;
+            position: absolute;
+            top: 11px;
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='5'%3E%3Cpath fill='%23#{$color}' fill-rule='evenodd' d='M0 2.513a.82.82 0 0 0 .82.82h12.233a2.51 2.51 0 0 0 2.286 1.64 2.462 2.462 0 1 0-2.295-3.281H.82a.82.82 0 0 0-.82.82z'/%3E%3C/svg%3E");
+            
+        }
+    }
+}
+
+
+@mixin bullets-arrow($color: #ffffff, $background: $red ) {        
+    @include list-reset;
+    margin-bottom: rem-calc($global-margin);
+    $color: str-replace(#{$color}, '#', '');
+        
+    > li {
+        position: relative;
+        min-height: rem-calc(24);
+        padding-left: rem-calc(45);
+        line-height: inherit;
+        margin: rem-calc(0 auto 20 0);
+        
+        &:before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 5px;
+            left: 0;
+            background-color: $background;
+            border-radius: 50%;
+            
+        }
+        
+        &:after {
+            content: '';
+            width: 6px;
+            height: 8px;
+            position: absolute;
+            top: 11px;
+            left: 7px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='8'%3E%3Cpath fill='%23#{$color}' fill-rule='evenodd' d='M6 4.003L2.387 8H.005l3.619-4L0 0l2.387.005z'/%3E%3C/svg%3E");
+            
+        }
+    }
+}
+
+
+@mixin link-arrow( $color: #999, $position: left ) {
+    content: '';
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 31px;
+    height: 22px; 
+    background-size: auto 22px;
+    
+    $color: str-replace(#{$color}, '#', '');  
+    
+    @if $position == 'left' {
+
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='0 0 31 22'%3E%3Cg fill='none' fill-rule='evenodd' stroke='none' stroke-width='1' transform='translate(-231.000000, -1931.000000) translate(245.500000, 1941.000000) rotate(-180.000000) translate(-245.500000, -1941.000000) translate(211.000000, 1908.000000) translate(20.000000, 21.000000)'%3E%3Cpath class='arrow' fill='%23#{$color}' d='M16 22a1 1 0 0 0 2 0l11-10a1 1 0 0 0 0-2L18 0h-2v2l10 9-10 9v2z'/%3E%3Cpath class='line' stroke='%23#{$color}' stroke-linecap='square' stroke-width='3' d='M26 11H0'/%3E%3C/g%3E%3C/svg%3E"); 
+
+   } @else {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='0 0 31 22'%3E%3Cdefs%3E%3Cpolygon id='a' points='0 0 0 65 65 65 65 0 0 0'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd' stroke='none' stroke-width='1' transform='translate(-376.000000, -1239.000000) translate(358.000000, 1218.000000)'%3E%3Cg/%3E%3Cpath class='arrow' fill='%23#{$color}' d='M36 43a1 1 0 0 0 2 0l11-10a1 1 0 0 0 0-2L38 21h-2v2l10 9-10 9v2z'/%3E%3Cpath class='line' stroke='%23#{$color}' stroke-linecap='square' stroke-width='3' d='M46 32H20'/%3E%3C/g%3E%3C/svg%3E");
+   }
+    
+}
+
+
+@mixin fancy-link() {
+    
+   color: $gray;
+   display: inline-block;
+   font-size: rem-calc(18);
+   line-height: 1.055555556;
+   letter-spacing: 0.7px; 
+   
+   &:hover {
+        color: $dark-gray;   
+   }
+     
+   &:after { 
+        content: "";
+        display: block;
+        width: 44px;
+        height: 2px;
+        background-color: $red;
+        margin-top: rem-calc(5);
+    }
+    
+    .no-touchevents & {
+        
+        &:after {
+            transition: width .3s;   
+        }
+        
+        &:hover:after {
+            width: 100%;   
+        }
+    }
+}

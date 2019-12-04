@@ -1,0 +1,27 @@
+// Buttons
+
+a, button {
+    
+    &.button {
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 1.2;
+        
+        min-width: rem-calc(280);
+        max-width: 100%;
+        
+        &.small {        
+            min-width: rem-calc(160);
+            padding-top: rem-calc(18.5);
+            padding-bottom: rem-calc(18.5);
+        }   
+        
+        &.large {        
+            @include breakpoint(large) {
+                min-width: rem-calc(320);
+                padding-top: rem-calc(36.5);
+                padding-bottom: rem-calc(36.5);
+            }
+        }   
+    }
+}

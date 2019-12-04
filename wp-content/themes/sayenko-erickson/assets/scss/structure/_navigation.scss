@@ -1,0 +1,188 @@
+.nav-primary {
+	background-color: $dark-gray;
+    display: none;
+
+	@include breakpoint(xlarge) {
+		background-color: transparent;
+        display: block;
+        
+        flex: 1 1 auto;
+        
+        display: flex!important;
+        flex-flow: row nowrap;
+        align-items: center;  
+        justify-content: flex-end;
+        
+        #secondary-menu {
+            order: 2;
+        }
+        
+        #primary-menu {
+            order: 1;
+        }
+	}
+
+	.menu {
+		//flex-grow: 1;
+
+		@include breakpoint(xlarge) {
+			justify-content: flex-end;
+		}
+	}
+
+	.menu-item {
+		display: block;
+		@include breakpoint(xlarge) {
+			text-align: center;
+		}
+        
+        @include breakpoint(xlarge only) {
+            margin-right: rem-calc(5);
+            a {
+                padding-left: rem-calc(5);
+                padding-right: rem-calc(5);   
+            }
+		}
+        
+        @include breakpoint(xlarge) {
+			text-align: center;
+            margin-right: .5vw;
+		}
+
+
+		a {
+			color: #fff;
+            font-size: rem-calc(15);
+            font-weight: 900;
+            line-height: 1.133333333;
+            
+			padding-top: rem-calc(11.5);
+            padding-bottom: rem-calc(11.5);
+            
+            padding-left: rem-calc(map-get($grid-column-gutter, small)/2); 
+            padding-right: rem-calc(map-get($grid-column-gutter, small)/2); 
+           
+           
+            @include breakpoint(medium) {
+                padding-left: rem-calc(map-get($grid-column-gutter, medium)/2); 
+                padding-right: rem-calc(map-get($grid-column-gutter, medium)/2); 
+            }
+            
+            @include breakpoint(large) {
+                padding-left: rem-calc(map-get($grid-column-gutter, large)/2); 
+                padding-right: rem-calc(map-get($grid-column-gutter, large)/2);
+            }
+            
+            @include breakpoint(xlarge) {
+                color: $dark-gray;
+                padding: $global-menu-padding;
+            }
+            
+            &:hover {
+                color: $red;   
+            }
+
+		}
+        
+        @include breakpoint(xlarge) {
+            &.current-menu-ancestor,
+            &.current_page_parent {
+                > a {
+                    color: $red;   
+                }
+            }
+        }
+	}
+    
+    .sub-menu {
+        background: $red;
+        
+        @include breakpoint(xlarge) {
+            background: #fff;   
+        }
+        
+        margin-left: rem-calc(-1);
+                
+        
+        
+        .menu-item {
+            text-align: left; 
+            
+            a {
+                
+                @include breakpoint(large down) {
+                    padding-top: rem-calc(13);
+                    padding-bottom: rem-calc(13);
+                }
+                
+                &:hover {
+                    color: $white;  
+                    
+                    @include breakpoint(xlarge) {
+                        color: $red;   
+                    }
+                }
+            }
+        }
+    }
+    
+    @include breakpoint(large down) {
+        .is-dropdown-submenu {
+            position: static;
+            top: inherit;
+            left: inherit;
+            border: none;  
+            background-color: $red;
+            margin-left: 0; 
+        }
+    }
+}
+
+#secondary-menu {
+    
+    @include breakpoint(xlarge) {
+        margin-left: 2vw;
+    }
+    
+	.menu-item {
+        
+        &.phone-number {
+            display: none;
+            @include breakpoint(xlarge) {
+                display: block;
+            }   
+        }
+
+		&.lets-talk {            
+            
+            @include breakpoint(xlarge) {
+                a {
+                    @include button(false, $dark-gray, $dark-gray, $white, 'hollow');
+                    display: block;
+                    margin-bottom: 0;
+                    padding-top: rem-calc(11.5);
+                    padding-bottom: rem-calc(11.5);
+                    
+                    
+                    &:hover {
+                        @include button(false, $red, $red, $white );
+                        display: block;
+                        margin-bottom: 0;
+                        padding-top: rem-calc(11.5);
+                        padding-bottom: rem-calc(11.5);
+        
+                    }
+                }
+                    
+            }
+            
+            @include breakpoint(xxxlarge) {
+                a {
+                    min-width: rem-calc(150);
+                }
+            }
+            
+       }
+        
+	}
+}

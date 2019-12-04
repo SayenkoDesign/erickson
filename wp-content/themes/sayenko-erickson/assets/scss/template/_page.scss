@@ -1,0 +1,65 @@
+// Page
+body {
+	max-width: 2560px;
+	margin: 0 auto;
+}
+
+.page-template-default {
+    
+    .section-hero {
+        background-color: $red;
+        padding-top: rem-calc(35);
+        
+        h1 {
+            color: #fff;   
+        }
+    }
+    
+    .site-main {
+        padding-top: rem-calc(75);
+            
+        @include breakpoint(large) {
+            padding-top: rem-calc(150);
+        } 
+        
+        
+        padding-bottom: rem-calc(50);
+        
+        @include breakpoint(xxlarge) {
+            padding-bottom: rem-calc(100);
+        }   
+    }
+    
+}
+
+.error404 {
+    
+    .section-hero {
+        background-color: $red;
+        padding-top: rem-calc(35);
+        
+        h1 {
+            color: #fff;   
+        }
+    }
+    
+    .site-main {
+        padding-top: rem-calc(75);
+            
+        @include breakpoint(large) {
+            padding-top: rem-calc(150);
+        } 
+        
+        
+        padding-bottom: rem-calc(50);
+        
+        @include breakpoint(xxlarge) {
+            padding-bottom: rem-calc(100);
+        } 
+        
+        .button-wrapper {
+            padding-top: rem-calc(40);   
+        }
+    }
+    
+ }

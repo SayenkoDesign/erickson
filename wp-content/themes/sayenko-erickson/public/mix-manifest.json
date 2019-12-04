@@ -1,0 +1,14 @@
+{
+    "/js/manifest.js": "/js/manifest.js",
+    "/js/manifest.js.map": "/js/manifest.js.map",
+    "/js/modernizr-custom.js": "/js/modernizr-custom.js",
+    "/js/modernizr-custom.js.map": "/js/modernizr-custom.js.map",
+    "/js/project.js": "/js/project.js",
+    "/css/style.css": "/css/style.css",
+    "/css/login.css": "/css/login.css",
+    "/js/project.js.map": "/js/project.js.map",
+    "/css/style.css.map": "/css/style.css.map",
+    "/css/login.css.map": "/css/login.css.map",
+    "/js/vendor.js": "/js/vendor.js",
+    "/js/vendor.js.map": "/js/vendor.js.map"
+}

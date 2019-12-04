@@ -1,0 +1,42 @@
+TO Do
+
+- remove core button block and add ACF
+- create acf/media-text block that allows for videos.
+
+
+Internal notes:
+
+- Block registration with no preview. Skip this for ACF fields. This way we don't need to add Editor CSS
+- Remove block button styles
+    - https://www.billerickson.net/wordpress-color-palette-button-styling-gutenberg/
+    - https://open4tech.com/add-and-remove-block-styles-in-gutenberg/
+
+Homepage:
+
+HERO
+- Heading - text
+- Text - textarea
+- Clients - do these link?
+
+SERVICES
+- Doesnt seem to be in alphabetical order, so we will allow client to choose individual Services and set headings
+- should we make this a custom post type? Categories? I think so.
+
+ERICKSON ADVANTAGE
+- Repeater - same as PSC "Why PSC" ** remove from client meeting notes
+- assumption that background changes with each slide
+- Bottom tabs to be removed on smaller screens
+
+
+FEATURED CASE STUDIES
+- Discuss how each block will be selected, have background images, and what this will look like on mobile. This will be very long on mobile. 
+
+
+
+Blog Index:
+
+- Use PSC
+
+Blog Single:
+
+- PSC and SS Club

@@ -1,0 +1,220 @@
+/*
+Header
+---------------------------------------------- */
+
+// Fix for sticky header
+.logged-in .site-header.fixed {
+
+    @include breakpoint(xlarge) {
+        top: 32px!important;
+    } 
+ }
+ 
+
+.site-header {
+    
+    .logo-white {
+        display: none;   
+    }
+    
+    @include breakpoint(large down) {
+        .site-title {
+            width: rem-calc(249);
+        }
+    }
+    
+    position: relative;
+    z-index: 999;
+        
+    @include breakpoint(xlarge) {
+                        
+        &.fixed {
+            position: fixed!important;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 999;
+            background: $white!important;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+            
+            
+            .site-branding {
+                @include breakpoint(xlarge) {
+                    padding: rem-calc(19 0);
+                }   
+            }
+                        
+            .site-title {
+                width: rem-calc(216);
+            }
+            
+            
+            .nav-primary {
+                .menu > .menu-item:not(.button) > a {
+                    color: $dark-gray!important;
+                    
+                    &:hover {
+                        color: $red!important;   
+                    }
+                }
+
+            }
+            
+            #secondary-menu {
+                
+                .menu-item:not(.button) > a {
+                    &:hover {
+                        color: $red;   
+                    }
+                }
+                
+                .menu-item.lets-talk {            
+            
+                    @include breakpoint(xlarge) {
+                        a {
+                            @include button(false, $dark-gray, $dark-gray, $white, 'hollow');
+                            border-color: $dark-gray!important;
+                            display: block;
+                            margin-bottom: 0;
+                            padding-top: rem-calc(11.5);
+                            padding-bottom: rem-calc(11.5);
+                            
+                            &:hover {
+                                @include button(false, $red, $red, $white );
+                                color: #fff!important;
+                                border-color: $red!important;
+                                display: block;
+                                margin-bottom: 0;
+                                padding-top: rem-calc(11.5);
+                                padding-bottom: rem-calc(11.5);
+                            }
+                        }
+                            
+                    }
+                    
+                }
+                
+           }
+                
+        }
+        
+        .pinned-header & {
+            background: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;            
+        }
+            
+    }
+}
+
+.site-header {
+    
+    .wrap {
+        max-width: $global-width;
+        margin: 0 auto;  
+                
+        @include breakpoint(xlarge) {
+            padding-left: rem-calc(map-get($grid-column-gutter, large)/2); 
+            padding-right: rem-calc(map-get($grid-column-gutter, large)/2); 
+            
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;            
+        }
+        
+        
+    }
+
+	.site-branding {
+        
+        padding-left: rem-calc(map-get($grid-column-gutter, small)/2); 
+        padding-right: rem-calc(map-get($grid-column-gutter, small)/2); 
+       
+        @include breakpoint(medium) {
+            padding-left: rem-calc(map-get($grid-column-gutter, medium)/2); 
+            padding-right: rem-calc(map-get($grid-column-gutter, medium)/2); 
+        }
+        
+        padding-top: rem-calc(10);
+        padding-bottom: rem-calc(10);
+                        
+        @include breakpoint(xlarge) {
+            max-width: 25vw;
+            padding: rem-calc(19 0);
+        }
+        
+        @include breakpoint(xxxlarge) {
+            max-width: 100%;
+        }
+        
+        .site-title {
+            
+            max-width: rem-calc(216);
+            margin-right: rem-calc(75);   
+            
+            @include breakpoint(xlarge) {
+                margin-right: 0;   
+                max-width: rem-calc(216);
+            }
+        }
+	}
+
+	.menu-toggle {
+		@include hamburger($black, $black, 28px, 24px, 3px, 3);
+		position: absolute;
+		top: 12px;
+		right: 20px;
+		@include breakpoint(medium) {
+			top: 12px;
+		    right: 20px;
+		}
+
+		@include breakpoint(xlarge) {
+			display: none;
+		}
+	}
+
+	.nav-secondary {
+		@include breakpoint(large) {
+			padding: 60px 0 0;
+		}
+	}
+
+	@include breakpoint(xlarge) {
+
+		&.fixed {
+			position: fixed !important;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 99;
+
+
+			&.shrink {
+				// Scale fixed header logo
+				.site-title {
+					img {
+						transform-origin: center center;
+						transform: scale(.7);
+						width: auto;
+					}
+				}
+			}
+
+			// Show/Hide fixed header
+			&.nav-up {
+				transform: translateY(-400%);
+			}
+
+			&.nav-down {
+				transform: translateY(0);
+				transition: transform .1s ease 0s;
+			}
+
+		}
+	}
+}

@@ -1,0 +1,31 @@
+// Foundation Sites
+@import 'foundation/index';
+
+// Utilities
+@import "utilities/index";
+
+// Base
+@import "base/index";
+
+// Motion UI
+@import "../../node_modules/motion-ui/motion-ui";
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+// Components
+@import "components/index";
+
+// Structure
+@import "structure/index";
+
+// Plugins (Gravity forms, Royal Slider etc...)
+@import "plugins/index";
+
+// Blocks
+@import "blocks/index";
+
+// Sections
+@import "sections/index";
+
+// Template
+@import "template/index";

@@ -1,0 +1,54 @@
+// Multipurpose
+
+.template-multi-purpose {
+    
+    .section-hero {
+        background-color: $red;
+        padding-top: rem-calc(35);
+        
+        h1 {
+            color: #fff;   
+        }
+    }
+    
+    main section:nth-child(even) {
+        background-color: $gray;    
+    }
+    
+    .section-block {
+        padding: rem-calc(65 0 0);
+        
+        @include breakpoint(xxlarge) {
+            padding: rem-calc(75 0 45);
+        }
+        
+        &.content-width-narrow .wrap {
+            margin: 0 auto;
+            max-width: rem-calc(1200);   
+        }
+        
+        &.content-align-center {
+            text-align: center;
+        }
+        
+        .cell {
+            margin-bottom: rem-calc(30);
+            
+            > &:last-of-type {
+                margin-bottom: 0;   
+            }
+            
+            ul {
+                @include bullets-arrow;
+                
+                ul {
+                    margin-top: rem-calc(12);   
+                }
+            }
+            
+            .button-wrapper {
+                padding-top: rem-calc(25); 
+            }
+        }
+    }
+}

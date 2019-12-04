@@ -1,0 +1,95 @@
+// Single
+
+.single {
+    
+    .nav-links {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: rem-calc(40);
+        position: relative;
+        
+        $color: '#eaeaea';
+        $color-hover: '#ED4399';
+        $width: 25px;
+        $height: 43px;
+        
+        // Fix values
+        $color: str-replace($color, '#', '');
+        $color-hover: str-replace($color-hover, '#', '');
+        $width: strip-unit($width);
+        $height: strip-unit($height);
+                  
+        a {
+            display: block;
+            width: rem-calc( 31 );
+            height: rem-calc( 22 );  
+            
+            span {
+                @include screen-reader-text;   
+            }
+            
+            &:before,
+            &:after {
+                display: block;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-position: center;
+                height: 22px; 
+                background-size: auto 22px;
+                
+            }
+        }
+        
+        .nav-previous,
+        .nav-next {
+            @include breakpoint(medium) {
+                position: absolute; 
+                top: 50%;
+                transform: translateY(-50%); 
+                margin-top: rem-calc(-20); 
+            }   
+        }
+        
+        
+        .nav-previous {
+            padding-right: rem-calc(20);
+            
+            @include breakpoint(medium) {
+                left: 0; 
+            }
+            
+            a {
+                &:before {
+                    content: '';
+                    background-image: url("data:image/svg+xml,%3Csvg width='#{$width}' height='#{$height}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.777 42.26c.505.484 1.196.74 1.86.74.664 0 1.354-.256 1.858-.74L24.23 23.29c.504-.484.77-1.122.77-1.787 0-.663-.266-1.301-.77-1.787L4.495.747a2.687 2.687 0 0 0-3.718 0 2.443 2.443 0 0 0 0 3.574l17.875 17.182L.777 38.686c-1.009.996-1.009 2.604 0 3.574z' fill='%23#{$color}' fill-rule='evenodd'/%3E%3C/svg%3E ");
+                    transform: rotate(180deg);
+                    
+                }
+                
+                &:hover:before {
+                    background-image: url("data:image/svg+xml,%3Csvg width='#{$width}' height='#{$height}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.777 42.26c.505.484 1.196.74 1.86.74.664 0 1.354-.256 1.858-.74L24.23 23.29c.504-.484.77-1.122.77-1.787 0-.663-.266-1.301-.77-1.787L4.495.747a2.687 2.687 0 0 0-3.718 0 2.443 2.443 0 0 0 0 3.574l17.875 17.182L.777 38.686c-1.009.996-1.009 2.604 0 3.574z' fill='%23#{$color-hover}' fill-rule='evenodd'/%3E%3C/svg%3E ");
+                }   
+            }
+        }
+        
+        .nav-next {
+            padding-left: rem-calc(20);
+            
+            @include breakpoint(medium) {
+                right: 0; 
+            }
+            
+            a {
+                &:before {
+                    content: '';
+                    background-image: url("data:image/svg+xml,%3Csvg width='#{$width}' height='#{$height}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.777 42.26c.505.484 1.196.74 1.86.74.664 0 1.354-.256 1.858-.74L24.23 23.29c.504-.484.77-1.122.77-1.787 0-.663-.266-1.301-.77-1.787L4.495.747a2.687 2.687 0 0 0-3.718 0 2.443 2.443 0 0 0 0 3.574l17.875 17.182L.777 38.686c-1.009.996-1.009 2.604 0 3.574z' fill='%23#{$color}' fill-rule='evenodd'/%3E%3C/svg%3E ");
+                }
+                
+                &:hover:before {
+                    background-image: url("data:image/svg+xml,%3Csvg width='#{$width}' height='#{$height}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.777 42.26c.505.484 1.196.74 1.86.74.664 0 1.354-.256 1.858-.74L24.23 23.29c.504-.484.77-1.122.77-1.787 0-.663-.266-1.301-.77-1.787L4.495.747a2.687 2.687 0 0 0-3.718 0 2.443 2.443 0 0 0 0 3.574l17.875 17.182L.777 38.686c-1.009.996-1.009 2.604 0 3.574z' fill='%23#{$color-hover}' fill-rule='evenodd'/%3E%3C/svg%3E ");
+                }   
+            }
+        }        
+        
+    }   
+}

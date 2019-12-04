@@ -1,0 +1,648 @@
+//
+// Front Page
+//
+
+.home {
+    
+    .section-hero {
+        
+        position: relative;
+        overflow: hidden;
+        
+        &:not(.has-background-video) .background-wrapper .image-background {
+            min-height: rem-calc(300); 
+            padding-top: 47%;
+            position: relative;
+            
+            @include breakpoint(xxlarge) {
+                min-height: 0;
+                padding-top: 0;
+                position: absolute;
+            }
+        }
+        
+        
+        &.has-background-video .background-wrapper {
+            position: relative;   
+            padding-top: 47%;
+            
+            @include breakpoint(xxlarge) {
+                height: 100vh; 
+                padding-top: 0;
+            }
+        }
+        
+        .arrow-down {
+            display: none;                
+        }
+                
+        .grid-x {
+                        
+            @include breakpoint(xxlarge) {
+                height: calc(100vh - 124px);   
+                padding-top: 0;               
+            }
+            
+            .cell {
+                padding-right: 0;   
+            }
+            
+            // Flexbox Hack - CSS target only IE11 and IE10 (media query)
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                &:after {
+                  content: '';
+                  display: block;
+                  min-height: inherit;
+                  font-size: 0;
+                }
+            }
+            
+        } 
+        
+        &.has-background-video .grid-x {
+            height: auto;
+        }
+        
+        .hero-content {
+            padding: rem-calc(40 0);
+            position: relative;
+            z-index: 2;
+            
+            @include breakpoint(xxxlarge) {
+                max-width: 75%;
+            }
+            
+            &:before {
+                content: '';
+                display: block;
+                height: 100%;
+                width: 100vw;
+                position: absolute;
+                top: 0;
+                right: 0; 
+                background: $red;  
+                z-index: -1;
+            }
+            
+            h1 {
+                color: #fff;   
+            }
+            
+            p {
+                color: #ECECEC;
+                font-size: rem-calc(18);
+                font-weight: 600;
+                line-height: 1.222222222; 
+                margin-top: rem-calc(25);  
+            }
+            
+            > *:last-of-type {
+                margin-bottom: 0;
+            }
+            
+            .button {
+                background-color: #fff;
+                color: $red;  
+                margin-top: rem-calc(10); 
+                
+                &:hover {
+                    background-color:  $dark-gray;
+                    color: #fff;  
+                }
+            }
+            
+            @include breakpoint(xlarge) {
+                padding-right: rem-calc(268 + 25);
+                
+                .button {
+                    position: absolute;
+                    height: 100%;
+                    top: 0;
+                    right: 0;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;  
+                    min-width: 0; 
+                    width: rem-calc(268);                 
+                }
+            }
+            
+        }
+        
+        &.has-background-video .grid-container,
+        &.has-background-video .hero-content {
+            max-width: 100%;
+        }
+    }
+    
+    main {
+        section {
+            background-color: $gray;  
+            padding-top: rem-calc(75);
+            
+            @include breakpoint(xlarge) {
+                padding-top: rem-calc(150);
+            }
+        }
+    }
+    
+    
+    .section-what {
+        
+        &:before {            
+            @include breakpoint(xlarge) {
+                content:"";
+                display:block;
+                //height: 68px;
+                //margin-top: -68px;   
+            }
+        }
+        
+        
+        padding-bottom: rem-calc(75);
+        
+        .grid-x {
+            position: relative;   
+        }
+        
+        h6 {
+            
+            @include breakpoint(large) {
+                position: absolute;
+                top: 0;
+                left: rem-calc(map-get($grid-margin-gutters, large)/2);
+            }
+            
+            &:after {
+                content: "";
+                display: block;
+                width: 50px;
+                height: 2px;
+                background-color: $red;
+                margin-top: rem-calc(20);
+                   
+            }
+        }
+        
+        .entry-content {
+            > * {
+                font-size: rem-calc(24);
+                font-weight: 500;
+                letter-spacing: 0.5px;
+                line-height: 1.833333333;
+            }
+        }
+        
+        .grid {
+            
+            padding-top: rem-calc(75);
+            
+            @include breakpoint(large) {
+                padding-top: rem-calc(150);
+            } 
+            
+            .cell {
+                
+                background: #fff;
+                
+                margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
+                
+                @include breakpoint(large) {
+                    margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
+                }   
+            }
+                     
+            .grid-item {
+                display: block;
+                position: relative;
+                
+                text-align: center;
+                
+                padding: rem-calc( 75 map-get($grid-margin-gutters, small));
+                padding-bottom: rem-calc(75); 
+                
+                @include breakpoint(large) {
+                    padding: rem-calc( 125 map-get($grid-margin-gutters, large)); 
+                    padding-bottom: rem-calc(75); 
+                }
+                
+                span.number {
+                    color: $dark-gray;
+                    font-size: 20px;
+                    font-weight: 900;
+                    letter-spacing: 1px;
+                    line-height: 24px;
+                    
+                    position: absolute;
+                    top: 50px;
+                    left: 50px
+                }
+                
+                .grid-image {
+                    margin-bottom: rem-calc(70);  
+                    color: $medium-gray;
+                    
+                    img,
+                    svg {
+                        max-width: rem-calc(120);   
+                        height: auto;
+                    }
+                }
+                
+                header {
+                    margin-bottom: rem-calc(40);   
+                }
+                
+                p {
+                    color: $dark-gray;   
+                }
+                
+                footer {
+                    padding-top: rem-calc(40);
+                    padding-left: rem-calc(24);
+                    padding-right: rem-calc(24);
+                    
+                    p {
+                        margin: 0;
+                        
+                        span {
+                            position: relative;
+                            display: inline-block;
+                            
+                            //min-height: 40px;
+                            color: $red;
+                            font-size: rem-calc(15);
+                            font-weight: 700;
+                            letter-spacing: 0.94px;
+                            text-transform: uppercase;
+                            
+                            &:after {
+                              content: '';
+                              display: block;
+                              position: absolute;
+                              right: -32px;
+                              top: 50%;
+                              transform: translateY(-50%);
+                              background-image: url(../images/icons/arrow-laser-right.svg);  
+                              background-size: 22px 16px;
+                              background-repeat: no-repeat;
+                              width: 22px;
+                              height: 16px;
+                              
+                            }
+                        }
+                    }
+                }
+                
+                &:hover {
+                    
+                    .grid-image {
+                        color: $red;    
+                    }
+                    
+                    footer span {
+                        &:after {
+                          background-image: url(../images/icons/arrow-laser-right-hover.svg);  
+                          background-size: 41px 22px;
+                          background-repeat: no-repeat;
+                          width: 41px;
+                          height: 22px;
+                          margin-right: -19px;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    
+    
+    section.section-why {
+        
+        padding-bottom: rem-calc(75);
+        
+        @include breakpoint(xxlarge) {
+            padding: 0!important;
+        }
+        
+        
+    }
+    
+    
+    .section-technologies {
+        
+        h2 {
+            text-align: center;   
+        }
+        
+        .grid {
+            margin-top: rem-calc(80);   
+            
+            .cell {
+                margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
+                
+                @include breakpoint(large) {
+                    margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
+                }   
+            }
+            
+            
+            .cell {
+                &:before {
+                    content:"";
+                    display:block;
+
+                    @include breakpoint(large) {
+                        height: 150px;
+                        margin-top: -150px;   
+                    }
+                }   
+            }
+        }
+        
+        header {
+            
+            margin-bottom: rem-calc(40); 
+            padding: rem-calc(0 30 0);            
+        }
+        
+        .description {
+            padding: rem-calc( 0 30 0);
+            
+            p:last-of-type {
+                margin-bottom: 0;   
+            }
+        }
+        
+        .icon {
+            background-color: #fff;  
+            padding: rem-calc(50 50 85 50); 
+            margin-top: rem-calc(80);
+            position: relative;
+            
+            &:after {
+                content: '';
+                display: block;
+                width: 2px;
+                height: 80px;
+                background: $red;
+                position: absolute;
+                top: rem-calc(-40);
+                left: rem-calc(30);   
+            }
+            
+            svg {
+                width: 100%;
+                height: auto;   
+            }
+        }
+        
+        footer {
+            background-color: $red;  
+            padding: rem-calc(30); 
+            margin: rem-calc(-35) auto 0;
+            position: relative;
+            z-index: 3;
+            max-width: calc(100% - 60px);
+            
+            h6 {
+               opacity: 0.8;
+               color: #fff;
+               font-size: rem-calc(12); 
+               line-height: 1.25;
+               text-transform: uppercase;
+               font-weight: 700;
+            }
+            
+            ul {
+                @include bullets(#fff);  
+                margin-top: rem-calc(24); 
+                margin-bottom: 0;
+                
+                li {
+                    color: #fff; 
+                    
+                    a {
+                        color: #fff;   
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    .section-home-news {
+        
+        padding-top: rem-calc(50);
+            
+        @include breakpoint(xlarge) {
+            padding-top: rem-calc(100);
+        }
+        
+        
+        padding-bottom: rem-calc(100);
+            
+        @include breakpoint(xlarge) {
+            padding-bottom: rem-calc(200);
+        }
+        
+        
+        h2 {
+           margin-bottom: rem-calc(75);
+           
+           @include breakpoint(xlarge) {
+                margin-bottom: rem-calc(150);
+            } 
+               
+        }
+        
+        h4 {
+            font-weight: 700;  
+            margin-bottom: rem-calc(40);
+            
+            &:after {
+                content: "";
+                display: block;
+                width: 50px;
+                height: 2px;
+                background-color: $red;
+                margin-top: rem-calc(20);
+                   
+            } 
+        }
+                
+        img {
+            display: block;
+            margin: 0 auto;   
+        }
+     
+        .slider {
+            position: relative;
+            max-width: 90%;
+            background-color: #fff;
+            z-index: 9;
+            
+            opacity: 0;
+            visibility: hidden;
+
+            &.images-loaded {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            margin: -5% auto 0;    
+                    
+            @include breakpoint(large) {
+                margin: rem-calc(-140) auto 0;
+                max-width: 75%;
+            }
+            
+            .wrap {
+                padding: rem-calc(30);   
+                
+                @include breakpoint(large) {
+                    padding: rem-calc(72); 
+                }
+            }
+            
+            .slick-slide {
+             
+                a.read-more {
+                    position: relative;
+                    display: inline-block;
+                    
+                    color: $red;
+                    font-size: rem-calc(15);
+                    font-weight: 700;
+                    letter-spacing: 0.94px;
+                    text-transform: uppercase;
+                    
+                    &:after {
+                      content: '';
+                      display: block;
+                      position: absolute;
+                      right: -32px;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      background-image: url(../images/icons/arrow-laser-right.svg);  
+                      background-size: 22px 16px;
+                      background-repeat: no-repeat;
+                      width: 22px;
+                      height: 16px;
+                      
+                    }
+                    
+                    &:hover {
+                         &:after {
+                            background-image: url(../images/icons/arrow-laser-right-hover.svg);  
+                            background-size: 41px 22px;
+                            background-repeat: no-repeat;
+                            width: 41px;
+                            height: 22px;
+                            margin-right: -19px;   
+                         }
+                    }
+                }
+                
+            }
+            
+            
+            .slick-arrows {
+                width: rem-calc(180);
+                display: flex;
+                margin: 0 auto;
+                
+                @include breakpoint(xxlarge) {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                }
+                
+                .counter {
+                    display: none;   
+                }
+                
+                .slick-prev,
+                .slick-next {
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    right: auto;
+                    transform: none;
+                }
+                
+            }
+
+
+            /*
+            .slick-arrows {
+                background-color: $dark-gray;
+                width: rem-calc(196);
+                display: flex;
+                margin: 0 auto;
+                
+                @include breakpoint(xxlarge) {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                }
+                
+                .counter {
+                    display: none;
+                    color: #fff;
+                    font-size: rem-calc(14);
+                    font-weight: 900;   
+                    line-height: 72px;
+                    width: 10%;
+                    text-align: center;
+                }
+                
+                
+                .slick-prev,
+                .slick-next {
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    right: auto;
+                    transform: none;
+                    background: $dark-gray;
+                    color: transparent;
+                    padding: rem-calc(30 0);
+                    width: 45%;
+                    height: auto; 
+                    text-align: center;
+                    
+                    &:before,
+                    &:after {
+                        width: 100%;
+                        height: 8px; 
+                        background-size: 6px 8px;
+                        
+                    }
+                
+                    
+                    &:hover, &:focus {
+                        background: $dark-gray;
+                        color: transparent;
+                        
+                        &:before {
+                            @include slick-arrow( $red, 'right' );
+                        }
+                    }                    
+                }
+                
+                .slick-next {
+                    margin-left: auto;  
+                }
+                
+                
+            }   
+            */
+        }
+        
+    }
+    
+}

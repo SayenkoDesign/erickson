@@ -1,0 +1,13 @@
+// Typography
+
+ol {
+ 
+ li {
+    margin: rem-calc(0 auto 10 0);   
+    
+    ol {
+        margin-top: rem-calc(12);   
+    }
+ }
+    
+}

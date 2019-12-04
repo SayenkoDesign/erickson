@@ -1,0 +1,202 @@
+// Single Post
+
+.single-case_study {
+        
+    .section-hero {
+        margin-bottom: rem-calc(45);   
+        
+        text-align: center;
+        
+        background-color: $red;
+        
+        .wrap {
+            padding: rem-calc(75 0);   
+        }
+    
+        @include breakpoint(xxlarge) {
+            &.has-logo {
+                
+                .wrap {
+                    padding-bottom: rem-calc(125);   
+                }
+                
+                .icon {
+                    height: rem-calc(100); 
+                    width: auto;
+                    position: absolute;
+                    right: rem-calc(map-get($grid-margin-gutters, large));
+                    bottom: rem-calc(map-get($grid-margin-gutters, large));                     
+                }
+            }
+        }
+ 
+        &.background-image {        
+            background-color: transparent;
+            background-size: cover;
+            position: relative;
+                    
+            &:after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: rgba( $dark-gray, .5);
+            }
+            
+            .wrap {
+                position: relative;
+                z-index: 3;   
+            }
+        } 
+        
+        .grid-x {
+            min-height: 25vw;   
+        }
+        
+        h1 {
+            color: #fff;    
+        }
+        
+        .icon {
+            img {
+                max-height: rem-calc(100);
+                width: auto; 
+                margin-bottom: rem-calc(24);  
+            }        
+         }
+        
+    }
+                
+    article {
+        
+        max-width: rem-calc(1300);
+        margin: 0 auto;
+        padding-top: rem-calc(30);
+        
+        .panels {
+            background: #fff;
+            box-shadow: $box-shadow;
+            border: 1px solid $light-gray;
+            padding: rem-calc(30 30 30 30);   
+        }
+        
+        .icon img {
+            border: 1px solid $gray;
+            box-shadow: $box-shadow;
+            margin-bottom: rem-calc(40); 
+            max-height: rem-calc(150);
+            width: auto;            
+        }
+         
+        @include breakpoint(xxlarge) {
+            .icon {
+                display: block;
+                margin-top: rem-calc(-280);  
+                margin-bottom: rem-calc(75); 
+                position: relative;
+                z-index: 3; 
+            }
+        } 
+        
+        
+        .cell {
+                                
+            margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
+            
+            @include breakpoint(large) {
+                margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
+            }   
+        }  
+        
+        .panel {
+            h5 {
+                margin-top: rem-calc(30);   
+            }
+        }
+    }
+    
+    
+    .section-testimonial {
+        background: $gray;
+        padding: rem-calc(75 0 35);
+        overflow-x: hidden;
+        
+        @include breakpoint(large) {
+            padding: rem-calc(75 0 25);
+        }
+        
+        .cell  {
+            @include breakpoint(xlarge) {
+                img {
+                    float: right;    
+                }
+                
+                .quote {
+                    //margin-left: -20%;
+                }
+            }
+        }
+        
+        .cell {
+                                
+            margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
+            
+            @include breakpoint(large) {
+                margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
+            }   
+        }
+        
+        .quote-mark {
+            position: relative;
+            margin-bottom: rem-calc(20);
+            height: 80px;
+            
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 75px;
+                width: 200%;
+                height: 1px; 
+                background-color: #d6d6d6;
+                top: 50%;
+                transform: translateY(-50%);
+                   
+            }
+            
+            span {
+                color: $medium-gray;
+                font-size: 150px;
+                height: 80px;
+                line-height: 1;   
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        
+        .quote {
+            
+            p {
+                color: #454C54;
+                font-size: rem-calc(22);   
+                line-height: 1.636363636;
+            }
+            
+            h6 {
+               color: #454C54;
+               letter-spacing: 0.7px;
+               line-height: 1.444444444;
+               margin-top: rem-calc(25);
+               font-weight: 500;
+            }
+        }
+        
+    }
+   
+        
+}

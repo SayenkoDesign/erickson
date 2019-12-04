@@ -1,0 +1,399 @@
+// Product
+
+
+.single-product {
+ 
+    .section-product-details {
+        
+        padding-top: rem-calc(30);
+        
+        //padding-bottom: rem-calc(50);
+        
+        .product__image {
+            padding-top: rem-calc(50);
+            padding-bottom: rem-calc(50);
+            
+            @include breakpoint(large) {
+                padding-top: rem-calc(100);
+                padding-bottom: rem-calc(100);  
+            }
+        }
+        
+        .product__slider {
+            
+            position: relative;
+            opacity: 0;
+            visibility: hidden;
+            padding-bottom: rem-calc(50); 
+            
+            @include breakpoint(large) {
+                padding-top: rem-calc(50);
+                padding-bottom: rem-calc(50);   
+            }
+
+            
+            &.images-loaded {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .product__slider-main {
+                margin-bottom: rem-calc(30);  
+                
+                img {
+                    border: 1px solid $gray;
+                }
+            }
+            
+            .product__slider-thumbs {
+                                    
+                .slick-track { // vertical center slides
+                    display: flex; 
+                    align-items: center;  
+                    
+                    @include breakpoint(large) {
+                        flex-direction: column;
+                    }
+                }
+    
+                
+                .slick-slide {
+                    height: rem-calc(90);  
+                    display: flex;
+                    align-items: center;
+                    padding: rem-calc(10);
+                    cursor: pointer;
+                    
+                    &.slick-current {
+                        border: 1px solid $red;
+                    }
+                    
+                    .thumbnail {
+                            width: 100%;
+                            height: 100%;
+                            background-size: cover;  
+                            background-position: center; 
+                        }
+                    
+                }
+
+            }
+            
+            @include breakpoint(large) {
+                
+                min-height: rem-calc(400);
+                padding-top: rem-calc(100);
+                padding-left: rem-calc(200);
+                padding-bottom: rem-calc(100);
+                
+                .product__slider-thumbs {
+                    width: rem-calc(100); 
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 0;                    
+                }
+                
+                .product__slider-main {
+                    
+                    .slick-track { // vertical center slides
+                        display: flex; 
+                        align-items: center;     
+                    }
+    
+                }
+            }
+        }
+        
+        header {
+            
+            margin-bottom: rempcalc(30);
+            
+             @include breakpoint(large) { 
+                margin-bottom: rem-calc(60);
+                h1 {
+                    font-size: rem-calc(48);
+                }
+            }
+        }
+        
+        
+        .button-group {
+            
+            padding-bottom: rem-calc(50);   
+            
+            .button {
+                font-size: rem-calc(16);
+                margin-bottom: rem-calc($global-margin);   
+            }
+            
+            .phone {
+                background-color: $gray;
+                color: $dark-gray;
+                
+                span {
+                    display: inline-block;
+                    
+                    padding-left: rem-calc(40);
+                    position: relative;
+                    
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        width: 24px;
+                        height: 24px; 
+                        transform: translateY(-50%);  
+                        background-size: 24px auto;
+                        background-repeat: no-repeat;
+                        background-image: url(../images/footer/phone.svg);
+                    }   
+                }
+            }
+
+        }
+        
+        .application-technology {
+            ul {
+                @include bullets($red);   
+            }
+               
+        }
+        
+        .description {
+            padding-top: rem-calc(30);   
+        }
+        
+        .download-group {
+            padding-top: rem-calc(20);
+            
+            h6 {
+                margin: rem-calc(0 0 20 0);   
+            }
+        }
+        
+        .downloads {
+                        
+            margin-bottom: rem-calc(20);
+            
+            @include mui-animation(fade);
+            animation-duration: 1s; 
+            
+            
+            
+            a {
+                display: inline-block;
+                font-size: rem-calc(15);
+                line-height: 1.2;
+                font-weight: 500;
+                padding: rem-calc(10 10);
+                text-transform: none;  
+                min-width: 0;
+                box-shadow: 0 1px 5px 0 rgba(0,0,0,0.1);
+                background-color: #fff;
+                color: #596975;
+                text-align: center;
+                margin-right: rem-calc(10);
+                margin-bottom: rem-calc(15);
+                
+                @include breakpoint(xlarge) {
+                    text-align: left;
+                }
+                
+                span {
+                    display: inline-block;
+                    position: relative;
+                    padding-left: rem-calc(30);
+                    
+                    svg {
+                        position: absolute;  
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%); 
+                    }
+                }
+                
+                i {
+                    color: $red;   
+                }
+                
+                &:hover {
+                    background-color: $red; 
+                    color: #fff;  
+                    
+                    i {
+                        color: inherit;  
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    
+    .section-product-options {
+        background-image: url(../images/product/white-bg.jpg);
+        background-position: center;
+        padding: rem-calc(100 0 75);
+        
+        ul {
+           @include bullets($red);  
+                      
+           span {
+               display: inline-block;
+               padding-bottom: rem-calc(25);   
+           }
+           
+           @include breakpoint(medium) {
+               font-size: rem-calc(20);
+           }
+           
+           @include breakpoint(large) {
+               columns: 2;
+               column-gap: rem-calc(50);
+               
+               span {
+                    padding-bottom: rem-calc(35);   
+               }
+               
+           }
+           
+           @include breakpoint(xxlarge) {
+               columns: 3;
+           }
+        }
+        
+    }
+    
+    
+    .section-product-slideshow {
+        background-color: #ECECEC;
+        padding: rem-calc(75 0);
+        
+        @include breakpoint(large) {
+            padding: rem-calc(150 0);
+        }
+        
+        .slider {
+            position: relative;   
+            
+            opacity: 0;
+            visibility: hidden;
+
+            &.images-loaded {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        
+        .slick-dots {
+            display: none!important;
+            
+            li {
+                margin: rem-calc(0 20 0);  
+                
+                @include breakpoint(xxlarge) {
+                    margin: rem-calc(0 40 0 0);  
+                }
+            }
+            
+            a {
+                color: $dark-gray;
+                font-size: rem-calc(16);
+                font-weight: 900;   
+            }
+            
+            .slick-active a {
+                color: $red;   
+            }
+            
+            @include breakpoint(large) {
+                display: block!important;
+                position: relative;
+                left: auto;
+                bottom: auto;
+                text-align: center;
+            }
+            
+            @include breakpoint(xxlarge) {
+                position: absolute;
+                left: 0;
+                bottom: rem-calc(45);
+                text-align: left;
+                width: auto;
+                width: 40%;
+            }
+        }
+     
+        .slick-arrows {
+            width: rem-calc(180);
+            display: flex;
+            margin: rem-calc(50) auto 0;
+            
+            @include breakpoint(xxlarge) {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+            
+            .slick-prev,
+            .slick-next {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                transform: none;
+            }
+            
+        }
+        
+        header {
+            @include breakpoint(large) {
+                margin-top: rem-calc(40); 
+                margin-bottom: rem-calc(120);  
+            }
+        }
+        
+        .entry-content {
+            
+            margin-left: rem-calc(24);
+            padding-bottom: rem-calc(40);
+            
+            @include breakpoint(xxlarge) {
+                 margin-left: calc(8.33333% + #{map-get($grid-margin-gutters, large)} + 24px);
+                 margin-right: calc(8.33333% + #{map-get($grid-margin-gutters, large)});
+                 padding-bottom: rem-calc(120);
+            }
+            
+            
+            p,
+            li {
+                
+                margin-bottom: $paragraph-margin-bottom;
+                
+                @include breakpoint(large) {
+                    font-size: rem-calc(24); 
+                    margin-bottom: rem-calc(50); 
+                    line-height: 1.8; 
+                }
+            }
+            
+            ul {
+              list-style: none;
+            }
+            
+            ul li::before {
+              content: "\2022";
+              color: $red;
+              font-weight: 900;
+              display: inline-block; 
+              width: rem-calc(24);
+              margin-left: rem-calc(-24);
+            }
+        }
+               
+        
+    }
+    
+}

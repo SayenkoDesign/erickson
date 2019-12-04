@@ -1,0 +1,55 @@
+// Add to Any
+
+
+.share-icons {
+    
+    $share-icon-size: 48;
+
+	margin: 0 auto 40px;
+	vertical-align: middle;
+	
+	li {
+		list-style-type: none;
+		display: inline-block;
+		margin: 0 0 0 15px;
+		vertical-align: middle;
+		
+		&:first-child {
+			margin-left: 0;	
+		}
+		
+		a {
+			width: #{$share-icon-size}px;
+			height: #{$share-icon-size}px;
+			display: block;
+			position: relative;
+            background-color: rgba(#010717, .1);
+            border-radius: 50%;
+            transition: 250ms;
+
+            &:hover {
+			    background-color: #010717;
+				border-radius: 50%;
+
+				&:hover {
+					svg {
+						fill: $white;
+					}
+				}
+			}
+		}
+		
+		svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 28px;
+			height: auto;
+			fill: $dark-gray;
+            transform: translate(-50%,-50%); 
+        }
+	
+		
+	}
+    
+}

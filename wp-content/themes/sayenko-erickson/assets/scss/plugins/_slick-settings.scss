@@ -1,0 +1,142 @@
+
+$slick-arrow-color: #fff;
+$slick-arrow-color-hover: #fff;
+
+
+
+.slick-slider {
+    visibility: hidden;
+    
+    &.slick-initialized {
+        visibility: visible;  
+    }
+
+}
+
+/*
+.background-slick > div,
+.slick .panel,
+.slick .logo,
+.slick .event {
+    display: none;
+}
+.background-slick > div:first-child,
+.slick .panel:first-child, 
+.slick .logo:first-child,
+.slick .event:first-child{
+    display: block;
+}
+
+*/
+
+no-js .slick-arrows {
+    min-height: 65px;   
+}
+
+
+.slick-default {
+    
+    .slick-prev,
+    .slick-next {
+        @include breakpoint(large) {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+        
+    }
+}
+
+
+@mixin slick-arrow( $color: #999, $position: left ) {
+    $color: str-replace(#{$color}, '#', '');  
+    
+    @if $position == 'left' {
+
+       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='8'%3E%3Cpath fill='%23#{$color}' fill-rule='evenodd' d='M6 4.003L2.387 8H.005l3.619-4L0 0l2.387.005z'/%3E%3C/svg%3E");
+       transform: scaleX(-1);
+
+   } @else {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='8'%3E%3Cpath fill='%23#{$color}' fill-rule='evenodd' d='M6 4.003L2.387 8H.005l3.619-4L0 0l2.387.005z'/%3E%3C/svg%3E");
+        
+   }
+    
+}
+
+
+.slick-prev,
+.slick-next {
+    z-index: 9;
+    display: block;
+    cursor: pointer;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: $red;
+    color: transparent;
+    padding: rem-calc(37 39);
+    
+    width: auto;
+    height: auto; 
+
+    
+    &:hover, &:focus {
+        background: #D43642;
+        color: transparent;
+    }
+    
+    &.slick-disabled:before {
+        
+    }
+    
+    &:before,
+    &:after {
+        display: block;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 1;
+        // Set height for the svg
+        width: 12px;
+        height: 16px; 
+        background-size: 12px 16px;
+        
+    }
+}
+
+.slick-prev {
+    left: 0;
+    
+    @include breakpoint(xxlarge) {
+        
+        .slick-default & {
+            left: -60px;
+        }
+    }
+
+    &:before {
+        content: '';
+        @include slick-arrow( $slick-arrow-color );
+    }
+    
+    &:hover:before {
+        @include slick-arrow( $slick-arrow-color-hover );
+    }
+}
+
+.slick-next {
+    right: 0;
+    @include breakpoint(xxlarge) {
+        .slick-default & {
+            right: -60px;
+        }
+    }
+    &:before {
+        content: '';
+        @include slick-arrow( $slick-arrow-color, right );
+    }
+    
+    &:hover:before {
+        @include slick-arrow( $slick-arrow-color-hover, right );
+    }
+}

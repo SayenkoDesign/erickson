@@ -1,0 +1,132 @@
+// Why
+
+section.section-why {
+        
+    padding-bottom: rem-calc(75);
+    
+    @include breakpoint(xxlarge) {
+        padding: 0!important;
+    }
+    
+    background-color: #ffffff!important;
+            
+    .full-screen-scroll-section-element {
+        
+        padding: rem-calc(50 0 0 0); 
+        
+        @include breakpoint(xxlarge) {
+            padding: rem-calc(75 0 0 0);  
+        }
+    }
+    
+    .cell {
+        position: relative;   
+        
+        margin-bottom: rem-calc(30);
+        
+        @include breakpoint(xxlarge) {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            
+            &:after {
+                content: "";
+                display: block;
+                width: 50px;
+                height: 2px;
+                background-color: $red;
+                margin-top: rem-calc(20);
+                   
+            }
+        }
+    }
+            
+    .grid-item {
+                    
+        h2 {
+            
+            @include breakpoint(xxlarge) {
+                margin-top: rem-calc(60);    
+            }
+            
+            margin-bottom: rem-calc(80);
+        }
+        
+        h3 {
+            margin-bottom: rem-calc(40);  
+        }
+        
+        p {
+            font-size: rem-calc(18);
+            line-height: 1.666666667;   
+        }
+                        
+        ul {
+            @include bullets-arrow;
+            margin-top: rem-calc(60);   
+        }
+        
+        li {
+            font-size: rem-calc(18);
+        }
+        
+    }
+    
+    .arrow-down {
+        display: none;                
+    }
+    
+    @include breakpoint(xxlarge) {
+        
+        .button {
+            display: none;   
+        }
+        
+        .full-screen-scroll-section.active .button {
+            display: block;
+            position: fixed;
+            bottom: 0;
+            right: rem-calc(119); 
+            margin: 0;  
+        }
+                    
+        .full-screen-scroll-section.active .arrow-down {
+            display: block;
+            position: fixed;
+            bottom: 43px;
+            right: 45px;
+        }
+        
+        .full-screen-scroll-section-element {
+            padding: 0;  
+        }
+        
+        @supports (object-fit: cover) {
+            
+            .grid-container,
+            .grid-x,
+            .cell {
+                height: 100%;   
+            }
+            
+            .cell {
+                display: flex;
+                align-items: center;   
+            }
+            
+            .photo img {
+                height: 100vh;
+                object-fit: cover;
+                object-position: top center;
+            }
+        }
+        
+        
+        .grid-item {
+            padding-left: 4vw;
+            padding-right: rem-calc(150);  
+            padding-bottom: rem-calc(100);                 
+        }
+    }
+}

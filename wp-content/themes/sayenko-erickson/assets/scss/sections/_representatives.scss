@@ -1,0 +1,165 @@
+// FAQ
+
+.section-representatives {
+        background: $gray; 
+        
+        padding-top: rem-calc(75);
+            
+        @include breakpoint(xlarge) {
+            padding-top: rem-calc(150);
+        }
+        
+        padding-bottom: 0;
+            
+        
+        h2 {
+            text-align: center;
+            
+            margin-bottom: rem-calc(60);  
+            
+            @include breakpoint(xxlarge) {
+                margin-bottom: rem-calc(120);
+            }
+        }
+        
+        .accordion-filter {
+           > .accordion-item {
+               
+                margin-bottom: rem-calc(30);
+                
+                > .accordion-title {
+                    background-color: $medium-gray;   
+                    color: #fff;
+                    text-transform: uppercase;
+                
+                    &::before {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: 1rem;
+                        margin-top: 0!important;
+                        color: #fff;
+                        font-size: rem-calc(40);
+                        content: "\002B";
+                    }   
+                }
+                
+                &.is-active>.accordion-title::before {
+                    content: "\2212";
+                }
+                
+                &.is-active>.accordion-title,
+                .accordion-title:hover, 
+                .accordion-title:focus {
+                    background: $dark-gray;
+                    color: #fff;
+                    
+                    &::before {
+                        color: #fff;   
+                    }
+                }
+                
+                > .accordion-content {
+                    background-color: transparent;
+                    padding: rem-calc(30 0 0 0); 
+                }
+            }
+        }
+        
+        // FAQ accordions
+        .accordion {
+            
+            .accordion-item {
+               margin-bottom: rem-calc(30);
+            }
+            
+            
+            .accordion-title {
+                line-height: 1.2;                  
+            }
+            
+            .accordion-title::before {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 1rem;
+                margin-top: 0!important;
+                color: $red;
+                font-size: rem-calc(40);
+                content: "\002B";
+            } 
+
+            
+            .is-active>.accordion-title::before {
+                content: "\2212";
+            }
+            
+               
+        }
+        
+        .cell > .accordion {
+            .is-active>.accordion-title,
+            .accordion-title:hover, 
+            .accordion-title:focus {
+                background: $red;
+                color: #fff;
+                
+                &::before {
+                    color: #fff;   
+                }
+            }
+            
+            .accordion-item {
+                background-color: #fff;   
+            }
+            
+            .accordion-content {
+                
+                .grid-margin-x {
+                    margin-right: 0;
+                    margin-left: 0;  
+                    
+                    .cell {
+                        margin-right: 0;
+                        margin-left: 0;  
+                        width: 100%;   
+                    }
+                }
+                
+                ul {
+                    margin-bottom: rem-calc(15);   
+                }
+                
+                p, li {
+                    font-size: rem-calc(20);   
+                }
+                
+                .logo {
+                    width: rem-calc(200);
+                    padding: rem-calc(15 0 25);   
+                }
+            }
+        }
+        
+        .tabs {
+            
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            margin-bottom: rem-calc(50);
+         
+            .tabs-title {
+                a {
+                    font-weight: 900; 
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    padding: rem-calc(10 0 30);
+                }
+                
+                &.is-active a {
+                    border-bottom: 1px solid #ED3D4A;   
+                }
+                
+                padding-right: rem-calc(50);
+            }
+            
+        }
+    }

@@ -1,0 +1,16 @@
+
+.grid-x {
+    &.grid-margin-bottom {
+        > .cell {
+            @each $size, $margin in $grid-margin-gutters {
+                @include breakpoint($size) {
+                    margin-bottom: rem-calc($margin);
+                }  
+            }
+            
+            &.no-margin {
+                margin-bottom: 0;   
+            }
+        }
+    }
+}
