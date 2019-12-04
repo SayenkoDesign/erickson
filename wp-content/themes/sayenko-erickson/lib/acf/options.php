@@ -45,10 +45,24 @@ if( function_exists('acf_add_options_sub_page') ) {
 		'menu_title' 	=> 'Company',
         'menu_slug' 	=> 'theme-settings-company',
         'parent' 		=> 'theme-settings',
-		'capability' => 'edit_posts',
- 		'redirect' 	=> false,
-        'autoload' => false,
-	));  
+		'capability' => 'edit_posts'
+	)); 
+    
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Notifications',
+		'menu_title' 	=> 'Notifications',
+        'menu_slug' 	=> 'theme-settings-notifications',
+        'parent' 		=> 'theme-settings',
+		'capability' => 'edit_posts'
+	));     
+    
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Case Study Archive',
+		'menu_title' 	=> 'Archive Settings',
+        'menu_slug' 	=> 'archive-settings-case-study',
+		'parent'     => 'edit.php?post_type=case_study',
+		'capability' => 'manage_options'
+	)); 
       
 
 }

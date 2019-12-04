@@ -33,7 +33,22 @@ function _s_acf_register_blocks() {
 	// check function exists
 	if ( function_exists( 'acf_register_block_type' ) ) {
 
-		// Hero
+		
+        // Hero
+		acf_register_block_type( array(
+			'name'            => 'hero-home',
+			'title'           => __( 'Hero Home', '_s' ),
+			'description'     => __( 'Hero for homepage', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'hero homepage' ),
+            //'post_types' => array('post', 'page'),
+            'mode' => 'edit',
+            'supports' => ['anchor' => false]
+		) );		
+        
+        // Hero
 		acf_register_block_type( array(
 			'name'            => 'hero',
 			'title'           => __( 'Hero', '_s' ),

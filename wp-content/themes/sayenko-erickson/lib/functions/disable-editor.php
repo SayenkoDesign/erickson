@@ -1,6 +1,6 @@
 <?php
 
-
+// disable Gutenberg on everything but posts
 function sayenko_disable_gutenberg($current_status, $post_type)
 {
     if ($post_type !== 'post') return false;
@@ -22,7 +22,7 @@ function ea_disable_editor( $id = false ) {
 	);
 
 	$excluded_ids = array(
-		get_option( 'page_on_front' )
+		//get_option( 'page_on_front' )
 	);
 
 	if( empty( $id ) )
@@ -91,8 +91,8 @@ add_filter( 'tiny_mce_before_init', 'ssm_tiny_mce_before_init' );
  * @param    array    $buttons    The default array of buttons
  * @return   array                The updated array of buttons that exludes some items
  */
-add_filter( 'mce_buttons', 'jivedig_remove_tiny_mce_buttons_from_editor');
-function jivedig_remove_tiny_mce_buttons_from_editor( $buttons ) {
+add_filter( 'mce_buttons', '_s_remove_tiny_mce_buttons_from_editor');
+function _s_remove_tiny_mce_buttons_from_editor( $buttons ) {
     $remove_buttons = array(
         //'bold',
         //'italic',
@@ -126,8 +126,8 @@ function jivedig_remove_tiny_mce_buttons_from_editor( $buttons ) {
  * @param    array    $buttons    The default array of buttons in the kitchen sink
  * @return   array                The updated array of buttons that exludes some items
  */
-add_filter( 'mce_buttons_2', 'jivedig_remove_tiny_mce_buttons_from_kitchen_sink');
-function jivedig_remove_tiny_mce_buttons_from_kitchen_sink( $buttons ) {
+add_filter( 'mce_buttons_2', '_s_remove_tiny_mce_buttons_from_kitchen_sink');
+function _s_remove_tiny_mce_buttons_from_kitchen_sink( $buttons ) {
     $remove_buttons = array(
         'formatselect', // format dropdown menu for <p>, headings, etc
         'underline',

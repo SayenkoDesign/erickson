@@ -29,13 +29,15 @@ _s_get_template_part( 'template-parts/home', 'hero' );
 
                 the_post();
 
-                _s_get_template_part( 'template-parts/home', 'what' );
+                //_s_get_template_part( 'template-parts/home', 'services' );
                 
-                _s_get_template_part( 'template-parts/home', 'why' );
+                //_s_get_template_part( 'template-parts/home', 'customers' );
                 
-                _s_get_template_part( 'template-parts/home', 'technologies' );
+                //_s_get_template_part( 'template-parts/home', 'advantage' );
                 
-                _s_get_template_part( 'template-parts/home', 'news' );
+                //_s_get_template_part( 'template-parts/home', 'case-studies' );
+                
+                //_s_get_template_part( 'template-parts/home', 'featured-innovation' );
                     
             endwhile;       
            ?>
