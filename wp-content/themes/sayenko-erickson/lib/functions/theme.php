@@ -3,7 +3,7 @@
 
 // Add modals to footer
 function _s_footer() {
-    _s_get_template_part( 'template-parts/modal', 'contact' );   
+    //_s_get_template_part( 'template-parts/modal', 'contact' );   
 }
 add_action( 'wp_footer', '_s_footer' );
 
@@ -19,7 +19,7 @@ function tiny_mce_remove_unused_formats($init) {
 // add_filter('tiny_mce_before_init', 'tiny_mce_remove_unused_formats' );
 
 
-
+if( ! function_exists( 'get_meta_values' ) ) {
 function get_meta_values( $key = '', $type = 'post', $status = 'publish' ) {
 
     global $wpdb;
@@ -36,6 +36,7 @@ function get_meta_values( $key = '', $type = 'post', $status = 'publish' ) {
     ", $key, $status, $type ) );
 
     return $r;
+}
 }
 
 // Exclude page templates from being used more than once.

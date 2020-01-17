@@ -37,30 +37,26 @@ class CPT_CASE_STUDY extends CPT_Core {
 				'show_in_nav_menus'   => true,
 				'exclude_from_search' => false,
 				'rewrite'             => array( 'slug' => 'case-studies' ),
-				'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+				'supports' => array( 'title', 'editor', 'thumbnail' ),
 				 )
 
         );
+        
+        add_action( 'pre_get_posts', array( $this,'pre_get_posts' ) );
+
+    
 		
      }
+     
+     
+    public function pre_get_posts( $query ){
+    
+        if ( $query->is_main_query() && ! is_admin() && ( is_post_type_archive( 'case_study' ) ) ) {
+            $query->set( 'posts_per_page', '8' );
+        }
+        
+    }
  
 }
 
 new CPT_CASE_STUDY();
-
-/*
-$cpt_case_study_categories = array(
-    __( 'Case Study Category', CPT_CASE_STUDY::TEXTDOMAIN, '_s' ), // Singular
-    __( 'Case Study Categories', CPT_CASE_STUDY::TEXTDOMAIN, '_s' ), // Plural
-    'case_study_cat' // Registered name
-);
-
-register_via_taxonomy_core( $cpt_case_study_categories, 
-	array(
-		//'public' => false,
-        'rewrite' => array( 'slug' => 'case-studies-category' ),
-	), 
-	array( CPT_CASE_STUDY::POST_TYPE ) 
-);
-
-*/

@@ -10,6 +10,14 @@ Header
     } 
  }
  
+ .sticky-header {
+    height: rem-calc(47);
+    
+    @include breakpoint(xlarge) {
+        height: rem-calc(65);
+    }
+ }
+ 
 
 .site-header {
     
@@ -116,6 +124,7 @@ Header
     .wrap {
         max-width: $global-width;
         margin: 0 auto;  
+        position: relative;
                 
         @include breakpoint(xlarge) {
             padding-left: rem-calc(map-get($grid-column-gutter, large)/2); 

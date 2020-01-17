@@ -12,7 +12,7 @@
  */
 
 add_filter( 'body_class', function ( $classes ) {
-    $classes[] = 'archive';
+    $classes[] = 'blog';
 	return $classes;
 }, 99 );
 
@@ -55,41 +55,15 @@ wp_reset_postdata();
                 <main id="main" class="site-main" role="main">
                            
                     <?php                    
-                    $args = array(
-                        'theme_location' => 'resources',
-                        'container' => '',
-                        'container_class' => '',
-                        'container_id' => '',
-                        'menu_id'        => '',
-                        'before' => '',
-                        'after' => '',
-                        'link_before' => '',
-                        'link_after' => '',
-                        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'echo' => false
+                    
+                    printf( '<div class="category-filters"><div class="categories">%s%s</div></div>', 
+                        facetwp_display( 'facet', 'categories' ),
+                        facetwp_display( 'sort' )
                      );
-                     
-                     $menu = wp_nav_menu($args);
-                     
-                     $select = wp_nav_menu( array(
-                        'theme_location' => 'resources',
-                        'container' => '',
-                        'container_class' => '',
-                        'container_id' => '',
-                        'menu_id'        => '',
-                        'before' => '',
-                        'after' => '',
-                        'walker'         => new Walker_Nav_Menu_Dropdown(),
-                        'items_wrap'     => '<select onchange="if (this.value) window.location.href=this.value">%3$s</select>',
-                        'echo' => false
-                    ) );	
-    
-                                      
-                    printf( '<div class="category-filters"><div class="categories">%s%s</div></div>', $menu, $select );
                     
                     $classes[] = 'small-up-1 medium-up-2 large-up-3 xxlarge-up-4';
                     
-                    printf( '<div class="grid-x grid-margin-x %s grid" data-equalizer data-equalize-on="medium" data-equalize-by-row="true">', join( ' ', $classes ) );
+                    printf( '<div class="facetwp-template grid-x grid-margin-x %s grid" data-equalizer data-equalize-on="medium" data-equalize-by-row="true">', join( ' ', $classes ) );
                      
                     if ( have_posts() ) : ?>
                         
@@ -107,7 +81,10 @@ wp_reset_postdata();
                     
                     echo '</div>';
                     
-                    if( function_exists( '_s_paginate_links' ) ) {
+                    if( function_exists( 'facetwp_display' ) ) {
+                        echo facetwp_display( 'pager' );
+                        //echo facetwp_display( 'facet', 'load_more' );
+                    } else if( function_exists( '_s_paginate_links' ) ) {
                         echo _s_paginate_links();
                     } else {
                         echo paginate_links();   

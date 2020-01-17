@@ -5,11 +5,14 @@ Modal - Contact
 		
 */
 
-modal_contact();
 function modal_contact() {
     
     $form_id = 1;
     $form = GFAPI::get_form( $form_id );
+    
+    if( is_wp_error( $form ) ) {
+        return;
+    }
     
      ?>
     <div class="modal-contact small reveal" id="contact" data-reveal data-deep-link="false" data-animation-in="hinge-in-from-middle-y fast" data-animation-out="hinge-out-from-middle-y fast">
@@ -24,7 +27,7 @@ function modal_contact() {
         <div class="modal-body">
         <?php
         if( !empty( $form['description'] ) ) {
-          printf( '<div class="modal-description">%s', wpautop( $form['description'] ) );
+          printf( '<div class="modal-description">%s</div>', wpautop( $form['description'] ) );
         }
         
         echo do_shortcode( sprintf( '[gravityform id="%s" title="false" description="false" ajax="true" tabindex="99"]', $form_id ) );
@@ -35,3 +38,4 @@ function modal_contact() {
 <?php
        
 }
+modal_contact();

@@ -97,6 +97,12 @@ function _s_acf_link_target( $link, $echo = true ) {
  *
  * @return string|bool
  */
+ 
+ /*
+Array ( [type] => Modal [link] => [modal] => Array ( [link_text] => Connect With An Expert [modal] => 393 ) )
+ */
+ 
+ 
 function _s_acf_button( $args = [] ) {
     
     if( empty( $args ) ) {
@@ -104,9 +110,7 @@ function _s_acf_button( $args = [] ) {
     }
     
     $defaults = array(
-        'type' => 'default',
-        'link' => '',
-        'modal' => '',
+        'link' => false,
         'classes' => '',
         'echo' => TRUE
     );
@@ -115,29 +119,34 @@ function _s_acf_button( $args = [] ) {
      * Parse incoming $args into an array and merge it with $defaults
      */ 
     $args = wp_parse_args( $args, $defaults );
-    
+        
     extract( $args );
-    
-    $type    = strtolower( $type );
+        
 	$title   = $link['title'] ?? '';
     $url     = $link['url'] ?? '';
-    $target  = $link['target'] ? sprintf(' %s', $link['target'] ) : '';
+    $target  = ! empty( $link['target'] ) ? sprintf(' %s', $link['target'] ) : '';
     
     // No link title, bail here!
-	if ( empty( $title ) ) {
+	if ( empty( $title ) && empty( $url ) ) {
 		return false;
 	}
-    
-    // Type
-    switch ( $type ) {
-		case 'modal':
-			$url = sprintf( ' data-open="%s"', $modal );
-			break;
-		default:
-			$url = sprintf( ' href="%s"', esc_url( $url ) );
-			break;
-	}
-    
+               
+    $parts = wp_parse_url( $url );
+    $path = $parts['path'];
+    if ( $_post = get_page_by_path( basename( untrailingslashit( $path ) ), OBJECT, 'modal' ) ) {
+        $post_id = $_post->ID;
+        $slug = sanitize_title_with_dashes( get_the_title( $post_id ) );
+        if( is_array( $classes ) ) {
+            $classes[] = 'modal-form';
+        } else {
+              $classes .= ' modal-form'; 
+        }
+        
+        $url = sprintf( ' data-src="#%s" data-fancybox href="javascript:;"', $slug );
+    } else {
+        $url = sprintf( ' href="%s"', esc_url( $url ) );   
+    }
+        
     // Classes
     if( ! empty( $classes ) ) {
         if( is_array( $classes ) ) {

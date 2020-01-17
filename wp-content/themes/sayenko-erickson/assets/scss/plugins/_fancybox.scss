@@ -1,0 +1,13 @@
+// FancyBox
+
+.fancybox-container.full-screen {
+    .fancybox-slide--html {
+        padding: 0;
+    }
+    
+    .fancybox-content {
+        cursor: auto;
+        width: 100%;
+        height: 100%;      
+    }
+}

@@ -1,5 +1,4 @@
 <?php
-
 // Create jump links with "Link Relationship" text input as cheat
 function child_enable_menu_description( $item_output, $item ) {
 		
@@ -16,37 +15,25 @@ function child_enable_menu_description( $item_output, $item ) {
 
 // Add data attribute to menu item
 function _s_contact_menu_atts( $atts, $item, $args ) {
-      $classes = $item->classes;
-      
- 	  if ( in_array( 'lets-talk', $classes ) ) {
-		$atts['data-open'] = 'contact';
-	  }
+      if( ! empty( $item->classes ) ) {
+          $classes = $item->classes;      
+          if ( in_array( 'lets-talk', (array) $classes ) ) {
+            $atts['data-open'] = 'contact';
+          }
+      }
 	  return $atts;
 }
 
 add_filter( 'nav_menu_link_attributes', '_s_contact_menu_atts', 10, 3 );
 
-
-
-function add_telephone( $items, $args ) {
-    if ( 'secondary' === $args->theme_location ) {
-        
-        $phone = get_field( 'phone', 'option' );
-        if( ! empty( $phone ) ) {
-            $phone = sprintf('<a href="%s">%s</a>', _s_format_telephone_url( $phone ), $phone );
-            $phone = sprintf( '<li class="menu-item phone-number show-for-xxlarge">%s</li>', $phone );
-        }
-    }
-    return $phone . $items;
-}
                 
-
-
 add_filter('nav_menu_item_args', function ($args, $item, $depth) {
-    $classes = $item->classes;
-    if ( in_array('button', $classes ) ) {
-        $args->link_before = '<span>';
-        $args->link_after  = '</span>';
+    if( ! empty( $item->classes ) ) {
+        $classes = $item->classes;
+        if ( in_array('button', (array) $classes ) ) {
+            $args->link_before = '<span>';
+            $args->link_after  = '</span>';
+        }
     }
     return $args;
 }, 10, 3);
@@ -111,3 +98,37 @@ class Walker_Nav_Menu_Dropdown extends Walker_Nav_Menu {
 		$output .= "</option>\n"; // replace closing </li> with the option tag
 	}
 }
+
+add_action('after_setup_theme', function() {
+    global $menu_modals;
+    $menu_modals = [];
+}); 
+
+
+// Modal links open in fancybox
+function _s_menu_item_fancybox($item_output, $item ) {
+    global $menu_modals;
+        
+    if( ! empty( $item->object ) && 'modal' === $item->object ) {
+        $slug = sanitize_title_with_dashes( $item->title );
+        $post_id = $item->object_id;
+        $menu_modals[] = $post_id;
+        return sprintf( '<a class="button modal-form" data-fancybox="%s" data-src="#%s" href="javascript:;">%s</a>', $slug, $slug, $item->title );
+    }
+
+    return $item_output;
+}
+add_filter('walker_nav_menu_start_el','_s_menu_item_fancybox',10,2);
+
+// output menu modals if they exist
+/*
+add_action('wp_footer', function() {
+    global $menu_modals;
+    if( ! empty( $menu_modals ) ) {
+        foreach( $menu_modals as $post_id ) {
+            $data = [ 'post_id' => $post_id ];
+            _s_get_template_part( 'template-parts/modal', 'form', $data );
+        }
+    }
+}); 
+*/

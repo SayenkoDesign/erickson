@@ -1,5 +1,15 @@
 <?php
 
+/*
+add_filter( 'facetwp_facet_html', function( $output, $params ) {
+    if ( 'dropdown' == $params['facet']['type'] ) {
+        var_dump( $params );
+        $output = str_replace( 'facetwp-dropdown', 'facetwp-dropdown form-control', $output );
+    }
+    return $output;
+}, 10, 2 );
+*/
+
 
 // Run the facet index on save_post
 
@@ -84,7 +94,7 @@ add_filter( 'facetwp_pager_html', 'my_facetwp_pager_html', 10, 2 );
 
 
 // Customize the FacetWP sort options
-/*
+
 add_filter( 'facetwp_sort_options', function( $options, $params ) {
     $options['default']['label'] = 'Order';
     return $options;
@@ -96,4 +106,3 @@ add_filter( 'facetwp_sort_options', function( $options, $params ) {
     unset( $options['title_desc'] );
     return $options;
 }, 10, 2 );
-*/

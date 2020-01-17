@@ -1,3 +1,9 @@
+
+/*
+.has-menu-item-emergency add padding bottom on desktop
+.disabled links remove cursor and hover styles
+*/
+
 .nav-primary {
 	background-color: $dark-gray;
     display: none;
@@ -23,12 +29,18 @@
 	}
 
 	.menu {
-		//flex-grow: 1;
+		position: static;
 
 		@include breakpoint(xlarge) {
 			justify-content: flex-end;
 		}
+        
+        > .menu-item:not(.mega-menu-item) {
+            padding-bottom: 12px;
+            margin-bottom: -12px;   
+        }
 	}
+    
 
 	.menu-item {
 		display: block;
@@ -36,20 +48,6 @@
 			text-align: center;
 		}
         
-        @include breakpoint(xlarge only) {
-            margin-right: rem-calc(5);
-            a {
-                padding-left: rem-calc(5);
-                padding-right: rem-calc(5);   
-            }
-		}
-        
-        @include breakpoint(xlarge) {
-			text-align: center;
-            margin-right: .5vw;
-		}
-
-
 		a {
 			color: #fff;
             font-size: rem-calc(15);
@@ -95,13 +93,15 @@
 	}
     
     .sub-menu {
+                
         background: $red;
+        margin: 0;
         
         @include breakpoint(xlarge) {
-            background: #fff;   
+            background: #fff;  
         }
         
-        margin-left: rem-calc(-1);
+        
                 
         
         
@@ -141,17 +141,10 @@
 #secondary-menu {
     
     @include breakpoint(xlarge) {
-        margin-left: 2vw;
+        margin-left: auto;
     }
     
 	.menu-item {
-        
-        &.phone-number {
-            display: none;
-            @include breakpoint(xlarge) {
-                display: block;
-            }   
-        }
 
 		&.lets-talk {            
             
@@ -185,4 +178,36 @@
        }
         
 	}
+}
+
+
+@include breakpoint(xlarge) {
+    .mega-menu-item {
+        position: static!important;
+        
+        
+        > .sub-menu {
+            width: 100%;
+            left: 0!important;
+            top: 100%!important;
+            //display: flex;
+            .sub-menu {
+                position: static;
+                top: auto;
+                display: block;
+                border: none;   
+            }
+        }
+        
+        &.is-active > .sub-menu {
+            display: flex;
+        }
+    }
+}
+
+
+@include breakpoint(1400) {
+    .mega-menu-item > .sub-menu {
+        max-width: rem-calc(1400);   
+    }
 }

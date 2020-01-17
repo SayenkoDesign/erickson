@@ -42,9 +42,7 @@ class CPT_History extends CPT_Core {
 			)
 
         );
-        
-        add_filter('pre_get_posts', array( $this, 'query_filter' ) );
-        		        
+                		        
      }
     
     
@@ -61,7 +59,7 @@ class CPT_History extends CPT_Core {
         unset( $columns['post_type'] );
         
 		$new_column = array(
-			'year_start' => 'Year Start',
+			'year' => 'Year',
 		);
 		return array_slice( $columns, 0, 2, true ) + $new_column + array_slice( $columns, 1, null, true );
 	}
@@ -73,29 +71,27 @@ class CPT_History extends CPT_Core {
 	 */
 	public function columns_display( $column, $post_id ) {
 		switch ( $column ) {
-			case 'year_start':
-                echo get_field( 'year_start' );
+			case 'year':
+                echo get_field( 'year' );
 				break;
 		}
 	}
-    
-    
-    public function query_filter( $query ) {
-	    
-        if ( $query->is_main_query() && is_post_type_archive( 'history' ) ) {
-            $query->set( 'meta_key', 'year_start' );	
-            $query->set( 'orderby', 'meta_value_num' );
-            $query->set( 'order', 'DESC' ); 	
-            
-            if( ! is_admin() ) {
-                $query->set('posts_per_page', -1 );
-            }		
-        }
-                			
-	}
-    
-    
-    
+        
 }
 
 new CPT_History();
+
+
+$history_type = array(
+    __( 'History Category', '_s' ), // Singular
+    __( 'History Categories', '_s' ), // Plural
+    'history_cat' // Registered name
+);
+
+register_via_taxonomy_core( $history_type, 
+	array(
+		'public' => false,
+        'rewrite' => false,
+	), 
+	array( 'history' ) 
+);

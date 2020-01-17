@@ -1,4 +1,12 @@
 <?php
+// Let's filter the video url field from ACF
+
+add_filter( 'wds_featured_images_from_video_filter_content', function( $content, $post_id ) {
+    $content = get_post_meta( $post_id, 'video_url', true );
+    return $content;
+}, 10, 2);
+
+
 
 function _s_get_video_embed( $url ) {
 	$youtube_id          = wds_check_for_youtube( $url );
@@ -70,7 +78,8 @@ function wds_check_if_content_contains_video( $post_id, $post ) {
 	 */
 	// $content = substr( $content, 0, apply_filters( 'wds_featured_images_character_limit', $content_check_length ) );
 	// Allow developers to filter the content to allow for searching in postmeta or other places.
-	// $content = apply_filters( 'wds_featured_images_from_video_filter_content', $content, $post_id );
+	$content = apply_filters( 'wds_featured_images_from_video_filter_content', $content, $post_id );
+    
 	// Set the video id.
 	$youtube_id          = wds_check_for_youtube( $content );
 	$vimeo_id            = wds_check_for_vimeo( $content );
@@ -174,7 +183,7 @@ function wds_check_for_vimeo( $content ) {
  */
 function wds_get_youtube_details( $youtube_id ) {
 	$video                      = array();
-	$video_thumbnail_url_string = 'http://img.youtube.com/vi/%s/%s';
+	$video_thumbnail_url_string = 'https://img.youtube.com/vi/%s/%s';
 
 	$video_check = wp_remote_head( 'https://www.youtube.com/oembed?format=json&url=http://www.youtube.com/watch?v=' . $youtube_id );
 	if ( 200 === wp_remote_retrieve_response_code( $video_check ) ) {
@@ -218,7 +227,7 @@ function wds_get_vimeo_details( $vimeo_id ) {
 	$video = array();
 
 	// @todo Get remote checking matching with wds_get_youtube_details.
-	$vimeo_data = wp_remote_get( 'http://www.vimeo.com/api/v2/video/' . intval( $vimeo_id ) . '.php' );
+	$vimeo_data = wp_remote_get( 'https://www.vimeo.com/api/v2/video/' . intval( $vimeo_id ) . '.php' );
 	if ( 200 === wp_remote_retrieve_response_code( $vimeo_data ) ) {
 		$response                     = unserialize( $vimeo_data['body'] );
 		$video['video_thumbnail_url'] = isset( $response[0]['thumbnail_large'] ) ? $response[0]['thumbnail_large'] : false;

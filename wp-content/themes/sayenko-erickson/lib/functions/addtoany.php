@@ -23,9 +23,9 @@ function _s_get_addtoany_share_icons( $url = '', $title = '' ) {
 	
 	$socials = array(
 			'facebook'     => 'facebook',
-			'twitter'      => 'twitter',
-            //'pinterest'    => 'pinterest',
             'linkedin'     => 'linkedin',
+			'twitter'      => 'twitter',
+            'email'     => 'email'
  	);
 	
 	

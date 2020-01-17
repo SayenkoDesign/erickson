@@ -37,7 +37,7 @@ class CPT_People extends CPT_Core {
 				'show_in_nav_menus'   => false,
 				'exclude_from_search' => true,
 				//'rewrite'             => array( 'slug' => 'teams' ),
-				'supports' => array( 'title', 'thumbnail', 'revisions' ),
+				'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
                 'menu_icon' => 'dashicons-businessman'
 			)
 
@@ -48,3 +48,17 @@ class CPT_People extends CPT_Core {
 }
 
 new CPT_People();
+
+$departments = array(
+    __( 'Department', '_s' ), // Singular
+    __( 'Departments', '_s' ), // Plural
+    'department' // Registered name
+);
+
+register_via_taxonomy_core( $departments, 
+	array(
+		'public' => false,
+        'rewrite' => false,
+	), 
+	array( 'people' ) 
+);

@@ -3,63 +3,29 @@
 .post-type-archive-case_study {
        
     .grid {
-        
-        .cell {
-                
-            background-color: #fff;
-            box-shadow: $box-shadow;
-            
-            margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
-            
-            @include breakpoint(large) {
-                margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
-            }   
-        }
-        
-                        
+                     
         article {
-            
+            background-color: $dark-gray;
+            box-shadow: $box-shadow;    
+            background-size: cover;
             height: 100%;
+            position: relative;
             
-            .post-hero {
-                display: block;
-                background: $gray;
-                background-size: cover;
-                background-position: center center;
-                background-repeat: no-repeat;
-                position: relative;        
-                padding-top: 90%;
-                
-                &:hover {
-                    opacity: .8;   
+            .post-link {
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;   
                 }
             }
-                    
-            header {
-                padding: 15px 20px 40px;   
-            }
             
-            .posted-on {
-                color: #4A4A4A;
-                display: block;
-                font-family: $lato;
-                font-size: 15px;
-                letter-spacing: 0.5px;
-                line-height: 1.666666667;
-                margin-bottom: 10px;
-            }
-            
-            h3 {
-                
-            }
-            
-            .read-more {
-                display: none;
-                margin-top: rem-calc(30);
-            }
-            
-            .more {
-                font-size: rem-calc(18);
+            .term-link {
+                position: relative;
+                z-index: 3;   
             }
             
         }

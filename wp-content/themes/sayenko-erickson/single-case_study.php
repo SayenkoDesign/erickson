@@ -18,7 +18,13 @@ _s_get_template_part( 'template-parts/case-study', 'post-hero' );
     
                     the_post();
     
-                    _s_get_template_part( 'template-parts/case-study', 'post-content' );
+                    _s_get_template_part( 'template-parts/case-study', 'challenge' );
+                    
+                    _s_get_template_part( 'template-parts/case-study', 'solution' );
+                    
+                    _s_get_template_part( 'template-parts/global', 'results' );
+                    
+                    _s_get_template_part( 'template-parts/case-study', 'testimonial' ); 
                         
                 endwhile;       
                ?>
@@ -32,7 +38,7 @@ _s_get_template_part( 'template-parts/case-study', 'post-hero' );
 </div>
 
 <?php
-    _s_get_template_part( 'template-parts/case-study', 'testimonial' );   
+      
 ?>
     
 <?php

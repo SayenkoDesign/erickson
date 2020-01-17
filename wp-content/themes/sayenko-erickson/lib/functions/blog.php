@@ -3,7 +3,7 @@
 // Wrap category links with an inner span so that we can better style them if needed this created <a href=""><span></span></a>
 add_filter( 'the_category', function( $the_list ) {  
 
-    if( is_admin() ) {
+    if( is_admin() || empty( $the_list ) ) {
         return $the_list;
     }
   
@@ -132,20 +132,104 @@ function misha_posts_and_page( $where ){
 */
 
 
-function _s_get_post_terms( $post_id ) {
-    $taxonomy = 'category';
+function _s_get_post_terms( $args = array() ) {
+    
+    $defaults = array(
+         'taxonomy' => 'category',
+         'post_id' => get_the_ID(),
+         'return' => 'string', // string or array
+         'class' => 'post-terms',
+         'link' => true,
+         'svg' => true
+    );
+    
+    $args = wp_parse_args( $args, $defaults );
+    
+    $post_id = $args['post_id'];
+    $taxonomy = $args['taxonomy'];
     $terms = wp_get_post_terms( $post_id, $taxonomy );
     if( !is_wp_error( $terms ) && !empty( $terms ) ) {
-        $out = '';
+        $out = [];
         foreach( $terms as $term ) {
             $term_class = sanitize_title( $term->name );
-        $out .= sprintf( '<li><a href="%s" class="term-link %s">%s<span>%s</span></a></li>', get_term_link( $term->slug, $taxonomy ), $term_class, get_svg( $term_class ), $term->name );
+            
+            if( true == $args['link'] ) {
+                $link_open = sprintf( '<a href="%s" class="term-link %s">', get_term_link( $term->slug, $taxonomy ), $term_class );
+                $link_close = '</a>';
+            } else {
+                $link_open = $link_close = '';
+            }
+            
+            if( true == $args['svg'] ) {
+                $svg = get_svg( $term_class );
+            } else {
+                $svg = '';   
+            }
+            
+            $out[] = sprintf( '%s%s<span>%s</span>%s', 
+                               $link_open, 
+                               $svg,
+                               $term->name,
+                               $link_close
+                            );
         }
         
-        return sprintf( '<ul class="post-categories">%s</ul>', $out );
+        if( 'array' == $args['return'] ) {
+            return $out;
+        }
+        
+        return ul( $out, [ 'class' => $args['class'] ] );
         
     }
     
+}
+
+
+/**
+ * Get the primary term of a post, by taxonomy.
+ * If Yoast Primary Term is used, return it,
+ * otherwise fallback to the first term.
+ *
+ * @version  1.1.0
+ *
+ * @link     https://gist.github.com/JiveDig/5d1518f370b1605ae9c753f564b20b7f
+ * @link     https://gist.github.com/jawinn/1b44bf4e62e114dc341cd7d7cd8dce4c
+ * @author   Mike Hemberger @JiveDig.
+ *
+ * @param    string  $taxonomy  The taxonomy to get the primary term from.
+ * @param    int     $post_id   The post ID to check.
+ *
+ * @return   WP_Term|bool  The term object or false if no terms.
+ */
+function _s_get_primary_term( $taxonomy = 'category', $post_id = false ) {
+	// Bail if no taxonomy.
+	if ( ! $taxonomy ) {
+		return false;
+	}
+	// If no post ID, set it.
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+	// If checking for WPSEO.
+	if ( class_exists( 'WPSEO_Primary_Term' ) ) {
+		// Get the primary term.
+		$wpseo_primary_term = new WPSEO_Primary_Term( $taxonomy, $post_id );
+		$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
+		// If we have one, return it.
+		if ( $wpseo_primary_term ) {
+			return get_term( $wpseo_primary_term );
+		}
+	}
+	// We don't have a primary, so let's get all the terms.
+	$terms = get_the_terms( $post_id, $taxonomy );
+    
+	// Bail if no terms.
+	if ( ! $terms || is_wp_error( $terms ) ) {
+		return false;
+	}
+    
+	// Return the first term.
+	return $terms[0];
 }
 
 

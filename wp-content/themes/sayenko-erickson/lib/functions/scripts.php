@@ -28,9 +28,11 @@ add_action( 'wp_enqueue_scripts', '_s_register_scripts' );
 function _s_register_scripts() {
 
 	wp_register_script( 'modernizr', _s_asset_path( '/js/modernizr-custom.js' ), false, '', false );
-
-	// Foundation
-//	wp_register_script( 'foundation', trailingslashit( THEME_JS ) . 'foundation.min.js', array('jquery'), '', true );
+            
+    wp_register_script( 'gmaps', 
+						sprintf( '//maps.googleapis.com/maps/api/js?key=%s', GOOGLE_API_KEY ), 
+						false, '', true );
+    
 
 	// Main
 	wp_register_script( 'manifest', _s_asset_path( '/js/manifest.js' ), false, '', true );
@@ -38,26 +40,20 @@ function _s_register_scripts() {
 	wp_register_script( 'project', _s_asset_path( '/js/project.js' ),
 		array(
 			'jquery',
-            'jquery-effects-core',
+            //'jquery-effects-core',
 			'manifest',
+            'gmaps',
 			'vendor',
 		),
 		null, true );
 
 
-	// Localize responsive menus script.
-	wp_localize_script( 'project', 'genesis_responsive_menu', array(
-		'mainMenu'         => __( 'Menu', '_s' ),
-		'subMenu'          => __( 'Menu', '_s' ),
-		'menuIconClass'    => null,
-		'subMenuIconClass' => null,
-		'menuClasses'      => array(
-			'combine' => array(
-				'.nav-primary',
-			),
-			//'others'  => array( '.nav-secondary' ),
-		),
-	) );
+	wp_localize_script( 'project', 
+			'map_params', 
+			array( 'icon' => sprintf( '%sservice/map-pin.svg', trailingslashit( THEME_IMG ) ),
+                   'cross' => sprintf( '%sservice/cross.svg', trailingslashit( THEME_IMG ) )
+            )
+	);
 
 
 }

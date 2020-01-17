@@ -1,4 +1,67 @@
+case Stusies - filters, when i create content, should i isolate? 
+So for example, even though the services are filters and posts, should the filters be pulled from the posts?
+Or is it better to keep all content seperate? But then we do hve redundancy. 
+
+
+// TO DO 
+
+
+Wednesday:
+
+- Case Studies Archive
+- Single Case Study 
+
+Thursday:
+
+- Individual Service
+
+1. Approach
+2. Results
+3. Clients
+4. Case Studies
+5. Gallery
+
+
+Friday:
+- Fleet page fields
+- Fleet single post fields
+- Fleet Archive
+- Fleet Post
+
+------------------------------------------------------------------ 
+
+WP All Import
+
+- change old site to no SSL - causes issues with importing images
+
+
+
+Hand off meetingnotes:
+
+Multipurpose page sections scroll in
+Do we need two thank you page templates?
+- Set max width to 2500?
+- case study filters - independant locations as taxonomy? Think this has been removed
+- Landing pages, add text fields for industry, service, location
+- Contact Page - thank you page, different phone number, and service name, phone is based on service. Maybe add phone to the Service post?
+Mike
+- How will client know which landing page they are using?
+- which pages should i animate in?
+- who do i contact when i have questions?
+- end of January launch. 
+- video and image gallery, use case study archive. Videos add 3hours, gallery add 1 hour
+
+
+
 TO Do
+
+- Fleet page fields
+- Fleet single post fields
+- review all fields, naming, and textareas become wysiwyg
+- add option to hide Footer call to action
+- contact thank you, show department name and phone number
+- contact forms add all services except iIDIQ, this will be manual, as they need conditional
+
 
 - remove core button block and add ACF
 - create acf/media-text block that allows for videos.
@@ -10,33 +73,19 @@ Internal notes:
 - Remove block button styles
     - https://www.billerickson.net/wordpress-color-palette-button-styling-gutenberg/
     - https://open4tech.com/add-and-remove-block-styles-in-gutenberg/
-
-Homepage:
-
-HERO
-- Heading - text
-- Text - textarea
-- Clients - do these link?
-
-SERVICES
-- Doesnt seem to be in alphabetical order, so we will allow client to choose individual Services and set headings
-- should we make this a custom post type? Categories? I think so.
-
-ERICKSON ADVANTAGE
-- Repeater - same as PSC "Why PSC" ** remove from client meeting notes
-- assumption that background changes with each slide
-- Bottom tabs to be removed on smaller screens
+    
+    
+    
 
 
-FEATURED CASE STUDIES
-- Discuss how each block will be selected, have background images, and what this will look like on mobile. This will be very long on mobile. 
+The modal sharing: https://projects.invisionapp.com/d/main?origin=v7#/console/18218141/384852757/preview?scrollOffset=1547
 
+OK, some questions. :)
 
+Use case scenario. I am searching Google and I find a link to the Bell 212. And I click the link.
 
-Blog Index:
+- it takes me to the main Fleet page and opens the modal lightbox for the Bell 212.
+- If I close the modal, because of pagination (with load more) you might not be able to see that aircraft till you hit load more. Is that an issue? I don't see any other way using modals. 
+- the share functionality will direct the user to the single page, then we redirect tot he modal lightbox just like when someone finds the link in Google. Same behavior as above. 
 
-- Use PSC
-
-Blog Single:
-
-- PSC and SS Club
+I just wanted to make sure that you realize this is how it will work. 

@@ -35,37 +35,7 @@ if( ! class_exists( 'Home_Hero' ) ) {
                      $this->get_name() . '-hero'
                 ]
             );
-            
-            $background_image       = $this->get_fields( 'background_image' );
-            $background_position_x  = strtolower( $this->get_fields( 'background_position_x' ) ) ?: 'center';
-            $background_position_y  = strtolower( $this->get_fields( 'background_position_y' ) ) ?: 'center';
-            $background_overlay     = $this->get_fields( 'background_overlay' );
-            
-            
-            
-            if( ! empty( $background_image ) ) {
-                $background_image = _s_get_acf_image( $background_image, 'hero', true );
-            } else  {
-                $background_image = get_the_post_thumbnail_url( get_the_ID(), 'hero' );
-                
-                if( empty( $background_image ) ) {
-                    $background_image = get_field( 'post_image_fallback', 'option' );
-                    if( ! empty( $background_image ) ) {
-                        $background_image = wp_get_attachment_image_src( $background_image, 'hero' );
-                    }   
-                }
-            }
-            
-            $this->add_render_attribute( 'wrapper', 'class', 'has-background-image' );
-            $this->add_render_attribute( 'background', 'class', 'image-background' );
-            $this->add_render_attribute( 'background', 'style', sprintf( 'background-image: url(%s);', $background_image ) );
-            $this->add_render_attribute( 'background', 'style', sprintf( 'background-position: %s %s;', 
-                                                                      $background_position_x, $background_position_y ) );
-            
-            if( true == $background_overlay ) {
-                 $this->add_render_attribute( 'background', 'class', 'background-overlay' ); 
-            }
-                                                                          
+                                                            
         }
         
         
@@ -82,48 +52,17 @@ if( ! class_exists( 'Home_Hero' ) ) {
         $this->add_render_attribute( 'wrap', 'class', 'wrap' );
         
         $this->add_render_attribute( 'container', 'class', 'container' );
-        
-        $arrow = sprintf( '<a href="#section-what" data-smooth-scroll data-offset="40"><img src="%sicons/arrow-down-white.svg" class="arrow-down" /></a>', trailingslashit( THEME_IMG ) );
-        
-        if( ! wp_is_mobile() ) {
                 
-            $background_video       = $this->get_fields( 'background_video' );
-            $background_video_webm  = $this->get_fields( 'background_video_webm' );
-            
-            $args = [ 'autoplay' => 'true', 'muted' => 'true', 'loop' => 'true' ];
-                                                                        
-            $attributes = _parse_data_attribute( $args );
-            
-            $source = '';
-            
-            if( ! empty( $background_video_webm ) ) {
-                $background_video_webm = esc_url( $background_video_webm );
-                $source .= sprintf( '<source src="%s" type="video/%s">', $background_video_webm,  pathinfo( $background_video_webm, PATHINFO_EXTENSION ) );
-            }
-            
-            if( ! empty( $background_video ) ) {
-                $background_video = esc_url( $background_video );
-                $source .= sprintf( '<source src="%s" type="video/%s">', $background_video,  pathinfo( $background_video, PATHINFO_EXTENSION ) );
-            }
-                            
-            if( ! empty( $source ) ) {
-                $this->video = true;
-                $args['poster'] = '';
-                $args['preload'] = 'none';
-                $this->add_render_attribute( 'wrapper', 'class', 'has-background-video' );                        
-                $background_video_markup = sprintf( '<video class="video-background" %s>%s</video>', $attributes, $source );                                                          
-            }
+        if( wp_is_mobile() ) {
+                
             
              
         }
         
-        return sprintf( '<%s %s><div class="background-wrapper"><div %s></div>%s</div><div %s>%s<div %s>', 
+        return sprintf( '<%s %s><div %s><div %s>', 
                         esc_html( $this->get_html_tag() ), 
                         $this->get_render_attribute_string( 'wrapper' ),
-                        $this->get_render_attribute_string( 'background' ),
-                        $background_video_markup,
                         $this->get_render_attribute_string( 'wrap' ),
-                        $arrow,
                         $this->get_render_attribute_string( 'container' )
                         );
     }
@@ -138,32 +77,57 @@ if( ! class_exists( 'Home_Hero' ) ) {
             $description = empty( $this->get_fields( 'description' ) ) ? '' : _s_format_string( $this->get_fields( 'description' ), 'p' );
             
             $button = $this->get_fields( 'button' );
+                      
             if( ! empty( $button['link'] ) ) {
                                 
                 $args = [
                     'link' => $button['link'],
                     'echo' => false,
-                    'classes' => 'button large',
-                    'modal' => 'contact',
-                    'type' => $button['type']
+                    'classes' => 'button',
                 ];
                 $button  = sprintf( '<p>%s</p>', _s_acf_button( $args ) );
+            } else {
+                $button = '';
+            }
+                        
+            $video = $this->get_fields( 'video' );
+            $video_link = '';
+            if( ! empty( $video ) ) {
+                $video_icon = '<span><i>play video</i></span>';
+                $video_link = sprintf( '<a data-fancybox href="%s">%s</a>', $video, $video_icon );
             }
             
-            $hero_content = sprintf( '<div class="hero-content">%s%s%s</div>', 
-                                    $heading,
-                                    $description,
-                                    $button
-            );
+            // Slideshow
+            $slideshow = '';
+            $slides = $this->get_fields( 'slideshow' );
+            $size = 'hero';
             
-            if( true === $this->video ) {
-                //$hero_content = '';
+            if( wp_is_mobile() ) {
+                $size = 'large';
             }
-    
-            return sprintf( '<div class="grid-container"><div class="grid-x grid-padding-x align-bottom">
-                                <div class="cell">%s</div>
-                            </div></div>',
-                            $hero_content
+            
+            if( ! empty( $slides ) ) {
+                $images = '';
+                foreach ( $slides as $slide ) {
+                    $images .= sprintf( '<div class="slick-slide"><img data-lazy="%s" /></div>', _s_get_acf_image( $slide, $size, true ) );   
+                }
+                
+                if( ! empty( $images ) ) {
+                    $slideshow = sprintf( '<div class="slider"><div class="slick">%s</div></div>', $images );
+                }
+            }
+            
+                
+            return sprintf( '%s<div class="hero-content">
+                                <div class="grid-container"><div class="grid-x grid-padding-x align-bottom">
+                                    <div class="cell">%s%s%s%s</div>
+                                </div></div>
+                            </div>',
+                            $slideshow,
+                            $heading,
+                            $description,
+                            $button,
+                            $video_link
                          );
         }
     }

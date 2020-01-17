@@ -87,7 +87,7 @@
                         'after'           => '',
                         'link_before'     => '',
                         'link_after'      => '',
-                        'items_wrap'      => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion xlarge-dropdown">%3$s</ul>'
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion xlarge-dropdown" data-multi-open="false">%3$s</ul>'
                     );
                     wp_nav_menu( $args );
                     ?>
@@ -100,7 +100,7 @@
     </div>
     
     <script>
-        (function (document, window, $) {
+        /*(function (document, window, $) {
     
         'use strict';
         
@@ -112,7 +112,7 @@
             $stickyHeaderWrapper.height($stickyHeader.height());
         });
         
-    }(document, window, jQuery));
+    }(document, window, jQuery));*/
     </script>
 
 <div id="page" class="site-container">

@@ -12,6 +12,9 @@
 
 </div><!-- #content -->
 
+<?php
+_s_get_template_part( 'template-parts/global', 'footer-cta' );
+?>
 
 <footer class="site-footer" id="site-footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
 	<div class="wrap">

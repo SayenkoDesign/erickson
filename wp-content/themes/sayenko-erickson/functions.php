@@ -33,8 +33,6 @@ if ( ! function_exists( '_s_setup' ) ) :
 		define( 'THEME_NAME', sanitize_title( wp_get_theme() ) );
 		define( 'THEME_VERSION', '1.0' );
 
-		define( 'GOOGLE_API_KEY', '' );
-
 		/**
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.

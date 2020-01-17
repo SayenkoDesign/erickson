@@ -1,0 +1,83 @@
+// Service
+
+.single-service {
+    
+    .section-clients {
+         .full-width {
+            @include full-width;    
+         }
+    }
+    
+    .google-map {
+                
+        width: 100%;
+        min-height: 400px;
+        
+        @include breakpoint(large) {
+            min-height: 600px;
+        }	
+        
+        .marker {
+            display: none;	
+        }
+    }
+    
+    .infoBox {
+        background: #fff;	
+        padding: 10px 30px 10px 10px;
+        position: relative;
+        box-shadow: 3px 3px 4px rgba(0,0,0,0.4);
+        
+        > img {
+            width: 10px;
+            height: 10px;
+            position: absolute!important;
+            margin: 0!important;
+            top: 12px;
+            right: 10px;
+        }
+        
+        h5, span {
+            color: #fff;	
+        }
+        
+        h5 {
+            font-size: rem-calc(18);
+            margin-bottom: 10px;
+            padding-right: rem-calc(40);	
+        }
+        
+        span {
+            display: block;
+            font-size: rem-calc(14);
+            line-height: 1.375;
+            margin: 0 auto 10px;	
+            
+            &.directions a {
+                color: $gray; 
+                text-decoration: underline;  
+            }
+        }
+        
+        a {
+            color: #fff;
+            
+            &[href^=tel] {
+                color: #fff!important;   
+            }
+        }
+        
+        &:after {
+            content: '';
+            width: 26px;
+            height: 26px;
+            background: #fff;
+            bottom: -13px;
+            left: calc(50% - 13px);
+            transform: rotate(45deg);
+            position: absolute;
+            pointer-events: none;	
+            box-shadow: 3px 3px 4px rgba(0,0,0,0.4);
+        }
+    }   
+}

@@ -153,3 +153,25 @@ img.aligncenter {
 .video-background {
 	object-position: center top;
 } // .video-background
+
+
+
+.object-fit-parent {
+    position: relative;;
+    &.compat-object-fit {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center center;
+        img { // hide image if object fit is not supported - opacity to 0 for the link area
+            opacity: 0;
+        }
+    }
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+}
+ 

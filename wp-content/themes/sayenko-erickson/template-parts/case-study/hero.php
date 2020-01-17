@@ -12,8 +12,8 @@ if( ! class_exists( 'Hero_Section' ) ) {
         public function __construct() {
             parent::__construct();
                                     
-            // Render the section
-            //$this->render();
+            $fields = get_field( 'case_study_archive', 'options' );            
+            $this->set_fields( $fields );
             
             // print the section
             $this->print_element();        
@@ -31,20 +31,18 @@ if( ! class_exists( 'Hero_Section' ) ) {
                 ]
             );
             
-            $this->add_render_attribute( 'wrapper', 'class', 'hero-bottom-gray' );            
         } 
         
         // Add content
         public function render() {
             
-            $heading = __( 'Case Studies' );
-            
-            $heading      = sprintf( '%s', _s_format_string( $heading, 'h1', [ 'class' => 'h2' ] ) );
-                        
-            $heading      = sprintf( '<div class="hero-title">%s</div>', $heading );
+            $heading = ! empty( $this->get_fields( 'heading' ) ) ? $this->get_fields( 'heading' ) : __( 'Case Studies', '_s' );
+            $heading = _s_format_string( $heading, 'h2' );
+            $description = $this->get_fields( 'description' ); 
+            $heading = sprintf( '<header>%s%s%s</header>', get_svg( 'posts-icon' ), $heading, $description  );  
 
 
-            return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x align-middle"><div class="cell"><div class="hero-content">%s</div></div></div></div>', 
+            return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x align-middle"><div class="cell">%s</div></div></div>', 
                             $heading
                          );
         }

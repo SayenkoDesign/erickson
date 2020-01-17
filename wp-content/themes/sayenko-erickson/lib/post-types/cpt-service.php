@@ -47,18 +47,3 @@ class CPT_Service extends CPT_Core {
 }
 
 new CPT_Service();
-
-
-$cpt_service_categories = array(
-    __( 'Service Category', CPT_Service::TEXTDOMAIN, '_s' ), // Singular
-    __( 'Service Categories', CPT_Service::TEXTDOMAIN, '_s' ), // Plural
-    'service_cat' // Registered name
-);
-
-register_via_taxonomy_core( $cpt_service_categories, 
-	array(
-		'public' => true,
-        'rewrite' => true,
-	), 
-	array( CPT_Service::POST_TYPE ) 
-);

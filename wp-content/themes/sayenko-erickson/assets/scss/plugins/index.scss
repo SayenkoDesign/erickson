@@ -5,11 +5,15 @@
 // Royal Slider
 // @import "royalslider";
 
+// Fancybox
+@import '../../../node_modules/@fancyapps/fancybox/dist/jquery.fancybox';
+@import 'fancybox';
+
+// Infinite Scroll
+//@import 'infinite-scroll';
+
 
 // Slick Slider
 @import '../../../node_modules/slick-carousel/slick/slick';
 @import '../../../node_modules/slick-carousel/slick/slick-theme';
 @import "slick-settings";
-
-// Full Screen Scrolling Section
-@import "full-screen-scrolling-section";
