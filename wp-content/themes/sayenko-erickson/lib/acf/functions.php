@@ -124,7 +124,7 @@ function _s_acf_button( $args = [] ) {
         
 	$title   = $link['title'] ?? '';
     $url     = $link['url'] ?? '';
-    $target  = ! empty( $link['target'] ) ? sprintf(' %s', $link['target'] ) : '';
+    $target  = ! empty( $link['target'] ) ? sprintf(' target="%s', $link['target'] ) : '';
     
     // No link title, bail here!
 	if ( empty( $title ) && empty( $url ) ) {
@@ -143,6 +143,7 @@ function _s_acf_button( $args = [] ) {
         }
         
         $url = sprintf( ' data-src="#%s" data-fancybox href="javascript:;"', $slug );
+        // $url = sprintf( ' data-src="%s" data-type="iframe" data-fancybox="%s" href="javascript:;"', $url, uniqid() );
     } else {
         $url = sprintf( ' href="%s"', esc_url( $url ) );   
     }
@@ -157,7 +158,7 @@ function _s_acf_button( $args = [] ) {
     }
 
 	$output = sprintf(
-		'<a%s%s%s>%s</a>',
+		'<a%s%s%s><span>%s</span></a>',
 		$url,
 		$classes,
         esc_attr( $target ),

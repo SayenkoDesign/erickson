@@ -48,3 +48,23 @@ function alter_specific_user_field( $result, $user, $field, $post_id ) {
     return $result;
 }
 // add_filter("acf/fields/user/result", 'alter_specific_user_field', 10, 4);
+
+
+
+/**
+ * Populate ACF select field options with Gravity Forms forms
+ */
+function acf_populate_gf_forms_ids( $field ) {
+	if ( class_exists( 'GFFormsModel' ) ) {
+		$choices = [];
+
+		foreach ( \GFFormsModel::get_forms() as $form ) {
+			$choices[ $form->id ] = $form->title;
+		}
+
+		$field['choices'] = $choices;
+	}
+
+	return $field;
+}
+add_filter( 'acf/load_field/name=gravity_form', 'acf_populate_gf_forms_ids' );

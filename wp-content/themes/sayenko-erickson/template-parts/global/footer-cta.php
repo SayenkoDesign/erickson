@@ -25,7 +25,7 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
                     // $this->post_id = get_the_ID();
                 }
                 
-                $hide_call_to_action = $fields['hide_call_to_action'];   
+                $hide_call_to_action = get_field( 'hide_call_to_action' );   
                 
             }
             
@@ -64,7 +64,7 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
         // Add content
         public function render() {
                                                 
-            $heading = $this->get_fields( 'heading' );
+            $heading = _s_format_string( $this->get_fields( 'heading' ), 'h3' );
             $button = $this->get_fields( 'button' );
                       
             if( ! empty( $button['link'] ) ) {
@@ -74,14 +74,14 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
                     'echo' => false,
                     'classes' => 'button',
                 ];
-                $button  = sprintf( '<p>%s</p>', _s_acf_button( $args ) );
+                $button  = _s_acf_button( $args );
             } else {
                 $button = '';
             }
             
                         
             return sprintf( '<div class="grid-container">
-                                <div class="grid-x grid-margin-x"><div class="cell"><div class="call-to-action">%s%s</div></div></div>
+                                <div class="grid-x grid-padding-x grid-margin-bottom align-middle"><div class="cell large-7">%s</div><div class="cell large-5">%s</div></div>
                             </div>',
                             $heading,
                             $button

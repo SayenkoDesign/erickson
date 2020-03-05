@@ -1,8 +1,25 @@
 
-.grid-x {
+.grid-margin-x {
     &.grid-margin-bottom {
         > .cell {
             @each $size, $margin in $grid-margin-gutters {
+                @include breakpoint($size) {
+                    margin-bottom: rem-calc($margin);
+                }  
+            }
+            
+            &.no-margin {
+                margin-bottom: 0;   
+            }
+        }
+    }
+}
+
+
+.grid-padding-x {
+    &.grid-margin-bottom {
+        > .cell {
+            @each $size, $margin in $grid-padding-gutters {
                 @include breakpoint($size) {
                     margin-bottom: rem-calc($margin);
                 }  

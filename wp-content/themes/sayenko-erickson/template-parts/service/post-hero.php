@@ -54,11 +54,15 @@ if( ! class_exists( 'Hero_Post' ) ) {
                 }
             }
             
-            $this->add_render_attribute( 'wrapper', 'class', 'has-background' );
-            $this->add_render_attribute( 'wrapper', 'class', 'background-image' );
-            $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-image: url(%s);', $background_image ) );
-            $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-position: %s %s;', 
-                                                                      $background_position_x, $background_position_y ) );
+            if( ! empty( $background_image ) ) {
+            
+                $this->add_render_attribute( 'wrapper', 'class', 'has-background' );
+                $this->add_render_attribute( 'wrapper', 'class', 'background-image' );
+                $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-image: url(%s);', $background_image ) );
+                $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-position: %s %s;', 
+                                                                          $background_position_x, $background_position_y ) );
+            
+            }
             
             if( true == $background_overlay ) {
                  $this->add_render_attribute( 'wrapper', 'class', 'background-overlay' ); 
@@ -70,18 +74,31 @@ if( ! class_exists( 'Hero_Post' ) ) {
         // Add content
         public function render() {
                                 
-            $heading        = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
-            $heading        = _s_format_string( $heading, 'h1' );
-            
-            $date_format = get_option( 'date_format' );
-            $post_date = ''; // _s_get_posted_on( $date_format );
+            $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
+            $heading = _s_format_string( $heading, 'h1' );
+            $description = _s_format_string( $this->get_fields( 'description' ), 'h4' );
+            $heading = sprintf( '<header>%s%s</header>', $heading, $description  );  
+
+            $button = $this->get_fields( 'button' );
+                      
+            if( ! empty( $button['link'] ) ) {
+                                
+                $args = [
+                    'link' => $button['link'],
+                    'echo' => false,
+                    'classes' => 'button',
+                ];
+                $button  = sprintf( '<div>%s</div>', _s_acf_button( $args ) );
+            } else {
+                $button = '';
+            }
             
             return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x align-middle">
                                 <div class="cell"><div class="hero-content">%s%s%s</div></div>
                             </div></div>', 
                             get_the_category_list( '' ), 
                             $heading, 
-                            $post_date
+                            $button
                          );
         }
     }

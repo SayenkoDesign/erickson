@@ -27,7 +27,7 @@ get_header(); ?>
 </div>
 
 <?php
-printf( '<div class="share"><div class="grid-container"><div class="grid-x grid-margin-x"><div class="cell text-center"><h3>%s</h3>%s</div></div></div></div>', 
+printf( '<div class="share"><div class="grid-container"><div class="grid-x grid-margin-x"><div class="cell text-center"><h4>%s</h4>%s</div></div></div></div>', 
     __( 'Share This', '_s' ),
     _s_get_addtoany_share_icons()
 );

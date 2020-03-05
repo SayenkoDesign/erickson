@@ -6,7 +6,7 @@ export default {
 		
 		$( window ).on( 'changed.zf.mediaquery', function( event, newSize, oldSize ) {
 			if ( MediaQuery.atLeast( 'xlarge' ) ) {
-				// new Foundation.Accordion('.accordion');
+				//$(document).foundation();
 			} 
 		} );
 	},

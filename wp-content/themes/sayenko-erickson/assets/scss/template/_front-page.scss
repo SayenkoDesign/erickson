@@ -5,28 +5,74 @@
 .home {
     
     .section-hero {
+        background: #ffffff;
         position: relative;
         overflow: hidden;
         
-        height: calc(100vw *(9/16));
+        
+        
+        @include breakpoint(xlarge) {
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                height: 13%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 13' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23ffffff' points='0 0, 0 13,40 13'/%3E%3C/svg%3E");
+                z-index: 1;
+            }
+            
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -2px;
+                right: 0;
+                width: 100%;
+                height: 13%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 8' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23ffffff' points='60 8, 100 0,100 8'/%3E%3C/svg%3E");
+                z-index: 1;
+            }
+        }
+        
+        @supports (clip-path: polygon(100% 0, 100% 88%, 64% 100%, 36% 100%, 0 88%, 0 0)) {
+            &:before,
+            &:after {
+                display: none;   
+            }
+            clip-path: polygon(100% 0, 100% 88%, 64% 100%, 36% 100%, 0 88%, 0 0);
+        }
+        
+        
+        /*height: calc(100vw *(9/16));
         min-height: rem-calc(400);
                 
         @include breakpoint(xlarge) {
             height: calc(100vw *(9/16));
             max-height: calc(80vh - 65px);
         }
+        */
         
         .slick {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 100vh;
+            max-height: 100%;
+            
+            .slick-list,
+            .slick-track,
+            .slick-slide {
+                height: 100%;
+            }
                          
             .slick-slide {
                 background-size: cover;
-                height: calc(100vw *(9/16));
-                min-height: rem-calc(400);
-                
-                @include breakpoint(xlarge) {
-                    height: calc(100vw *(9/16));
-                    max-height: calc(80vh - 65px);
-                }
+                background-position: center;
                 
                 img {
                     opacity: 0;
@@ -51,24 +97,25 @@
         
         
         .hero-content {
-            padding: rem-calc(40 0);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            background-color: rgba(18,55,89,0.7);
+            padding: rem-calc(60 0);
+            position: relative;
             z-index: 2;
+            text-align: center;
             
-            h1 {
-                color: #fff;   
+            @include breakpoint(large) {
+                padding: rem-calc(120 0);
             }
             
-            p {
+            h1 {
+                color: #fff; 
+                margin-bottom: 0;  
+            }
+            
+            h4 {
                 color: #ECECEC;
-                font-size: rem-calc(18);
-                font-weight: 600;
-                line-height: 1.222222222; 
-                margin-top: rem-calc(25);  
+                margin: rem-calc(20 auto 0);  
+                max-width: rem-calc(900);
             }
             
             > *:last-of-type {
@@ -76,31 +123,171 @@
             }
             
             .button {
-                background-color: #fff;
-                color: $red;  
-                margin-top: rem-calc(10); 
+                margin-top: rem-calc(50); 
+                min-width: rem-calc(248);
+            } 
+            
+            .play-video {
+                margin-top: rem-calc(50);   
+            }
+            
+            .play-video a {
+                background: $orange;
+                margin: 0 auto;
+                @include pulse();   
                 
-                &:hover {
-                    background-color:  $dark-gray;
-                    color: #fff;  
+                span {
+                    background: $orange;
+                    
+                    border: 3px solid #fff;
+                            
+                    &:after {
+                        content:'';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 8px 0 8px 16px;
+                        border-color: transparent transparent transparent #ffffff;
+                        margin-left: 2px;
+
+                    }
                 }
-            }            
+            }
         }        
     }
     
-    main {
-        section {
-            background-color: $gray;  
-            padding-top: rem-calc(75);
+    
+    .section-services {
+        
+        padding-top: rem-calc(100);        
+        
+        .grid {
             
-            @include breakpoint(xlarge) {
-                padding-top: rem-calc(150);
+            header {
+                margin-bottom: rem-calc(10);
+                text-align: center;
+                
+                span {
+                    display: block;
+                    margin-bottom: rem-calc(10);   
+                }
+                
+                @include breakpoint(large) {
+                    
+                    text-align: left;
+                    
+                    > * {
+                        display: inline-block; 
+                        vertical-align: top;  
+                    }
+                    
+                    span {
+                        display: inline-block; 
+                        margin-right: rem-calc(15);  
+                        margin-bottom: 0; 
+                    }
+                }
             }
             
-            .slider {
-                position: relative;   
+            footer {
+                text-align: center;   
+            }
+            
+            ul {
+                @include bullets($orange);
+                margin-bottom: rem-calc(50);
+                
+                display: inline-block;
+                
+                @include breakpoint(medium-large) {
+                    display: block;
+                }
+                
+                li {
+                    text-align: left;
+                    margin-top: rem-calc(10);
+                    
+                    
+                    a {
+                        color: $dark-gray;
+                        letter-spacing: 0.7px;
+                        font-family: $barlow;
+                        font-size: rem-calc(18);
+                        font-weight: 500;
+                        text-transform: uppercase;   
+                    }
+                }
             }
         }
     }
-
+    
+    .section-customers {
+        
+        background: $light-gray;
+        margin-top: rem-calc(25);
+        padding: rem-calc(75 0 50);
+        
+        header {
+            text-align: center;  
+        }
+        
+        .logos {
+            @include list-reset;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            flex-wrap: wrap;
+            
+            @include breakpoint(large) {
+                flex-wrap: no-wrap;
+            }
+            
+            li {
+                margin-bottom: rem-calc(25);   
+            }
+            
+            a {
+                dispay: block;   
+            }
+            
+            span {
+                display: block;
+                padding: rem-calc(15);
+            }
+        }
+    }  
+    
+    
+    .section-featured-post {
+        background-color: $light-gray;
+        margin-top: rem-calc(55);
+        padding: rem-calc(75 0);   
+        
+        .cell {
+            padding-left: rem-calc(40);
+            padding-right: rem-calc(40) ;
+        }
+        
+        .thumbnail {
+            background-size: cover;
+            background-positoin: center;
+            display: block;
+            padding-top: 100%;
+            border-radius: 50%;
+            box-shadow: $box-shadow;
+        }
+        
+        .panel {
+            position: relative;            
+        }
+        
+        h3 {
+            color: $orange;   
+        }
+    }
 }

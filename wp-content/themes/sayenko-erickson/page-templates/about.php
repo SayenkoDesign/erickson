@@ -3,12 +3,6 @@
 Template Name: About
 */
 
-add_filter( 'body_class', function ( $classes ) {
-  unset( $classes[ array_search('page-template-default', $classes ) ] );
-  $classes[] = 'pinned-header';
-  return $classes;
-}, 99 );
-
 get_header(); ?>
 
 <?php
@@ -20,10 +14,14 @@ _s_get_template_part( 'template-parts/about', 'hero' );
 
     <main id="main" class="site-main" role="main">
     <?php
-        _s_get_template_part( 'template-parts/about', 'mission' );
+        $mission = _s_get_template_part( 'template-parts/about', 'mission', false, true );
+        $vision = _s_get_template_part( 'template-parts/about', 'vision', false, true );
+        
+        printf( '<section class="mission-vision"><div class="wrap">%s%s</div></section>', $mission, $vision );
+        
         _s_get_template_part( 'template-parts/about', 'core-values' );
-        _s_get_template_part( 'template-parts/global', 'people' );
-        _s_get_template_part( 'template-parts/about', 'history' );
+        _s_get_template_part( 'template-parts/about', 'commitment' );
+        _s_get_template_part( 'template-parts/about', 'awards' );
         
     ?>
     </main>

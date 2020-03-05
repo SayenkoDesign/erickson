@@ -8,14 +8,14 @@
         margin-bottom: rem-calc(40);
         position: relative;
         
-        $color: '#eaeaea';
-        $color-hover: '#ED4399';
+        $color: #d7d5d6;
+        $color-hover: $orange;
         $width: 25px;
         $height: 43px;
         
         // Fix values
-        $color: str-replace($color, '#', '');
-        $color-hover: str-replace($color-hover, '#', '');
+        $color: str-replace(#{$color}, '#', ''); 
+        $color-hover: str-replace(#{$color-hover}, '#', ''); 
         $width: strip-unit($width);
         $height: strip-unit($height);
                   

@@ -42,7 +42,7 @@ if( ! class_exists( 'Careers_Testimonials_Section' ) ) {
                 return false;
             }
                                                    
-            return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x">    
+            return sprintf( '<div class="grid-container"><div class="grid-x grid-padding-x grid-padding-bottom">    
             <div class="cell">%s</div></div>', $testimonials );
         }
         
@@ -89,9 +89,13 @@ if( ! class_exists( 'Careers_Testimonials_Section' ) ) {
                         </div>';
             
             if( ! empty( $posts ) ) {
-                return sprintf( '<div class="slider"><div class="wrap"><div class="slick">%s</div>
+                
+                $quote_mark = sprintf( '<div class="quote-mark">%s</div>', 
+                                    get_svg( 'left-quote' ) );
+                
+                return sprintf( '<div class="slider">%s<div class="slick">%s</div>
                                     %s
-                                </div></div>', join( '', $posts ), $buttons );
+                                </div>', $quote_mark, join( '', $posts ), $buttons );
             }
         }
         
@@ -99,29 +103,25 @@ if( ! class_exists( 'Careers_Testimonials_Section' ) ) {
         private function get_testimonial() {
             
             $post_id = get_the_ID();
-                                  
-            $photo = get_the_post_thumbnail( $post_id, 'large' );
-            
+                                              
             $quote = get_field( 'quote', $post_id );
             
-            $name = get_field( 'name', $post_id );
-            
-            if( $name ) {
-                $name = _s_format_string( '- ' . $name, 'h6' );
-            }
-            
-            if( empty( $photo ) || empty( $quote )  ) {
+            if( empty( $quote ) ) {
                 return false;
             }
- 
+                        
+            $name = _s_format_string( '- ' . get_field( 'name', $post_id ), 'h6' );
             
-            $quote_mark = sprintf( '<div class="quote-mark"><span>&ldquo;</span></div>', 
-                                    trailingslashit( THEME_IMG ) );
-            
-            $quote = sprintf( '<div class="quote">%s%s%s</div>', $quote_mark, $quote, $name );
+            $quote = sprintf( '<div class="quote">%s%s</div>', $quote, $name );
                 
-            return sprintf( '<div class="slide"><div class="grid-x grid-margin-x">    
-            <div class="cell large-5">%s</div><div class="cell large-auto">%s</div></div></div>', $photo, $quote );   
+            
+            $photo = get_the_post_thumbnail_url( $post_id, 'medium' );
+            if( ! empty( $photo ) ) {
+                $photo = sprintf( '<div class="thumbnail" style="background-image: url(%s);"></div>', $photo );
+            }
+            
+            return sprintf( '<div class="slide"><div class="grid-x grid-padding-x grid-margin-bottom">    
+            <div class="cell large-3">%s</div><div class="cell large-auto">%s</div></div></div>', $photo, $quote );   
         }
       
     }

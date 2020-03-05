@@ -12,9 +12,9 @@ if( ! class_exists( 'Block_Section' ) ) {
             $fields = get_sub_field( 'block' );
             $fields['content_width'] = sprintf( 'content-width-%s', strtolower( $fields['content_width'] ) ); 
             $fields['content_alignment'] = sprintf( 'content-align-%s', strtolower( $fields['content_alignment'] ) );          
-            $fields['photo_alignment'] = sprintf( 'photo-align-%s', strtolower( $fields['photo_alignment'] ) );
+            $fields['image_alignment'] = sprintf( 'image-align-%s', strtolower( $fields['image_alignment'] ) );
             
-            if( ! empty( $fields[ 'photo' ] ) ) {
+            if( ! empty( $fields[ 'image' ] ) ) {
                 $fields['content_width'] = ''; 
                 $fields['content_alignment'] = ''; 
             }
@@ -43,10 +43,10 @@ if( ! class_exists( 'Block_Section' ) ) {
                 ]
             );
                         
-            if( empty( $this->get_fields( 'photo' ) ) ) {                                                  
+            if( empty( $this->get_fields( 'image' ) ) ) {                                                  
                 $this->add_render_attribute( 'wrapper', 'class', [$this->get_fields( 'content_width' ), $this->get_fields( 'content_alignment' )] );               
             } else {
-                $this->add_render_attribute( 'wrapper', 'class', $this->get_fields( 'photo_alignment' ) ); 
+                $this->add_render_attribute( 'wrapper', 'class', $this->get_fields( 'image_alignment' ) ); 
             }
             
         } 
@@ -59,34 +59,43 @@ if( ! class_exists( 'Block_Section' ) ) {
             
             $cells = '';
             
-            $photo = $this->get_fields( 'photo' );
+            $image = $this->get_fields( 'image' );
             
             $columns = '';
             
-            if( ! empty($photo ) ) {
-                $columns = ' large-6';
-                $cell_order = 'photo-align-right' == $this->get_fields( 'photo_alignment' ) ? ' large-order-2' : '';
-                $cells .= sprintf( '<div class="cell%s%s">%s</div>', $columns, $cell_order, _s_get_acf_image( $photo, 'large' ) );
+            if( ! empty($image ) ) {
+                
+                $video = $this->get_fields( 'video' );
+                $video_link = '';
+                if( ! empty( $video ) ) {
+                    $video_icon = '<span><i class="screen-reader-text">play video</i></span>';
+                    $video_link = sprintf( '<div class="play-video"><a data-fancybox href="%s">%s</a></div>', $video, $video_icon );
+                }
+                
+                $columns = ' large-auto';
+                $cell_order = 'image-align-right' == $this->get_fields( 'image_alignment' ) ? ' large-order-2' : '';
+                $cells .= sprintf( '<div class="cell%s%s"><div class="image-wrapper">%s%s</div></div>', $columns, $cell_order, $video_link, _s_get_acf_image( $image, 'large' ) );
             }
             
             $button = $this->get_fields( 'button' );
-            
             if( ! empty( $button['link'] ) ) {
                                 
                 $args = [
                     'link' => $button['link'],
                     'echo' => false,
-                    'classes' => 'Button' == $button['style'] ? 'button' : 'button',
+                    'classes' => 'button',
                 ];
                 $button  = sprintf( '<p class="button-wrapper">%s</p>', _s_acf_button( $args ) );
+            } else {
+                $button = '';   
             }
             
             
             
-            $cells .= sprintf( '<div class="cell%s">%s%s</div>', $columns, $this->get_fields( 'editor' ), $button  );
+            $cells .= sprintf( '<div class="cell%s"><div class="panel">%s%s</div></div>', $columns, $this->get_fields( 'text' ), $button  );
                                                 
             return sprintf( '<div class="grid-container">
-                                <div class="grid-x grid-margin-x">
+                                <div class="grid-x grid-padding-x grid-margin-bottom">
                                 %s
                                 </div>
                             </div>',

@@ -39,6 +39,16 @@ if( ! class_exists( 'About_Mission_Section' ) ) {
                 true
             ); 
                         
+        }
+        
+        
+        public function before_render() {            
+            return '';
+        }
+        
+        
+        public function after_render() {
+            return '';
         }  
         
         
@@ -48,14 +58,25 @@ if( ! class_exists( 'About_Mission_Section' ) ) {
             
             $heading = $this->get_fields( 'heading' );
             $heading = _s_format_string( $heading, 'h2' );
-            $content = $this->get_fields( 'content' );
+
+            $text = $this->get_fields( 'text' );
             
-            return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x align-middle">
-                                <div class="cell"><div class="entry-content">%s%s</div></div>
-                            </div></div>',
+            $image = _s_get_acf_image( $this->get_fields( 'image' ), 'large' );
+            if( ! empty( $image ) ) {
+                $style = sprintf( ' style="background-image: url(%s);"', $image );
+                $image = sprintf( '<div class="cell large-auto object-fit-parent">%s</div>', $image );
+            }
+                                        
+            return sprintf( '
+                                <div class="grid-x">
+                                    <div class="cell large-auto align-self-middle"><div class="panel">%s%s</div></div>
+                                    %s
+                                </div>
+                            ',
                             $heading,
-                            $content
-                         );
+                            $text,
+                            $image
+                         );  
             
         }
         

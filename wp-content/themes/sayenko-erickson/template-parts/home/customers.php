@@ -47,11 +47,12 @@ if( ! class_exists( 'Home_Customers_Section' ) ) {
         public function render() {
                                     
             $heading = _s_format_string( $this->get_fields('heading'), 'h2' ); 
+            $heading = sprintf( '<header>%s</header>', $heading  );  
             
             $grid = $this->get_grid();
                         
             return sprintf( '<div class="grid-container">
-                                <div class="grid-x grid-margin-x"><div class="cell">%s%s</div></div>
+                                <div class="grid-x"><div class="cell">%s%s</div></div>
                             </div>',
                             $heading,
                             $grid
@@ -81,7 +82,7 @@ if( ! class_exists( 'Home_Customers_Section' ) ) {
         private function get_item( $row ) {
             
             $image = $row['image'];  
-            $image = _s_get_acf_image( $image );    
+            $image = sprintf( '<span>%s</span>', _s_get_acf_image( $image ) );    
                                                                                                        
             $url = $row['url'];
             if( ! empty( $url ) ) {

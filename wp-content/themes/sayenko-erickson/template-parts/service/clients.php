@@ -42,7 +42,6 @@ if( ! class_exists( 'Clients_Section' ) ) {
         public function render() {
                                     
             $heading = _s_format_string( $this->get_fields( 'heading' ), 'h2' );
-            $heading    = sprintf( '<header>%s</header>', $heading  ); 
             
             $rows       = $this->get_fields( 'locations' );
             
@@ -73,14 +72,14 @@ if( ! class_exists( 'Clients_Section' ) ) {
                 
                 $legend[] = sprintf( '<span class="marker-anchor" data-marker-id="%d">%s</span>', $marker_id, $title );
                 
-                $markers .= sprintf( '<div id="marker-%d" class="marker" data-id="%d" data-lat="%s" data-lng="%s" data-active="%s">%s%s%s</div>',
+                $markers .= sprintf( '<div id="marker-%d" class="marker" data-id="%d" data-lat="%s" data-lng="%s" data-active="%s"><div class="panel">%s%s%s</div></div>',
                                     $marker_id,
                                     $marker_id,
                                     $map['lat'], 
                                     $map['lng'],
                                     $active,
                                     $image,
-                                    $title,
+                                    _s_format_string( $title, 'h4' ),
                                     $address
                                     
                          );
@@ -94,11 +93,11 @@ if( ! class_exists( 'Clients_Section' ) ) {
                                         
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x">
-                                    <div class="cell">%s%s</div>
+                                    <div class="cell"><header>%s%s</header></div>
                                 </div>
                             </div>%s',
                             $heading,
-                            ul( $legend, ['id' => 'map-legend'] ),
+                            ul( $legend, [ 'class' => 'no-bullet', 'id' => 'map-legend'] ),
                             $markers
                          );  
         }

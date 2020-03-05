@@ -84,7 +84,7 @@ if( ! class_exists( 'Hero_Post' ) ) {
             $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
             $heading = _s_format_string( $heading, 'h1' );
     
-            return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x align-middle">
+            return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x align-bottom">
                                 <div class="cell"><div class="hero-content">%s%s</div></div>
                             </div></div>',
                             $logo, 

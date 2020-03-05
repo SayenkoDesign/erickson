@@ -1,5 +1,6 @@
 // Theme mixins
 
+
 @mixin full-width {
     width: 100vw;
     position: relative;
@@ -29,33 +30,34 @@
     }   
 }
 
-@mixin bullets($color: #596975) {        
+@mixin bullets($color: $orange) {        
     @include list-reset;
     margin-bottom: rem-calc($global-margin);
     $color: str-replace(#{$color}, '#', '');
         
     li {
         position: relative;
-        min-height: rem-calc(24);
-        padding-left: rem-calc(30);
+        min-height: 24px;
+        padding: 0 0 5px 40px;
         line-height: inherit;
         margin: rem-calc(0 auto 5 0);
         
         &:before {
             content: '';
-            width: 18px;
-            height: 5px;
+            width: 24px;
+            height: 24px;
             position: absolute;
-            top: 11px;
+            top: 0px;
             left: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='5'%3E%3Cpath fill='%23#{$color}' fill-rule='evenodd' d='M0 2.513a.82.82 0 0 0 .82.82h12.233a2.51 2.51 0 0 0 2.286 1.64 2.462 2.462 0 1 0-2.295-3.281H.82a.82.82 0 0 0-.82.82z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(1 1)' fill='none' fill-rule='evenodd'%3E%3Cpath d='M16.985 11.214l-3.33 3.33-.117.116-.388-.389.116-.117 3.33-3.33-3.32-3.32-.12-.12.382-.382.12.12 3.59 3.59.12.119-.383.383z' fill='%232B70AA'/%3E%3Cpath d='M5.754 10.83h10.83' stroke='%23#{$color}' stroke-width='1.6' stroke-linecap='square'/%3E%3Ccircle stroke='%23#{$color}' stroke-width='2' cx='11' cy='11' r='11'/%3E%3C/g%3E%3C/svg%3E%0A");
+            
             
         }
     }
 }
 
 
-@mixin bullets-arrow($color: #ffffff, $background: $red ) {        
+@mixin bullets-arrow($color: $orange, $background: $white ) {        
     @include list-reset;
     margin-bottom: rem-calc($global-margin);
     $color: str-replace(#{$color}, '#', '');
@@ -105,7 +107,7 @@
     
     $color: str-replace(#{$color}, '#', '');  
     
-    @if $position == 'left' {
+    @if $position== 'left' {
 
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='0 0 31 22'%3E%3Cg fill='none' fill-rule='evenodd' stroke='none' stroke-width='1' transform='translate(-231.000000, -1931.000000) translate(245.500000, 1941.000000) rotate(-180.000000) translate(-245.500000, -1941.000000) translate(211.000000, 1908.000000) translate(20.000000, 21.000000)'%3E%3Cpath class='arrow' fill='%23#{$color}' d='M16 22a1 1 0 0 0 2 0l11-10a1 1 0 0 0 0-2L18 0h-2v2l10 9-10 9v2z'/%3E%3Cpath class='line' stroke='%23#{$color}' stroke-linecap='square' stroke-width='3' d='M26 11H0'/%3E%3C/g%3E%3C/svg%3E"); 
 
@@ -116,35 +118,149 @@
 }
 
 
-@mixin fancy-link() {
+@mixin pulse( $size: 50, $bg: #ffffff ) {
+    $button-bg-color: $bg;
+    $button-size: rem-calc($size);
+    $button-radius: 50%;  
     
-   color: $gray;
-   display: inline-block;
-   font-size: rem-calc(18);
-   line-height: 1.055555556;
-   letter-spacing: 0.7px; 
-   
-   &:hover {
-        color: $dark-gray;   
-   }
-     
-   &:after { 
-        content: "";
-        display: block;
-        width: 44px;
-        height: 2px;
-        background-color: $red;
-        margin-top: rem-calc(5);
+    // Animation
+    @keyframes button-beat {
+        0% {
+            opacity: .8;
+            transform: scale(1);
+        }
+        70% {
+            opacity: 0;
+            transform: scale(1.5);
+        }
+        100% {
+            opacity: 0;
+        }
     }
-    
-    .no-touchevents & {
+
+    display: inline-block;
+    border-radius: $button-radius;
+    border: 0 none;
+    padding: 0;
+    text-align: center;
+    width: $button-size;
+    height: $button-size;
+    line-height: $button-size;
+    position: relative;
+    transition: all .25s ease-in-out;
+    z-index: 1;
+
+    &.revealed {  
+              
+        &:before {
+            animation: button-beat 1.5s ease-out infinite;
+        }
         
         &:after {
-            transition: width .3s;   
-        }
-        
-        &:hover:after {
-            width: 100%;   
+            animation: button-beat 1.5s ease-out .4s infinite;
         }
     }
+    &:before,
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-color: $button-bg-color;
+        width: 100%;
+        height: 100%;
+        border-radius: $button-radius;
+        opacity: 0;
+        transition: all .25s ease-in-out;
+    }
+    
+    span {
+        display: inline-block;
+        border-radius: $button-radius;
+        border: 0 none;
+        padding: 0;
+        text-align: center;
+        width: $button-size;
+        height: $button-size;
+        line-height: $button-size;   
+    }
+}
+
+@mixin play() {
+    
+    z-index: 2; 
+    
+    &:after, 
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        border: 1px solid #ffffff;
+        left: -20px;
+        right: -20px;
+        top: -20px;
+        bottom: -20px;
+        border-radius: 50%;
+        transform:scale(0);
+        z-index: -1;
+    }
+    
+    &.is-visible {
+        &:after, 
+        &:before {
+
+            animation: animate 1.5s linear infinite;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden
+        }
+        &::after {
+            animation-delay: 0.5s
+        }   
+    }
+    
+    @keyframes animate {
+        0% {
+        transform:scale(0);
+        opacity:0
+        }
+        50% {
+        opacity:1
+        }
+        100% {
+        transform:scale(1.2);
+        opacity:0
+        }
+    }
+    
+    span {
+        display: block;
+        width: 73px;
+        height: 73px;
+        position: relative;
+        background: $orange;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        
+        &:after {
+            content:'';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 14px 0 14px 28px;
+            border-color: transparent transparent transparent #ffffff;
+            margin-left: 5px;
+
+        }
+    }
+    
+    i {
+        @include screen-reader-text;   
+    }
+
 }

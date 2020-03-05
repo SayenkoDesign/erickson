@@ -68,21 +68,23 @@
 // ---------
 
 // Colors
-$red: #ED3D4A;
-$dark-red: #D43642;
-$red-hover: #D43642;
-$gray: #ECECEC;
-$light-gray: #F9F9F9;
-$medium-gray: #596975;
-$dark-gray: #2C2E32;
+$red: #CF0707;
+$orange: #f58025;
+$orange-hover: #E56104;
+$navy: #123759;
+$gray: #474447;
+$dark-gray: #474447;
+$medium-gray: #D7D5D5;
+$light-gray: #ECECEC;
 
-$blue-gray: #CADADE;
 
 // Fonts
-$lato: 'Lato', sans-serif;
+$barlow: 'Barlow', sans-serif;
+$source-sans: 'Source Sans Pro', sans-serif;
 
 $font-weight-thin: 300;
 $font-weight-regular: 400;
+$font-weight-medium: 500;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
 $font-weight-extra-bold: 900;
@@ -97,7 +99,7 @@ $global-font-size: 100%;
 $global-width: rem-calc(1260);
 $global-lineheight: 1.5;
 $foundation-palette: (
-	primary: $red,
+	primary: $orange,
 	secondary: $dark-gray,
 	success: #3adb76,
 	warning: #ffae00,
@@ -108,7 +110,7 @@ $black: #000;
 $white: #ffffff;
 $body-background: $white;
 $body-font-color: $dark-gray;
-$body-font-family: $lato;
+$body-font-family: $source-sans;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -149,10 +151,10 @@ $breakpoint-classes: (small medium medium-large large xlarge xxlarge xxxlarge);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-  small: 40px,
-  medium: 40px,
-  medium-large: 40px,
-  large: 50px,
+  small: 20px,
+  medium: 20px,
+  medium-large: 20px,
+  large: 20px,
 );
 $grid-column-align-edge: true;
 $grid-column-alias: 'columns';
@@ -161,8 +163,8 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
-$header-font-weight: $font-weight-extra-bold;
+$header-font-family: $barlow;
+$header-font-weight: $font-weight-medium;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: $dark-gray;
@@ -170,28 +172,28 @@ $header-lineheight: 1;
 $header-margin-bottom: rem-calc(20);
 $header-styles: (
 	small: (
-		'h1': ('font-size': 48, 'lh': 1.2, 'mb': 30 ),
-		'h2': ('font-size': 40, 'lh': 1.2, 'mb': 40),
-		'h3': ('font-size': 24, 'lh': 1.2, 'mb': 20),
-		'h4': ('font-size': 24, 'lh': 1.2, 'mb': 20),
-		'h5': ('font-size': 20, 'lh': 1.2, 'mb': 20),
-		'h6': ('font-size': 18, 'lh': 1.2, 'mb': 20),
+		'h1': ('font-size': 55, 'lh': 66/55, 'mb': 20 ),
+		'h2': ('font-size': 40, 'lh': 48/40, 'mb': 20),
+		'h3': ('font-size': 32, 'lh': 37/32, 'mb': 20),
+		'h4': ('font-size': 18, 'lh': 22/18, 'mb': 20),
+		'h5': ('font-size': 16, 'lh': 18/16, 'mb': 20),
+		'h6': ('font-size': 16, 'lh': 18/16, 'mb': 20),
 	),
     large: (
-		'h1': ('font-size': 60),
-		'h2': ('font-size': 48),
-		'h3': ('font-size': 24),
-		'h4': ('font-size': 24),
-		'h5': ('font-size': 20),
-		'h6': ('font-size': 18),
+		'h1': ('font-size': 55),
+		'h2': ('font-size': 40),
+		'h3': ('font-size': 32),
+		'h4': ('font-size': 18),
+		'h5': ('font-size': 16),
+		'h6': ('font-size': 16),
 	),
     xxxlarge: (
-		'h1': ('font-size': 60),
-		'h2': ('font-size': 48),
-		'h3': ('font-size': 30),
-		'h4': ('font-size': 30),
-		'h5': ('font-size': 24),
-		'h6': ('font-size': 18),
+		'h1': ('font-size': 55),
+		'h2': ('font-size': 40),
+		'h3': ('font-size': 32),
+		'h4': ('font-size': 18),
+		'h5': ('font-size': 16),
+		'h6': ('font-size': 16),
 	),
 
 );
@@ -209,7 +211,7 @@ $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
 $anchor-color: $primary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-color-hover: $orange-hover;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -265,11 +267,11 @@ $input-error-font-weight: $global-weight-bold;
 
 $accordion-background: transparent;
 $accordion-plusminus: true;
-$accordion-title-font-size: rem-calc(20);
-$accordion-item-color: #596975;
-$accordion-item-background-hover: $red;
+$accordion-title-font-size: rem-calc(18);
+$accordion-item-color: #454C54;
+$accordion-item-background-hover: transparent;
 $accordion-item-padding: rem-calc(20 50 20 20);
-$accordion-content-background: $white;
+$accordion-content-background: #eff3f1;
 $accordion-content-border: none;
 $accordion-content-color: $body-font-color;
 $accordion-content-padding: rem-calc(20);
@@ -320,20 +322,20 @@ $breadcrumbs-item-separator-color: $medium-gray;
 // ----------
 
 $button-font-family: inherit;
-$button-padding: rem-calc(27.5 20);
+$button-padding: rem-calc(18 30);
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
-$button-background-hover: $dark-gray;
+$button-background-hover: $orange-hover;
 $button-color: $white;
-$button-color-alt: $black;
+$button-color-alt: $primary-color;
 $button-radius: 0;
-$button-hollow-border-width: 1px;
+$button-hollow-border-width: 4px;
 $button-sizes: (
-	tiny: rem-calc(15),
-	small: rem-calc(15),
-	default: rem-calc(15),
-	large: rem-calc(15),
+	tiny: rem-calc(13),
+	small: rem-calc(13),
+	default: rem-calc(13),
+	large: rem-calc(13),
 );
 $button-palette: $foundation-palette;
 $button-opacity-disabled: 0.25;
@@ -439,7 +441,7 @@ $dropdownmenu-padding: $global-menu-padding;
 $dropdownmenu-nested-margin: 0;
 $dropdownmenu-submenu-padding: $dropdownmenu-padding;
 $dropdownmenu-border: 1px solid $medium-gray;
-$dropdown-menu-item-color-active: get-color(primary);
+$dropdown-menu-item-color-active: $navy;
 $dropdown-menu-item-background-active: transparent;
 
 // 19. Flexbox Utilities
@@ -516,7 +518,7 @@ $menu-nested-margin: $global-menu-nested-margin;
 $menu-items-padding: $global-menu-padding;
 $menu-simple-margin: 1rem;
 $menu-item-color-active: $white;
-$menu-item-background-active: get-color(primary);
+$menu-item-background-active: transparent; //get-color(primary);
 $menu-icon-spacing: 0.25rem;
 $menu-state-back-compat: true;
 $menu-centered-back-compat: true;
@@ -874,11 +876,11 @@ $titlebar-icon-spacing: 0.25rem;
 $has-tip-cursor: help;
 $has-tip-font-weight: $global-weight-bold;
 $has-tip-border-bottom: dotted 1px $dark-gray;
-$tooltip-background-color: $black;
-$tooltip-color: $white;
-$tooltip-padding: 0.75rem;
-$tooltip-max-width: 10rem;
-$tooltip-font-size: $small-font-size;
+$tooltip-background-color: #ffffff;
+$tooltip-color: $dark-gray;
+$tooltip-padding: rem-calc(15);
+$tooltip-max-width: rem-calc(280);
+$tooltip-font-size: rem-calc(16);
 $tooltip-pip-width: 0.75rem;
 $tooltip-pip-height: $tooltip-pip-width * 0.866;
 $tooltip-radius: $global-radius;
@@ -900,13 +902,21 @@ $xy-grid: true;
 $grid-container: $global-width;
 $grid-columns: 12;
 $grid-margin-gutters: (
-  small: 40px,
-  medium: 40px,
-  medium-large: 40px,
-  large: 50px
+  small: 10px,
+  medium: 10px,
+  medium-large: 10px,
+  large: 10px
 );
-$grid-padding-gutters: $grid-margin-gutters;
+$grid-padding-gutters: (
+  small: 20px,
+  medium: 20px,
+  medium-large: 20px,
+  large: 20px
+);
 $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
 
+
+$slick-loader-path: "../images/slick/";
+$slick-font-path: "../images/slick/fonts/";

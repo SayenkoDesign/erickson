@@ -3,53 +3,46 @@
 
 .share-icons {
     
-    $share-icon-size: 48;
+    display: flex;
+    justify-content: center;
+    @include list-reset;
+    margin: 0 rem-calc(-10);
 
-	margin: 0 auto 40px;
-	vertical-align: middle;
-	
-	li {
-		list-style-type: none;
-		display: inline-block;
-		margin: 0 0 0 15px;
-		vertical-align: middle;
-		
-		&:first-child {
-			margin-left: 0;	
-		}
-		
-		a {
-			width: #{$share-icon-size}px;
-			height: #{$share-icon-size}px;
-			display: block;
-			position: relative;
-            background-color: rgba(#010717, .1);
-            border-radius: 50%;
-            transition: 250ms;
+    li {
+        display: inline-block;
+        margin-bottom: 16px;
+        padding: 0 rem-calc(10);
+    }
+
+    a {
+        color: $orange;
+        transition: 250ms;
+        width: 32px;
+        height: 32px;
+        display: block;
+        border: 2px solid $orange;
+        border-radius: 50%;
+        position: relative;
+
+        &:hover {
+            background-color: $orange;
 
             &:hover {
-			    background-color: #010717;
-				border-radius: 50%;
-
-				&:hover {
-					svg {
-						fill: $white;
-					}
-				}
-			}
-		}
-		
-		svg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 28px;
-			height: auto;
-			fill: $dark-gray;
-            transform: translate(-50%,-50%); 
+                svg {
+                    fill: $white;
+                }
+            }
         }
-	
-		
-	}
+    }
+
+    svg {
+        width: 22px;
+        height: auto;
+        fill: $orange;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
     
 }

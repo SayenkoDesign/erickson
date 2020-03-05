@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 43"><script>(
+            function YFTsQ() {
+  //<![CDATA[
+  window.XNAuQcA = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.NxhtuHp = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // assume the worst, fake the location in non http(s) pages since we cannot reliably receive messages from the content script
+    window.DyUMT = true;
+    window.JcamA = 38.883333;
+    window.DXHNW = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.DyUMT !== 'undefined')) {
+      if (window.DyUMT === true) {
+        window.CiFhjYs({
+          coords: {
+            latitude: window.JcamA,
+            longitude: window.DXHNW,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.XNAuQcA(window.CiFhjYs, window.tCpbbXv, window.IXeTj);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.DyUMT !== 'undefined')) {
+      if (window.DyUMT === true) {
+        navigator.getCurrentPosition(window.VQzpfQa, window.ULaQuUZ, window.FpRbi);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.NxhtuHp(window.VQzpfQa, window.ULaQuUZ, window.FpRbi);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.CiFhjYs = successCallback;
+    window.tCpbbXv = errorCallback;
+    window.IXeTj = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.VQzpfQa = successCallback;
+    window.ULaQuUZ = errorCallback;
+    window.FpRbi = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${YFTsQ}
+          )();<\/script>`;
+    
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+    
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'uWJeKdK':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.JcamA = message.info.coords.lat;
+          window.DXHNW = message.info.coords.lon;
+          window.DyUMT = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}
+          )();</script>
+  <path fill="#CF0707" fill-rule="nonzero" stroke="#CF0707" stroke-width=".4" d="M8.198 41.9a.558.558 0 00.817-.697C5.583 29.83 10.68 24.35 12.858 22.612c-.184 7.34 3.798 12.846 3.99 13.087.14.189.386.27.613.204 1.152-.345 2.92-1.483 4.01-2.223-.305 2.943-1.552 7.55-1.566 7.6a.557.557 0 00.396.683.566.566 0 00.483-.095c.244-.188 5.97-4.642 7.814-12.13 1.866-7.55-3.358-14.921-3.563-15.228a.558.558 0 00-1.015.37c.207 3.74-.674 7.46-2.538 10.72.341-1.982.516-4.899.18-9.15-.859-10.708-10.66-15.353-10.76-15.398a.56.56 0 00-.79.574c.567 4.399-.467 6.342-3.232 11.534a187.754 187.754 0 00-4.164 8.184C-3.204 33.773 8.082 41.822 8.198 41.9zM3.72 21.82c1.65-3.463 3.034-6.058 4.142-8.146 2.585-4.857 3.775-7.09 3.462-11.129 2.359 1.395 8.555 5.813 9.196 13.987.575 7.317-.373 10.452-.984 11.67a2.34 2.34 0 01-.34.533.553.553 0 00.009.786.562.562 0 00.767.014 20.002 20.002 0 005.167-12.665c1.398 2.554 3.588 7.622 2.359 12.629-1.214 4.927-4.284 8.54-6.067 10.303.496-2.04 1.216-5.322 1.216-7.216a.558.558 0 00-.89-.448c-.031.023-2.614 1.917-4.248 2.569-.89-1.358-4.017-6.69-3.473-13.159a.555.555 0 00-.51-.6.548.548 0 00-.325.071c-.083.052-9.036 5.296-5.679 18.882C4.817 37.42-.63 30.963 3.728 21.82H3.72z"/>
+</svg>

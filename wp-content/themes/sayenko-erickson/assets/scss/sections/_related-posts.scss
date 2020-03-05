@@ -1,0 +1,97 @@
+// Related Posts
+
+.section-related-posts {
+    
+    padding-top: rem-calc(75);
+    
+    
+    .grid {
+        margin-top: rem-calc(40);   
+    }
+    
+    article {
+        background: $dark-gray;
+        position: relative;
+        display: flex;
+        // align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
+        
+        &:before {
+          content: "";
+          width: 1px;
+          margin-left: -1px;
+          float: left;
+          height: 0;
+          padding-top: 65%;
+        }
+        &:after { /* to clear float */
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+        .panel {
+            background-color: rgba(0,0,0,0.7);
+            width: 100%;
+            
+            &:hover {
+                background-color: rgba(71,68,71,0.8);
+            }
+            
+            padding: rem-calc(30 15);
+            text-align: center; 
+            
+            @include breakpoint(large) {
+                padding: rem-calc(60 30);
+            }
+            
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+            
+            .term-link {
+                display: block;
+                color: #fff; 
+                position: relative;
+                z-index: 3;  
+                
+                &:hover {
+                    color: $orange;   
+                }
+            }
+            
+            h4,
+            h3 {
+                color: #fff; 
+            }
+            
+            h3 {
+                margin-bottom: 0;   
+            }
+            
+            a.post-link {
+                display: block;
+                
+                color: #fff;
+                
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 2;  
+                }
+            }
+        }
+    }   
+}

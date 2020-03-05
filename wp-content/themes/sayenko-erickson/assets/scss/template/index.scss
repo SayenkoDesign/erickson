@@ -1,6 +1,7 @@
 // Import partials
 @import 'page';
 @import 'front-page';
+@import '404';
 
 @import 'archive';
 @import 'single';
@@ -8,13 +9,14 @@
 @import 'blog';
 @import 'post';
 
-@import 'application';
-@import 'product';
 
 @import 'multi-purpose';
+
 @import 'about';
+@import 'team';
 
 @import 'contact';
+@import 'thank-you';
 
 @import 'case-studies';
 
@@ -23,3 +25,16 @@
 @import 'careers';
 
 @import 'service';
+
+@import 'photo-gallery';
+
+@import 'video-gallery';
+
+@import 'history';
+
+@import 'archive-fleet';
+@import 'single-fleet';
+
+@import 'single-modal';
+
+@import 'investor-relations';

@@ -34,6 +34,8 @@ function _s_register_scripts() {
 						false, '', true );
     
 
+    wp_register_script( 'scrollreveal-config', _s_asset_path( '/js/scrollreveal-config.js' ), false, '', true ); 
+
 	// Main
 	wp_register_script( 'manifest', _s_asset_path( '/js/manifest.js' ), false, '', true );
 	wp_register_script( 'vendor', _s_asset_path( '/js/vendor.js' ), false, '', true );
@@ -66,4 +68,6 @@ function _s_load_scripts() {
 	wp_enqueue_script( 'modernizr' );
 
 	wp_enqueue_script( 'project' );
+    
+    wp_enqueue_script( 'scrollreveal-config' );
 }

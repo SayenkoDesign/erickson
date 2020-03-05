@@ -54,14 +54,17 @@ if( ! class_exists( 'Global_Hero' ) ) {
                 }
             }
             
-            $this->add_render_attribute( 'wrapper', 'class', 'has-background' );
-            $this->add_render_attribute( 'wrapper', 'class', 'background-image' );
-            $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-image: url(%s);', $background_image ) );
-            $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-position: %s %s;', 
-                                                                      $background_position_x, $background_position_y ) );
             
-            if( true == $background_overlay ) {
-                 $this->add_render_attribute( 'wrapper', 'class', 'background-overlay' ); 
+            if( ! empty( $background_image ) ) {
+                $this->add_render_attribute( 'wrapper', 'class', 'has-background' );
+                $this->add_render_attribute( 'wrapper', 'class', 'background-image' );
+                $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-image: url(%s);', $background_image ) );
+                $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-position: %s %s;', 
+                                                                          $background_position_x, $background_position_y ) );
+                
+                if( true == $background_overlay ) {
+                     $this->add_render_attribute( 'wrapper', 'class', 'background-overlay' ); 
+                }
             }
                                                                           
         }
@@ -71,7 +74,7 @@ if( ! class_exists( 'Global_Hero' ) ) {
         public function render() {
             
             $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
-            $heading = _s_format_string( $heading, 'h1', ['class' => 'h2' ] );
+            $heading = _s_format_string( $heading, 'h1', ['class' => '' ] );
             
             $description = empty( $this->get_fields( 'description' ) ) ? '' : _s_format_string( $this->get_fields( 'description' ), 'p' );
             
@@ -84,6 +87,8 @@ if( ! class_exists( 'Global_Hero' ) ) {
                     'classes' => 'button large',
                 ];
                 $button  = sprintf( '<p>%s</p>', _s_acf_button( $args ) );
+            } else {
+                $button = '';   
             }
     
             return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x align-middle">

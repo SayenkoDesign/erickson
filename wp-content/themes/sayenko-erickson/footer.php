@@ -16,26 +16,28 @@
 _s_get_template_part( 'template-parts/global', 'footer-cta' );
 ?>
 
-<footer class="site-footer" id="site-footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
+<div class="footer-widgets">
 	<div class="wrap">
     
         <div class="grid-container">
           <div class="grid-x grid-padding-x">
-            <div class="cell large-auto xxlarge-4">
+            <div class="cell large-auto">
                 <?php
+                
+                printf('<img src="%slogo.svg" alt="site logo" class="logo" /><h5>Tested and trusted&reg;</h5>', trailingslashit( THEME_IMG ) ); 
                 
                 // Company
                 $address    = get_field( 'address', 'option' );
                 $phone      = get_field( 'phone', 'option' );
                 
                 $out = '';
-                
+                                
                 if( ! empty( $address ) ) {
                     $out .= sprintf( '<li class="address"><span>%s</span></li>', $address );
                 }
                 
                 if( ! empty( $phone ) ) {
-                    $out .= sprintf( '<li class="phone"><a href="%s">%s</a></li>', _s_format_telephone_url( $phone ), $phone );
+                    $out .= sprintf( '<li class="phone"><a href="%s">%s%s</a></li>', _s_format_telephone_url( $phone ), get_svg( 'phone-icon' ), $phone );
                 }
                             
                 if( ! empty( $out ) ) {
@@ -43,6 +45,8 @@ _s_get_template_part( 'template-parts/global', 'footer-cta' );
                 }
 
                 ?>
+                
+                <a class="back-to-top" href="#top" data-smooth-scroll><?php echo get_svg( 'chevron-up' );?><span>Back to top</span></a>
             </div>
             
             <?php
@@ -57,11 +61,17 @@ _s_get_template_part( 'template-parts/global', 'footer-cta' );
                
         </div>
         
-        
-        <div class="grid-container">
-          <div class="grid-x grid-padding-x">
+	</div>
+
+</div>
+
+
+<footer class="site-footer" id="site-footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
+    <div class="wrap">
+        <div class="grid-container ">
+          <div class="grid-x grid-padding-x align-middle">
           
-            <div class="cell large-4 xlarge-auto">
+            <div class="cell large-auto">
                 <?php
                 $menu = '';
                 if( has_nav_menu( 'copyright' ) ) {
@@ -80,7 +90,7 @@ _s_get_template_part( 'template-parts/global', 'footer-cta' );
                 }
                 
                 // © 2019 Erickson Incorporated. All rights reserved. Web Design by Sayenko Design
-
+        
                 printf( '<div class="copyright"><p>&copy; %s Erickson Incorporated. %s %s <span><a href="%s">Web Design</a> by <a href="%s">Sayenko Design</a></span></p></div>', 
                           date( 'Y' ), 
                           __( 'All rights reserved.', '_s' ),
@@ -92,7 +102,7 @@ _s_get_template_part( 'template-parts/global', 'footer-cta' );
                 ?>
             </div>
         
-            <div class="cell shrink large-auto">
+            <div class="cell large-shrink">
                 <?php
                     if( _s_get_social_icons() ) {
                         echo _s_get_social_icons();
@@ -102,11 +112,8 @@ _s_get_template_part( 'template-parts/global', 'footer-cta' );
             
           </div>
         </div>
-        
-	</div>
-
+    </div>
 </footer><!-- #colophon -->
-
 <?php
 
 wp_footer();

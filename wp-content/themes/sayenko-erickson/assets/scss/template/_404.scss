@@ -2,10 +2,13 @@
 
 .error404 {
 	.site-content {
-        padding-bottom: rem-calc(75);   
         
         .entry-content {
-            padding-bottom: rem-calc(45);   
+            padding-bottom: rem-calc(45);  
+            
+            p {
+                font-size: rem-calc(32);   
+            }
         }
         
         .search-form {

@@ -1,14 +1,57 @@
 <?php
 
-/*
-add_filter( 'facetwp_facet_html', function( $output, $params ) {
-    if ( 'dropdown' == $params['facet']['type'] ) {
-        var_dump( $params );
-        $output = str_replace( 'facetwp-dropdown', 'facetwp-dropdown form-control', $output );
+add_filter( 'facetwp_is_main_query', function( $bool, $query ) {
+    return ( true === $query->get( 'facetwp' ) ) ? true : $bool;
+}, 10, 2 );   
+
+
+add_filter( 'facetwp_preload_url_vars', function( $url_vars ) {
+    if ( 'about/team' == FWP()->helper->get_uri() ) {
+        if ( empty( $url_vars['departments'] ) ) {
+            $url_vars['departments'] = array( 'all' );
+        }
     }
-    return $output;
+    return $url_vars;
+} );
+
+
+// History Years index as decade
+
+add_filter( 'facetwp_index_row', function( $params, $class ) {
+	if ( 'years' == $params['facet_name'] ) { // change date_as_year to name of your facet
+		$raw_value = $params['facet_value'];
+        if( is_numeric( $raw_value ) ) {
+            $params['facet_value'] = floor( $raw_value/10 ) *10;
+            $params['facet_display_value'] = $params['facet_value'];
+        }
+	}
+	return $params;
 }, 10, 2 );
-*/
+
+
+add_filter( 'facetwp_indexer_row_data', function( $rows, $params ) {
+  if ( 'years' == $params['facet']['name'] ) {
+    $new_row = $params['defaults'];
+    $new_row['facet_value'] = 'all years';
+    $new_row['facet_display_value'] = 'View All Years';
+    $rows[] = $new_row;
+  }
+  return $rows;
+}, 10, 2 );
+
+
+// Add "View All"
+add_filter( 'facetwp_indexer_row_data', function( $rows, $params ) {
+  if ( 'departments' == $params['facet']['name'] ) {
+    $new_row = $params['defaults'];
+    $new_row['facet_value'] = 'all';
+    $new_row['facet_display_value'] = 'View All';
+    $rows[] = $new_row;
+  }
+  return $rows;
+}, 10, 2 );
+
+
 
 
 // Run the facet index on save_post
@@ -96,7 +139,7 @@ add_filter( 'facetwp_pager_html', 'my_facetwp_pager_html', 10, 2 );
 // Customize the FacetWP sort options
 
 add_filter( 'facetwp_sort_options', function( $options, $params ) {
-    $options['default']['label'] = 'Order';
+    $options['default']['label'] = 'Select One';
     return $options;
 }, 10, 2 );
 

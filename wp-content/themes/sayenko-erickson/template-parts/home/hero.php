@@ -53,11 +53,7 @@ if( ! class_exists( 'Home_Hero' ) ) {
         
         $this->add_render_attribute( 'container', 'class', 'container' );
                 
-        if( wp_is_mobile() ) {
-                
-            
-             
-        }
+        $this->add_render_attribute( 'wrapper', 'class', 'has-background' );
         
         return sprintf( '<%s %s><div %s><div %s>', 
                         esc_html( $this->get_html_tag() ), 
@@ -72,9 +68,9 @@ if( ! class_exists( 'Home_Hero' ) ) {
         public function render() {
             
             $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
-            $heading = _s_format_string( $heading, 'h1', ['class' => 'h2'] );
+            $heading = _s_format_string( $heading, 'h1' );
             
-            $description = empty( $this->get_fields( 'description' ) ) ? '' : _s_format_string( $this->get_fields( 'description' ), 'p' );
+            $description = empty( $this->get_fields( 'description' ) ) ? '' : _s_format_string( $this->get_fields( 'description' ), 'h4' );
             
             $button = $this->get_fields( 'button' );
                       
@@ -85,7 +81,7 @@ if( ! class_exists( 'Home_Hero' ) ) {
                     'echo' => false,
                     'classes' => 'button',
                 ];
-                $button  = sprintf( '<p>%s</p>', _s_acf_button( $args ) );
+                $button  = sprintf( '<div>%s</div>', _s_acf_button( $args ) );
             } else {
                 $button = '';
             }
@@ -93,8 +89,8 @@ if( ! class_exists( 'Home_Hero' ) ) {
             $video = $this->get_fields( 'video' );
             $video_link = '';
             if( ! empty( $video ) ) {
-                $video_icon = '<span><i>play video</i></span>';
-                $video_link = sprintf( '<a data-fancybox href="%s">%s</a>', $video, $video_icon );
+                $video_icon = '<span><i class="screen-reader-text">play video</i></span>';
+                $video_link = sprintf( '<div class="play-video"><a data-fancybox href="%s">%s</a></div>', $video, $video_icon );
             }
             
             // Slideshow

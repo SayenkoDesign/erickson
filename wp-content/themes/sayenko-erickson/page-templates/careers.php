@@ -19,9 +19,9 @@ _s_get_template_part( 'template-parts/careers', 'hero' );
 
 	<main id="main" class="site-main" role="main">
 	<?php
-        _s_get_template_part( 'template-parts/careers', 'why' );
        _s_get_template_part( 'template-parts/careers', 'benefits' );
        _s_get_template_part( 'template-parts/careers', 'testimonials' );
+       _s_get_template_part( 'template-parts/careers', 'values' );
        _s_get_template_part( 'template-parts/careers', 'jobs' );
        
         

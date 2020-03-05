@@ -5,7 +5,8 @@ function _s_load_google_fonts() {
 
 	// change array as needed
 	$font_families = array(
-		'Lato:300,400,700,900'
+		'Barlow:400,400i,500,700,900&display=swap',
+        'Source+Sans+Pro:400,500,700&display=swap'
 	);
 
 	// do not touch below here:

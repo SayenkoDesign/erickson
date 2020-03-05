@@ -1,0 +1,54 @@
+// Single Fleet
+
+.single-fleet {
+    
+    .site-main {
+        padding-top: rem-calc(75);   
+    }
+    
+}
+
+.fleet-ajax {
+        
+    header {
+        .cell:last-child {
+            
+            @include breakpoint(medium) {
+                display: flex;
+                align-items: flex-start;
+                margin-top: rem-calc(10);
+                
+                h5 {
+                    margin-right: rem-calc(20); 
+                    margin-top: 6px;
+                }
+            }
+        }
+    }
+    
+    h2 {
+        margin-bottom: rem-calc(10);   
+    }
+    
+    footer {
+        
+        margin-top: rem-calc(40);
+     
+        .cell {
+            background-color: $light-gray;  
+            
+            .panel {
+                padding: rem-calc(60 40);  
+                
+                p {
+                    margin-bottom: rem-calc(40);   
+                }
+            }
+        }
+        
+        
+    }
+    
+    
+    
+}

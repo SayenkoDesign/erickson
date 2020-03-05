@@ -11,7 +11,8 @@ body .gform_wrapper {
 		}
 	}
     
-    .gfield_label {
+    .gfield_label,
+    .ginput_complex label {
         color: $dark-gray;
         font-size: 13px!important;
         font-weight: 900!important;
@@ -20,46 +21,20 @@ body .gform_wrapper {
         text-transform: uppercase;
     }
 
-	// Standard fields
-	input[type='text'],
-	input[type='url'],
-	input[type='email'],
-	input[type='tel'],
-	input[type='number'],
-	input[type='password'],
-	input[type='file'],
-	textarea,
-	select {
-		background: transparent;
-		//color: $black !important;
-		//font-size: rem-calc(16);
-		border: 1px solid #CADADE;
-		padding: rem-calc(15 10 15 24) !important;
-	}
-
-	textarea {
-		width: 100%;
-	}
-
-
-	select {
-		padding: rem-calc(14.5 30 12 14.5) !important;
-		-webkit-appearance: none;
-		-webkit-border-radius: 0px;
-		background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
-		background-position: 99.8% 50%;
-		background-repeat: no-repeat;
-        background-size: 24px;
-		width: 100%;
-	}
-
 	::placeholder {
-        color: $medium-gray;
-        font-size: 15px;
-        font-weight: 500;
-        line-height: 18px;
-        padding-left: 24px;
+        color: #979797;
+        font-size: 16px;
+        line-height: 20px;
+        padding-left: 0;
 	}
+    
+    select:invalid option:not(:disabled) {
+        color: #979797;
+        font-size: 16px;
+        line-height: 20px;
+        padding-left: 0;
+    }
+    
 
 	.field_description_below .gfield_description {
 		padding-top: rem-calc(8) !important;
@@ -102,33 +77,15 @@ body .gform_wrapper {
 		display: none;
 	}
 
-	.button {
-		@include button(false, $primary-color);
-        max-width: 100%;
-        width: 100%;
-	}
     
     .gform_footer {
         
     }
     
-    .gfield_radio input[type=radio]+input[type=text] {
-        
+    .privacy-policy-disclaimer {
+        padding-bottom: rem-calc(20);   
     }
 
-}
-
-body #gform_wrapper_1,
-body #gform_wrapper_2,
-body #gform_wrapper_3,
-body #gform_wrapper_4,
-body #gform_wrapper_5,
-body #gform_wrapper_6,
-body #gform_wrapper_7 {
-    li.gfield ul.gfield_radio li input[type=radio]+input[type=text] {
-        width: 60%!important;
-        padding: rem-calc(10 10 10 10) !important;
-    }
 }
 
 

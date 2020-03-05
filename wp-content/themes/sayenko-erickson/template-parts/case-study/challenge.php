@@ -59,7 +59,7 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                             
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-padding-x">
-                                    <div class="cell large-6 xxlarge-7"><div class="panel">%s%s%s%s</div></div>
+                                    <div class="cell large-6 xxlarge-7"><div class="panel">%s%s<footer>%s%s</footer></div></div>
                                     <div class="cell large-6 xxlarge-auto">%s</div>
                                 </div>
                             </div>',
@@ -78,20 +78,20 @@ if( ! class_exists( 'Challenge_Section' ) ) {
             
             $industry = _s_get_post_terms( [ 'taxonomy' => 'industry', 'link' => false, 'svg' => false ] ); 
             if( ! empty( $industry ) ) {
-                $columns .= sprintf( '<div><h5>%s</h5>%s</div>', __( 'industry' ), $industry );
+                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'industry' ), $industry );
             }
             $services = _s_get_post_terms( [ 'taxonomy' => 'service_cat', 'link' => false, 'svg' => false ] ); 
             if( ! empty( $services ) ) {
-                $columns .= sprintf( '<div><h5>%s</h5>%s</div>', __( 'services' ), $services );
+                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'services' ), $services );
             }
             $location = _s_get_post_terms( [ 'taxonomy' => 'location', 'link' => false, 'svg' => false ] );    
             if( ! empty( $location ) ) {
-                $columns .= sprintf( '<div><h5>%s</h5>%s</div>', __( 'location' ), $location );
+                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'location' ), $location );
             }
             
             
             if( ! empty( $columns ) ) {
-                return sprintf( '<div class="post-terms-group">%s</div>', $columns );
+                return sprintf( '<div class="post-terms-group"><div class="grid-x grid-padding-x small-up-1 medium-up-3">%s</div></div>', $columns );
             }
             
             return false;

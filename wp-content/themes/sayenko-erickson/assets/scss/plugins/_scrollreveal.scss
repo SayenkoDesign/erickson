@@ -1,0 +1,72 @@
+// Scroll Reveal
+
+html.sr .load-hidden {
+    visibility: hidden;
+}
+
+// Global
+
+html.sr .section-footer-cta {
+    
+    //visibility: hidden;
+    
+    h1,
+    .shrink {
+        // visibility: hidden;   
+    }
+}
+
+html.sr .home {
+ 
+    .section-hero {
+      
+        h1,
+        h4,
+        .button,
+        .play-video {
+            visibility: hidden; 
+        }
+    }
+    
+    /*
+    .clients-section {
+        .section-title,
+        .grid > .column {
+            visibility: hidden;
+        }
+    }
+    */
+    
+    .what-section {
+        .grid .column {
+            visibility: hidden;
+        }
+    }
+    
+    .how-section {
+        .group .column,
+        .screenshot img {
+            visibility: hidden;
+        }
+    }
+    
+    .why-section {
+        .grid .column {
+            visibility: hidden;
+        }
+    }
+    
+}
+
+// About
+html.sr {
+    .section-history .event {
+        visibility: hidden;
+    }
+    
+    .fifty-fifty-block-section img {
+        visibility: hidden;
+    }
+    
+}
+

@@ -251,3 +251,19 @@ function comment_form_submit_button($button) {
     return $button;
 }
 add_filter('comment_form_submit_button', 'comment_form_submit_button');
+
+
+
+/**
+ * Allow HTML in term (category, tag) descriptions
+ */
+foreach ( array( 'pre_term_description' ) as $filter ) {
+	remove_filter( $filter, 'wp_filter_kses' );
+	if ( ! current_user_can( 'unfiltered_html' ) ) {
+		add_filter( $filter, 'wp_filter_post_kses' );
+	}
+}
+ 
+foreach ( array( 'term_description' ) as $filter ) {
+	remove_filter( $filter, 'wp_kses_data' );
+}

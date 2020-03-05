@@ -48,9 +48,13 @@ if( ! class_exists( 'Case_Studies_Section' ) ) {
                                     
             $heading = _s_format_string( $this->get_fields( 'heading' ), 'h2' );
             $description = $this->get_fields( 'description' ); 
-            $heading = sprintf( '<header>%s%s</header>', $heading, $description  );  
+            $heading = sprintf( '<header>%s%s%s</header>', get_svg( 'posts-icon' ), $heading, $description  );  
             
             $posts = $this->get_posts();
+            
+            if( empty( $posts ) ) {
+                return false;
+            }
                         
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-margin-x"><div class="cell">%s</div></div>
@@ -104,7 +108,7 @@ if( ! class_exists( 'Case_Studies_Section' ) ) {
                 return false;
             }
             
-            return sprintf( '<div class="grid-x grid-padding-x small-up-1 medium-up-2">%s</div>', $cells  );
+            return sprintf( '<div class="grid-x grid-margin-x grid-margin-bottom small-up-1 medium-up-2">%s</div>', $cells  );
         }
         
     }

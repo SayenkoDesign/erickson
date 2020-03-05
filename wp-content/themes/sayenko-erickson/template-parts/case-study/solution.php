@@ -42,6 +42,7 @@ if( ! class_exists( 'Solution_Section' ) ) {
         public function render() {
                                     
             $heading = _s_format_string( __( 'Solution' ), 'h2' );
+            
             $text = $this->get_fields( 'text' ); 
             
             $image = _s_get_acf_image( $this->get_fields( 'image' ), 'large' );

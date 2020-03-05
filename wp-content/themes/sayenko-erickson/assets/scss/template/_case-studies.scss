@@ -1,34 +1,10 @@
 // Case Studies
 
 .post-type-archive-case_study {
-       
-    .grid {
-                     
-        article {
-            background-color: $dark-gray;
-            box-shadow: $box-shadow;    
-            background-size: cover;
-            height: 100%;
-            position: relative;
-            
-            .post-link {
-                &:before {
-                    content: '';
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    left: 0;   
-                }
-            }
-            
-            .term-link {
-                position: relative;
-                z-index: 3;   
-            }
-            
-        }
     
-    }
+    .section-hero {
+        background-color: #ffffff;
+        padding-top: rem-calc(45);   
+    } 
+        
 }

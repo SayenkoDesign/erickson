@@ -43,20 +43,20 @@ if( ! class_exists( 'Results_Section' ) ) {
                                     
             $heading    = _s_format_string( __( 'Results' ), 'h2' );
             $heading    = sprintf( '<header>%s</header>', $heading  ); 
-            $rows       = $this->get_fields();
+            $rows       = array_filter( $this->get_fields() );
             
             if( empty( $rows ) ) {
                 return false;
             }
-            
+                        
             $cells = '';
             foreach( $rows as $row ) {
                 $prepend        = _s_format_string( $row['prepend'], 'span', [ 'class' => 'prepend' ] ); 
                 $number         = _s_format_string( $row['number'], 'span', [ 'class' => 'number' ] ); 
                 $append         = _s_format_string( $row['append'], 'span', [ 'class' => 'append' ] ); 
-                $description    = _s_format_string( $row['description'], 'p' ); 
+                $description    = _s_format_string( $row['description'], 'h4' ); 
                 
-                $cells .= sprintf( '<div class="cell large-auto"><div class="panel">%s%s%s%s</div></div>',
+                $cells .= sprintf( '<div class="cell medium-auto"><div class="panel"><h3 class="h1">%s%s%s</h3>%s</div></div>',
                                     $prepend,
                                     $number,
                                     $append,
@@ -66,10 +66,10 @@ if( ! class_exists( 'Results_Section' ) ) {
             
                                         
             return sprintf( '<div class="grid-container">
-                                <div class="grid-x">
+                                <div class="grid-x grid-margin-x">
                                     <div class="cell">%s</div>
                                 </div>
-                                <div class="grid-x numbers">
+                                <div class="grid-x grid-margin-x grid-margin-bottom numbers align-center">
                                     %s
                                 </div>
                             </div>',

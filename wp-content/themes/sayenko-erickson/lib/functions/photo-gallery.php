@@ -28,11 +28,9 @@ add_filter( 'facetwp_indexer_query_args', function( $args ) {
  **/
 add_filter( 'facetwp_index_row', function( $params, $class ) {
     if ( 'photo_gallery_service' == $params['facet_name'] ) {
-          
           $post_id = $params['facet_value'];
           //$params['facet_value'] = sanitize_title_with_dashes( get_the_title( $post_id ) );
           $params['facet_display_value'] = get_the_title( $post_id );
-          error_log( print_r( $params, 1));
     }
     return $params;
 }, 10, 2 );

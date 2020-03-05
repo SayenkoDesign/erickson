@@ -1,10 +1,45 @@
 /* CSS Document */
 
 .blog {
+    
+    .section-hero {
+        background-color: #f8f9f9;   
+        padding-top: rem-calc(45);   
+        
+        h1 {
+            margin-bottom: 0;   
+        }
+    } 
+    
+    .site-content {
+        background-color: #f8f9f9;   
+    }
+    
+    .facetwp-filters.menu {
+        max-width: none;   
+    }
            
-    .grid {
+    .facetwp-template {
+        
+        //margin-left: -20px;
+        //margin-right: -20px;
+        
+        @include xy-grid-layout(1, '.cell', true, 20);
+        @include xy-gutters(20, 'margin', $negative:true); // negative for the nested grid
+        
+        @include breakpoint(medium) {
+            @include xy-grid-layout(2, '.cell', true, 20);
+            @include xy-gutters(20, 'margin', $negative:true); // negative for the nested grid
+        }
+        
+        
+        @include breakpoint(large) {
+            @include xy-grid-layout(4, '.cell', true, 20);
+            @include xy-gutters(20, 'margin', $negative:true); // negative for the nested grid
+        }
         
         .cell {
+            margin-bottom: 20px!important;
                 
             background-color: #fff;
             box-shadow: $box-shadow;
@@ -19,9 +54,6 @@
                         
         article {
             
-            
-            height: 100%;
-            
             .post-hero {
                 display: block;
                 background: $gray;
@@ -29,7 +61,7 @@
                 background-position: center center;
                 background-repeat: no-repeat;
                 position: relative;        
-                padding-top: 90%;
+                padding-top: 93%;
                 
                 &:hover {
                     opacity: .8;   
@@ -43,7 +75,6 @@
             .posted-on {
                 color: #4A4A4A;
                 display: block;
-                font-family: $lato;
                 font-size: 15px;
                 letter-spacing: 0.5px;
                 line-height: 1.666666667;
@@ -51,89 +82,91 @@
             }
             
             h3 {
+                a {
+                    color: $dark-gray;   
+                }
                 
+                margin-bottom: rem-calc(30);
             }
             
-            .read-more {
+            .more {
                 display: none;
                 margin-top: rem-calc(30);
             }
             
-            .more {
-                font-size: rem-calc(18);
-                display: inline-block;
-                text-transform: capitalize;
-                
-                &:after {
-                    content: '';
-                    display: block;
-                    width: rem-calc(32);
-                    height: rem-calc(2);
-                    background-color: $red;  
-                    transition: width .3s; 
-                    margin-top: 5px;
-                }
-                
-                &.center {
-                    &:after {
-                        width: rem-calc(74);
-                        position: relative;
-                        left: 50%;
-                        transform: translateX(-50%);
-                    }
-                }
-                
-                .no-touchevents & {  
-                    &:hover:after {
-                        width: 100%;   
-                    }   
-                }
-            }
             
-            
-            &.sticky {
+            &:nth-child(5n+1) {
                 
-                @include breakpoint(medium) {
-                    display: flex;
-                    width: calc(100% - #{rem-calc(map-get($grid-margin-gutters, medium))}); 
-                    
-                    .post-hero {
-                        padding-top: 33%;
-                        width: 50%;
-                    }
-                    
-                    header {
-                        padding: rem-calc(map-get($grid-margin-gutters, medium)); 
-                        width: 50%;
-                    }
-                }
+                //.blog:not(.is-paged) & {
                 
-                @include breakpoint(large) {
-                    width: calc(100% - #{rem-calc(map-get($grid-margin-gutters, large))}); 
-                    
-                    header {
-                        padding: rem-calc(map-get($grid-margin-gutters, large)); 
+                    @include breakpoint(medium) {
+                        display: flex;
+                        //width: calc(100% - #{rem-calc(map-get($grid-margin-gutters, medium))}); 
+                        width: calc(100% - 20px); 
+                        
+                        .post-hero {
+                            padding-top: 25%;
+                            width: 50%;
+                        }
+                        
+                        header {
+                            padding: rem-calc(15 15 25 25); 
+                            width: 50%;
+                        }
                     }
-                }
-
-                
-                h3 {
-                    
-                    font-size: rem-calc(30);
                     
                     @include breakpoint(large) {
-                        font-size: rem-calc(42);
+                        width: calc(100% - 20px); 
+                        
+                        header {
+                            padding: rem-calc(30 30 50 50); 
+                        }
                     }
-                    margin-bottom: 15%;
-                }
+    
+                    
+                    h3 {
+                        
+                        font-size: rem-calc(32);
+                        
+                        @include breakpoint(large) {
+                            font-size: rem-calc(32);
+                        }
+                        
+                        margin-bottom: rem-calc(30);
+                    }
+                    
+                    .more {
+                        display: block;   
+                    }
                 
-                .read-more {
-                    display: block;   
+                //}
+            }
+            
+            &:nth-child(11n) {
+                @include breakpoint(medium) {                    
+                    .post-hero {
+                        order: 2;
+                    }
+                    
+                    header {
+                        order: 1;
+                    }
                 }
             }
             
+            &.sticky {
+                .post-hero {
+                    padding-top: 33%;   
+                }
+                
+                h6 {
+                    text-transform: none;   
+                }
+            }
+                        
         }
     
     }
+
     
 }

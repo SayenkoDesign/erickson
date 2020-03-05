@@ -38,22 +38,25 @@ if( ! class_exists( 'About_Core_Values' ) ) {
                 'wrapper', 'id', [
                      $this->get_name() . '-core-values'
                 ], true
-            );            
-            
+            );  
+
         }          
         
         // Add content
         public function render() {
                         
-            $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : '';
+            $heading = $this->get_fields( 'heading' );
             $heading = _s_format_string( $heading, 'h2' );
-            
+            if( ! empty( $heading ) ) {
+                $heading = sprintf( '<header>%s</header>', $heading  );  
+            }
+                        
             $grid = $this->get_grid();
                         
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-margin-x">
-                                <div class="cell">%s</div>
-                                </div>%s
+                                <div class="cell">%s%s</div>
+                                </div>
                             </div>',
                             $heading,
                             $grid
@@ -72,46 +75,25 @@ if( ! class_exists( 'About_Core_Values' ) ) {
             $items = '';
                
             foreach( $rows as $key => $row ) {  
-                $items .= $this->get_item( $key, $row );
+                
+                $image = _s_get_acf_image( $row['image'], 'thumbnail' );                                   
+                $title = _s_format_string( $row['title'], 'h3', [ 'class' => 'h4' ] ); 
+                                
+                $count = $key + 1;
+                          
+                $items .= sprintf( '<div class="cell medium-4 large-auto">
+                                        <div class="grid-image">%s</div>
+                                        %s
+                                    </div>', 
+                                    $image,
+                                    $title
+                             );
             }
             
-            return sprintf( '<div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 align-center grid">%s</div>', 
+            return sprintf( '<div class="grid-x grid-margin-x align-center grid">%s</div>', 
                                     $items );
         }
-        
-        
-        private function get_item( $key, $row ) {
-                        
-            if( empty( $row ) ) {
-                return false;   
-            }
-                                             
-            $image = $row['grid_image'];
-            $image = sprintf( '<div class="icon">%s</div>', _s_get_acf_image( $image, 'thumbnail' ) );                                   
-            $heading = _s_format_string( $row['grid_title'], 'h3' ); 
-            $description = _s_format_string( $row['grid_description'], 'p' );
-            
-            if( ! $heading && ! $description && ! $image ) {
-                return false;
-            }
-            
-            $count = $key + 1;
-                      
-            return sprintf( '<div class="cell">
-                                <div class="grid-item">
-                                    <span class="number">%s</span>
-                                    <div class="grid-image">%s</div>
-                                    <header>%s</header>
-                                    <div class="description">%s</div>
-                                </div>
-                            </div>', 
-                            str_pad( $count, 2, "0", STR_PAD_LEFT ),
-                            $image,
-                            $heading,
-                            $description
-                         );
-        }
-        
+                
     }
 }
    

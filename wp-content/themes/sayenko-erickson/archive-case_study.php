@@ -12,32 +12,28 @@ _s_get_template_part( 'template-parts/case-study', 'hero' );
   
         <div id="primary" class="cell large-10 content-area">
             
-                <main id="main" class="site-main" role="main">
-                           
-                    <?php                    
-                    
-                    printf( '<ul class="menu filters"><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
+            <main id="main" class="site-main" role="main">
+                       
+                <?php                                                            
+                 
+                if ( have_posts() ) : 
+                
+                    printf( '<ul class="menu facetwp-filters"><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
                         facetwp_display( 'facet', 'case_study_service' ),
                         __( 'reset' )
                      );
-                    
+                
                     $classes[] = 'small-up-1 large-up-2';
-                    
-                    printf( '<div class="facetwp-template grid-x grid-margin-x %s grid">', join( ' ', $classes ) );
-                     
-                    if ( have_posts() ) : ?>
+                
+                    printf( '<div class="grid-x grid-margin-x grid-margin-bottom %s facetwp-template">', join( ' ', $classes ) );
+                                                  
+                    while ( have_posts() ) :
+        
+                        the_post();
+                                                               
+                        _s_get_template_part( 'template-parts/case-study', 'post-column' );
                         
-                       <?php
-                                                      
-                        while ( have_posts() ) :
-            
-                            the_post();
-                                                                   
-                            _s_get_template_part( 'template-parts/case-study', 'post-column' );
-                            
-                        endwhile;
-                   
-                    endif; 
+                    endwhile;
                     
                     echo '</div>';
                     
@@ -48,9 +44,12 @@ _s_get_template_part( 'template-parts/case-study', 'hero' );
                     } else {
                         echo paginate_links();   
                     }
-                    ?>
-            
-                </main>
+               
+                endif; 
+                                    
+                ?>
+        
+            </main>
             
         </div>
         

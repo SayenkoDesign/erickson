@@ -2,174 +2,441 @@
 
 .template-careers {
     
+    
     .section-hero {
-        padding: rem-calc(75 0);
-        text-align: center;
+        background: #ffffff;
+        position: relative;
+        overflow: hidden;
         
-        background-color: $red;
-     
-        &.background-image {        
-            background-color: transparent;
-            background-size: cover;
-            position: relative;
-                    
+        
+        
+        @include breakpoint(xlarge) {
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                height: 13%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 13' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23ffffff' points='0 0, 0 13,40 13'/%3E%3C/svg%3E");
+                z-index: 1;
+            }
+            
             &:after {
                 content: '';
                 display: block;
-                width: 100%;
-                height: 100%;
                 position: absolute;
-                top: 0;
-                left: 0;
-                background: rgba( $dark-gray, .5);
+                bottom: -2px;
+                right: 0;
+                width: 100%;
+                height: 13%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 8' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23ffffff' points='60 8, 100 0,100 8'/%3E%3C/svg%3E");
+                z-index: 1;
+            }
+        }
+        
+        @supports (clip-path: polygon(100% 0, 100% 88%, 64% 100%, 36% 100%, 0 88%, 0 0)) {
+            &:before,
+            &:after {
+                display: none;   
+            }
+            clip-path: polygon(100% 0, 100% 88%, 64% 100%, 36% 100%, 0 88%, 0 0);
+        }
+                
+        .grid-x {
+                                    
+            // Flexbox Hack - CSS target only IE11 and IE10 (media query)
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                &:after {
+                  content: '';
+                  display: block;
+                  min-height: inherit;
+                  font-size: 0;
+                }
             }
             
-            .wrap {
-                position: relative;
-                z-index: 3;   
+        } 
+        
+        
+        .hero-content {
+            background-color: rgba(18,55,89,0.7);
+            padding: rem-calc(60 0);
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            
+            @include breakpoint(large) {
+                padding: rem-calc(120 0);
             }
-        } 
-        
-        .grid-x {
-            min-height: 25vw;   
-        }
-        
-        h1 {
-            color: #fff;    
-        }
+            
+            h1 {
+                color: #fff; 
+                margin-bottom: 0;  
+            }
+            
+            h4 {
+                color: #ECECEC;
+                margin: rem-calc(20 auto 0);  
+                max-width: rem-calc(900);
+            }
+            
+            > *:last-of-type {
+                margin-bottom: 0;
+            }
+            
+            .button {
+                margin-top: rem-calc(50); 
+                min-width: rem-calc(248);
+            } 
+            
+            .play-video {
+                margin-top: rem-calc(50);   
+            }
+            
+            .play-video a {
+                background: $orange;
+                margin: 0 auto;
+                @include pulse();   
+                
+                span {
+                    background: $orange;
+                    
+                    border: 3px solid #fff;
+                            
+                    &:after {
+                        content:'';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 8px 0 8px 16px;
+                        border-color: transparent transparent transparent #ffffff;
+                        margin-left: 2px;
 
+                    }
+                }
+            }
+        }        
     }
     
-    .site-main section:last-child {
-        padding-bottom: rem-calc(50);
-        
-        @include breakpoint(xxlarge) {
-            padding-bottom: rem-calc(100);
-        }   
-    }
-    
-    .section-why {
-        padding-top: rem-calc(75);  
-        
-        .full-screen-scroll-section-element {
-            padding: rem-calc(0 0 0 0);  
-        } 
-    }
     
     .section-benefits {
+        position: relative;
+        padding: rem-calc(75 0 50);
         
-        background: $gray;
-        
-        padding-top: rem-calc(75);
+        @include breakpoint(medium down) {
+            &.images-loaded .slider {
+                opacity: 1;
+                visibility: visible;
+            }
             
-        @include breakpoint(large) {
-            padding-top: rem-calc(150);
-        } 
+            .slider {
+                opacity: 0;
+                visibility: hidden;   
+            }
+        }
         
+        .wrap {
+            position: relative;             
+        }
         
-        padding-bottom: rem-calc(50);
-        
-        @include breakpoint(xxlarge) {
-            padding-bottom: rem-calc(100);
-        }   
-                
-        
-        h2 {
-            text-align: center;   
+        header {
+            margin-bottom: rem-calc(40);   
         }
         
         .grid {
-            
-            padding-top: rem-calc(50);
-            
-            @include breakpoint(large) {
-                padding-top: rem-calc(100);
-            } 
-            
-            margin-bottom: rem-calc(map-get($grid-margin-gutters, small) * -1);
-                
-            @include breakpoint(large) {
-                margin-bottom: rem-calc(map-get($grid-margin-gutters, large) * -1);
-            }   
-            
-            .cell {
-                
-                background: #fff;
-                
-                margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
-                
-                @include breakpoint(large) {
-                    margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
-                }   
-            }
-                     
+            position: relative;
+            z-index: 2;
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+            transition: all .2s ease-in-out;
+                        
             .grid-item {
-                display: block;
-                position: relative;
+                cursor: pointer;
+                transition: all .2s ease-in-out;
                 
-                text-align: center;
-                
-                padding: rem-calc( 75 map-get($grid-margin-gutters, small));
-                padding-bottom: rem-calc(75); 
-                
-                @include breakpoint(large) {
-                    padding: rem-calc( 125 map-get($grid-margin-gutters, large)); 
-                    padding-bottom: rem-calc(75); 
-                }
-                
-                span.number {
-                    font-size: 20px;
-                    font-weight: 900;
-                    letter-spacing: 1px;
-                    line-height: 24px;
-                    
-                    position: absolute;
-                    top: 50px;
-                    left: 50px
+                footer {
+                    margin: 0 auto;
+                    max-width: 160px;
+                    text-align: center;   
                 }
                 
                 .grid-image {
-                    margin-bottom: rem-calc(70);  
-                    color: $medium-gray;
+                    width: 100%;
+                    height: 108px;  
+                    position: relative; 
+                    margin-bottom: rem-calc(20);
+                }
+                
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    width: auto;
+                    max-height: 108px;   
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                
+                &:hover {
+                    transform: scale(1.1);   
+                }
+            }
+        }
+        
+        @include breakpoint(large) {
+                
+            .grid {
+                height: auto;   
+            }
+            
+            &.images-loaded .grid {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+        
+        .slider {
+                                    
+            @include breakpoint(large) {
+                opacity: 0;
+                visibility: hidden;
+                position: relative;
+                width: 100%;
+                top: 0;
+                left: 100%;
+                margin-left: -100%;
+                float: left;
+                transition: all .2s ease-in-out;
+            }
+            
+            .slide-content {
+                margin: 0 auto 60px;
+                max-width: 80%;   
+                
+                @include breakpoint(medium) {
+                    max-width: rem-calc(600);   
+                }
+                
+                text-align: center;
+                
+                .slide-image {
+                    width: 100%;
+                    height: 108px;  
+                    position: relative; 
+                    margin-bottom: rem-calc(20);
+                }
+                
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    width: auto;
+                    max-height: 108px;   
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }       
+                        
+        &.slider-show {
+            @include breakpoint(large) {
+                .grid {
+                    opacity: 0!important;
+                    visibility: hidden!important;   
+                }
+                
+                .slider {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            
+                .close-slider {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        
+                
+        .slick-arrows {
+            display: none;
+            @include breakpoint(large) {
+                display: block;
+                
+                .slick-next,
+                .slick-prev {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);  
+                }
+                
+                .slick-prev {
                     
-                    img,
-                    svg {
-                        max-width: rem-calc(120);   
-                        height: auto;
-                    }
+                    left: rem-calc(15);
                     
-                    svg {
-                        fill: $medium-gray;   
+                    @include breakpoint($global-width + 60) {
+                        left: -112px!important;
+                    }
+  
+                }
+                
+                .slick-next {
+                    
+                    right: rem-calc(15);
+                    
+                    @include breakpoint($global-width + 60) {
+                        right: -112px!important;
+                    }
+ 
+                }
+            }
+        }
+        
+        
+        .slick-dots {
+            
+            position: relative;
+            bottom: 0;
+            
+            @include breakpoint(large) {
+                display: none!important;
+            }
+            
+            li {
+                
+                button {
+                    
+                    &:before {
+                        background-color: transparent;
+                        border-radius: 50%;
+                        border: 2px solid $dark-gray;
+                        color: transparent;
                     }
                 }
+                &.slick-active button:before {
+                    color: transparent;
+                    background-color: $dark-gray;
+                    
+                }
+            }
+        }
+
+        
+        .close-slider {
+            display: none;
+            opacity: 0;
+            visibility: hidden; 
+            transition: all .2s ease-in-out;
+        
+            @include breakpoint(large) {
+                display: block;
+            }  
+            
+            position: absolute;
+            top: 0;
+            right: 15px;
+            cursor: pointer;
+            z-index: 2; 
+            width: 35px;
+            height: 35px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35'%3E%3Cpath fill='%23474447' fill-rule='evenodd' stroke='%23474447' d='M20.39 17.498L33.38 4.506c.825-.825.825-2.064 0-2.89-.826-.821-2.06-.821-2.886 0L17.498 14.613 4.506 1.616c-.825-.821-2.064-.821-2.89 0-.821.826-.821 2.065 0 2.89l12.997 12.992L1.616 30.495c-.821.826-.821 2.06 0 2.886.826.825 2.065.825 2.89 0L17.498 20.39l12.997 12.992c.826.825 2.06.825 2.886 0 .825-.826.825-2.06 0-2.886L20.39 17.498z'/%3E%3C/svg%3E");
+                        
+        }
                 
-                header {
-                    margin-bottom: rem-calc(40);   
+    }
+    
+    
+    
+    .section-values {
+        
+        background-color: #faf6f6;
+        padding: rem-calc(80 0);
+        
+        @include breakpoint(large) {
+            padding: rem-calc(160 0); 
+        }
+        
+        .panel {
+            padding: rem-calc(0 30 30); 
+            
+            @include breakpoint(large) {
+                padding: rem-calc(0 60); 
+            }
+            
+            text-align: center;
+            
+            header {
+                margin-bottom: rem-calc(20);  
+            }
+            
+            p:first-of-type {
+                margin-bottom: rem-calc(60);   
+            }
+            
+            ul {
+                padding-left: rem-calc(30); 
+            
+                @include breakpoint(large) {
+                    padding-left: rem-calc(60); 
                 }
                 
-                p {
-                    color: $dark-gray;   
+                li {
+                    text-align: left;  
+                    letter-spacing: 0.98px; 
+                    font-family: $barlow;
+                    font-weight: 500;
                 }
-                
             }
             
         }
+             
+        .grid {
+            $column-gap: 5px;
+            
+            display: flex;
+            flex-flow: row wrap;
+            
+            .grid-item {
+                padding: 0 rem-calc($column-gap) 0 0; 
+                margin-top: $column-gap;
+                
+                flex: 0 0 50%;
+                max-width: 50%;
+                .background {
+                    padding-top: 60%;  
+                    background-size: cover;
+                    background-position: center;     
+                }
+                
+                &:first-child {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    .background {
+                        padding-top: 60%;   
+                    }
+                }
+
+            }
+        } // .grid
+        
+                        
     }
+    
     
     
     .section-jobs {
         
-        padding-top: rem-calc(45);
-        @include breakpoint(large) {
-            padding-top: rem-calc(120);
-        } 
-        
-        
+        padding-top: rem-calc(75);
         padding-bottom: rem-calc(75);
-        @include breakpoint(xxlarge) {
-            padding-bottom: rem-calc(150);
-        }   
-        
+
         
         h2 {
             text-align: center; 
@@ -181,48 +448,63 @@
             }
         }
      
-        .wrap {
-            // max-width: rem-calc(1300); 
+        .entry-content {
+            max-width: rem-calc(1000); 
             margin: 0 auto;  
         }
-        
-        #BambooHR {
-            
-            @include breakpoint(medium) {
-                margin-top: rem-calc(-30);
-            }
-            
-            h2 {
-                display: none;   
-            }
-            
-            ul > li > div {
-                font-size: rem-calc(30);  
-                color: $dark-gray;
-                font-weight: 700; 
-                margin-top: rem-calc(30);
-                margin-bottom: rem-calc(30);
-            }
-            
-            ul > li > ul {
-                padding-bottom: rem-calc(30);   
-            }
-            
-            ul > li > ul > li {
-                font-size: rem-calc(18);   
-            }
-        }
-        
+                
     }
     
     
     .section-testimonials {
         
+        $quote-offset: 35px;
+        
+        position: relative;
+        
+        &:before {
+            content: '';
+            width: 100%;
+            height: calc(100% - #{$quote-offset});
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: $light-gray;   
+        }
+        
+        
+        //padding-top: rem-calc(60);
+        padding-bottom: rem-calc(60);
+        
+        
+        .quote-mark {
+            position: absolute;
+            top: 0;
+            z-index: 3;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-left: -120px;
+            
+            @include breakpoint(large) {
+                left: auto;
+                top: 0;
+                margin-left: -30px;
+                transform: none;
+            }
+        } 
+        
+        
         .container {
             position: relative;   
         }
         
+        
         .slider {
+            
+            @include breakpoint(large) {
+                padding-left: (1/12) * 100%;
+                padding-right: (1/12) * 100%;
+            }
             
             opacity: 0;
             visibility: hidden;
@@ -231,61 +513,50 @@
                 opacity: 1;
                 visibility: visible;
             }
-        
-        }
-        
-        background: $gray;
-        
-        
-        padding-top: rem-calc(75);
-        @include breakpoint(large) {
-            padding-top: rem-calc(150);
-        } 
-        
-        
-        padding-bottom: rem-calc(75);
-        @include breakpoint(xxlarge) {
-            padding-bottom: rem-calc(150);
-        }   
-        
-                
-        .slider {
             
             position: relative;
             
-            .cell {
-                                
-                margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
-                
-                @include breakpoint(large) {
-                    margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
-                }                 
-            }
-            
-            img {
-                margin: 0 auto   
+            .thumbnail {
+                background-size: cover;
+                background-position: center top;
+                width: 240px;
+                height: 240px;
+                border-radius: 100%;  
+                margin: 0 auto; 
             }
         }
         
         .slick-arrows {
             width: rem-calc(180);
             display: flex;
-            margin: 0 auto;
-            
-            @include breakpoint(xxlarge) {
-                position: absolute;
-                bottom: rem-calc(map-get($grid-margin-gutters, large));
-                right: 0;
-            }
+            margin: 0 auto 0;
             
             .slick-prev,
             .slick-next {
+                margin-top: 35px;
                 position: relative;
-                top: auto;
-                left: auto;
-                right: auto;
-                transform: none;
             }
+            
+            .slick-prev {
+                left: -15px;
+            }
+            
+            .slick-next {
+                right: -15px;
+            }
+            
+            @include breakpoint(xxlarge) {
+                .slick-prev,
+                .slick-next {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    margin-top: 35px;
+                }
+                
+            }
+            
+            
             
         }
         
@@ -304,31 +575,29 @@
             }
         }
         
-        .quote-mark {
-            position: relative;
-            margin-bottom: rem-calc(10);
-            
-            span {
-                color: $medium-gray;
-                font-size: 150px;
-                height: 80px;
-                line-height: 1;
-                display: block;
-            }
-        }
         
         .quote {
+            padding-top: 30px;
+            text-align: center;
+            
+            @include breakpoint(large) {
+                padding-top: 100px;
+                padding-left: rem-calc(30);
+                text-align: left;
+            }
             
             p {
-                color: #454C54;
-                font-size: rem-calc(22);   
-                line-height: 1.636363636;
+                font-family: $barlow;
+                font-size: rem-calc(24);
+                font-style: italic;
+                letter-spacing: 0.7px;
+                line-height: 1.5;
             }
             
             h6 {
-               color: #454C54;
                letter-spacing: 0.7px;
-               line-height: 1.444444444;
+               font-size: rem-calc(18);
+               line-height: 1.388888889;
                margin-top: rem-calc(25);
                font-weight: 500;
             }

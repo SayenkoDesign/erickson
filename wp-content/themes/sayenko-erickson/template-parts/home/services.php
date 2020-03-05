@@ -48,8 +48,7 @@ if( ! class_exists( 'Home_Services_Section' ) ) {
             $services = $this->get_grid();
                         
             return sprintf( '<div class="grid-container">
-                                <div class="grid-x grid-margin-x">
-                                </div>%s
+                                %s
                             </div>',
                             $services
                          );  
@@ -71,7 +70,7 @@ if( ! class_exists( 'Home_Services_Section' ) ) {
                 $items .= $this->get_item( $row );
             }
             
-            return sprintf( '<div class="grid-x grid-margin-x small-up-1 large-up-3 align-center grid">%s</div>', 
+            return sprintf( '<div class="grid-x grid-padding-x small-up-1 medium-up-2 medium-large-up-3 align-center grid">%s</div>', 
                                     $items );
         }
         
@@ -80,7 +79,7 @@ if( ! class_exists( 'Home_Services_Section' ) ) {
             
             $icon = $row['icon'];  
             $icon = sprintf( '<span>%s</span>', _s_get_acf_image( $icon ) );                                                                                               
-            $heading = _s_format_string( $row['service_category'], 'h3' ); 
+            $heading = _s_format_string( $row['service_category'], 'h2', [ 'class' => 'h4' ] ); 
             
             $posts = $row['posts'];
             $list = $this->get_posts( $posts );
@@ -130,7 +129,7 @@ if( ! class_exists( 'Home_Services_Section' ) ) {
                 while ( $loop->have_posts() ) :
     
                     $loop->the_post(); 
-                    $list_items = sprintf( '<li><a href="%s">%s</a></li>', get_permalink(), get_the_title() );
+                    $list_items .= sprintf( '<li><a href="%s">%s</a></li>', get_permalink(), get_the_title() );
     
                 endwhile;
                 
@@ -142,7 +141,7 @@ if( ! class_exists( 'Home_Services_Section' ) ) {
                 return false;
             }
             
-            return sprintf( '<ul>%s</ul>', $list_items  );
+            return sprintf( '<ul class="no-bullet">%s</ul>', $list_items  );
         }        
     }
 }

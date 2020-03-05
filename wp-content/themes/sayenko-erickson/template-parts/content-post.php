@@ -12,11 +12,24 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
+    <?php
+        the_post_thumbnail( 'large' );    
+    ?>
+    
+    
+    <header class="entry-header">
+		<?php 
+            the_title( '<h2 class="entry-title">', '</h2>' ); 
+            echo get_the_category_list( '' );
+        ?>
+
+		
+	</header><!-- .entry-header -->
+    
+    
     <div class="entry-content">
 	
-		<?php 
-        the_post_thumbnail( 'large' );
-        
+		<?php         
 		the_content(); 		
 		?>
 		

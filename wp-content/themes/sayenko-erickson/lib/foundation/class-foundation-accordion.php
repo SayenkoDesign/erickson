@@ -59,7 +59,7 @@ class Foundation_Accordion extends Foundation {
                                         <a href="#" class="accordion-title">%s</a>
                                         <div class="accordion-content" data-tab-content>%s</div>
                                    </li>',
-                                    '', //$item['active'] ? ' is-active' : '',
+                                    $item['active'] ? ' is-active' : '',
                                     $item['title'],
                                     $item['content']   
                                  );

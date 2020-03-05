@@ -7,22 +7,19 @@ $style = sprintf( ' style="background-image: url(%s);"', $image  );
 
 $term = _s_get_primary_term();
 if( ! empty( $term ) ) {
-    $term = sprintf( '<a class="term-link" href="%s">%s</a>', get_term_link( $term, '' ), $term->name );
+    $term = sprintf( '<h4><a class="term-link" href="%s">%s</a></h4>', get_term_link( $term, '' ), $term->name );
 }   
 
-printf( '<div class="cell">
-                    <article id="post-%s" class="%s"%s>
-                        %s<a class="post-link" href="%s"></a>
-                        <h3>%s</h3>
-                    </article>
-                </div>', 
-                get_the_ID(), 
-                join( ' ', get_post_class() ),
-                $style, 
-                $term, 
-                get_permalink(), 
-                get_the_title() 
-        );
+printf( '<article id="post-%s" class="%s"%s><div class="panel">
+            %s<h3><a class="post-link" href="%s">%s</a></h3>
+        </div></article>', 
+        get_the_ID(), 
+        join( ' ', get_post_class( 'cell' ) ),
+        $style, 
+        $term, 
+        get_permalink(), 
+        get_the_title() 
+);
 
 ?>
 

@@ -13,6 +13,12 @@
 
 add_filter( 'body_class', function ( $classes ) {
     $classes[] = 'blog';
+    $classes[] = 'archive';
+    
+    if( ! empty( absint( $_GET[ 'fwp_paged' ] ) ) ) {
+        $classes[] = 'is-paged';
+    }
+    
 	return $classes;
 }, 99 );
 
@@ -54,20 +60,19 @@ wp_reset_postdata();
             
                 <main id="main" class="site-main" role="main">
                            
-                    <?php                    
+                    <?php    
+                                                             
+                    if ( have_posts() ) : 
                     
-                    printf( '<div class="category-filters"><div class="categories">%s%s</div></div>', 
-                        facetwp_display( 'facet', 'categories' ),
-                        facetwp_display( 'sort' )
-                     );
-                    
-                    $classes[] = 'small-up-1 medium-up-2 large-up-3 xxlarge-up-4';
-                    
-                    printf( '<div class="facetwp-template grid-x grid-margin-x %s grid" data-equalizer data-equalize-on="medium" data-equalize-by-row="true">', join( ' ', $classes ) );
-                     
-                    if ( have_posts() ) : ?>
-                        
-                       <?php
+                        printf( '<ul class="menu facetwp-filters"><li>%s</li><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
+                            facetwp_display( 'facet', 'categories' ),
+                            sprintf( '<div class="facet-wrap"><h5 class="facet-label">%s</h5>%s</div>', __( 'Order' ), facetwp_display( 'sort' ) ),
+                            __( 'reset' )
+                         );
+                         
+                        $classes[] = 'small-up-1 medium-up-2 large-up-4';
+                
+                        printf( '<div class="grid-x grid-margin-x grid-margin-bottom %s facetwp-template">', join( ' ', $classes ) );
                                                       
                         while ( have_posts() ) :
             
@@ -76,19 +81,19 @@ wp_reset_postdata();
                             _s_get_template_part( 'template-parts', 'content-post-column' );
                             
                         endwhile;
+                        
+                        echo '</div>';
+                        
+                        if( function_exists( 'facetwp_display' ) ) {
+                            echo facetwp_display( 'pager' );
+                            //echo facetwp_display( 'facet', 'load_more' );
+                        } else if( function_exists( '_s_paginate_links' ) ) {
+                            echo _s_paginate_links();
+                        } else {
+                            echo paginate_links();   
+                        }
                    
                     endif; 
-                    
-                    echo '</div>';
-                    
-                    if( function_exists( 'facetwp_display' ) ) {
-                        echo facetwp_display( 'pager' );
-                        //echo facetwp_display( 'facet', 'load_more' );
-                    } else if( function_exists( '_s_paginate_links' ) ) {
-                        echo _s_paginate_links();
-                    } else {
-                        echo paginate_links();   
-                    }
                     ?>
             
                 </main>

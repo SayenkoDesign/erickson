@@ -25,8 +25,8 @@ class CPT_History extends CPT_Core {
 				self::POST_TYPE // Registered name/slug
 			),
 			array( 
-				'public'              => false,
-				'publicly_queryable'  => false,
+				'public'              => true,
+				'publicly_queryable'  => true,
 				'show_ui'             => true,
 				'query_var'           => true,
 				'capability_type'     => 'post',
@@ -36,14 +36,26 @@ class CPT_History extends CPT_Core {
 				'show_in_menu'        => true,
 				'show_in_nav_menus'   => false,
 				'exclude_from_search' => false,
-				'rewrite'             => array( 'slug' => 'history' ),
-				'supports' => array( 'title', 'thumbnail', 'editor', 'revisions' ),
+				'rewrite'             => false,
+				'supports' => array( 'title', 'thumbnail' ),
                 'menu_icon' => 'dashicons-calendar-alt'
 			)
 
         );
+        
+        add_action( 'pre_get_posts', array( $this,'pre_get_posts' ) );
                 		        
      }
+     
+     
+     
+     public function pre_get_posts( $query ){
+    
+        if ( $query->is_main_query() && ! is_admin() && ( is_post_type_archive( self::POST_TYPE ) ) ) {
+            $query->set( 'posts_per_page', '2' );
+        }
+        
+    }
     
     
      /**

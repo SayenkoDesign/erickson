@@ -7,26 +7,3 @@ body {
 .site-content {
 	word-wrap: break-word;	
 }
-input[type="search"] {
-	 @include box-sizing(border-box);
-}
-
-[data-whatintent='mouse'] *:focus {
-  outline: none;
-}
-
-.icon {
-    color: #596975;   
-}
-
-.entry-content {
- 
-    section {
-        @include full-width;
-    }
-    
-    li:not([class]) {
-        margin-bottom: rem-calc(10);   
-    }
-    
-}

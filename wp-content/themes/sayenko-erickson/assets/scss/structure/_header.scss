@@ -40,7 +40,6 @@ Header
             position: fixed!important;
             top: 0;
             left: 0;
-            right: 0;
             width: 100%;
             z-index: 999;
             background: $white!important;
@@ -56,64 +55,7 @@ Header
             .site-title {
                 width: rem-calc(216);
             }
-            
-            
-            .nav-primary {
-                .menu > .menu-item:not(.button) > a {
-                    color: $dark-gray!important;
-                    
-                    &:hover {
-                        color: $red!important;   
-                    }
-                }
-
-            }
-            
-            #secondary-menu {
                 
-                .menu-item:not(.button) > a {
-                    &:hover {
-                        color: $red;   
-                    }
-                }
-                
-                .menu-item.lets-talk {            
-            
-                    @include breakpoint(xlarge) {
-                        a {
-                            @include button(false, $dark-gray, $dark-gray, $white, 'hollow');
-                            border-color: $dark-gray!important;
-                            display: block;
-                            margin-bottom: 0;
-                            padding-top: rem-calc(11.5);
-                            padding-bottom: rem-calc(11.5);
-                            
-                            &:hover {
-                                @include button(false, $red, $red, $white );
-                                color: #fff!important;
-                                border-color: $red!important;
-                                display: block;
-                                margin-bottom: 0;
-                                padding-top: rem-calc(11.5);
-                                padding-bottom: rem-calc(11.5);
-                            }
-                        }
-                            
-                    }
-                    
-                }
-                
-           }
-                
-        }
-        
-        .pinned-header & {
-            background: transparent;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;            
         }
             
     }
@@ -192,38 +134,5 @@ Header
 			padding: 60px 0 0;
 		}
 	}
-
-	@include breakpoint(xlarge) {
-
-		&.fixed {
-			position: fixed !important;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: 99;
-
-
-			&.shrink {
-				// Scale fixed header logo
-				.site-title {
-					img {
-						transform-origin: center center;
-						transform: scale(.7);
-						width: auto;
-					}
-				}
-			}
-
-			// Show/Hide fixed header
-			&.nav-up {
-				transform: translateY(-400%);
-			}
-
-			&.nav-down {
-				transform: translateY(0);
-				transition: transform .1s ease 0s;
-			}
-
-		}
-	}
+	
 }

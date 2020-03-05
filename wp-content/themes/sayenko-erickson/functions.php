@@ -74,6 +74,7 @@ if ( ! function_exists( '_s_setup' ) ) :
 		register_nav_menus( array(
 			'primary'       => esc_html__( 'Primary Menu', '_s' ),
 			'secondary'     => esc_html__( 'Secondary Menu', '_s' ),
+            'services'      => esc_html__( 'Services Menu', '_s' ),
 			'copyright'     => esc_html__( 'Copyright Menu', '_s' )
 		) );
 
@@ -131,7 +132,7 @@ function _s_widgets_init() {
 			'name'          => $sidebar_name,
 			'id'            => $sidebar_id,
 			'description'   => sprintf( esc_html__( 'Widget area for %s', '_s' ), $sidebar_name ),
-			'before_widget' => '<div class="cell medium-large-auto"><aside class="widget %2$s">',
+			'before_widget' => '<div class="cell medium-large-auto xxlarge-shrink"><aside class="widget %2$s">',
 			'after_widget'  => '</aside></div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',

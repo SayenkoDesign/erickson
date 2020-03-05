@@ -56,10 +56,10 @@ export default {
                     arrows: true,
                     dots: true,
                     rows: 0,
-                    customPaging : function(slider, i) {
+                    /*customPaging : function(slider, i) {
                         let title = $(slider.$slides[i]).find('h3').text();
                         return title;
-                    },
+                    },*/
                     speed: 300,
                     nextArrow: $('.slick-next', $tabsSlider),
                     prevArrow: $('.slick-prev', $tabsSlider),
@@ -68,9 +68,55 @@ export default {
                 $tabsSlider.prepend($('.slick', $tabsSlider).find('.slick-dots'));
                 
                 $tabsSlider.addClass('images-loaded');
+                
+                $('.section-advantage .slick-tabs').on('click', 'li', function() {
+                    let index = $(this).index();
+                    $(this).siblings().removeClass('active');
+                    $('.slick', $tabsSlider).slick('slickGoTo', index);
+                    $(this).addClass('active');
+                 });
                     
              });
         }
+        
+        
+        
+        let $benefitsSlider = $('.section-benefits .slider');
+        
+        if ( $('.slick', $benefitsSlider).length ) {
+            
+            $benefitsSlider.imagesLoaded()
+            
+                .done( function( instance ) {
+                    
+                    $('.section-benefits .grid').on('click','.grid-item', function(e){
+                        e.preventDefault();
+                        var slideIndex = $(this).parent().index();
+                        $('.slick', $benefitsSlider).slick( 'slickGoTo', parseInt(slideIndex) );
+                    });
+                    
+                    $( '<div class="slick-arrows"></div>' ).insertAfter( '.section-benefits .slick' );
+            
+                    $('.slick', $benefitsSlider).slick({
+                        fade: true,
+                        autoplay: false,
+                        infinite: true,
+                        adaptiveHeight: true,
+                        arrows: true,
+                        dots: true,
+                        rows: 0,
+                        speed: 300,
+                        appendArrows: $('.section-benefits .slick-arrows')
+                    });
+                
+                    $('.section-benefits').addClass('images-loaded');
+                    
+             });
+             
+             
+        }        
+        
+        
         
         
         // Careers - Testimonials

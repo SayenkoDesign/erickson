@@ -16,17 +16,18 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo THEME_FAVICONS; ?>/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo THEME_FAVICONS; ?>/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo THEME_FAVICONS; ?>/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo THEME_FAVICONS; ?>/favicon-16x16.png">
 	<link rel="manifest" href="<?php echo THEME_FAVICONS; ?>/site.webmanifest">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2B70AA">
-	<meta name="msapplication-TileColor" content="#2B70AA">
-	<meta name="theme-color" content="#ffffff">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f58025">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">   
+    <script src="//unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( wp_is_mobile() ? 'is-mobile' : 'is-desktop' ); ?>>
+<body <?php body_class( wp_is_mobile() ? 'is-mobile' : 'is-desktop' ); ?> id="top">
 
 <ul class="skip-link screen-reader-text">
 	<li><a href="#content" class="screen-reader-shortcut"><?php esc_html_e( 'Skip to content', '_s' ); ?></a></li>
@@ -66,7 +67,7 @@
                         'container_class' => '',
                         'container_id' => '',
                         'menu_id'        => 'secondary-menu',
-                        'menu_class'     => 'menu',
+                        'menu_class'     => 'menu menu-secondary',
                         'before' => '',
                         'after' => '',
                         'link_before' => '',
@@ -82,7 +83,7 @@
                         'container_class' => '',
                         'container_id'    => '',
                         'menu_id'         => 'primary-menu',
-                        'menu_class'      => 'menu vertical xlarge-horizontal',
+                        'menu_class'      => 'menu menu-primary vertical xlarge-horizontal',
                         'before'          => '',
                         'after'           => '',
                         'link_before'     => '',

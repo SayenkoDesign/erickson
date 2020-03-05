@@ -48,7 +48,7 @@ if( ! class_exists( 'Featured_Post_Section' ) ) {
                                     
             $heading = _s_format_string( $this->get_fields( 'heading' ), 'h2' );
             $description = $this->get_fields( 'description' ); 
-            $heading = sprintf( '<header>%s%s</header>', $heading, $description  );  
+            $heading = sprintf( '<header>%s%s%s</header>', get_svg( 'featured-post-icon' ), $heading, $description  );  
             
             $_post = $this->get_post();
                         
@@ -108,8 +108,8 @@ if( ! class_exists( 'Featured_Post_Section' ) ) {
                     
                     $permalink = sprintf( '<p><a class="read-more" href="%s">%s</a></p>', get_permalink(), __( 'read more' )  );
                     
-                    $cells .= sprintf( '<div class="cell large-auto"><div class="thumbnail"%s></div></div>', $style );
-                    $cells .= sprintf( '<div class="cell large-auto"><h3>%s</h3>%s%s</div>', get_the_title(), $excerpt, $permalink  );
+                    $cells .= sprintf( '<div class="cell large-auto"><a href="%s" class="thumbnail"%s></a></div>', get_permalink(), $style );
+                    $cells .= sprintf( '<div class="cell large-auto"><div class="panel"><h3>%s</h3>%s%s</div></div>', get_the_title(), $excerpt, $permalink  );
     
                 endwhile;
                 
@@ -121,7 +121,7 @@ if( ! class_exists( 'Featured_Post_Section' ) ) {
                 return false;
             }
             
-            return sprintf( '<div class="grid-x grid-padding-x">%s</div>', $cells  );
+            return sprintf( '<div class="grid-x grid-padding-x align-middle">%s</div>', $cells  );
         }
         
     }

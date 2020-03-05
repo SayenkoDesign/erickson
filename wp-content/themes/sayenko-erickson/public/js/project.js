@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   init: function init() {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('changed.zf.mediaquery', function (event, newSize, oldSize) {
-      if (foundation_sites_js_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"].atLeast('xlarge')) {// new Foundation.Accordion('.accordion');
+      if (foundation_sites_js_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"].atLeast('xlarge')) {//$(document).foundation();
       }
     });
   }
@@ -225,7 +225,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.moveListener_ && (google.maps.event.removeListener(this.moveListener_), this.moveListener_ = null), this.contextListener_ && (google.maps.event.removeListener(this.contextListener_), this.contextListener_ = null), this.setMap(null);
     };
-    var map_zoom_level = 6;
+    var map_zoom_level = 10;
     /*
     *  render_map
     *   Do we want to center map on a specific marker?
@@ -250,27 +250,7 @@ __webpack_require__.r(__webpack_exports__);
         fullscreenControl: false,
         styles: [{
           "featureType": "administrative",
-          "elementType": "geometry.fill",
-          "stylers": [{
-            "visibility": "off"
-          }]
-        }, {
-          "featureType": "administrative",
-          "elementType": "labels.text",
-          "stylers": [{
-            "visibility": "on"
-          }, {
-            "color": "#8e8e8e"
-          }]
-        }, {
-          "featureType": "administrative",
-          "elementType": "labels.text.fill",
-          "stylers": [{
-            "color": "#7f7f7f"
-          }]
-        }, {
-          "featureType": "administrative",
-          "elementType": "labels.text.stroke",
+          "elementType": "labels",
           "stylers": [{
             "visibility": "off"
           }]
@@ -278,29 +258,27 @@ __webpack_require__.r(__webpack_exports__);
           "featureType": "administrative.country",
           "elementType": "geometry.stroke",
           "stylers": [{
-            "color": "#bebebe"
+            "visibility": "off"
           }]
         }, {
           "featureType": "administrative.province",
           "elementType": "geometry.stroke",
           "stylers": [{
-            "visibility": "on"
-          }, {
-            "color": "#cbcbcb"
-          }, {
-            "weight": "0.69"
-          }]
-        }, {
-          "featureType": "administrative.locality",
-          "elementType": "geometry",
-          "stylers": [{
-            "visibility": "simplified"
+            "visibility": "off"
           }]
         }, {
           "featureType": "landscape",
-          "elementType": "all",
+          "elementType": "geometry",
           "stylers": [{
-            "color": "#e4e4e4"
+            "visibility": "on"
+          }, {
+            "color": "#e3e3e3"
+          }]
+        }, {
+          "featureType": "landscape.natural",
+          "elementType": "labels",
+          "stylers": [{
+            "visibility": "off"
           }]
         }, {
           "featureType": "poi",
@@ -312,17 +290,7 @@ __webpack_require__.r(__webpack_exports__);
           "featureType": "road",
           "elementType": "all",
           "stylers": [{
-            "saturation": -100
-          }, {
-            "lightness": 45
-          }, {
-            "visibility": "simplified"
-          }]
-        }, {
-          "featureType": "road",
-          "elementType": "geometry.stroke",
-          "stylers": [{
-            "visibility": "off"
+            "color": "#cccccc"
           }]
         }, {
           "featureType": "road",
@@ -331,92 +299,46 @@ __webpack_require__.r(__webpack_exports__);
             "visibility": "off"
           }]
         }, {
-          "featureType": "road.highway",
-          "elementType": "all",
-          "stylers": [{
-            "visibility": "simplified"
-          }, {
-            "color": "#dadada"
-          }]
-        }, {
-          "featureType": "road.highway",
-          "elementType": "labels",
-          "stylers": [{
-            "visibility": "off"
-          }]
-        }, {
-          "featureType": "road.highway",
-          "elementType": "labels.text",
-          "stylers": [{
-            "visibility": "simplified"
-          }]
-        }, {
-          "featureType": "road.arterial",
-          "elementType": "all",
-          "stylers": [{
-            "visibility": "on"
-          }]
-        }, {
-          "featureType": "road.arterial",
-          "elementType": "labels.text",
-          "stylers": [{
-            "visibility": "simplified"
-          }]
-        }, {
-          "featureType": "road.arterial",
+          "featureType": "transit",
           "elementType": "labels.icon",
           "stylers": [{
             "visibility": "off"
           }]
         }, {
-          "featureType": "road.local",
-          "elementType": "all",
-          "stylers": [{
-            "visibility": "simplified"
-          }]
-        }, {
-          "featureType": "road.local",
+          "featureType": "transit.line",
           "elementType": "geometry",
           "stylers": [{
-            "color": "#eeeeee"
+            "visibility": "off"
           }]
         }, {
-          "featureType": "road.local",
+          "featureType": "transit.line",
           "elementType": "labels.text",
           "stylers": [{
-            "visibility": "simplified"
+            "visibility": "off"
           }]
         }, {
-          "featureType": "transit",
-          "elementType": "all",
+          "featureType": "transit.station.airport",
+          "elementType": "geometry",
+          "stylers": [{
+            "visibility": "off"
+          }]
+        }, {
+          "featureType": "transit.station.airport",
+          "elementType": "labels",
           "stylers": [{
             "visibility": "off"
           }]
         }, {
           "featureType": "water",
-          "elementType": "all",
+          "elementType": "geometry",
           "stylers": [{
-            "color": "#cbcbcb"
-          }, {
-            "visibility": "on"
+            "color": "#FFFFFF"
           }]
         }, {
           "featureType": "water",
-          "elementType": "geometry.fill",
-          "stylers": [{
-            "color": "#d9d9d9"
-          }]
-        }, {
-          "featureType": "water",
-          "elementType": "geometry.stroke",
+          "elementType": "labels",
           "stylers": [{
             "visibility": "off"
-          }]
-        }, {
-          "featureType": "water",
-          "elementType": "labels.text",
-          "stylers": [{
-            "visibility": "simplified"
           }]
         }]
       }; // create map
@@ -686,14 +608,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   init: function init() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('a').not('svg a, [href*="mailto:"], [href*="tel:"], [class*="foobox"]').each(function () {
-      var isInternalLink = new RegExp('/' + window.location.host + '/');
-
-      if (!isInternalLink.test(this.href)) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('target', '_blank');
-      }
-    });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('a[href*=".pdf"]').attr('target', '_blank');
+    /*
+    $( 'a' ).not( 'svg a, [href*="mailto:"], [href*="tel:"], [class*="foobox"]' ).each( function() {
+    var isInternalLink = new RegExp( '/' + window.location.host + '/' );
+    if ( ! isInternalLink.test( this.href ) ) {
+    $( this ).attr( 'target', '_blank' );
+    }
+    } );
+    $( 'a[href*=".pdf"]' ).attr( 'target', '_blank' );
+    */
   }
 });
 
@@ -714,28 +637,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   init: function init() {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('facetwp-loaded', function () {
-      var target = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.facetwp-template');
-      var offset = -150;
-
-      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.facetwp-filters').length) {
-        var target = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.facetwp-filters');
-      } else if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.facetwp-custom-filters').length) {
-        var target = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.facetwp-custom-filters');
-        offset = -60;
-      }
-
-      Foundation.SmoothScroll.scrollToLoc(target, {
-        offset: offset
-      }); //Foundation.reInit( 'equalizer' );
-      // remove the old group
-
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.post-type-archive-case_study .grid article').matchHeight({
-        remove: true
-      }); // apply matchHeight on the new selection, which includes the new element
-
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.post-type-archive-case_study .grid article').matchHeight(); // Fleet Add labels
-
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters .facetwp-facet').each(function () {
+      // Fleet Add labels
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.facetwp-filters .facetwp-facet').each(function () {
         var $facet = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
         var facet_name = $facet.attr('data-name');
         var facet_label = FWP.settings.labels[facet_name];
@@ -745,14 +648,27 @@ __webpack_require__.r(__webpack_exports__);
           $facet.before('<h5 class="facet-label">' + facet_label + '</h5>');
         }
       });
-    });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('facetwp-refresh', function () {
-      // remove the old group
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.post-type-archive-case_study .grid article').matchHeight({
-        remove: true
-      }); // apply matchHeight on the new selection, which includes the new element
 
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.post-type-archive-case_study .grid article').matchHeight();
+      if ('undefined' !== typeof FWP_HTTP.get.fwp_paged) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('is-paged');
+      } else {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('is-paged');
+      }
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('facetwp-refresh', function () {});
+    /*
+    $(document).on('click', '.section-people .facetwp-facet .checked', function() { 
+        FWP.facets['departments'] = ['all']; 
+        delete FWP.facets['paged']; // remove "paged" from URL
+        FWP.refresh(); 
+        console.log('refresh');   
+    });*/
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('facetwp-refresh', function () {
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-people').length && '' == FWP.build_query_string()) {
+        FWP.facets['departments'] = ['all'];
+        delete FWP.facets['paged']; // remove "paged" from URL
+      }
     });
   }
 });
@@ -800,10 +716,18 @@ __webpack_require__.r(__webpack_exports__);
      });
     */
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('a.modal-form').fancybox({
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()().fancybox({
+      smallBtn: false
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.modal-form').fancybox({
+      //selector : '.modal-form',
       baseClass: "full-screen",
-      touch: "false",
-      hash: false
+      modal: true,
+      closeExisting: true,
+      touch: false,
+      hash: false,
+      arrows: false,
+      infobar: false
     }); // Image galleries, we need this to disable the Group hash which interferes with FacetWP
 
     jquery__WEBPACK_IMPORTED_MODULE_0___default()().fancybox({
@@ -812,15 +736,14 @@ __webpack_require__.r(__webpack_exports__);
       hash: false
     });
     jquery__WEBPACK_IMPORTED_MODULE_0___default()().fancybox({
+      selector: '.fleet-column a.post-link',
+      baseClass: "single-fleet"
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()().fancybox({
       baseClass: "fancybox-gallery",
       selector: '[data-fancybox="gallery"]',
-      buttons: ['share', 'fullScreen', 'close'],
-      share: {
-        url: function url(instance, item) {
-          return (!instance.currentHash && !(item.type === "inline" || item.type === "html") ? item.origSrc || item.src : false) || window.location;
-        },
-        tpl: '<div class="fancybox-share">' + "<p>" + '<a class="fancybox-share__button fancybox-share__button--fb" href="https://www.facebook.com/sharer/sharer.php?u={{url}}">' + '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m287 456v-299c0-21 6-35 35-35h38v-63c-7-1-29-3-55-3-54 0-91 33-91 94v306m143-254h-205v72h196" /></svg>' + "<span>Facebook</span>" + "</a>" + '<a class="fancybox-share__button fancybox-share__button--tw" href="https://twitter.com/intent/tweet?url={{url}}&text={{descr}}">' + '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m456 133c-14 7-31 11-47 13 17-10 30-27 37-46-15 10-34 16-52 20-61-62-157-7-141 75-68-3-129-35-169-85-22 37-11 86 26 109-13 0-26-4-37-9 0 39 28 72 65 80-12 3-25 4-37 2 10 33 41 57 77 57-42 30-77 38-122 34 170 111 378-32 359-208 16-11 30-25 41-42z" /></svg>' + "<span>Twitter</span>" + "</a>" + '<a class="fancybox-share__button fancybox-share__button--pt" href="https://www.pinterest.com/pin/create/button/?url={{url}}&description={{descr}}&media={{media}}">' + '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m265 56c-109 0-164 78-164 144 0 39 15 74 47 87 5 2 10 0 12-5l4-19c2-6 1-8-3-13-9-11-15-25-15-45 0-58 43-110 113-110 62 0 96 38 96 88 0 67-30 122-73 122-24 0-42-19-36-44 6-29 20-60 20-81 0-19-10-35-31-35-25 0-44 26-44 60 0 21 7 36 7 36l-30 125c-8 37-1 83 0 87 0 3 4 4 5 2 2-3 32-39 42-75l16-64c8 16 31 29 56 29 74 0 124-67 124-157 0-69-58-132-146-132z" fill="#fff"/></svg>' + "<span>Pinterest</span>" + "</a>" + "</p>" + "</div>"
-      }
+      buttons: [//'share',
+      'fullScreen', 'close']
     });
   }
 });
@@ -959,7 +882,7 @@ __webpack_require__.r(__webpack_exports__);
  // import { Sticky } from 'foundation-sites/js/foundation.sticky';
 
 
- // import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
+ //import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
 
 
 foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].addToJquery(jquery__WEBPACK_IMPORTED_MODULE_0___default.a); // Add Foundation Utils to Foundation global namespace for backwards
@@ -1003,7 +926,7 @@ foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].p
 foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_smoothScroll__WEBPACK_IMPORTED_MODULE_19__["SmoothScroll"], 'SmoothScroll'); // Foundation.plugin(Sticky, 'Sticky');
 
 foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_tabs__WEBPACK_IMPORTED_MODULE_20__["Tabs"], 'Tabs');
-foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_toggler__WEBPACK_IMPORTED_MODULE_21__["Toggler"], 'Toggler'); // Foundation.plugin(Tooltip, 'Tooltip');
+foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_toggler__WEBPACK_IMPORTED_MODULE_21__["Toggler"], 'Toggler'); //Foundation.plugin(Tooltip, 'Tooltip');
 
 foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_responsiveAccordionTabs__WEBPACK_IMPORTED_MODULE_22__["ResponsiveAccordionTabs"], 'ResponsiveAccordionTabs');
 
@@ -1022,6 +945,9 @@ foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].p
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var clip_path__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! clip-path */ "./node_modules/clip-path/dist/clippath.min.js");
+/* harmony import */ var clip_path__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(clip_path__WEBPACK_IMPORTED_MODULE_1__);
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   init: function init() {
@@ -1038,45 +964,11 @@ __webpack_require__.r(__webpack_exports__);
       hoverTimeout = setTimeout(function () {
         $img.attr('src', dsrc);
       }, 1000);
-    }); // what
-    //$('.section-what .grid .grid-item').matchHeight({row:true});
+    }); // Fleet details
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.post-type-archive-case_study .grid article').matchHeight({
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.fleet-ajax footer h4').matchHeight({
       row: true
-    }); // Blog filters
-
-    /*
-    var detectWrap = function(element) {
-     var wrappedItems = [];
-    var prevItem = {};
-    var currItem = {};
-    var items = $(element).children();
-    
-    for (var i = 0; i < items.length; i++) {
-    currItem = items[i].getBoundingClientRect();
-    if (prevItem && prevItem.top < currItem.top) {
-      wrappedItems.push(items[i]);
-    }
-    prevItem = currItem;
-    }
-    
-    return wrappedItems;
-    
-    };
-    
-    
-    $(window).on("load resize", function() {
-        var wrappedItems = detectWrap('.category-filters .menu');
-        if(wrappedItems.length) {
-          $('.category-filters .categories').addClass('mobile');
-        }
-        if(! wrappedItems.length) {
-          $('.category-filters .categories').removeClass('mobile');
-        }
-        
-        $('.category-filters').css('visibility', 'visible');
-    });
-    */
+    }); // $('.section-commitment .panel .text').matchHeight({row:true});
   }
 });
 
@@ -1177,16 +1069,48 @@ __webpack_require__.r(__webpack_exports__);
           arrows: true,
           dots: true,
           rows: 0,
-          customPaging: function customPaging(slider, i) {
-            var title = jquery__WEBPACK_IMPORTED_MODULE_0___default()(slider.$slides[i]).find('h3').text();
-            return title;
-          },
+
+          /*customPaging : function(slider, i) {
+              let title = $(slider.$slides[i]).find('h3').text();
+              return title;
+          },*/
           speed: 300,
           nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next', $tabsSlider),
           prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $tabsSlider)
         });
         $tabsSlider.prepend(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $tabsSlider).find('.slick-dots'));
         $tabsSlider.addClass('images-loaded');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-advantage .slick-tabs').on('click', 'li', function () {
+          var index = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).index();
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings().removeClass('active');
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $tabsSlider).slick('slickGoTo', index);
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
+        });
+      });
+    }
+
+    var $benefitsSlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .slider');
+
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $benefitsSlider).length) {
+      $benefitsSlider.imagesLoaded().done(function (instance) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .grid').on('click', '.grid-item', function (e) {
+          e.preventDefault();
+          var slideIndex = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().index();
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $benefitsSlider).slick('slickGoTo', parseInt(slideIndex));
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="slick-arrows"></div>').insertAfter('.section-benefits .slick');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $benefitsSlider).slick({
+          fade: true,
+          autoplay: false,
+          infinite: true,
+          adaptiveHeight: true,
+          arrows: true,
+          dots: true,
+          rows: 0,
+          speed: 300,
+          appendArrows: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .slick-arrows')
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits').addClass('images-loaded');
       });
     } // Careers - Testimonials
 

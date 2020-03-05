@@ -3,200 +3,329 @@
 .single-case_study {
         
     .section-hero {
-        margin-bottom: rem-calc(45);   
         
-        text-align: center;
-        
-        background-color: $red;
-        
-        .wrap {
-            padding: rem-calc(75 0);   
-        }
-    
-        @include breakpoint(xxlarge) {
-            &.has-logo {
-                
-                .wrap {
-                    padding-bottom: rem-calc(125);   
-                }
-                
-                .icon {
-                    height: rem-calc(100); 
-                    width: auto;
-                    position: absolute;
-                    right: rem-calc(map-get($grid-margin-gutters, large));
-                    bottom: rem-calc(map-get($grid-margin-gutters, large));                     
-                }
-            }
-        }
- 
-        &.background-image {        
-            background-color: transparent;
-            background-size: cover;
-            position: relative;
-                    
-            &:after {
-                content: '';
-                display: block;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                background: rgba( $dark-gray, .5);
-            }
-            
-            .wrap {
-                position: relative;
-                z-index: 3;   
-            }
-        } 
-        
-        .grid-x {
-            min-height: 25vw;   
-        }
-        
-        h1 {
-            color: #fff;    
-        }
-        
-        .icon {
-            img {
-                max-height: rem-calc(100);
-                width: auto; 
-                margin-bottom: rem-calc(24);  
-            }        
-         }
-        
-    }
-                
-    article {
-        
-        max-width: rem-calc(1300);
-        margin: 0 auto;
-        padding-top: rem-calc(30);
-        
-        .panels {
-            background: #fff;
-            box-shadow: $box-shadow;
-            border: 1px solid $light-gray;
-            padding: rem-calc(30 30 30 30);   
-        }
-        
-        .icon img {
-            border: 1px solid $gray;
-            box-shadow: $box-shadow;
-            margin-bottom: rem-calc(40); 
-            max-height: rem-calc(150);
-            width: auto;            
-        }
-         
-        @include breakpoint(xxlarge) {
-            .icon {
-                display: block;
-                margin-top: rem-calc(-280);  
-                margin-bottom: rem-calc(75); 
-                position: relative;
-                z-index: 3; 
-            }
-        } 
-        
-        
-        .cell {
-                                
-            margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
-            
-            @include breakpoint(large) {
-                margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
-            }   
-        }  
-        
-        .panel {
-            h5 {
-                margin-top: rem-calc(30);   
-            }
-        }
-    }
-    
-    
-    .section-testimonial {
-        background: $gray;
-        padding: rem-calc(75 0 35);
-        overflow-x: hidden;
-        
-        @include breakpoint(large) {
-            padding: rem-calc(75 0 25);
-        }
-        
-        .cell  {
-            @include breakpoint(xlarge) {
-                img {
-                    float: right;    
-                }
-                
-                .quote {
-                    //margin-left: -20%;
-                }
-            }
-        }
-        
-        .cell {
-                                
-            margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
-            
-            @include breakpoint(large) {
-                margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
-            }   
-        }
-        
-        .quote-mark {
-            position: relative;
-            margin-bottom: rem-calc(20);
-            height: 80px;
-            
+        @include breakpoint(xlarge) {
             &:before {
                 content: '';
                 display: block;
                 position: absolute;
-                left: 75px;
-                width: 200%;
-                height: 1px; 
-                background-color: #d6d6d6;
-                top: 50%;
-                transform: translateY(-50%);
-                   
-            }
-            
-            span {
-                color: $medium-gray;
-                font-size: 150px;
-                height: 80px;
-                line-height: 1;   
-                position: absolute;
+                bottom: -2px;
                 left: 0;
-                top: 50%;
-                transform: translateY(-50%);
+                width: 100%;
+                height: 13%;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 13' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23f5f5f5' points='0 0, 0 13,40 13'/%3E%3C/svg%3E");
+                z-index: 1;
+            }
+
+        }
+        
+        @supports (clip-path: polygon(100% 0, 100% 88%, 64% 100%, 36% 100%, 0 88%, 0 0)) {
+            &:before {
+                display: none;   
+            }
+            clip-path: polygon(100% 0, 100% 100%, 100% 100%, 36% 100%, 0 88%, 0 0);
+        }
+        
+        .wrap {
+            background-color: rgba(18,55,89,0.7);   
+        }
+        
+        .grid-x {
+            &:before {
+              content: "";
+              width: 1px;
+              margin-left: -1px;
+              float: left;
+              height: 0;
+              padding-top: 46%;
+            }
+            &:after { /* to clear float */
+              content: "";
+              display: table;
+              clear: both;
             }
         }
         
-        .quote {
+        .hero-content {
+            padding-bottom: rem-calc(150);
+            
+            @include breakpoint(large) {
+                padding-bottom: rem-calc(150);   
+            }
+                        
+            img {
+                margin-bottom: 20px;   
+            }
+            
+            h1 {
+                color: #fff; 
+                margin-bottom: 0;   
+            }
             
             p {
-                color: #454C54;
-                font-size: rem-calc(22);   
-                line-height: 1.636363636;
+                color: #ECECEC;
+                margin: rem-calc(20 auto 0);  
+                max-width: rem-calc(600);
+            }
+            
+            a {
+                margin-top: rem-calc(50);   
+            }
+        }
+    }
+    
+    
+    .section-challenge {
+
+        .panel {
+            background: #ffffff;
+            box-shadow: $box-shadow;   
+            position: relative;
+            z-index: 2;
+            margin: rem-calc(-100) auto rem-calc(40);
+            padding: rem-calc(30 40);   
+            
+            h2 {
+                margin-bottom: rem-calc(20);   
+            }
+            
+            footer {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                padding-top: rem-calc(20);
+                
+                > * {
+                    margin-bottom: rem-calc(20);   
+                }
+                
+                @include breakpoint(large) {
+                    img {
+                        margin-right: rem-calc(40);   
+                    }
+                }
+                    
+            }
+        }
+        
+        .post-terms-group {
+            
+            padding-top: rem-calc(40);
+            
+            @include breakpoint(large) {
+                padding-left: rem-calc(30);
+            }
+            
+            h5 {
+              margin-bottom: rem-calc(10);     
+            }
+            
+            ul {
+                @include list-reset;
+                margin-bottom: re-calc(20);   
+            }
+
+        }
+        
+    }
+    
+    
+    .section-solution {
+        
+        padding-top: rem-calc(50);
+        
+        .wrap {
+            margin: 0 auto;
+            background: $light-gray;
+            position: relative;
+            z-index: 2;
+            
+            @include breakpoint(xlarge) {
+                max-width: rem-calc(1000);
+            }
+        }
+        
+        .panel {
+            padding: rem-calc(60 40);   
+            
+            h2 {
+                margin-bottom: rem-calc(20);   
+            }
+        }
+    }
+    
+    
+    
+    .section-results {
+        padding-top: rem-calc(75);
+        
+        .wrap {
+            margin: 0 auto;
+            max-width: rem-calc(1000);   
+        }
+        
+        header {
+            margin-bottom: rem-calc(50);  
+        }
+        
+        .numbers {
+            .cell {
+                &:before {
+                    content: "";
+                    width: 1px;
+                    margin-left: -1px;
+                    float: left;
+                    height: 0;
+                    
+                    padding-top: 26%;
+                  
+                }
+                
+                &:after { /* to clear float */
+                  content: "";
+                  display: table;
+                  clear: both;
+                } 
+                
+                border: 2px solid #D7D5D5;  
+                
+                
+                .panel {
+                    height: 100%;
+                    position: relative; 
+                    padding: rem-calc(50); 
+                    text-align: center; 
+                    background: $navy;
+                    
+                    h3 {
+                        color: #ffffff;
+                        margin-bottom: 0;
+                        
+                        @include breakpoint(medium) {
+                            font-size: rem-calc(25);
+                        }
+                        
+                        @media screen and #{breakpoint(large)} and #{breakpoint(xlarge down)} {
+                            font-size: rem-calc(35);
+                        }
+                        
+                        @include breakpoint(xlarge) {
+                            font-size: rem-calc(50);
+                        }
+                    }
+                    
+                    h4 {
+                        color: #ffffff;
+                        margin: rem-calc(20) auto 0;   
+                    }
+                }
+                
+                &:first-child {
+                    
+                    .panel {
+                        background: $orange;   
+                    }
+                    
+                    .panel:before {
+                        background: #fff;
+                        content: '';
+                        position: absolute;
+                        top: -24px;
+                        left: -24px;
+                        width: 48px;
+                        height: 48px;
+                        //border-bottom: 2px solid #D7D5D5;
+                        transform: rotate(-45deg);   
+                    }
+                }
+                
+                &:last-child {
+                    
+                    .panel {
+                        background: $gray;   
+                    }
+                    
+                    .panel:before {
+                        background: #fff;
+                        content: '';
+                        position: absolute;
+                        top: -24px;
+                        right: -24px;
+                        width: 48px;
+                        height: 48px;
+                        //border-bottom: 2px solid #D7D5D5;
+                        transform: rotate(45deg);   
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    
+    .section-testimonial {
+        
+        margin-top: rem-calc(100);
+                
+        .wrap {
+            margin: 0 auto;
+            max-width: rem-calc(1000);   
+        }
+        
+        position: relative;
+                
+        .quote-mark {
+            position: absolute;
+            top: 0;
+            z-index: 3;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-left: -120px;
+            
+            @include breakpoint(large) {
+                left: auto;
+                top: 0;
+                margin-left: -30px;
+                transform: none;
+            }
+        } 
+
+        .thumbnail {
+            background-size: cover;
+            background-position: center top;
+            width: 240px;
+            height: 240px;
+            border-radius: 100%;  
+            margin: 0 auto; 
+        }
+        
+                
+        .quote {
+            padding-top: 30px;
+            text-align: center;
+            
+            @include breakpoint(large) {
+                padding-left: rem-calc(30);
+                text-align: left;
+            }
+            
+            p {
+                font-family: $barlow;
+                font-size: rem-calc(24);
+                font-style: italic;
+                letter-spacing: 0.7px;
+                line-height: 1.5;
             }
             
             h6 {
-               color: #454C54;
                letter-spacing: 0.7px;
-               line-height: 1.444444444;
+               font-size: rem-calc(18);
+               line-height: 1.388888889;
                margin-top: rem-calc(25);
                font-weight: 500;
             }
         }
         
     }
-   
         
 }

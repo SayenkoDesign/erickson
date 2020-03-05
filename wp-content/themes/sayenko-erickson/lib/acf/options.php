@@ -62,7 +62,17 @@ if( function_exists('acf_add_options_sub_page') ) {
         'menu_slug' 	=> 'theme-settings-notifications',
         'parent' 		=> 'theme-settings',
 		'capability' => 'edit_posts'
-	));    
+	));  
+    
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Related Posts',
+		'menu_title' 	=> 'Related Posts',
+        'menu_slug' 	=> 'theme-settings-related-posts',
+        'parent' 		=> 'theme-settings',
+		'capability' => 'edit_posts',
+ 		'redirect' 	=> false,
+        'autoload' => false,
+	));          
         
     acf_add_options_sub_page(array(
 		'page_title' 	=> 'Social Profiles',

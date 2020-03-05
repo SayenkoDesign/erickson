@@ -43,15 +43,22 @@ if( ! class_exists( 'Approach_Section' ) ) {
                                     
             $heading = ! empty( $this->get_fields( 'heading' ) ) ? $this->get_fields( 'heading' ) : __( 'Approach', '_s' );
             $heading = _s_format_string( $heading, 'h2' );
+            $heading = sprintf( '<header>%s</header>', $heading );  
             
             $text = $this->get_fields( 'text' ); 
             
+            if( empty( $text ) ) {
+                return false;
+            }
+            
             $list = $this->get_fields( 'list' );
             
-            if( ! empty( $list ) ) {
-                $items = explode("\n", str_replace("\r", "", trim( $list ) ) );
-                $list = sprintf( '<div class="cell large-3 large-order-1 large-offset-1"><div class="panel">%s</div></div>', ul( $items )  );
+            if( empty( $list ) ) {
+                return false;
             }
+            
+            $items = explode("\n", str_replace("\r", "", trim( $list ) ) );
+            $list = sprintf( '<div class="cell large-5 large-order-1"><div class="panel">%s</div></div>', ul( $items )  );
                                         
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-padding-x">

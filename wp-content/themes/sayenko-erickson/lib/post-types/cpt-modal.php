@@ -42,9 +42,26 @@ class CPT_MODAL extends CPT_Core {
 
         );
         
+        //add_action( 'admin_head' , [$this, 'remove_editor_upload' ] );
+        
+        //add_filter( 'gform_display_add_form_button', [$this, 'remove_gravity_forms_button' ] );
+        
         add_action('wp_footer', [$this, 'add_modals_to_footer'] );
 		        
      }
+     
+    
+    public function remove_gravity_forms_button( $is_post_edit_page ) {
+        global $post;
+        return isset($post) && $post->post_type == 'modal' ? false : $is_post_edit_page;
+    }
+     
+    public function remove_editor_upload(){
+        global $post;
+        if(isset($post) && $post->post_type == 'modal'){
+            remove_action( 'media_buttons', 'media_buttons' );
+        }
+    }
      
      
      function add_modals_to_footer() {

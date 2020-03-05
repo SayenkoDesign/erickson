@@ -33,7 +33,7 @@ _s_get_template_part( 'template-parts/home', 'hero' );
                 
                 _s_get_template_part( 'template-parts/home', 'customers' );
                 
-                _s_get_template_part( 'template-parts/home', 'advantage' );
+                _s_get_template_part( 'template-parts/global', 'advantage' );
                 
                 _s_get_template_part( 'template-parts/global', 'case-studies' );
                 

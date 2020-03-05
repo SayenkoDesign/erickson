@@ -1,32 +1,45 @@
-case Stusies - filters, when i create content, should i isolate? 
-So for example, even though the services are filters and posts, should the filters be pulled from the posts?
-Or is it better to keep all content seperate? But then we do hve redundancy. 
+Issues:
+
+- History: All isnt working, need to submit to FacetWP
+
+- Review all messages with no response from Ashley
+
+
+Next time, provide flat icons set that contains only relavant icons, so we can use as font icons
+
+- Case Studies independant filters
+- when logged in, show seciton id link?
 
 
 // TO DO 
 
+Unfinished:
 
-Wednesday:
-
-- Case Studies Archive
-- Single Case Study 
-
-Thursday:
-
-- Individual Service
-
-1. Approach
-2. Results
-3. Clients
-4. Case Studies
-5. Gallery
+Team - add, style proper photos
 
 
-Friday:
-- Fleet page fields
-- Fleet single post fields
-- Fleet Archive
-- Fleet Post
+Monday
+- [DONE] Contact & Thank you pages
+
+Tuesday
+- [DONE] History
+- [DONE]  About - Commitment
+- [DONE] Single Case Study
+
+
+Wednesday
+- Pardot landing pages
+
+Thursday
+- Addons
+
+Friday
+
+- Fix Fleet modals
+- fix form modals
+- Website QA
+- Mobile menu ** need to finish
+
 
 ------------------------------------------------------------------ 
 
@@ -89,3 +102,12 @@ Use case scenario. I am searching Google and I find a link to the Bell 212. And 
 - the share functionality will direct the user to the single page, then we redirect tot he modal lightbox just like when someone finds the link in Google. Same behavior as above. 
 
 I just wanted to make sure that you realize this is how it will work. 
+
+
+
+
+Investor Relations
+
+- Add error message if they don't use checkbox
+- Don't redirect to admin login if they use wrong password?
+- Style everything

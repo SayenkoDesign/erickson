@@ -25,10 +25,10 @@
     }     
     
     $date_format = get_option( 'date_format' );
-    $post_date = ''; // _s_get_posted_on( $date_format );
+    $post_date = is_sticky() ? sprintf( '<h6>%s</h6>', __( 'Featured' ) ) : _s_get_posted_on( $date_format );
        
-    $post_title = sprintf( '<h3><a href="%s">%s</a></h3>', get_permalink(), get_the_title() );
-    $read_more = sprintf( '<p class="read-more"><a href="%s" class="more fancy-link">%s</a></p>', get_permalink(), __( 'read more', '_s' ) ) ;
+    $post_title = sprintf( '<h3 class="h4"><a href="%s">%s</a></h3>', get_permalink(), get_the_title() );
+    $read_more = sprintf( '<p class="more"><a href="%s" class="read-more fancy-link">%s</a></p>', get_permalink(), __( 'read more', '_s' ) ) ;
         
     printf( '<a href="%s" class="post-hero" style="%s"></a>', get_permalink(), $post_image );
                     

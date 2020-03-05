@@ -60,8 +60,8 @@ if( ! class_exists( 'Hero_Section' ) ) {
         public function render() {
             
             $heading = ! empty( $this->get_fields( 'heading' ) ) ? $this->get_fields( 'heading' ) : __( 'Our<br />Fleet', '_s' );
-            $heading = _s_format_string( $heading, 'h2' );
-            $heading = sprintf( '<header>%s</header>', $heading  );  
+            $heading = _s_format_string( $heading, 'h1' );
+            $heading = sprintf( '<header class="hero-content">%s</header>', $heading  );  
 
 
             return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x align-middle"><div class="cell">%s</div></div></div>', 

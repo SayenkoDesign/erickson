@@ -36,7 +36,17 @@ if( ! class_exists( 'Details_Section' ) ) {
             );            
             
         }  
-                
+        
+        
+        public function before_render() {            
+            return '';
+        }
+        
+        
+        public function after_render() {
+            return '';
+        }
+             
         
         // Add content
         public function render() {
@@ -46,7 +56,7 @@ if( ! class_exists( 'Details_Section' ) ) {
             $grid = '';
             if( ! empty( $rows ) ) {
                 foreach( $rows as $row ) {
-                    $cells .= sprintf( '<div class="cell"><h5>%s</h5><p>%s</p></div>', $row['text'], $row['title'] );
+                    $cells .= sprintf( '<div class="cell"><h4>%s</h4><p>%s</p></div>', $row['title'], $row['text'] );
                 }
                 
                 if( ! empty( $cells ) ) {
@@ -59,7 +69,7 @@ if( ! class_exists( 'Details_Section' ) ) {
             $file = $this->get_fields( 'file' );             
             if( ! empty( $file['url'] ) ) {
                 $args = [
-                    'link' => [ 'title' => sprintf( '%s %s', __( 'download' ), $file['subtype'] ), 'url' => $file['url'] ],
+                    'link' => [ 'title' => sprintf( '%s %s', __( 'download' ), $file['subtype'] ), 'url' => $file['url'], 'target' => '_blank' ],
                     'echo' => false,
                     'classes' => 'button',
                 ];
@@ -72,7 +82,7 @@ if( ! class_exists( 'Details_Section' ) ) {
                 $args = [
                     'link' => $button['link'],
                     'echo' => false,
-                    'classes' => 'button',
+                    'classes' => 'button--secondary button',
                 ];
                 $buttons  .= sprintf( '<div class="cell">%s</div>', _s_acf_button( $args ) );
             }
@@ -84,12 +94,12 @@ if( ! class_exists( 'Details_Section' ) ) {
             $image = get_the_post_thumbnail( get_the_ID(), 'large'  );
             if( ! empty( $image ) ) {
                 $style = sprintf( ' style="background-image: url(%s);"', $image );
-                $image = sprintf( '<div class="cell large-auto object-fit-parent">%s</div>', $image );
+                $image = sprintf( '<div class="cell large-auto small-order-1 large-order-2 object-fit-parent">%s</div>', $image );
             }
                                         
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-margin-x">
-                                    <div class="cell large-auto"><div class="panel">%s%s</div></div>
+                                    <div class="cell large-auto small-order-2 large-order-1"><div class="panel">%s%s</div></div>
                                     %s
                                 </div>
                             </div>',

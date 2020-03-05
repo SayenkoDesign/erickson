@@ -39,36 +39,39 @@ if( ! class_exists( 'Testimonial_Section' ) ) {
                         
             $post_id = $this->get_fields( 'testimonial' );  
                         
-            if( empty( $post_id ) ) {
-                return false;
-            }
-                                        
-            $photo = get_the_post_thumbnail( $post_id, 'large' );
-            
-            $quote = get_field( 'quote', $post_id );
-            
-            $name = get_field( 'name', $post_id );
-            
-            if( $name ) {
-                $name = _s_format_string( '- ' . $name, 'h6' );
-            }
-            
-            if( empty( $photo ) || empty( $quote )  ) {
-                return false;
-            }
- 
-            
-            $quote_mark = sprintf( '<div class="quote-mark"><span>&ldquo;</span></div>', 
-                                    trailingslashit( THEME_IMG ) );
-            
-            $quote = sprintf( '<div class="quote">%s%s%s</div>', $quote_mark, $quote, $name );
-                
-            return sprintf( '<div class="grid-container fluid"><div class="grid-x grid-margin-x">    
-            <div class="cell large-5">%s</div><div class="cell large-auto">%s</div></div></div>', $photo, $quote );
+            return $this->get_testimonial( $post_id );
            
         }
         
 
+        private function get_testimonial( $post_id = false ) {
+            
+            if( empty( $post_id ) ) {
+                return false;
+            }
+                                              
+            $quote = get_field( 'quote', $post_id );
+            
+            if( empty( $quote ) ) {
+                return false;
+            }
+                        
+            $name = _s_format_string( '- ' . get_field( 'name', $post_id ), 'h6' );
+            
+            $quote = sprintf( '<div class="quote">%s%s</div>', $quote, $name );
+                
+            
+            $photo = get_the_post_thumbnail_url( $post_id, 'medium' );
+            if( ! empty( $photo ) ) {
+                $photo = sprintf( '<div class="thumbnail" style="background-image: url(%s);"></div>', $photo );
+            }
+            
+            $quote_mark = sprintf( '<div class="quote-mark">%s</div>', 
+                                    get_svg( 'left-quote' ) );
+            
+            return sprintf( '<div class="grid-container"><div class="grid-x grid-padding-x grid-margin-bottom">    
+            <div class="cell large-3">%s%s</div><div class="cell large-auto">%s</div></div></div>', $quote_mark, $photo, $quote );   
+        }
         
     }
 }

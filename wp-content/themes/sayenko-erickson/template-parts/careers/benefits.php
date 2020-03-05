@@ -1,8 +1,8 @@
 <?php
-// Career - Benefits
+// Careers - Benefits
 
-if( ! class_exists( 'Career_Benefits' ) ) {
-    class Career_Benefits extends Element_Section {
+if( ! class_exists( 'Benefits_Section' ) ) {
+    class Benefits_Section extends Element_Section {
                 
         public function __construct() {
             parent::__construct();
@@ -10,14 +10,9 @@ if( ! class_exists( 'Career_Benefits' ) ) {
             $fields = get_field( 'benefits' );
             $this->set_fields( $fields );
                         
-            $settings = get_field( 'settings' );
+            $settings = get_field( 'benefits' );
             $this->set_settings( $settings );
-                        
-            // Render the section
-            if( empty( $this->render() ) ) {
-                return;   
-            }
-            
+                                    
             // print the section
             $this->print_element();        
         }
@@ -38,7 +33,10 @@ if( ! class_exists( 'Career_Benefits' ) ) {
                 'wrapper', 'id', [
                      $this->get_name() . '-benefits'
                 ], true
-            );            
+            );  
+            
+            $this->add_render_attribute(
+                'wrapper', 'data-toggler', '.slider-show' );                  
             
         }          
         
@@ -46,16 +44,22 @@ if( ! class_exists( 'Career_Benefits' ) ) {
         public function render() {
                         
             $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : '';
-            $heading = _s_format_string( $heading, 'h2' );
             
+            $description = $this->get_fields( 'description' );
+            
+            $heading = sprintf( '<header>%s%s</header>', _s_format_string( $heading, 'h2' ), $description );
+                                    
             $grid = $this->get_grid();
-                        
+            
+            $slider = $this->get_slider();
+                                    
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-margin-x">
                                 <div class="cell">%s</div>
-                                </div>%s
+                                </div>%s%s
                             </div>',
                             $heading,
+                            $slider,
                             $grid
                          );  
         }
@@ -64,53 +68,62 @@ if( ! class_exists( 'Career_Benefits' ) ) {
         private function get_grid() {
             
             $rows = $this->get_fields( 'grid' );
-            
+                        
             if( empty( $rows ) ) {
                 return false;
             }
                                
             $items = '';
                
-            foreach( $rows as $key => $row ) {  
-                $items .= $this->get_item( $key, $row );
+            foreach( $rows as $row ) {  
+                
+                $image = _s_get_acf_image( $row['grid_image'], 'thumbnail' );                                   
+                $title = _s_format_string( $row['grid_title'], 'h4' ); 
+                                                          
+                $items .= sprintf( '<div class="cell">
+                                    <div class="grid-item" data-toggle="section-benefits">
+                                        <div class="grid-image">%s</div>
+                                        <footer>%s</footer>
+                                    </div>
+                                </div>', 
+                                $image,
+                                $title
+                             );
             }
             
-            return sprintf( '<div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 align-center grid">%s</div>', 
+            return sprintf( '<div class="grid-x grid-margin-x small-up-1 medium-up-3 large-up-5 align-center grid" aria-hidden="true">%s</div>', 
                                     $items );
         }
         
         
-        private function get_item( $key, $row ) {
-                        
-            if( empty( $row ) ) {
-                return false;   
-            }
-                                             
-            $image = $row['grid_image'];
-            $image = sprintf( '<div class="icon">%s</div>', _s_get_acf_image( $image, 'thumbnail' ) );                                   
-            $heading = _s_format_string( $row['grid_title'], 'h3' ); 
-            //$description = _s_format_string( $row['grid_description'], 'p' );
+        
+        
+        private function get_slider() {
             
-            if( ! $heading && ! $image ) {
+            $rows = $this->get_fields( 'grid' );
+            
+            if( empty( $rows ) ) {
                 return false;
             }
             
-            $count = $key + 1;
-                      
-            return sprintf( '<div class="cell">
-                                <div class="grid-item">
-                                    <span class="number">%s</span>
-                                    <div class="grid-image">%s</div>
-                                    <header>%s</header>
-                                </div>
-                            </div>', 
-                            str_pad( $count, 2, "0", STR_PAD_LEFT ),
-                            $image,
-                            $heading
-                         );
+            $items = '';            
+                                
+            foreach( $rows as $row ) {     
+                
+                $image = _s_get_acf_image( $row['grid_image'], 'thumbnail' );                                   
+                $title = _s_format_string( $row['grid_title'], 'h4' ); 
+                $text  = _s_format_string( $row['grid_text'], 'p' );
+               
+                $items .= sprintf( '<div><div class="slide-content"><div class="slide-image">%s</div>%s%s</div></div>', 
+                                 $image, $title, $text );
+            }
+            
+            $button = '<button class="close-slider" data-toggle="section-benefits" aria-hidden="true"><span class="screen-reader-text">close</span></button>';
+            
+            return sprintf( '<div class="slider" id="slider">%s<div class="slick">%s</div></div>', $button, $items );  
         }
         
     }
 }
    
-new Career_Benefits;
+new Benefits_Section;

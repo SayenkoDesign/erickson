@@ -42,7 +42,7 @@ if( ! class_exists( 'Careers_Jobs_Section' ) ) {
         public function render() {
             
             $heading = $this->get_fields( 'heading' );
-            $heading = _s_format_string( $heading, 'h2' );
+            $heading = sprintf( '<header>%s%s</header>', get_svg( 'world-icon' ),  _s_format_string( $heading, 'h2' ) );
             
             $code = $this->get_fields( 'code' );
             
@@ -50,55 +50,11 @@ if( ! class_exists( 'Careers_Jobs_Section' ) ) {
                 return false;
             }
             
-            $classes = '';
-            $person = $this->get_fields( 'person' );
-            if( absint( $person ) ) {
-                $person = sprintf( '<div class="cell medium-6 large-4"><div class="person">%s</div></div>', $this->get_person( $person ) );  
-                $classes = ' medium-6 large-8'; 
-            }
-            
             return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x grid-margin-bottom">
-                                <div class="cell no-margin">%s</div>
-                                <div class="cell%s"><div class="entry-content">%s</div></div>
-                                %s
+                                <div class="cell">%s<div class="entry-content">%s</div></div>
                             </div></div>',
                             $heading,
-                            $classes,
-                            $code,
-                            $person
-                         );
-            
-        }
-        
-        
-        private function get_person( $post_id = false ) {
-                     
-            $thumbnail = sprintf( ' style="background-image: url(%s)"', get_the_post_thumbnail_url( $post_id, 'large' ) );
-            $thumbnail = sprintf( '<div class="thumbnail"%s></div>', $thumbnail );
-            
-            $position  = get_field( 'position', $post_id );
-            $position = _s_format_string( $position, 'p', [ 'class' => 'position' ] );
-            
-            $linkedin = get_field( 'linkedin', $post_id );
-            if( ! empty( $linkedin ) ) {
-                $linkedin = sprintf( '<a href="%s" class="linkedin">%s</a>', $linkedin, get_svg( 'linkedin' ) );
-            }
-                        
-            $heading = sprintf( '<h3 class="h4">%s</h3>', get_the_title( $post_id ) ); 
-            
-            $line = '<div class="line"></div>';
-                                                             
-            return sprintf( '<div class="cell">
-                                <div class="grid-item">
-                                    <div class="grid-image">%s<header>%s%s%s%s</header></div>
-                                    
-                                </div>
-                            </div>', 
-                            $thumbnail,
-                            $line,
-                            $heading,
-                            $position,
-                            $linkedin
+                            $code
                          );
             
         }

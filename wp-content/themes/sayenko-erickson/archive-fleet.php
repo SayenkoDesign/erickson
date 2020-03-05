@@ -8,7 +8,7 @@ _s_get_template_part( 'template-parts/fleet', 'hero' );
 
 <div class="grid-container">
 
-    <div class="grid-x grid-margin-x align-center">    
+    <div class="grid-x grid-padding-x align-center">    
   
         <div id="primary" class="cell large-9 small-order-2 content-area">
             
@@ -19,7 +19,7 @@ _s_get_template_part( 'template-parts/fleet', 'hero' );
 
                     $classes[] = 'small-up-1 large-up-2';
                     
-                    printf( '<div class="facetwp-template grid-x grid-margin-x %s grid">', join( ' ', $classes ) );
+                    printf( '<div class="grid-x grid-margin-x grid-margin-bottom facetwp-template %s">', join( ' ', $classes ) );
                      
                     if ( have_posts() ) : ?>
                         
@@ -55,11 +55,18 @@ _s_get_template_part( 'template-parts/fleet', 'hero' );
                 // Special Mission Equipment
                 // Payload
                 // Mission Type                   
-                printf( '<ul class="no-bullet filters"><li>%s</li><li>%s</li><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
-                    facetwp_display( 'facet', 'special_mission_equipment' ),
-                    facetwp_display( 'facet', 'payload' ),
-                    facetwp_display( 'facet', 'mission_type' ),
-                    __( 'reset' )
+                printf( '<h2>%s</h2>
+                        <ul class="no-bullet facetwp-filters">
+                            <li>%s</li>
+                            <li>%s</li>
+                            <li>%s</li>
+                            <li><button class="button" onclick="FWP.reset()">%s</button></li>
+                        </ul>', 
+                        __( 'Sort By' ),
+                        facetwp_display( 'facet', 'special_mission_equipment' ),
+                        facetwp_display( 'facet', 'payload' ),
+                        facetwp_display( 'facet', 'mission_type' ),
+                        __( 'reset' )
                  );
             ?>
         </div><!-- #secondary -->

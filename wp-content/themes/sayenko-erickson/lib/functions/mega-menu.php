@@ -4,7 +4,7 @@ function _s_mega_menu_default_image() {
     $mega_menu = get_field( 'mega_menu', 'option' );
     if( ! empty( $mega_menu['image'] ) ) {
         $image = _s_get_acf_image( $mega_menu['image'], 'large', true );
-        return sprintf( '<div class="image"><img src="%s" /></div>', $image );
+        return sprintf( '<div class="image object-fit-parent"><img src="%s" /></div>', $image );
     }  
     
     return false; 
@@ -95,8 +95,15 @@ function _s_mega_menu_placeholder_image($item_output, $item) {
     // Remove links from menu-item-object-service_cat
     $mega_menu = get_post_meta( $item->menu_item_parent, 'mega_menu', true );
     if( $mega_menu ) {
-        return sprintf( '<a class="disabled"><h5>%s</h5></a>', $item->title );
-    }
+        $icon = '';
+        $term = get_term( $item->object_id, 'service_cat' );
+       
+        if( ! is_wp_error( $term ) ) {
+            $icon = get_field( 'image', $term );
+            $icon = _s_get_acf_image( $icon );
+        }
+        return sprintf( '<a class="disabled">%s<h5>%s</h5></a>', $icon, $item->title );
+    }    
 
     return $item_output;
 }

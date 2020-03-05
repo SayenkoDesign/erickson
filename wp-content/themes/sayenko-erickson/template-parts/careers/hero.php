@@ -72,11 +72,42 @@ if( ! class_exists( 'Hero_Post' ) ) {
                         
             $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
             $heading = _s_format_string( $heading, 'h1' );
+                        
+            $description = empty( $this->get_fields( 'description' ) ) ? '' : _s_format_string( $this->get_fields( 'description' ), 'h4' );
+            
+            $subheading = $this->get_fields( 'subheading' );
+            $subheading = _s_format_string( $subheading, 'h3' );
+            
+            $button = $this->get_fields( 'button' );
+                      
+            if( ! empty( $button['link'] ) ) {
+                                
+                $args = [
+                    'link' => $button['link'],
+                    'echo' => false,
+                    'classes' => 'button',
+                ];
+                $button  = sprintf( '<div class="button-container">%s</div>', _s_acf_button( $args ) );
+            } else {
+                $button = '';
+            }
+                        
+            $video = $this->get_fields( 'video' );
+            $video_link = '';
+            if( ! empty( $video ) ) {
+                $video_icon = '<span><i class="screen-reader-text">play video</i></span>';
+                $video_link = sprintf( '<div class="play-video"><a data-fancybox href="%s">%s</a></div>', $video, $video_icon );
+            }
     
-            return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x align-middle">
-                                <div class="cell"><div class="hero-content">%s</div></div>
-                            </div></div>',
-                            $heading
+            return sprintf( '<div class="hero-content"><div class="grid-container"><div class="grid-x grid-margin-x align-middle">
+                                <div class="cell">%s%s%s%s%s</div>
+                            </div></div></div>',
+                            $heading,
+                            $description,
+                            $subheading,
+                            $video_link,
+                            $button
+                            
                          );
         }
     }

@@ -2,21 +2,12 @@
 
 .template-multi-purpose {
     
-    .section-hero {
-        background-color: $red;
-        padding-top: rem-calc(35);
-        
-        h1 {
-            color: #fff;   
-        }
-    }
-    
     main section:nth-child(even) {
-        background-color: $gray;    
+        background-color: #eff3f1;    
     }
     
     .section-block {
-        padding: rem-calc(65 0 0);
+        padding: rem-calc(75 0 45);
         
         @include breakpoint(xxlarge) {
             padding: rem-calc(75 0 45);
@@ -24,16 +15,30 @@
         
         &.content-width-narrow .wrap {
             margin: 0 auto;
-            max-width: rem-calc(1200);   
+            max-width: rem-calc(1000);   
         }
         
         &.content-align-center {
             text-align: center;
         }
         
-        .cell {
-            margin-bottom: rem-calc(30);
+        @include breakpoint(large) {
+            &.image-align-left .panel {
+                @include breakpoint(large) {
+                    padding-left: rem-calc(30);
+                }                 
+            }
             
+            &.image-align-right .panel {
+                padding-right: rem-calc(30);
+            }  
+            
+        }
+        
+        
+        
+        .cell {
+                        
             > &:last-of-type {
                 margin-bottom: 0;   
             }
@@ -46,8 +51,49 @@
                 }
             }
             
+            .image-wrapper {
+                display: inline-block;
+                position: relative;   
+            }
+            
+            .play-video a {
+                background: $orange;
+                margin: 0 auto;
+                @include pulse();  
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%); 
+                
+                span {
+                    background: $orange;
+                    
+                    border: 3px solid #fff;
+                            
+                    &:after {
+                        content:'';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 8px 0 8px 16px;
+                        border-color: transparent transparent transparent #ffffff;
+                        margin-left: 2px;
+
+                    }
+                }
+            }
+            
             .button-wrapper {
                 padding-top: rem-calc(25); 
+                margin-bottom: 0;
+                
+                a {
+                    margin-bottom: 0;   
+                }
             }
         }
     }

@@ -43,8 +43,6 @@
 
     include_once( 'functions/template-tags.php' );
 
-    include_once( 'functions/videos.php' );
-
 	include_once( 'functions/fonts.php' );
 
 	include_once( 'functions/scripts.php' );
@@ -69,7 +67,11 @@
     
     //include_once( 'functions/wp-all-import.php' );
     
+    include_once( 'functions/redirects.php' );
+    
     include_once( 'functions/photo-gallery.php' );
+    
+    include_once( 'functions/investors.php' );
 
 /****************************************
 	ACF Custom Fields
@@ -81,7 +83,7 @@
     
     include_once( 'acf/gutenberg.php' );
     
-	include_once( 'acf/blocks.php' );
+	//include_once( 'acf/blocks.php' );
     
     include_once( 'acf/filters.php' );
         
@@ -99,8 +101,8 @@
 	include_onces (Foundation)
 *****************************************/
 
-//include_once( 'foundation/class-foundation.php' );
-//include_once( 'foundation/class-foundation-accordion.php' );
+include_once( 'foundation/class-foundation.php' );
+include_once( 'foundation/class-foundation-accordion.php' );
 //include_once( 'foundation/class-foundation-tabs.php' );
 
 /****************************************

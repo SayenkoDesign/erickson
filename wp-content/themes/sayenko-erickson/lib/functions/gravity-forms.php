@@ -13,10 +13,10 @@ add_filter( 'gform_confirmation_anchor', '__return_true' );
 // By submitting this form, I agree to Erickson’s <a href="/privacy-policy">Privacy Policy</a>
 
 function add_privacy_policy( $button, $form ) {
-    $text = sprintf( '<div class="privacy-policy-disclaimer">By submitting this form, I agree to Erickson’s <a href="%s">Privacy Policy</a></div>', get_permalink( 3 ) );
+    $text = sprintf( '<div class="privacy-policy-disclaimer">By submitting this form, I agree to Erickson’s <a href="%s" target="_blank">Privacy Policy</a></div>', get_permalink( 3 ) );
     return $text . $button;
 }
-add_filter( 'gform_submit_button', 'add_privacy_policy', 10, 2 );
+add_filter( 'gform_submit_button', 'add_privacy_policy', 99, 2 );
 
 
 /**

@@ -2,183 +2,97 @@
 // Footer
 // --------------------------------------------------
 
-
 .site-footer {
     
-    @include breakpoint(large) {
-        .cell.shrink {
-            flex: 0 0 auto;
-        }
-    }
-    
-    .copyright {
+    .wrap {
+        margin: 0 auto;
+        max-width: $global-width;
+        position: relative;   
         
-        p {
-            color: $dark-gray;
-            font-size: rem-calc(15);
-            line-height: 1.866666667;  
-            
-            a {
-                text-decoration: underline;
-                color: $dark-gray;
-                
-                &:hover {
-                    color: $red;   
-                }
-            }
-            
-            span {
-                display: block; 
-                
-                @include breakpoint(xlarge) {
-                    display: inline;
-                }
-            }
+        @include breakpoint(xxlarge) {
+            //padding-right: rem-calc(50);
         }
     }
     
-    .hours-phone-directions {
-         margin-top: rem-calc(80);
-         
-         @include breakpoint(large) {
-             margin-top: rem-calc(160);
-             margin-bottom: 0;
-         }
-         
-         @include breakpoint(xlarge) {
-            
-            li {
-                
-                &:first-child {
-                    margin-right: auto;   
-                }
-                                
-                &:last-child {
-                    margin-left: auto; 
-                    padding-right: 0;  
-                }
-                
-                
-            }
-            
-            
-        }
-    }
-    
-    .content {
+    .cell {
+        padding-top: rem-calc(16); 
+        text-align: center;  
+        
         @include breakpoint(large) {
-            padding-left: 10%;
-        }
-        
-        @include breakpoint(xxxlarge) {
-            padding-left: rem-calc(145);
+            text-align: left;
         }
     }
-    
-    
-
-	.widget {
+         
+    p {
+        color: $dark-gray;
+        font-size: rem-calc(11);
+        line-height: (16/11); 
+        margin-bottom: rem-calc(16); 
         
-        margin-bottom: rem-calc(35);
-
-		.widget-title {
-			font-size: rem-calc(20);
-		}
-        
-        p {
-           color: #CADADE;
-			font-size: rem-calc(15);
-			line-height: 1.2; 
-            margin-bottom: rem-calc(15);
-            
-            a {
-                color: #CADADE;   
-            }
-        }
-	}
-
-	.widget_nav_menu {
-
-		.menu {
-			margin: 0;
-			padding: 0;
-			display: block;
-		}
-
-		.menu-item {
-			display: block;
-            margin-bottom: rem-calc(14);
-		}
-
-		a {
-			color: #CADADE;
-			font-size: rem-calc(15);
-			line-height: 1.2;
-			padding: 0;
+        a {
+            text-decoration: underline;
+            color: $dark-gray;
             
             &:hover {
-                color: $red;   
+                color: lighten($dark-gray, 20%);   
             }
-		}
-	}
-
-	.social-icons {
-
-		@include list-reset;
-		height: 48px;
-		margin-bottom: rem-calc(30);
-
-		li {
-			display: inline-block;
-			padding: rem-calc(0 15 30 0);
-			height: 48px;
-
-			@include breakpoint(large) {
-				padding: rem-calc(0 30 30 0);
-			}
-
-		}
-
-		a {
-			transition: 250ms;
-			width: 48px;
-			height: 48px;
-			display: block;
-		    background-color: rgba(#010717, .1);
-			border-radius: 50%;
-			position: relative;
-
-			&:hover {
-			    background-color: #010717;
-				border-radius: 50%;
-
-				&:hover {
-					svg {
-						fill: $white;
-					}
-				}
-			}
-		}
-
-		svg {
-			width: 28px;
-			height: auto;
-			fill: $dark-gray;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
-
-	}
+        }
+        
+        span {
+            display: block; 
+            
+            @include breakpoint(xlarge) {
+                display: inline;
+            }
+        }
+    }
     
-    
-    @include breakpoint(large) {
-        .copyright,
-        .social-icons {
-            margin-bottom: rem-calc(50);   
+}
+
+
+.social-icons {
+        
+    display: flex;
+    justify-content: center;
+    @include list-reset;
+    margin: 0 rem-calc(-10);
+
+    li {
+        display: inline-block;
+        margin-bottom: 16px;
+        padding: 0 rem-calc(10);
+    }
+
+    a {
+        color: $orange;
+        transition: 250ms;
+        width: 32px;
+        height: 32px;
+        display: block;
+        border: 2px solid $orange;
+        border-radius: 50%;
+        position: relative;
+
+        &:hover {
+            background-color: $orange;
+            color: $white;
+
+            &:hover {
+                svg {
+                    fill: $white;
+                }
+            }
         }
     }
 
+    svg {
+        width: 22px;
+        height: auto;
+        fill: $orange;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
 }

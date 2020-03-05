@@ -1,27 +1,223 @@
 // Buttons
 
-a, button {
+
+@mixin primary-button {
+    display: inline-block;
+    background-color: $orange;
+    border: none;
+    border-radius: 4px;
+    // box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12);
+    font-size: rem-calc(13);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.2;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
     
-    &.button {
-        font-weight: 900;
-        text-transform: uppercase;
-        line-height: 1.2;
+    
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background: $orange-hover;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      z-index: -1;
+      transition: width 0.09s ease-in;
+    }
+    
+    @supports (clip-path: polygon(0 0, 100% 0, 24% 100%, 0% 100%)) {
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          background: $orange-hover;
+          top: 0;
+          left: 0;
+          width: 20%;
+          height: 100%;
+          z-index: -1;
+          transition: left 0.09s ease-in;
+          clip-path: polygon(0 0, 100% 0, 24% 100%, 0% 100%);
+        }
+    }
+    
+    
+    &:hover, 
+    &:focus {
+        background-color: $orange;
+        &:before {
+            width: 100%;
+        }
+        &:after {
+            left: 100%;
+        }
+    }
+    
+    
+    min-width: rem-calc(218);
+    max-width: 280px;
+
+    &.large {        
+        @include breakpoint(large) {
+            min-width: rem-calc(196);
+            padding-top: rem-calc(36.5);
+            padding-bottom: rem-calc(36.5);
+        }
+    } 
+    
+    
+    clip-path: 
+        polygon(
+          0% 0%,     /* top left */
+          0% 0%,     /* top left */
+          100% 0%,    /* top right */
+          100% 0%,   /* top right */
+          100% calc(100% - 20px),  /* bottom right */
+          calc(100% - 20px) 100%,  /* bottom right */
+          0% 100%,   /* bottom left */
+          0 100%      /* bottom left */
+        );
+}
+
+
+@mixin secondary-button {
+    
+    @include button();
+    
+    display: inline-block;
+    background-color: $orange;
+    border: none;
+    border-radius: 4px;
+    //box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.2;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: $orange!important;
+    transition: none;
+    
+    
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: #ffffff;
+      top: 4px;
+      left: 4px;
+      width: calc(100% - 8px)!important;
+      height: calc(100% - 8px)!important;
+      z-index: -1;
+      border-radius: 4px;
+      background: #fff;
         
-        min-width: rem-calc(280);
-        max-width: 100%;
+        clip-path: 
+        polygon(
+          0% 0%,     /* top left */
+          0% 0%,     /* top left */
+          100% 0%,    /* top right */
+          100% 0%,   /* top right */
+          100% calc(100% - 18px),  /* bottom right */
+          calc(100% - 18px) 100%,  /* bottom right */
+          0% 100%,   /* bottom left */
+          0 100%      /* bottom left */
+        );
+    }
+    
+    &:after {
+        display: none!important;   
+    }
+    
+    &:hover, 
+    &:focus {
         
-        &.small {        
-            min-width: rem-calc(160);
-            padding-top: rem-calc(18.5);
-            padding-bottom: rem-calc(18.5);
-        }   
+        color: #fff!important;
+        &:before {
+            background-color: $orange!important;   
+        }
+    }
+    
+    
+    clip-path: 
+        polygon(
+          0% 0%,     /* top left */
+          0% 0%,     /* top left */
+          100% 0%,    /* top right */
+          100% 0%,   /* top right */
+          100% calc(100% - 20px),  /* bottom right */
+          calc(100% - 20px) 100%,  /* bottom right */
+          0% 100%,   /* bottom left */
+          0 100%      /* bottom left */
+        );
+       
+}
+
+a, 
+button {
+   &.button {
+    @include primary-button;
+   }
+}
+
+.menu a.button {
+    min-width: rem-calc(188);   
+    padding: $button-padding;
+}
+
+
+.wp-block-button__link {
+    @include primary-button;
+}
+
+.facetwp-load-more {
+    @include secondary-button;
+    min-width: 210px;
+}
+
+a, 
+button {
+   &.button--secondary {
+        @include secondary-button;
+    }
+}
+
+
+
+.read-more {
+    display: inline-block;
+    position: relative;
+    color: #000000;
+    font-family: $barlow;
+    font-size: rem-calc(18);
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    line-height: 40px;
+    padding-right: 24px;
+    text-transform: uppercase;
+    
+    &:after {
+        display: block;
+        content: '';
+        width: 11px;
+        height: 19px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='19' viewBox='0 0 11 19'%3E%3Cpath fill='%23f58025' fill-rule='evenodd' d='M.342 18.673c.222.214.526.327.818.327.292 0 .596-.113.818-.327l8.683-8.382a1.09 1.09 0 0 0 0-1.58L1.978.332a1.179 1.179 0 0 0-1.636 0 1.083 1.083 0 0 0 0 1.578l7.865 7.592-7.865 7.593a1.103 1.103 0 0 0 0 1.579z'/%3E%3C/svg%3E");
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    
+    }
+    
+    &:hover {
         
-        &.large {        
-            @include breakpoint(large) {
-                min-width: rem-calc(320);
-                padding-top: rem-calc(36.5);
-                padding-bottom: rem-calc(36.5);
-            }
-        }   
+        &:after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='19' viewBox='0 0 11 19'%3E%3Cpath fill='%23E56104' fill-rule='evenodd' d='M.342 18.673c.222.214.526.327.818.327.292 0 .596-.113.818-.327l8.683-8.382a1.09 1.09 0 0 0 0-1.58L1.978.332a1.179 1.179 0 0 0-1.636 0 1.083 1.083 0 0 0 0 1.578l7.865 7.592-7.865 7.593a1.103 1.103 0 0 0 0 1.579z'/%3E%3C/svg%3E");
+        }
     }
 }

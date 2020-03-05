@@ -172,7 +172,11 @@ function add_slug_body_class( $wp_classes, $classes ) {
     // remove default page template name from front-page.php
     if( is_front_page() || is_home() ) {
          unset( $wp_classes['page-template-default'] );
-    }	
+    }
+        
+    if( is_paged() ) {
+        $classes[] = 'is-paged';
+    }
     	
 	// Add the extra classes back untouched
     return array_merge( $wp_classes, (array) $classes );

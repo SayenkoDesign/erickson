@@ -185,9 +185,7 @@ class Foundation_Tabs extends Foundation {
     public function get_tab_links() {
         
         $tab_links = $this->tab_links;
-        
-        var_dump( $tab_links );
-        
+                
         if( empty( $tab_links ) ) {
             return false;
         }
