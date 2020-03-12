@@ -103,7 +103,11 @@
         }
         
         .panel {
-            padding: rem-calc(60 40);   
+            padding: rem-calc(30 20);  
+            
+            @include breakpoint(large) {
+                padding: rem-calc(60 40);  
+            }
             
             h2 {
                 margin-bottom: rem-calc(20);   

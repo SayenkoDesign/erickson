@@ -21,16 +21,15 @@ Header
 
 .site-header {
     
-    .logo-white {
-        display: none;   
-    }
-    
     @include breakpoint(large down) {
         .site-title {
-            width: rem-calc(249);
+            width: rem-calc(160);
         }
     }
     
+    background: $white!important;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+
     position: relative;
     z-index: 999;
         

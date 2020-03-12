@@ -42,16 +42,18 @@
 
 		@include breakpoint(xlarge) {
 			justify-content: flex-end;
+            
+            > .menu-item:not(.mega-menu-item) {
+                padding-bottom: 12px;
+                margin-bottom: -12px;   
+            }
 		}
         
         @include breakpoint(xxlarge) {
-            margin-left: rem-calc(100);
+            margin-left: rem-calc(60);
 		}
         
-        > .menu-item:not(.mega-menu-item) {
-            padding-bottom: 12px;
-            margin-bottom: -12px;   
-        }
+        
         
         > .menu-item {
             > a {
@@ -71,24 +73,22 @@
                 font-size: rem-calc(15);
                 
                 line-height: 21/18;
-                //font-family: $header-font-family;
-                //font-weight: $header-font-weight;
+
+                padding-top: rem-calc(14);
+                padding-bottom: rem-calc(14);
                 
-                padding-top: rem-calc(11.5);
-                padding-bottom: rem-calc(11.5);
-                
-                padding-left: 16px; 
-                padding-right: rem-calc(map-get($grid-column-gutter, small)/2); 
+                padding-left: rem-calc(map-get($grid-column-gutter, small));
+                padding-right: rem-calc(map-get($grid-column-gutter, small)); 
                
                
                 @include breakpoint(medium) {
-                    padding-left: rem-calc(map-get($grid-column-gutter, medium)/2); 
-                    padding-right: rem-calc(map-get($grid-column-gutter, medium)/2); 
+                    padding-left: rem-calc(map-get($grid-column-gutter, medium)); 
+                    padding-right: rem-calc(map-get($grid-column-gutter, medium)); 
                 }
                 
                 @include breakpoint(large) {
-                    padding-left: rem-calc(map-get($grid-column-gutter, large)/2); 
-                    padding-right: rem-calc(map-get($grid-column-gutter, large)/2);
+                    padding-left: rem-calc(map-get($grid-column-gutter, large)); 
+                    padding-right: rem-calc(map-get($grid-column-gutter, large));
                 }
                 
                 @include breakpoint(xlarge) {
@@ -176,6 +176,7 @@
                 border: none;  
                 margin-left: 0; 
             }
+
         }
         
         
@@ -200,6 +201,20 @@
                 font-family: $body-font-family;
                 font-size: rem-calc(15);
                 font-weight: 400;
+                
+                padding-left: rem-calc(map-get($grid-column-gutter, small));
+                padding-right: rem-calc(map-get($grid-column-gutter, small)); 
+               
+               
+                @include breakpoint(medium) {
+                    padding-left: rem-calc(map-get($grid-column-gutter, medium)); 
+                    padding-right: rem-calc(map-get($grid-column-gutter, medium)); 
+                }
+                
+                @include breakpoint(large) {
+                    padding-left: rem-calc(map-get($grid-column-gutter, large)); 
+                    padding-right: rem-calc(map-get($grid-column-gutter, large));
+                }
             }
         }
     }

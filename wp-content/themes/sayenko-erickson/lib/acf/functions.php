@@ -149,6 +149,7 @@ function _s_acf_button( $args = [] ) {
             'closeExisting' => true,
             'touch' => false,
             'hash' => false,
+            'backFocus' => false
         ];
         $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
         

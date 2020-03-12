@@ -1,0 +1,12 @@
+/**
+ * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
+ * @version v5.2.7
+ * @link https://github.com/ten1seven/what-input
+ * @license MIT
+ */
+
+/*!
+ * imagesLoaded v4.1.4
+ * JavaScript is all like "You images are done yet or what?"
+ * MIT License
+ */

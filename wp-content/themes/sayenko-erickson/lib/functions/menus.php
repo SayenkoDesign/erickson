@@ -91,6 +91,7 @@ function _s_menu_item_fancybox($item_output, $item ) {
             'closeExisting' => true,
             'touch' => false,
             'hash' => false,
+            'backFocus' => false
         ];
         $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
                 

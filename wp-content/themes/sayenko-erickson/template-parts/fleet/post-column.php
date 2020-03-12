@@ -20,6 +20,8 @@ $options = [
     'baseClass' => "single-fleet",
     'closeExisting' => true,
     'touch' => false,
+    'autoFocus' => false,
+    'backFocus' => false,
     'hash' => false,
     'filter' => '.fleet-ajax'
 ];

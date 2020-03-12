@@ -1,26 +1,14 @@
-MOBILE QA
+padding: rem-calc(30 20);  
+            
+            @include breakpoint(large) {
+                padding: rem-calc(60 40);  
+            }
 
-- add site-header drop shadow?
-- push to WP Engine and test all pages, local testing had weird issues
 
-- fancbox don't focus on mobile except for the forms
 
-- site header more padding
-- mobile menu more padding
-- mobile forms, complex fields missing top padding or margin
-- single fleet mobile width and alignment on things
-- single fleet mobile padding too much?
-- single fleet missing image on mobile phone
+QA:
 
-- careers testimonual backgound margin top, margin below thumbnail, arrows are aligned too much left
-
-- history - margin below thumbnail, mobile filtering thumbnail disapears, intro block too much padding and innovations image is too small
-
-- google maps, add light gray background behind the legend
-
-- footer menu links need more vertical spacing
-
-- test with google page speed and accessibility
+- footer cTA phone color
 
 
 

@@ -50,7 +50,7 @@ if( ! class_exists( 'Challenge_Section' ) ) {
             $file = $this->get_fields( 'file' );             
             if( ! empty( $file['url'] ) ) {
                 $args = [
-                    'link' => [ 'title' => sprintf( '%s %s', __( 'download' ), $file['subtype'] ), 'url' => $file['url'] ],
+                    'link' => [ 'title' => sprintf( '%s %s', __( 'download' ), $file['subtype'] ), 'url' => $file['url'], 'target' => '_blank' ],
                     'echo' => false,
                     'classes' => 'button',
                 ];

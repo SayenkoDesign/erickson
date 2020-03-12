@@ -48,12 +48,12 @@ if( ! class_exists( 'Solution_Section' ) ) {
             $image = _s_get_acf_image( $this->get_fields( 'image' ), 'large' );
             if( ! empty( $image ) ) {
                 $style = sprintf( ' style="background-image: url(%s);"', $image );
-                $image = sprintf( '<div class="cell large-auto object-fit-parent">%s</div>', $image );
+                $image = sprintf( '<div class="cell large-auto small-order-1 large-order-2 object-fit-parent">%s</div>', $image );
             }
                                         
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x">
-                                    <div class="cell large-auto"><div class="panel">%s%s</div></div>
+                                    <div class="cell large-auto small-order-2 large-order-1"><div class="panel">%s%s</div></div>
                                     %s
                                 </div>
                             </div>',

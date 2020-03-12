@@ -7,11 +7,10 @@
         text-align: center;                
     }
     
-    main {
-        padding-top: rem-calc(75);   
-    }
     
     .section-form-directory {
+        
+        padding-top: rem-calc(75);  
         
         .entry-content {
             @include breakpoint(large) {
@@ -76,8 +75,14 @@
     
     
     .section-offices {
+        background-color: $light-gray;
+        margin-top: rem-calc(45);
+        padding-top: rem-calc(30);
         
-        padding-top: rem-calc(75);
+        @include breakpoint(xlarge) {
+            margin-top: rem-calc(45);
+            padding-top: 0;
+        }
         
         header {
             

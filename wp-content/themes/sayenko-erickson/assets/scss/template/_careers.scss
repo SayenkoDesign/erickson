@@ -82,6 +82,11 @@
                 max-width: rem-calc(900);
             }
             
+            h3 {
+                color: #fff; 
+                margin-top: rem-calc(30);  
+            }
+            
             > *:last-of-type {
                 margin-bottom: 0;
             }
@@ -512,21 +517,17 @@
         .slick-arrows {
             width: rem-calc(180);
             display: flex;
+            justify-content: space-between;
             margin: 0 auto 0;
             
             .slick-prev,
             .slick-next {
                 margin-top: 35px;
                 position: relative;
+                
             }
             
-            .slick-prev {
-                left: -15px;
-            }
             
-            .slick-next {
-                right: -15px;
-            }
             
             @include breakpoint(xxlarge) {
                 .slick-prev,
@@ -535,6 +536,14 @@
                     top: 50%;
                     transform: translateY(-50%);
                     margin-top: 35px;
+                }
+                
+                .slick-prev {
+                    left: -15px;
+                }
+                
+                .slick-next {
+                    right: -15px;
                 }
                 
             }
@@ -560,7 +569,6 @@
         
         
         .quote {
-            padding-top: 30px;
             text-align: center;
             
             @include breakpoint(large) {

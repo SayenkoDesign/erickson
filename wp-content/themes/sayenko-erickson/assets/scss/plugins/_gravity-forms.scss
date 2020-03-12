@@ -136,3 +136,11 @@ body .gform_wrapper ul li.gfield {
 body .gform_wrapper .top_label div.ginput_container {
     margin-top: 0!important;
 }
+
+
+@media only screen and (max-width: 641px) {
+    .gform_wrapper .ginput_container span:not(.ginput_price):last-child {
+        margin-bottom: 0!important;
+        padding-top: rem-calc(17)!important;
+    }
+}

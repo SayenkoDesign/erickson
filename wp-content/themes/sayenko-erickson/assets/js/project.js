@@ -36,6 +36,7 @@ import fancyBox from './modules/fancybox';
 
 //import infiniteScroll from './modules/infinite-scroll';
 
+
 const modules = new ModuleLoader( {
     acfMap,
     animateNumbers,

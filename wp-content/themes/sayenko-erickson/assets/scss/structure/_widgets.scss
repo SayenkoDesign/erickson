@@ -107,7 +107,11 @@
 
 		.menu-item {
 			display: block;
-            margin-bottom: rem-calc(8);
+            margin-bottom: rem-calc(15);
+            
+            @include breakpoint(xxlarge) {
+                margin-bottom: rem-calc(12);
+            }
 		}
 
 		a {

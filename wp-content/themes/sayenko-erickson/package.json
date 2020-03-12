@@ -30,9 +30,10 @@
 		"url": "https://github.com/iamcanadian1973/_s/issues"
 	},
 	"devDependencies": {
+		"@babel/polyfill": "^7.8.7",
 		"@babel/preset-react": "^7.8.3",
 		"@wordpress/babel-preset-default": "^4.10.0",
-		"@wordpress/dependency-extraction-webpack-plugin": "^2.2.0",
+		"@wordpress/dependency-extraction-webpack-plugin": "^2.3.0",
 		"browser-sync": "^2.26.7",
 		"browser-sync-webpack-plugin": "2.2.2",
 		"copy-webpack-plugin": "^5.1.1",
@@ -42,21 +43,21 @@
 		"imagemin-mozjpeg": "^8.0.0",
 		"imagemin-webpack-plugin": "^2.4.2",
 		"laravel-mix": "^5.0.1",
+		"laravel-mix-polyfill": "^2.0.0",
 		"laravel-mix-wp-blocks": "^0.2.0",
 		"node-wp-i18n": "^1.2.3",
 		"postcss-preset-env": "^6.7.0",
-		"rimraf": "^3.0.1",
-		"sass": "^1.25.0",
+		"rimraf": "^3.0.2",
+		"sass": "^1.26.3",
 		"sass-loader": "^7.1.0",
 		"stylelint": "^12.0.0",
 		"stylelint-config-wordpress": "^16.0.0",
 		"theme-claim": "^0.2.0",
-		"vue-template-compiler": "^2.6.11"
-	},
-	"dependencies": {
-		"@fancyapps/fancybox": "^3.5.7",
+		"vue-template-compiler": "^2.6.11",
+        "@fancyapps/fancybox": "^3.5.7",
 		"classnames": "^2.2.6",
 		"clip-path": "^1.2.0",
+		"core-js": "^3.6.4",
 		"fibers": "^4.0.2",
 		"foundation-sites": "^6.6.1",
 		"imagesloaded": "^4.1.4",
@@ -71,6 +72,9 @@
 		"normalize.css": "^8.0.1",
 		"slick-carousel": "^1.8.1",
 		"webfontloader": "^1.6.28",
-		"what-input": "^5.2.6"
+		"what-input": "^5.2.7"
+	},
+	"dependencies": {
+		
 	}
 }

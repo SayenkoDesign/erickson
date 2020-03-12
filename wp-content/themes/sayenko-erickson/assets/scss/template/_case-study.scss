@@ -131,12 +131,18 @@
     
     
     .section-solution {
-        
+        background: $light-gray;
+        margin-top: rem-calc(50);
         padding-top: rem-calc(50);
+        
+        @include breakpoint(xlarge) {
+            margin-top: 0;
+            background: transparent;
+        }
         
         .wrap {
             margin: 0 auto;
-            background: $light-gray;
+            
             position: relative;
             z-index: 2;
             
@@ -146,7 +152,16 @@
         }
         
         .panel {
-            padding: rem-calc(60 40);   
+            padding: rem-calc(30 20);  
+            
+            @include breakpoint(large) {
+                padding: rem-calc(60 40);  
+            }
+            
+            @include breakpoint(xlarge) {
+                background: $light-gray;
+                
+            }
             
             h2 {
                 margin-bottom: rem-calc(20);   
@@ -312,10 +327,11 @@
         
                 
         .quote {
-            padding-top: 30px;
+            
             text-align: center;
             
             @include breakpoint(large) {
+                padding-top: 30px;
                 padding-left: rem-calc(30);
                 text-align: left;
             }

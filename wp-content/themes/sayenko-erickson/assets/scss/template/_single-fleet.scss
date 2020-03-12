@@ -30,6 +30,10 @@
         margin-bottom: rem-calc(10);   
     }
     
+    .share-icons {
+        justify-content: flex-start;
+    }
+    
     article {
         margin-bottom: rem-calc(20);   
     }
@@ -47,13 +51,21 @@
     
     footer {
         
-        margin-top: rem-calc(40);
+        @include breakpoint(large) {
+            margin-top: rem-calc(40);   
+        }
      
         .cell {
             background-color: $light-gray;  
             
             .panel {
                 padding: rem-calc(60 40);  
+                
+                @include breakpoint(medium down) {
+                    h4 {
+                        margin-bottom: rem-calc(10);   
+                    }
+                }
                 
                 p {
                     margin-bottom: rem-calc(40);   

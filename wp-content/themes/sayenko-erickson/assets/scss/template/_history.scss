@@ -112,7 +112,11 @@
         }
         
         .panel {
-            padding: rem-calc(60 40);   
+            padding: rem-calc(30 20);  
+            
+            @include breakpoint(large) {
+                padding: rem-calc(60 40);  
+            }
             
             h2 {
                 color: $orange;
@@ -123,7 +127,10 @@
             img {
                 display: block;
                 margin: rem-calc(40) auto 0; 
-                max-width: 90%;
+                
+                @include breakpoint(medium) {
+                    max-width: 90%;
+                }
                 @include breakpoint(large) {
                     max-width: 60%;
                 }
@@ -268,7 +275,12 @@
             margin-top: 40px;
             
             .thumbnail {
-                margin-bottom: rem-calc($global-margin);
+                margin-bottom: rem-calc(40);
+                
+                @include breakpoint(large) {
+                    margin-bottom: rem-calc($global-margin);
+                }
+                
                 span:before {                  
                     left: -34px; 
                 }  

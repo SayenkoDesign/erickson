@@ -20,6 +20,8 @@ const ImageminPlugin = require( 'imagemin-webpack-plugin' ).default;
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const imageminMozjpeg = require( 'imagemin-mozjpeg' );
 
+require('laravel-mix-polyfill');
+
 /*
  * -----------------------------------------------------------------------------
  * Theme Export Process
@@ -91,12 +93,17 @@ if (mix.inProduction()) {
  *
  * @link https://laravel.com/docs/5.6/mix#working-with-scripts
  */
-mix.js( `${ devPath }/js/project.js`, 'js' )
-	.js( `${ devPath }/js/modernizr-custom.js`, 'js' )
-    .js( `${ devPath }/js/infobox.js`, 'js' )
-    .js( `${ devPath }/js/scrollreveal-config.js`, 'js' )
+ mix.js( `${ devPath }/js/project.js`, 'js' )
+    .polyfill({
+      enabled: true,
+      useBuiltIns: "usage",
+      targets: {"firefox": "50", "ie": 11}
+    })
 	.extract();
 
+ mix.js( `${ devPath }/js/modernizr-custom.js`, 'js' )
+    .js( `${ devPath }/js/infobox.js`, 'js' )
+    .js( `${ devPath }/js/scrollreveal-config.js`, 'js' );
 
 //mix.react( `${devPath}/js/editor.js`, 'js' );
 

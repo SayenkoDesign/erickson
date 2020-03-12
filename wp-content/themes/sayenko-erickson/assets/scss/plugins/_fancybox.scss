@@ -12,6 +12,13 @@
 }
 
 
+.fancybox-content {
+    @include breakpoint(medium down) {
+        padding-left: rem-calc(10)!important;
+        padding-right: rem-calc(10)!important;
+    }
+}
+
 
 .fancybox-button--close,
 .fancybox-close-small {
