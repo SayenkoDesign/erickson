@@ -4,12 +4,7 @@
     
     
     .section-hero {
-        background: #ffffff;
-        position: relative;
-        overflow: hidden;
-        
-        
-        
+                
         @include breakpoint(xlarge) {
             &:before {
                 content: '';
@@ -58,11 +53,14 @@
             
         } 
         
+        .wrap {
+            background-color: rgba(18,55,89,0.7);   
+        }
+        
         
         .hero-content {
-            background-color: rgba(18,55,89,0.7);
+            
             padding: rem-calc(60 0);
-            position: relative;
             z-index: 2;
             text-align: center;
             
@@ -96,9 +94,6 @@
                 min-width: rem-calc(248);
             } 
             
-            .play-video {
-                margin-top: rem-calc(50);   
-            }
             
             .play-video {
                 @include play;
@@ -181,7 +176,11 @@
         @include breakpoint(large) {
                 
             .grid {
-                height: auto;   
+                @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+                   /* IE10+ specific styles go here */  
+                   height: 100%;
+                   
+                }
             }
             
             &.images-loaded .grid {
@@ -197,11 +196,22 @@
                 visibility: hidden;
                 position: relative;
                 width: 100%;
+                height: 100%;
                 top: 0;
                 left: 100%;
                 margin-left: -100%;
                 float: left;
                 transition: all .2s ease-in-out;
+                
+                @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+                   /* IE10+ specific styles go here */  
+                   top: auto;
+                   left: auto;
+                   margin-left: 0;
+                   float: none;
+                   height: 0;
+                   
+                }
             }
             
             .slide-content {
@@ -238,12 +248,23 @@
             @include breakpoint(large) {
                 .grid {
                     opacity: 0!important;
-                    visibility: hidden!important;   
+                    visibility: hidden!important;  
+                    
+                    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+                       /* IE10+ specific styles go here */  
+                       height: 0;
+                       
+                    }
+                     
                 }
                 
                 .slider {
                     opacity: 1;
                     visibility: visible;
+                    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
+                       /* IE10+ specific styles go here */  
+                       height: 100%;
+                    }
                 }
             
                 .close-slider {

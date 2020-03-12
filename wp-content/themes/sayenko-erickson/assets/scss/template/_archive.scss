@@ -22,7 +22,13 @@ $nav-arrow-color-hover: $orange;
 .archive {
     
     .site-main {
-        padding-top: rem-calc(60);
+         //margin-top: rem-calc(60);         
+    }
+    
+    .site-content {
+        header {
+            padding-bottom: rem-calc(60);
+        }   
     }
 
 }

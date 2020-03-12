@@ -54,7 +54,9 @@
     
     
     .facetwp-template {
+        margin-top: rem-calc(60);
         @include breakpoint(large) {
+            margin-top: rem-calc(140);
             @include xy-grid-layout(2, '.cell', true, 10);
             @include xy-gutters(10, 'margin', $negative:true); // negative for the nested grid
             
@@ -142,8 +144,9 @@
     }
     
     .site-main {
+        padding-top: 0;
         @include breakpoint(large) {
-            padding-top: rem-calc(140);   
+            //padding-top: rem-calc(140);   
         }
      }    
     

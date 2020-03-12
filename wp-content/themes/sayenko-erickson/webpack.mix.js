@@ -6,12 +6,6 @@
  * configure how your assets are handled in the build process.
  *
  * @link https://laravel.com/docs/5.6/mix
- *
- * @package   Exhale
- * @author    Justin Tadlock <justintadlock@gmail.com>
- * @copyright 2018 Justin Tadlock
- * @link      https://themehybrid.com/themes/exhale
- * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later
  */
 
 // Import required packages.
@@ -19,6 +13,7 @@ const mix = require( 'laravel-mix' );
 const ImageminPlugin = require( 'imagemin-webpack-plugin' ).default;
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const imageminMozjpeg = require( 'imagemin-mozjpeg' );
+const TargetsPlugin = require("targets-webpack-plugin"); // added
 
 require('laravel-mix-polyfill');
 
@@ -178,7 +173,10 @@ mix.webpackConfig( {
 				// @link https://github.com/imagemin/imagemin-mozjpeg
 				imageminMozjpeg( { quality: 75 } ),
 			],
-		} )
+		} ),
+        new TargetsPlugin({
+          browsers: ['last 2 versions', 'chrome >= 41', 'IE 11'],
+        }),
 	],
 } );
 

@@ -105,15 +105,13 @@
 	    distance: '100%',
     });
     
-    function addActiveClass (el) {
-        el.querySelector('a').classList.remove('is-animating');
-        el.querySelector('a').classList.add('revealed');
-    }
     
     ScrollReveal().reveal('.template-careers .section-hero .play-video', { 
         delay: 1200,
         scale: 0.1,
-        afterReveal: addActiveClass
+        afterReveal: function (el) {
+            el.classList.add('revealed');
+        }
     });
     
     ScrollReveal().reveal('.template-careers .section-hero .button', { 
