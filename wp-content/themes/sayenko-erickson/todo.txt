@@ -1,45 +1,53 @@
+MOBILE QA
+
+- add site-header drop shadow?
+- push to WP Engine and test all pages, local testing had weird issues
+
+- fancbox don't focus on mobile except for the forms
+
+- site header more padding
+- mobile menu more padding
+- mobile forms, complex fields missing top padding or margin
+- single fleet mobile width and alignment on things
+- single fleet mobile padding too much?
+- single fleet missing image on mobile phone
+
+- careers testimonual backgound margin top, margin below thumbnail, arrows are aligned too much left
+
+- history - margin below thumbnail, mobile filtering thumbnail disapears, intro block too much padding and innovations image is too small
+
+- google maps, add light gray background behind the legend
+
+- footer menu links need more vertical spacing
+
+- test with google page speed and accessibility
+
+
+
+TO DO:
+
+- [DONE] Fix Fleet modals
+- [DONE] fix form modals
+- Website QA
+- [DONE] Mobile menu ** need to finish
+- animations to finish, 
+- Pardot integration (which will require help from them), 
+- Email template (which I know is going to go over budget. Creating editable regions etc… there’s lots to learn when creating an email template for an app). 
+- Adding any content I’m supposed to add. 
+- Case Studies independant filters?
+- when logged in, show seciton id link?
+- Team - add, style proper photos (can't do until we have photos)
+
+------------------------------------------------------------------ 
+
 Issues:
 
-- History: All isnt working, need to submit to FacetWP
-
-- Review all messages with no response from Ashley
-
+- [FIXED] History: All isnt working, need to submit to FacetWP
 
 Next time, provide flat icons set that contains only relavant icons, so we can use as font icons
 
 - Case Studies independant filters
 - when logged in, show seciton id link?
-
-
-// TO DO 
-
-Unfinished:
-
-Team - add, style proper photos
-
-
-Monday
-- [DONE] Contact & Thank you pages
-
-Tuesday
-- [DONE] History
-- [DONE]  About - Commitment
-- [DONE] Single Case Study
-
-
-Wednesday
-- Pardot landing pages
-
-Thursday
-- Addons
-
-Friday
-
-- Fix Fleet modals
-- fix form modals
-- Website QA
-- Mobile menu ** need to finish
-
 
 ------------------------------------------------------------------ 
 
@@ -48,37 +56,7 @@ WP All Import
 - change old site to no SSL - causes issues with importing images
 
 
-
-Hand off meetingnotes:
-
-Multipurpose page sections scroll in
-Do we need two thank you page templates?
-- Set max width to 2500?
-- case study filters - independant locations as taxonomy? Think this has been removed
-- Landing pages, add text fields for industry, service, location
-- Contact Page - thank you page, different phone number, and service name, phone is based on service. Maybe add phone to the Service post?
-Mike
-- How will client know which landing page they are using?
-- which pages should i animate in?
-- who do i contact when i have questions?
-- end of January launch. 
-- video and image gallery, use case study archive. Videos add 3hours, gallery add 1 hour
-
-
-
-TO Do
-
-- Fleet page fields
-- Fleet single post fields
-- review all fields, naming, and textareas become wysiwyg
-- add option to hide Footer call to action
-- contact thank you, show department name and phone number
-- contact forms add all services except iIDIQ, this will be manual, as they need conditional
-
-
-- remove core button block and add ACF
-- create acf/media-text block that allows for videos.
-
+------------------------------------------------------------------ 
 
 Internal notes:
 
@@ -87,27 +65,4 @@ Internal notes:
     - https://www.billerickson.net/wordpress-color-palette-button-styling-gutenberg/
     - https://open4tech.com/add-and-remove-block-styles-in-gutenberg/
     
-    
-    
-
-
-The modal sharing: https://projects.invisionapp.com/d/main?origin=v7#/console/18218141/384852757/preview?scrollOffset=1547
-
-OK, some questions. :)
-
-Use case scenario. I am searching Google and I find a link to the Bell 212. And I click the link.
-
-- it takes me to the main Fleet page and opens the modal lightbox for the Bell 212.
-- If I close the modal, because of pagination (with load more) you might not be able to see that aircraft till you hit load more. Is that an issue? I don't see any other way using modals. 
-- the share functionality will direct the user to the single page, then we redirect tot he modal lightbox just like when someone finds the link in Google. Same behavior as above. 
-
-I just wanted to make sure that you realize this is how it will work. 
-
-
-
-
-Investor Relations
-
-- Add error message if they don't use checkbox
-- Don't redirect to admin login if they use wrong password?
-- Style everything
+   

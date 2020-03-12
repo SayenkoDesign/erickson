@@ -64,7 +64,7 @@ if( ! class_exists( 'Approach_Section' ) ) {
                                 <div class="grid-x grid-padding-x">
                                     <div class="cell">%s</div>
                                 </div>
-                                <div class="grid-x grid-padding-x">
+                                <div class="grid-x grid-padding-x grid-margin-bottom">
                                     <div class="cell large-7 large-order-2">%s</div>
                                     %s
                                 </div>

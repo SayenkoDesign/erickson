@@ -4,6 +4,8 @@ export default {
 	init() {
 		$( document ).on( 'facetwp-loaded', function() {
             
+            $( '.facetwp-facet-years').append( '<div class="facetwp-reset"><span onclick="FWP.reset()">All</span></div>' );
+            
             // Fleet Add labels
             $('.facetwp-filters .facetwp-facet').each(function() {
                 var $facet = $(this);
@@ -43,6 +45,6 @@ export default {
                 delete FWP.facets['paged']; // remove "paged" from URL
             }
         });
-        
+                
 	},
 };

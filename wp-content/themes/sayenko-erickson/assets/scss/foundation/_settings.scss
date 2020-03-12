@@ -118,7 +118,7 @@ $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: 700;
 $global-radius: 0;
-$global-menu-padding: rem-calc(11.5 16);
+$global-menu-padding: rem-calc(13.5 16);
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
 $global-flexbox: true;
@@ -172,8 +172,8 @@ $header-lineheight: 1;
 $header-margin-bottom: rem-calc(20);
 $header-styles: (
 	small: (
-		'h1': ('font-size': 55, 'lh': 66/55, 'mb': 20 ),
-		'h2': ('font-size': 40, 'lh': 48/40, 'mb': 20),
+		'h1': ('font-size': 45, 'lh': 66/55, 'mb': 20 ),
+		'h2': ('font-size': 38, 'lh': 48/40, 'mb': 20),
 		'h3': ('font-size': 32, 'lh': 37/32, 'mb': 20),
 		'h4': ('font-size': 18, 'lh': 22/18, 'mb': 20),
 		'h5': ('font-size': 16, 'lh': 18/16, 'mb': 20),
@@ -283,7 +283,7 @@ $accordionmenu-padding: $global-menu-padding;
 $accordionmenu-nested-margin: $global-menu-nested-margin;
 $accordionmenu-submenu-padding: $accordionmenu-padding;
 $accordionmenu-arrows: true;
-$accordionmenu-arrow-color: $primary-color;
+$accordionmenu-arrow-color: #ffffff;
 $accordionmenu-item-background: null;
 $accordionmenu-border: null;
 $accordionmenu-submenu-toggle-background: null;
@@ -902,16 +902,16 @@ $xy-grid: true;
 $grid-container: $global-width;
 $grid-columns: 12;
 $grid-margin-gutters: (
-  small: 10px,
-  medium: 10px,
-  medium-large: 10px,
-  large: 10px
+  small: 40px,
+  medium: 40px,
+  medium-large: 40px,
+  large: 40px
 );
 $grid-padding-gutters: (
-  small: 20px,
-  medium: 20px,
-  medium-large: 20px,
-  large: 20px
+  small: 40px,
+  medium: 40px,
+  medium-large: 40px,
+  large: 40px
 );
 $grid-container-padding: $grid-padding-gutters;
 $grid-container-max: $global-width;

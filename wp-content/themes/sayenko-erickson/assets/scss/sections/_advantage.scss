@@ -1,6 +1,10 @@
 .section-advantage {
         
         padding: rem-calc(75 0 0 0);
+        
+        header {
+            margin-bottom: rem-calc(50);    
+        }
                         
         .slider {
             position: relative;  
@@ -88,6 +92,13 @@
             display: none!important;
             @include breakpoint(large) {
                 display: block!important;
+                
+                .slick-prev,
+                .slick-next {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);   
+                }
             } 
             
             .slick-prev {
@@ -102,6 +113,7 @@
         .slick-dots {
             position: static;
             bottom: auto;  
+            margin-bottom: rem-calc(50);
                         
             @include breakpoint(large) {
                 display: none!important;

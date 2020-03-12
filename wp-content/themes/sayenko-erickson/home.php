@@ -15,7 +15,7 @@ add_filter( 'body_class', function ( $classes ) {
     $classes[] = 'blog';
     $classes[] = 'archive';
     
-    if( ! empty( absint( $_GET[ 'fwp_paged' ] ) ) ) {
+    if( ! empty( $_GET[ 'fwp_paged' ] ) ) {
         $classes[] = 'is-paged';
     }
     

@@ -84,7 +84,17 @@ function _s_menu_item_fancybox($item_output, $item ) {
         $slug = sanitize_title_with_dashes( $item->title );
         $post_id = $item->object_id;
         $menu_modals[] = $post_id;
-        return sprintf( '<a class="button modal-form" data-fancybox="%s" data-src="#%s" href="javascript:;">%s</a>', $slug, $slug, $item->title );
+        $options = [
+            'src' => '#' . $slug,
+            'modal' => true,
+            'baseClass' => "full-screen",
+            'closeExisting' => true,
+            'touch' => false,
+            'hash' => false,
+        ];
+        $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
+                
+        return sprintf( '<a class="button modal-form" data-fancybox %s href="javascript:;">%s</a>', $options, $item->title );
     }
 
     return $item_output;

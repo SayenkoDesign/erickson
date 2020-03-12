@@ -110,7 +110,8 @@ class Element_Section extends Element_Base {
         $this->add_render_attribute(
             'wrapper', 'class', [
                 $this->get_name(),
-                $this->get_name() . '-' . $this->get_id()
+                $this->get_name() . '-' . $this->get_id(),
+                'scroll-reveal'
             ]
         );
         

@@ -69,6 +69,7 @@
             @include breakpoint(large) {
                 padding: rem-calc(120 0);
             }
+
             
             h1 {
                 color: #fff; 
@@ -94,31 +95,13 @@
                 margin-top: rem-calc(50);   
             }
             
-            .play-video a {
-                background: $orange;
-                margin: 0 auto;
-                @include pulse();   
-                
-                span {
-                    background: $orange;
-                    
-                    border: 3px solid #fff;
-                            
-                    &:after {
-                        content:'';
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%,-50%);
-                        width: 0;
-                        height: 0;
-                        border-style: solid;
-                        border-width: 8px 0 8px 16px;
-                        border-color: transparent transparent transparent #ffffff;
-                        margin-left: 2px;
-
-                    }
-                }
+            .play-video {
+                @include play;
+                @include pulse;
+                margin: 50px auto 0;
+                display: block;
+                width: 50px;
+                height: 50px;
             }
         }        
     }

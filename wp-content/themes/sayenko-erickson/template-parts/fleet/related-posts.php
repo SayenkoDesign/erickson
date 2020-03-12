@@ -72,7 +72,7 @@ if( ! class_exists( 'Related_Posts' ) ) {
                 return false;
             }
             
-            $out = sprintf( '<div class="grid-container full">
+            $out = sprintf( '<div class="grid-container">
                                     <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 align-center grid-margin-bottom grid">                                        
                                         %s
                                      </div> 
@@ -80,7 +80,7 @@ if( ! class_exists( 'Related_Posts' ) ) {
                                 
                                 
             return sprintf( '<div class="grid-container">
-                                <div class="grid-x grid-margin-x grid-margin-bottom">
+                                <div class="grid-x grid-margin-x">
                                     <div class="cell text-center">%s</div>
                                 </div>
                              </div>%s', 

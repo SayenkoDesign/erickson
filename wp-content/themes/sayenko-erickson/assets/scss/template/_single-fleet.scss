@@ -30,6 +30,21 @@
         margin-bottom: rem-calc(10);   
     }
     
+    article {
+        margin-bottom: rem-calc(20);   
+    }
+    
+    .details {
+        @include breakpoint(large) {
+            @include xy-grid-layout(2, '.cell', true, 10);
+            @include xy-gutters(10, 'margin', $negative:true); // negative for the nested grid
+            
+            .cell {
+                margin-bottom: rem-calc(10);   
+            }
+        }      
+    }
+    
     footer {
         
         margin-top: rem-calc(40);

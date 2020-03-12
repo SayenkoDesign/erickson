@@ -125,3 +125,5 @@ include_once( 'foundation/class-foundation-accordion.php' );
     include_once( 'post-types/cpt-service.php' );
     include_once( 'post-types/cpt-testimonial.php' );
     include_once( 'post-types/cpt-video-gallery.php' );
+    
+    include_once( 'post-types/cpt-landing-page.php' );

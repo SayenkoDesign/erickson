@@ -118,7 +118,7 @@
 }
 
 
-@mixin pulse( $size: 50, $bg: #ffffff ) {
+@mixin pulse-old( $size: 50, $bg: #ffffff ) {
     $button-bg-color: $bg;
     $button-size: rem-calc($size);
     $button-radius: 50%;  
@@ -188,79 +188,102 @@
     }
 }
 
-@mixin play() {
-    
-    z-index: 2; 
-    
-    &:after, 
-    &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        border: 1px solid #ffffff;
-        left: -20px;
-        right: -20px;
-        top: -20px;
-        bottom: -20px;
-        border-radius: 50%;
-        transform:scale(0);
-        z-index: -1;
-    }
-    
-    &.is-visible {
-        &:after, 
-        &:before {
 
-            animation: animate 1.5s linear infinite;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden
-        }
-        &::after {
-            animation-delay: 0.5s
-        }   
-    }
-    
-    @keyframes animate {
-        0% {
-        transform:scale(0);
-        opacity:0
-        }
-        50% {
-        opacity:1
-        }
-        100% {
-        transform:scale(1.2);
-        opacity:0
-        }
-    }
+@mixin pulse( $size: 50, $bg: #ffffff ) {
     
     span {
-        display: block;
-        width: 73px;
-        height: 73px;
-        position: relative;
-        background: $orange;
-        border-radius: 50%;
-        border: 3px solid #fff;
+        $button-bg-color: $bg;
+        $button-size: rem-calc($size);
+        $button-radius: 50%;  
         
+        // Animation
+        @keyframes button-beat {
+            0% {
+                opacity: .8;
+                transform: scale(1);
+            }
+            70% {
+                opacity: 0;
+                transform: scale(1.75);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    
+        transition: all .25s ease-in-out;
+        
+        &:before,
         &:after {
-            content:'';
+            content: "";
+            display: block;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 14px 0 14px 28px;
-            border-color: transparent transparent transparent #ffffff;
-            margin-left: 5px;
-
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: $button-bg-color;
+            width: 100%;
+            height: 100%;
+            border-radius: $button-radius;
+            opacity: 0;
+            transition: all .25s ease-in-out;
         }
     }
     
-    i {
-        @include screen-reader-text;   
+    
+    &.revealed span {  
+                  
+        &:before {
+            animation: button-beat 1.5s ease-out infinite;
+        }
+        
+        &:after {
+            animation: button-beat 1.5s ease-out .4s infinite;
+        }
+    }
+    
+}
+
+@mixin play() {
+                                
+    span {
+        
+        border: 3px solid #ffffff;
+        display: block;
+        border-radius: 50%;
+        padding: 0;
+        text-align: center;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        position: relative;
+        transition: all .25s ease-in-out;
+        z-index: 1;
+        
+        
+        i {
+            background: $orange;
+            border-radius: 50%;
+            display: block;
+            z-index: 2;
+            width: 44px;
+            height: 44px;
+                    
+            &:after {
+                content:'';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 8px 0 8px 16px;
+                border-color: transparent transparent transparent #ffffff;
+                margin-left: 2px;
+
+            }
+        }   
     }
 
 }

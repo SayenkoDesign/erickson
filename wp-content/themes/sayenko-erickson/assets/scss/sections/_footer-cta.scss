@@ -1,12 +1,13 @@
 // Footer CTA
 
 .section-footer-cta {
-    padding: rem-calc(70 0 50);
+    padding: rem-calc(70 0 40);
     text-align: center;
     
     .large-5 {
         a {
-            min-width: rem-calc(250);   
+            min-width: rem-calc(250); 
+            margin-bottom: 0;  
         }
     }
     

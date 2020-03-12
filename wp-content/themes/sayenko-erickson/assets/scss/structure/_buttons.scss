@@ -15,36 +15,38 @@
     overflow: hidden;
     z-index: 1;
     
-    
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      background: $orange-hover;
-      bottom: 0;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      z-index: -1;
-      transition: width 0.09s ease-in;
-    }
-    
-    @supports (clip-path: polygon(0 0, 100% 0, 24% 100%, 0% 100%)) {
-        &:after {
+   //.no-touchevents & { 
+        &:before {
           content: "";
           display: block;
           position: absolute;
           background: $orange-hover;
+          bottom: 0;
           top: 0;
           left: 0;
-          width: 20%;
+          width: 0%;
           height: 100%;
           z-index: -1;
-          transition: left 0.09s ease-in;
-          clip-path: polygon(0 0, 100% 0, 24% 100%, 0% 100%);
+          transition: width 0.09s ease-in;
         }
-    }
+        
+        @supports (clip-path: polygon(0 0, 100% 0, 24% 100%, 0% 100%)) {
+            &:after {
+              content: "";
+              display: block;
+              position: absolute;
+              background: $orange-hover;
+              top: 0;
+              left: 0;
+              width: 20%;
+              height: 100%;
+              z-index: -1;
+              transition: left 0.09s ease-in;
+              clip-path: polygon(0 0, 100% 0, 24% 100%, 0% 100%);
+            }
+        }
+    
+   // }
     
     
     &:hover, 
@@ -166,13 +168,20 @@ button {
 }
 
 .menu a.button {
-    min-width: rem-calc(188);   
-    padding: $button-padding;
+    @include breakpoint(large down) {
+        max-width: 100%;
+    }
+    
+    @include breakpoint(xlarge) {
+        min-width: rem-calc(188);   
+        padding: $button-padding;
+    }
 }
 
 
 .wp-block-button__link {
     @include primary-button;
+    padding: rem-calc(13.5 16);
 }
 
 .facetwp-load-more {

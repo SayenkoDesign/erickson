@@ -5,10 +5,7 @@ function _parse_data_attribute( $data, $combine = '=', $sep = ' ' ) {
 		$t = array();
 		foreach( $data as $k => $v ) {
 			if( !empty( $v ) ) {
-                if( is_numeric( $v ) ) {
-                    $v = '"' . $v . '"';
-                }
-				$t[] = sprintf('%s%s%s', $k, $combine, $v);
+				$t[] = sprintf('"%s"%s"%s"', $k, $combine, $v);
 			}
 		}
 		

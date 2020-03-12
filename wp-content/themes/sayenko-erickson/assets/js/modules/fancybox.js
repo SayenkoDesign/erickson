@@ -34,7 +34,7 @@ export default {
             smallBtn: false
         });
         
-        
+        /*
         $('.modal-form').fancybox({
             //selector : '.modal-form',
             baseClass: "full-screen",
@@ -45,6 +45,7 @@ export default {
             arrows: false,
             infobar: false
         });
+        */
         
         
         // Image galleries, we need this to disable the Group hash which interferes with FacetWP
@@ -54,10 +55,13 @@ export default {
           hash     : false
         });
         
+        
+        /*
         $().fancybox({
           selector : '.fleet-column a.post-link',
           baseClass: "single-fleet",
         });
+        */
         
         
         $().fancybox({

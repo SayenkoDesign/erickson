@@ -5,7 +5,38 @@
     
     // https://scrollrevealjs.org/api/defaults.html
     
-    ScrollReveal({ mobile: true, viewFactor: 1.0 });
+    var ID = function () {
+      // Math.random should be unique because of its seeding algorithm.
+      // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+      // after the decimal.
+      return '_' + Math.random().toString(36).substr(2, 9);
+    };
+    
+    $('.load-hidden').each(function () {
+        if( ! $(this).attr('id') ) {
+            $(this).attr('id', ID);
+        }
+    });
+    
+    ScrollReveal({ mobile: true, viewFactor: .5});
+    
+    ScrollReveal().reveal('main section.load-hidden', {
+        afterReveal: function() {
+            ScrollReveal().reveal('.animate-left', { 
+                delay: 200,
+                origin: 'left',
+                distance: '100%',
+            });
+            
+            ScrollReveal().reveal('.animate-right', { 
+                delay: 400,
+                origin: 'right',
+                distance: '100%',
+            });
+        }
+    });
+    
+    
     
         
     /*
@@ -31,15 +62,13 @@
 	    distance: '100%',
     });
     
-    function addActiveClass (el) {
-        el.querySelector('a').classList.remove('is-animating');
-        el.querySelector('a').classList.add('revealed');
-    }
     
     ScrollReveal().reveal('.home .section-hero .play-video', { 
         delay: 1600,
         scale: 0.1,
-        afterReveal: addActiveClass
+        afterReveal: function (el) {
+            el.classList.add('revealed');
+        }
     });
  
    /*
@@ -104,7 +133,31 @@
         viewFactor: .5
     });
     
-       
+    /*
+    ScrollReveal().reveal('.section-details', {
+        afterReveal: function() {
+            ScrollReveal().reveal('.section-details .grid .cell', { 
+                delay: 400,
+                interval: 500,
+                origin: 'bottom',
+                distance: '100%'
+            });
+        }
+    });
+    */
+    
+    /*
+    $('.section-columns .grid-x .cell').each(function (index, element) {
+        console.log(element.id);
+        ScrollReveal().reveal( '#' + element.id, { 
+            delay: 200,
+            origin: index % 2 ? 'right' : 'left',
+            distance: '100%',
+            interval: 800
+        });
+    });
+    */
+    
     
     
 }(document, window, jQuery));

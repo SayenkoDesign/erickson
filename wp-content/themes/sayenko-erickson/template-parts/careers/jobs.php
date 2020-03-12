@@ -42,7 +42,7 @@ if( ! class_exists( 'Careers_Jobs_Section' ) ) {
         public function render() {
             
             $heading = $this->get_fields( 'heading' );
-            $heading = sprintf( '<header>%s%s</header>', get_svg( 'world-icon' ),  _s_format_string( $heading, 'h2' ) );
+            $heading = sprintf( '<header>%s%s</header>', get_svg( 'search-icon' ),  _s_format_string( $heading, 'h2' ) );
             
             $code = $this->get_fields( 'code' );
             

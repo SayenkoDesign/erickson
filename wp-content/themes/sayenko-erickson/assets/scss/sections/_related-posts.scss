@@ -2,11 +2,22 @@
 
 .section-related-posts {
     
-    padding-top: rem-calc(75);
+    padding-top: rem-calc(35);
     
+    
+    header {
+        margin-bottom: rem-calc(60);   
+    }
     
     .grid {
-        margin-top: rem-calc(40);   
+        @include breakpoint(large) {
+            @include xy-grid-layout(3, '.cell', true, 10);
+            @include xy-gutters(10, 'margin', $negative:true); // negative for the nested grid
+            
+            .cell {
+                margin-bottom: rem-calc(10);   
+            }
+        }   
     }
     
     article {
@@ -94,4 +105,8 @@
             }
         }
     }   
+}
+
+.single-post  .section-footer-cta {
+    padding-top: rem-calc(60);   
 }

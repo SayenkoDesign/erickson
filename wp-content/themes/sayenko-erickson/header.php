@@ -36,8 +36,12 @@
 
 <div class="sticky-header">
         <header id="masthead" class="site-header fixed" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+                        
             <div class="wrap">
-                <div class="site-branding">
+            
+                <div class="grid-container"><div class="grid-x grid-padding-x">
+            
+                <div class="cell large-shrink site-branding">
                     <div class="site-title">
                     <?php
                     $site_url = home_url();
@@ -58,7 +62,7 @@
 </div>                               
                 </div><!-- .site-branding -->
                 
-                <nav id="site-navigation" class="nav-primary" role="navigation" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement">  
+                <nav id="site-navigation" class="cell large-auto nav-primary" role="navigation" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement">  
                   
                     <?php
                     $args = array(
@@ -94,9 +98,11 @@
                     ?>
                     
                 </nav>
+                
+                </div></div>
 
             </div><!-- wrap -->
-             
+                         
         </header><!-- #masthead -->
     </div>
     

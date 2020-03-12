@@ -63,7 +63,7 @@
             footer {
                 margin-top: rem-calc(20);
                 @include clearfix;
-                padding-right: 50px;
+                padding: rem-calc(0 50 0 10);
             }
             
             h3 {
@@ -88,7 +88,7 @@
                 float: right;
                 position: relative;
                 top: -44px;
-                right: -60px;
+                right: -40px;
                 z-index: 3;
                 
                 svg {
@@ -107,6 +107,8 @@
     width: rem-calc(600);
     padding: rem-calc(44 22);
     
+    
+    
     .fancybox-button--close, .fancybox-close-small {
         background: transparent;
         width: 50px !important;
@@ -124,6 +126,7 @@
         position: relative;
         overflow: hidden;
         z-index: 1;  
+        border-radius: 4px;
         
         &:before {
             content: '';

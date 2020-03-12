@@ -3,7 +3,14 @@
 //  --------------------------------------------------
 
 
+body img.gform_ajax_spinner {
+    display: none !important;
+}
+
 body .gform_wrapper {
+    
+    margin-top: 0!important;
+    margin-bottom: 0!important;
 
 	ul.gform_fields {
 		@include breakpoint(641) {
@@ -83,7 +90,14 @@ body .gform_wrapper {
     }
     
     .privacy-policy-disclaimer {
-        padding-bottom: rem-calc(20);   
+        padding-bottom: rem-calc(20); 
+        font-size: rem-calc(10);  
+        line-height: 15px;
+        
+        a {
+            color: $gray;
+            text-decoration: underline;   
+        }
     }
 
 }
@@ -99,4 +113,26 @@ body .gform_wrapper ul li.gfield {
     font-size: 15px!important;
     font-weight: 500;
     line-height: 18px!important;
+}
+
+.gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), .gform_wrapper li.gfield_error textarea {
+    border: none!important;
+    border-bottom: 1px solid #790000!important;
+}
+
+.gform_wrapper li.gfield.gfield_error.gfield_contains_required {
+    //margin-top: 0!important;
+    padding-top: 17px!important;
+}
+
+.gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container, .gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label {
+    margin-top: 0!important;
+}
+
+.gform_wrapper .field_sublabel_above .ginput_complex.ginput_container label, .gform_wrapper .field_sublabel_above div[class*=gfield_time_].ginput_container label {
+    margin: 0!important;
+}
+
+body .gform_wrapper .top_label div.ginput_container {
+    margin-top: 0!important;
 }

@@ -44,6 +44,11 @@
                         
         .entry-content {
             
+            p.barlow {
+                font-family: $barlow;
+                letter-spacing: 0.7px;   
+            }
+            
             .wp-block-button,
             .wp-block-gallery,
             .wp-block-quote,
@@ -101,6 +106,7 @@
     .share {
         background: $orange;
         padding: rem-calc(25 0 15);  
+        margin-bottom: rem-calc(10);
         
         h4 {
             color: #fff;   

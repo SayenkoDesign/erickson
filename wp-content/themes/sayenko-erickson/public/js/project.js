@@ -637,7 +637,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   init: function init() {
     jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('facetwp-loaded', function () {
-      // Fleet Add labels
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.facetwp-facet-years').append('<div class="facetwp-reset"><span onclick="FWP.reset()">All</span></div>'); // Fleet Add labels
+
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.facetwp-filters .facetwp-facet').each(function () {
         var $facet = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
         var facet_name = $facet.attr('data-name');
@@ -719,26 +720,32 @@ __webpack_require__.r(__webpack_exports__);
     jquery__WEBPACK_IMPORTED_MODULE_0___default()().fancybox({
       smallBtn: false
     });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.modal-form').fancybox({
-      //selector : '.modal-form',
-      baseClass: "full-screen",
-      modal: true,
-      closeExisting: true,
-      touch: false,
-      hash: false,
-      arrows: false,
-      infobar: false
-    }); // Image galleries, we need this to disable the Group hash which interferes with FacetWP
+    /*
+    $('.modal-form').fancybox({
+        //selector : '.modal-form',
+        baseClass: "full-screen",
+        modal: true,
+        closeExisting: true,
+        touch: false,
+        hash: false,
+        arrows: false,
+        infobar: false
+    });
+    */
+    // Image galleries, we need this to disable the Group hash which interferes with FacetWP
 
     jquery__WEBPACK_IMPORTED_MODULE_0___default()().fancybox({
       baseClass: "fancybox-images",
       selector: '[data-fancybox="images"]',
       hash: false
     });
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()().fancybox({
-      selector: '.fleet-column a.post-link',
-      baseClass: "single-fleet"
+    /*
+    $().fancybox({
+      selector : '.fleet-column a.post-link',
+      baseClass: "single-fleet",
     });
+    */
+
     jquery__WEBPACK_IMPORTED_MODULE_0___default()().fancybox({
       baseClass: "fancybox-gallery",
       selector: '[data-fancybox="gallery"]',
@@ -1067,7 +1074,7 @@ __webpack_require__.r(__webpack_exports__);
           infinite: true,
           adaptiveHeight: false,
           arrows: true,
-          dots: true,
+          dots: false,
           rows: 0,
 
           /*customPaging : function(slider, i) {
@@ -1076,7 +1083,14 @@ __webpack_require__.r(__webpack_exports__);
           },*/
           speed: 300,
           nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next', $tabsSlider),
-          prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $tabsSlider)
+          prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $tabsSlider),
+          responsive: [{
+            breakpoint: 991,
+            settings: {
+              adaptiveHeight: true,
+              dots: true
+            }
+          }]
         });
         $tabsSlider.prepend(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $tabsSlider).find('.slick-dots'));
         $tabsSlider.addClass('images-loaded');
@@ -1141,6 +1155,55 @@ __webpack_require__.r(__webpack_exports__);
         });
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('.wrap', $testimonialsSlider).append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $testimonialsSlider).find('.slick-dots'));
         $testimonialsSlider.addClass('images-loaded');
+      });
+    }
+
+    var $serviceGallerySlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-service-gallery .slider');
+
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $serviceGallerySlider).length) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $serviceGallerySlider).on('init', function () {
+        $serviceGallerySlider.css({
+          opacity: 1,
+          visibility: 'visible'
+        });
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $serviceGallerySlider).slick({
+        autoplay: false,
+        infinite: true,
+        adaptiveHeight: false,
+        dots: false,
+        //speed: 2000,
+        //autoplaySpeed: 4000,
+        arrows: true,
+        rows: 0,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true,
+        lazyLoad: 'progressive',
+        nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next', $serviceGallerySlider),
+        prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $serviceGallerySlider),
+        responsive: [{
+          breakpoint: 991,
+          settings: {
+            arrows: false,
+            dots: true,
+            centerMode: false
+          }
+        }]
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $serviceGallerySlider).on("lazyLoaded", function (e, slick, image, imageSource) {
+        var parentSlide = jquery__WEBPACK_IMPORTED_MODULE_0___default()(image).parents(".slick-slide", $serviceGallerySlider);
+        parentSlide.find('.background-image').css("background-image", 'url("' + imageSource + '")').addClass("loaded"); //replace with background instead
+
+        image.remove(); // remove source
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-slider', $serviceGallerySlider).on('click', '.slick-slide', function (e) {
+        e.stopPropagation();
+        var index = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data("slick-index");
+
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-slider').slick('slickCurrentSlide') !== index) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-slider').slick('slickGoTo', index);
+        }
       });
     }
   }

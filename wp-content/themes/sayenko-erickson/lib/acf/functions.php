@@ -142,7 +142,17 @@ function _s_acf_button( $args = [] ) {
               $classes .= ' modal-form'; 
         }
         
-        $url = sprintf( ' data-src="#%s" data-fancybox href="javascript:;"', $slug );
+        $options = [
+            'src' => '#' . $slug,
+            'modal' => true,
+            'baseClass' => "full-screen",
+            'closeExisting' => true,
+            'touch' => false,
+            'hash' => false,
+        ];
+        $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
+        
+        $url = sprintf( ' data-fancybox %s href="javascript:;"', $options );
         // $url = sprintf( ' data-src="%s" data-type="iframe" data-fancybox="%s" href="javascript:;"', $url, uniqid() );
     } else {
         $url = sprintf( ' href="%s"', esc_url( $url ) );   

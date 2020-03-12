@@ -108,7 +108,7 @@ if( ! class_exists( 'Case_Studies_Section' ) ) {
                 return false;
             }
             
-            return sprintf( '<div class="grid-x grid-margin-x grid-margin-bottom small-up-1 medium-up-2">%s</div>', $cells  );
+            return sprintf( '<div class="grid-x grid-margin-x grid-margin-bottom small-up-1 medium-up-2 grid">%s</div>', $cells  );
         }
         
     }

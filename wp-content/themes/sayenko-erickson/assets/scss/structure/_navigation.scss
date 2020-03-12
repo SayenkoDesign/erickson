@@ -5,8 +5,16 @@
 */
 
 .nav-primary {
-	background-color: $dark-gray;
+	background-color: #252B33;
     display: none;
+    
+    // fix small device spacing issues
+    @include breakpoint(large down) {
+        //margin-left: -5px;
+        //width: calc(100vw - 15px );
+        padding-left: 0!important;
+        padding-right: 0!important;   
+    }
 
 	@include breakpoint(xlarge) {
 		background-color: transparent;
@@ -25,7 +33,7 @@
         
         .menu-primary {
             order: 1;
-            margin-left: rem-calc(100);
+            
         }
 	}
 
@@ -36,10 +44,21 @@
 			justify-content: flex-end;
 		}
         
+        @include breakpoint(xxlarge) {
+            margin-left: rem-calc(100);
+		}
+        
         > .menu-item:not(.mega-menu-item) {
             padding-bottom: 12px;
             margin-bottom: -12px;   
         }
+        
+        > .menu-item {
+            > a {
+                text-transform: uppercase;      
+            }
+        }
+       
         
         .menu-item {
             display: block;
@@ -50,6 +69,7 @@
             a {
                 color: #fff;
                 font-size: rem-calc(15);
+                
                 line-height: 21/18;
                 //font-family: $header-font-family;
                 //font-weight: $header-font-weight;
@@ -57,7 +77,7 @@
                 padding-top: rem-calc(11.5);
                 padding-bottom: rem-calc(11.5);
                 
-                padding-left: rem-calc(map-get($grid-column-gutter, small)/2); 
+                padding-left: 16px; 
                 padding-right: rem-calc(map-get($grid-column-gutter, small)/2); 
                
                
@@ -74,12 +94,25 @@
                 @include breakpoint(xlarge) {
                     color: $dark-gray;
                     padding: $global-menu-padding;
+                    font-size: rem-calc(15);
+                }
+                
+                @include breakpoint(xxlarge) {
                     font-size: rem-calc(16);
-                    text-transform: uppercase;
                 }
                 
                 &:hover {
-                    color: $navy;   
+                    //color: #ffffff;   
+                }
+                
+                h5 {
+                    color: inherit;  
+                    margin-bottom: 0; 
+                    
+                    @include breakpoint(large down) {
+                        font-family: $body-font-family;
+                        text-transform: none;
+                    }
                 }
     
             }
@@ -96,11 +129,22 @@
         
         .sub-menu {
                     
-            background: $orange;
+            background: $navy;
             margin: 0;
             
+            .sub-menu {
+                background: $orange;   
+            }
+            
+            @include breakpoint(large down) {
+                .menu-item-image {
+                    display: none;   
+                }
+            }
+            
             @include breakpoint(xlarge) {
-                background: #fff;  
+                background: #fff; 
+                border-top: 5px solid $orange; 
             }
 
             .menu-item {
@@ -130,7 +174,6 @@
                 top: inherit;
                 left: inherit;
                 border: none;  
-                background-color: $orange;
                 margin-left: 0; 
             }
         }
@@ -142,44 +185,28 @@
 
 #secondary-menu {
     
-    @include breakpoint(xlarge) {
-        margin-left: auto;
+    @include breakpoint(large down) {
+        li {
+            width: 100%;
+            
+            a {
+                &:before,
+                &:after {
+                    display: none;   
+                }
+                
+                clip-path: none;
+                text-align: left;
+                font-family: $body-font-family;
+                font-size: rem-calc(15);
+                font-weight: 400;
+            }
+        }
     }
     
-	.menu-item {
-
-		&.lets-talk {            
-            
-            @include breakpoint(xlarge) {
-                a {
-                    @include button(false, $dark-gray, $dark-gray, $white, 'hollow');
-                    display: block;
-                    margin-bottom: 0;
-                    padding-top: rem-calc(11.5);
-                    padding-bottom: rem-calc(11.5);
-                    
-                    
-                    &:hover {
-                        @include button(false, $orange, $orange, $white );
-                        display: block;
-                        margin-bottom: 0;
-                        padding-top: rem-calc(11.5);
-                        padding-bottom: rem-calc(11.5);
-        
-                    }
-                }
-                    
-            }
-            
-            @include breakpoint(xxxlarge) {
-                a {
-                    min-width: rem-calc(150);
-                }
-            }
-            
-       }
-        
-	}
+    @include breakpoint(xlarge) {
+        margin-left: auto;
+    }	
 }
 
 
@@ -188,12 +215,14 @@
         
         position: static!important;
         
+        
         .sub-menu {
             background: $light-gray!important; 
             border: none;
             
             a {
                 display: inline-block;   
+                text-transform: uppercase;   
             }
         }
         

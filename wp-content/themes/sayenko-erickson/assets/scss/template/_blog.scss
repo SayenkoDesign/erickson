@@ -24,8 +24,8 @@
         //margin-left: -20px;
         //margin-right: -20px;
         
-        @include xy-grid-layout(1, '.cell', true, 20);
-        @include xy-gutters(20, 'margin', $negative:true); // negative for the nested grid
+        //@include xy-grid-layout(1, '.cell', true, 20);
+        //@include xy-gutters(20, 'margin', $negative:true); // negative for the nested grid
         
         @include breakpoint(medium) {
             @include xy-grid-layout(2, '.cell', true, 20);

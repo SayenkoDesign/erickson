@@ -95,8 +95,8 @@ if( ! class_exists( 'Hero_Post' ) ) {
             $video = $this->get_fields( 'video' );
             $video_link = '';
             if( ! empty( $video ) ) {
-                $video_icon = '<span><i class="screen-reader-text">play video</i></span>';
-                $video_link = sprintf( '<div class="play-video"><a data-fancybox href="%s">%s</a></div>', $video, $video_icon );
+                $video_icon = '<span><i></i></span>';
+                $video_link = sprintf( '<a data-fancybox class="play-video" arial-label="play video" href="%s">%s</a>', $video, $video_icon );
             }
     
             return sprintf( '<div class="hero-content"><div class="grid-container"><div class="grid-x grid-margin-x align-middle">

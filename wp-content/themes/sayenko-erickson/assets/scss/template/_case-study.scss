@@ -168,7 +168,18 @@
             margin-bottom: rem-calc(50);  
         }
         
+        
         .numbers {
+            
+            @include breakpoint(large) {
+                @include xy-grid-layout(3, '.cell', true, 10);
+                @include xy-gutters(10, 'margin', $negative:true); // negative for the nested grid
+                
+                .cell {
+                    margin-bottom: rem-calc(10);   
+                }
+            }   
+            
             .cell {
                 &:before {
                     content: "";
@@ -210,7 +221,7 @@
                         }
                         
                         @include breakpoint(xlarge) {
-                            font-size: rem-calc(50);
+                            font-size: rem-calc(40);
                         }
                     }
                     

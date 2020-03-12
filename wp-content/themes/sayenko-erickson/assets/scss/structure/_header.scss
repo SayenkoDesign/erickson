@@ -48,7 +48,8 @@ Header
             
             .site-branding {
                 @include breakpoint(xlarge) {
-                    padding: rem-calc(19 0);
+                    padding-top: rem-calc(19);
+                    padding-bottom: rem-calc(19);
                 }   
             }
                         
@@ -67,36 +68,17 @@ Header
         max-width: $global-width;
         margin: 0 auto;  
         position: relative;
-                
-        @include breakpoint(xlarge) {
-            padding-left: rem-calc(map-get($grid-column-gutter, large)/2); 
-            padding-right: rem-calc(map-get($grid-column-gutter, large)/2); 
-            
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;            
-        }
         
         
     }
 
 	.site-branding {
         
-        padding-left: rem-calc(map-get($grid-column-gutter, small)/2); 
-        padding-right: rem-calc(map-get($grid-column-gutter, small)/2); 
-       
-        @include breakpoint(medium) {
-            padding-left: rem-calc(map-get($grid-column-gutter, medium)/2); 
-            padding-right: rem-calc(map-get($grid-column-gutter, medium)/2); 
-        }
+        
         
         padding-top: rem-calc(10);
         padding-bottom: rem-calc(10);
                         
-        @include breakpoint(xlarge) {
-            max-width: 25vw;
-            padding: rem-calc(19 0);
-        }
         
         @include breakpoint(xxxlarge) {
             max-width: 100%;

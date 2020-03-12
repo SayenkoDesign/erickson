@@ -120,7 +120,7 @@
             
             @include breakpoint(large) {
                 height: 100%;
-                margin-right: 40px;
+                margin-right: 20px;
             }
         }
         
@@ -132,7 +132,8 @@
     
     
     .section-results {
-        padding-top: rem-calc(75);
+        padding-top: rem-calc(35);
+        padding-bottom: rem-calc(20);
         
         .wrap {
             margin: 0 auto;
@@ -144,6 +145,16 @@
         }
         
         .numbers {
+            
+            @include breakpoint(large) {
+                @include xy-grid-layout(3, '.cell', true, 10);
+                @include xy-gutters(10, 'margin', $negative:true); // negative for the nested grid
+                
+                .cell {
+                    margin-bottom: rem-calc(10);   
+                }
+            }   
+            
             .cell {
                 &:before {
                     content: "";
@@ -184,7 +195,7 @@
                         }
                         
                         @include breakpoint(xlarge) {
-                            font-size: rem-calc(50);
+                            font-size: rem-calc(40);
                         }
                     }
                     
@@ -223,6 +234,10 @@
             }
         }
         
+    }
+    
+    .section-results + .section-clients {
+        padding-top: 0;   
     }
     
     
@@ -279,6 +294,146 @@
         }
     }
     
+    
+    .section-service-gallery {
+        
+        padding-top: rem-calc(75);  
+    
+        header {
+            margin-bottom: rem-calc(60); 
+            
+            .share {
+                margin-top: rem-calc(30);
+                
+                h4 {
+                    margin-bottom: rem-calc(10);   
+                }
+            }
+        }
+     
+        .slider {
+            position: relative;   
+        }
+     
+        .slick {
+            
+            
+            .slick-slide {
+                position: relative;
+                height: 40vh;
+                width: 100vw;
+                
+                @include breakpoint(landscape) {
+                    height: 80vh;
+                }
+                
+                @include breakpoint(large) {
+                    height: 80vh;
+                    width: 75vw!important;   
+                }
+                
+                .background-image {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center;   
+                }
+                
+                img {
+                    opacity: 0;
+                    visibility: hidden;                    
+                }
+                
+                .slick-caption {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    padding: rem-calc(10 20);
+                    background-color: rgba($navy, .8); 
+                    color: #fff;  
+                    opacity: 0;
+                    font-size: rem-calc(16);
+                }
+                
+                &.slick-active .slick-caption {
+                    opacity: 1;
+                }
+                
+                
+                &[aria-hidden="true"] {
+                    //cursor: pointer;
+                    position: relative;
+                    
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        background: rgba(255,255,255,0.8);
+                    }
+                }
+            }   
+        }
+        
+        .slick-dots {
+            bottom: auto;
+            margin-top: rem-calc(20);
+            position: relative;   
+            
+            @include breakpoint(large) {
+                display: none!important;
+            }
+        }
+        
+        .slick-arrows {
+            @include breakpoint(medium down) {
+                display: none!important;
+            }
+            
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                border: 2px solid $gray;
+                
+                &.slick-prev {
+                    left: calc(12.5vw / 2);
+                    margin-left: -31px;
+                    
+                    &:before {
+                        margin-left: -2px;   
+                        @include slick-arrow( $gray );
+                    }
+                    
+                    &:hover:before {
+                        @include slick-arrow( $orange );
+                    }
+                }
+                
+                &.slick-next {
+                    right: calc(12.5vw / 2);
+                    margin-right: -31px;
+                    
+                    &:before { 
+                        @include slick-arrow( $gray, right );
+                    }
+                    
+                    &:hover:before {
+                        @include slick-arrow( $orange, right );
+                    }
+                }
+                
+                &:hover {
+                    border-color: $orange;   
+                }
+            }
+        }
+        
+    }
+    
 }
 
 
@@ -321,6 +476,10 @@
         
         > *:first-child {
             padding-right: rem-calc(30);
+        }
+        
+        img {
+            margin-bottom: rem-calc(10);   
         }
         
         p {

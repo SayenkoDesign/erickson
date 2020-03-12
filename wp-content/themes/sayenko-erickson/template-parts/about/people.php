@@ -95,7 +95,7 @@ if( ! class_exists( 'People_Section' ) ) {
                 return false;
             }
                                                                                                
-            return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x small-up-1 medium-up-2 xlarge-up-3 align-center facetwp-template">%s</div></div>', 
+            return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-bottom small-up-1 medium-up-2 xlarge-up-3 align-center facetwp-template">%s</div></div>', 
                                     join( '', $posts ) );
         }
         

@@ -54,7 +54,7 @@ export default {
                     infinite: true,
                     adaptiveHeight: false,
                     arrows: true,
-                    dots: true,
+                    dots: false,
                     rows: 0,
                     /*customPaging : function(slider, i) {
                         let title = $(slider.$slides[i]).find('h3').text();
@@ -63,6 +63,16 @@ export default {
                     speed: 300,
                     nextArrow: $('.slick-next', $tabsSlider),
                     prevArrow: $('.slick-prev', $tabsSlider),
+                    
+                    responsive: [
+                        {
+                          breakpoint: 991,
+                          settings: {
+                            adaptiveHeight: true,
+                            dots: true,
+                          }
+                        }
+                      ]
                 });
                 
                 $tabsSlider.prepend($('.slick', $tabsSlider).find('.slick-dots'));
@@ -115,9 +125,7 @@ export default {
              
              
         }        
-        
-        
-        
+                
         
         // Careers - Testimonials
         
@@ -154,7 +162,64 @@ export default {
                     $testimonialsSlider.addClass('images-loaded');
                     
              });
-        }        
+        }  
+        
+        
+        
+        let $serviceGallerySlider = $('.section-service-gallery .slider');
+        
+        if ( $('.slick', $serviceGallerySlider).length ) {
+            
+            $('.slick', $serviceGallerySlider).on('init', function() {
+                $serviceGallerySlider.css({
+                    opacity: 1,
+                    visibility: 'visible'
+                });
+            });            
+            
+            $('.slick', $serviceGallerySlider).slick({
+                autoplay: false,
+                infinite: true,
+                adaptiveHeight: false,
+                dots: false,
+                //speed: 2000,
+                //autoplaySpeed: 4000,
+                arrows: true,
+                rows: 0,
+                slidesToShow: 1,
+                centerMode: true,
+                variableWidth: true,
+                lazyLoad: 'progressive',
+                nextArrow: $('.slick-next', $serviceGallerySlider),
+                prevArrow: $('.slick-prev', $serviceGallerySlider),
+                
+                responsive: [
+                {
+                  breakpoint: 991,
+                  settings: {
+                    arrows: false,
+                    dots: true,
+                    centerMode: false
+                  }
+                }
+                ]
+            });
+            
+            $('.slick', $serviceGallerySlider).on("lazyLoaded", function(e, slick, image, imageSource) {
+                let parentSlide = $(image).parents(".slick-slide", $serviceGallerySlider );
+                parentSlide.find('.background-image').css("background-image", 'url("' + imageSource + '")').addClass("loaded"); 
+                //replace with background instead
+                image.remove(); // remove source
+            });
+            
+            $('.slick-slider', $serviceGallerySlider).on('click', '.slick-slide', function (e) {
+                e.stopPropagation();
+                var index = $(this).data("slick-index");
+                if ($('.slick-slider').slick('slickCurrentSlide') !== index) {
+                  $('.slick-slider').slick('slickGoTo', index);
+                }
+            });
+        }      
 		 
 	},
 };

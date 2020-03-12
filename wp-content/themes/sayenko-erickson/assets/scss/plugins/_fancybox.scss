@@ -11,13 +11,14 @@
     }
 }
 
+
+
 .fancybox-button--close,
 .fancybox-close-small {
     background: transparent;
-    width: 70px!important;
-    height: 70px!important;
-    color: #ffffff!important;
-    padding: 10px;
+    width: 50px!important;
+    height: 50px!important;
+    padding: 0!important;
     right: 0;
     top: 0;
 }
@@ -39,6 +40,36 @@
         cursor: auto;
         width: 100vw;
         height: 100vh;  
-        background-color: #f4f9f6;    
+        background-color: #f4f9f6;  
+        
+        @include breakpoint(xxlarge) {
+            .wrap {
+                display: flex;
+                align-items: center;
+                min-height: 100%;   
+            }   
+        }
+    }
+    
+    .modal-body {
+        max-width: rem-calc(600);
+        margin: 0 auto;
+        
+        .logo {
+            display: block;
+            margin: 0 auto rem-calc(10);
+            width: 215px;
+        }
+        
+        text-align: center;
+        
+        .gform_wrapper {
+            text-align: left;   
+            
+            .gform_footer {
+                margin-top: rem-calc(20);
+                text-align: center;   
+            }
+        }
     }
 }

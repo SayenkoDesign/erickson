@@ -14,17 +14,26 @@ if( ! empty( $term ) ) {
     $term = sprintf( '<h4>%s</h4>', $term );
 }   
 
+$options = [
+    'src' => get_permalink(),
+    'type' => 'ajax',
+    'baseClass' => "single-fleet",
+    'closeExisting' => true,
+    'touch' => false,
+    'hash' => false,
+    'filter' => '.fleet-ajax'
+];
+$options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
 
 printf( '<article id="post-%s" class="%s"%s><div class="panel">
-            %s<a class="post-link" data-fancybox data-type="ajax" data-touch="false" data-src="%s" data-filter=".fleet-ajax"><h3>%s</h3></a>
+            %s<a class="post-link" data-fancybox %s href="javascript:;"><h3>%s</h3></a>
         </div></article>', 
         get_the_ID(), 
         join( ' ', $classes ),
         $style, 
         $term, 
-        get_permalink(), 
+        $options, 
         get_the_title() 
 );
 
 ?>
-

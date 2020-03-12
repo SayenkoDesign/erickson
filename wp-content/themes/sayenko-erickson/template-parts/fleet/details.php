@@ -98,7 +98,7 @@ if( ! class_exists( 'Details_Section' ) ) {
             }
                                         
             return sprintf( '<div class="grid-container">
-                                <div class="grid-x grid-margin-x">
+                                <div class="grid-x grid-margin-x details">
                                     <div class="cell large-auto small-order-2 large-order-1"><div class="panel">%s%s</div></div>
                                     %s
                                 </div>

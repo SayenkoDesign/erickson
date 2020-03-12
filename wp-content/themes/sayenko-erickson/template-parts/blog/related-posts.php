@@ -79,7 +79,7 @@ if( ! class_exists( 'Related_Posts' ) ) {
                                 
                                 
             return sprintf( '<div class="grid-container">
-                                <div class="grid-x grid-margin-x grid-margin-bottom">
+                                <div class="grid-x grid-margin-x">
                                     <div class="cell text-center">%s</div>
                                 </div>
                              </div>%s', 
