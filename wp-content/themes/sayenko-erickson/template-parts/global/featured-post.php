@@ -121,7 +121,7 @@ if( ! class_exists( 'Featured_Post_Section' ) ) {
                 return false;
             }
             
-            return sprintf( '<div class="grid-x grid-padding-x grid-margin-bottom align-middle">%s</div>', $cells  );
+            return sprintf( '<div class="grid-x grid-padding-x grid-margin-bottom align-middle grid">%s</div>', $cells  );
         }
         
     }

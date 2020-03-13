@@ -32,6 +32,10 @@ Issues:
 
 - [FIXED] History: All isnt working, need to submit to FacetWP
 
+- Laravel Mix didn't compile for IE 11. Had to add: https://github.com/JeffreyWay/laravel-mix/issues/2174#issuecomment-569929210
+
+
+
 Next time, provide flat icons set that contains only relavant icons, so we can use as font icons
 
 - Case Studies independant filters

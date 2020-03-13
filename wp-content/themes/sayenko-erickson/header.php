@@ -92,7 +92,7 @@
                         'after'           => '',
                         'link_before'     => '',
                         'link_after'      => '',
-                        'items_wrap'      => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion xlarge-dropdown" data-multi-open="false">%3$s</ul>'
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion xlarge-dropdown" data-hover-delay="250" data-multi-open="false">%3$s</ul>'
                     );
                     wp_nav_menu( $args );
                     ?>
