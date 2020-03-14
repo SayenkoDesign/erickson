@@ -2362,41 +2362,8 @@ for (var COLLECTION_NAME in domIterables) {
 /*!***************************************!*\
   !*** ./assets/js/modernizr-custom.js ***!
   \***************************************/
-/*! no exports provided */
-/***/function assetsJsModernizrCustomJs(module,__webpack_exports__,__webpack_require__){
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */var core_js_modules_es_symbol__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! core-js/modules/es.symbol */"./node_modules/core-js/modules/es.symbol.js");
-/* harmony import */var core_js_modules_es_symbol_description__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! core-js/modules/es.symbol.description */"./node_modules/core-js/modules/es.symbol.description.js");
-/* harmony import */var core_js_modules_es_symbol_iterator__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(/*! core-js/modules/es.symbol.iterator */"./node_modules/core-js/modules/es.symbol.iterator.js");
-/* harmony import */var core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(/*! core-js/modules/es.array.index-of */"./node_modules/core-js/modules/es.array.index-of.js");
-/* harmony import */var core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(/*! core-js/modules/es.array.iterator */"./node_modules/core-js/modules/es.array.iterator.js");
-/* harmony import */var core_js_modules_es_array_join__WEBPACK_IMPORTED_MODULE_5__=__webpack_require__(/*! core-js/modules/es.array.join */"./node_modules/core-js/modules/es.array.join.js");
-/* harmony import */var core_js_modules_es_array_slice__WEBPACK_IMPORTED_MODULE_6__=__webpack_require__(/*! core-js/modules/es.array.slice */"./node_modules/core-js/modules/es.array.slice.js");
-/* harmony import */var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_7__=__webpack_require__(/*! core-js/modules/es.function.name */"./node_modules/core-js/modules/es.function.name.js");
-/* harmony import */var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_8__=__webpack_require__(/*! core-js/modules/es.object.to-string */"./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */var core_js_modules_es_regexp_constructor__WEBPACK_IMPORTED_MODULE_9__=__webpack_require__(/*! core-js/modules/es.regexp.constructor */"./node_modules/core-js/modules/es.regexp.constructor.js");
-/* harmony import */var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_10__=__webpack_require__(/*! core-js/modules/es.regexp.exec */"./node_modules/core-js/modules/es.regexp.exec.js");
-/* harmony import */var core_js_modules_es_regexp_to_string__WEBPACK_IMPORTED_MODULE_11__=__webpack_require__(/*! core-js/modules/es.regexp.to-string */"./node_modules/core-js/modules/es.regexp.to-string.js");
-/* harmony import */var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_12__=__webpack_require__(/*! core-js/modules/es.string.iterator */"./node_modules/core-js/modules/es.string.iterator.js");
-/* harmony import */var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_13__=__webpack_require__(/*! core-js/modules/es.string.replace */"./node_modules/core-js/modules/es.string.replace.js");
-/* harmony import */var core_js_modules_es_string_split__WEBPACK_IMPORTED_MODULE_14__=__webpack_require__(/*! core-js/modules/es.string.split */"./node_modules/core-js/modules/es.string.split.js");
-/* harmony import */var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_15__=__webpack_require__(/*! core-js/modules/web.dom-collections.iterator */"./node_modules/core-js/modules/web.dom-collections.iterator.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*! no static exports found */
+/***/function assetsJsModernizrCustomJs(module,exports){
 
 function _typeof(obj){if(typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"){_typeof=function _typeof(obj){return typeof obj;};}else {_typeof=function _typeof(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};}return _typeof(obj);}
 
@@ -2717,7 +2684,7 @@ module.exports=__webpack_require__(/*! /Users/kylerumble/Sites/ericksoninc/wp-co
 
 /***/}},
 
-[[1,"/js/manifest","/js/vendor"]]]);
+[[1,"/js/manifest"]]]);
 
 }());
 

@@ -15,7 +15,7 @@ const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const imageminMozjpeg = require( 'imagemin-mozjpeg' );
 const TargetsPlugin = require("targets-webpack-plugin"); // added
 
-require('laravel-mix-polyfill');
+//require('laravel-mix-polyfill');
 
 /*
  * -----------------------------------------------------------------------------
@@ -89,11 +89,7 @@ if (mix.inProduction()) {
  * @link https://laravel.com/docs/5.6/mix#working-with-scripts
  */
  mix.js( `${ devPath }/js/project.js`, 'js' )
-    .polyfill({
-      enabled: true,
-      useBuiltIns: "usage",
-      targets: {"firefox": "50", "ie": 11}
-    })
+    
 	.extract();
 
  mix.js( `${ devPath }/js/modernizr-custom.js`, 'js' )

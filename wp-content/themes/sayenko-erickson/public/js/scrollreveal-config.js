@@ -359,13 +359,8 @@ if (NOT_GENERIC || INCORRECT_NAME) {
 /*!******************************************!*\
   !*** ./assets/js/scrollreveal-config.js ***!
   \******************************************/
-/*! no exports provided */
-/***/function assetsJsScrollrevealConfigJs(module,__webpack_exports__,__webpack_require__){
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! core-js/modules/es.object.to-string */"./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */var core_js_modules_es_regexp_to_string__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! core-js/modules/es.regexp.to-string */"./node_modules/core-js/modules/es.regexp.to-string.js");
-
-
+/*! no static exports found */
+/***/function assetsJsScrollrevealConfigJs(module,exports){
 
 // AOS
 (function(document,window,$){
@@ -382,31 +377,33 @@ if(!$(this).attr('id')){
 $(this).attr('id',ID);
 }
 });
-ScrollReveal({
-mobile:true});
-
-ScrollReveal().reveal('section.scroll-reveal',{
-origin:'bottom',
-afterReveal:function afterReveal(){
-ScrollReveal().reveal('.animate-left',{
-delay:200,
-origin:'left',
-distance:'100%'});
-
-ScrollReveal().reveal('.animate-right',{
-delay:400,
-origin:'right',
-distance:'100%'});
-
-}});
+ScrollReveal({});
+/*
+  ScrollReveal().reveal('section.scroll-reveal', {
+      origin: 'bottom',
+      
+      afterReveal: function() {
+          ScrollReveal().reveal('.animate-left', { 
+              delay: 200,
+              origin: 'left',
+              distance: '100%',
+          });
+          
+          ScrollReveal().reveal('.animate-right', { 
+              delay: 400,
+              origin: 'right',
+              distance: '100%',
+          });
+      }
+  });
+  */
 
 /*
       HOME
   */
 // Hero
 
-ScrollReveal().reveal('.home .section-hero',{
-afterReveal:function afterReveal(el){
+ScrollReveal().reveal('.home .section-hero');
 ScrollReveal().reveal('.home .section-hero h1',{
 delay:400,
 origin:'left',
@@ -427,83 +424,54 @@ scale:0.1,
 afterReveal:function afterReveal(el){
 el.classList.add('revealed');
 }});
-
-}});
 // Section Services
 
-ScrollReveal().reveal('.home .section-services',{
-viewOffset:{
-top:100},
-
-afterReveal:function afterReveal(el){
+ScrollReveal().reveal('.home .section-services');
 ScrollReveal().reveal('.home .section-services .grid-item',{
-delay:500,
+delay:400,
 distance:'100%',
-interval:500,
-viewFactor:0.5});
+interval:200});
 
-}});
-
-ScrollReveal().reveal('.home .section-advantage',{
-afterReveal:function afterReveal(el){
+ScrollReveal().reveal('.home .section-advantage');
 ScrollReveal().reveal('.home .section-advantage header',{
-delay:500,
-distance:'100%',
-interval:500});
+delay:200,
+distance:'100%'});
 
-ScrollReveal().reveal('.home .section-advantage .images-loaded',{
-delay:1000,
-viewOffset:{
-top:100}});
+ScrollReveal().reveal('.home .section-advantage .slider',{
+delay:400,
+distance:'100%'});
 
-
-}});
-
-ScrollReveal().reveal('.home .section-customers',{
-afterReveal:function afterReveal(el){
-ScrollReveal().reveal('.home .section-customers header',{
-delay:500,
-distance:'100%',
-viewFactor:.5});
-
-ScrollReveal().reveal('.home .section-customers .logos li',{
-easing:"ease-out",
-delay:1000,
-interval:1000,
-origin:'bottom',
-distance:'150%'});
-
-}});
-
-ScrollReveal().reveal('.home .section-case-studies',{
-afterReveal:function afterReveal(el){
+ScrollReveal().reveal('.home .section-case-studies');
 ScrollReveal().reveal('.home .section-case-studies header',{
-delay:500,
+delay:400,
 distance:'100%'});
 
 ScrollReveal().reveal('.home .section-case-studies article',{
-delay:1000,
+delay:800,
 interval:250,
 distance:'100%'});
 
-}});
-
-ScrollReveal().reveal('.home .section-featured-post',{
-afterReveal:function afterReveal(el){
+ScrollReveal().reveal('.home .section-featured-post');
 ScrollReveal().reveal('.home .section-featured-post header',{
-delay:500,
+delay:200,
 distance:'100%'});
 
 ScrollReveal().reveal('.home .section-featured-post .grid .cell',{
-delay:1000,
+delay:400,
 interval:250,
 distance:'100%'});
 
-}});
+ScrollReveal().reveal('.home .section-customers');
+ScrollReveal().reveal('.home .section-customers header',{
+delay:400,
+distance:'100%'});
 
-/*
-       About
-   */
+ScrollReveal().reveal('.home .section-customers .logos li',{
+easing:"ease-out",
+delay:800,
+interval:200,
+origin:'bottom',
+distance:'100%'});
 // History
 
 $('.section-history .timeline').children('article').each(function(index,element){
@@ -515,11 +483,7 @@ distance:'100%',
 interval:1000,
 viewFactor:0.5});
 
-});
-/*
-      CAREERS
-  */
-// Hero
+});// Hero
 
 ScrollReveal().reveal('.template-careers .section-hero h1',{
 delay:400,
@@ -590,7 +554,7 @@ module.exports=__webpack_require__(/*! /Users/kylerumble/Sites/ericksoninc/wp-co
 
 /***/}},
 
-[[3,"/js/manifest","/js/vendor"]]]);
+[[3,"/js/manifest"]]]);
 
 }());
 

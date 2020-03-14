@@ -1476,13 +1476,6 @@ for (var COLLECTION_NAME in domIterables) {
 /*! exports provided: default */
 /***/function assetsJsLoaderModuleLoaderJs(module,__webpack_exports__,__webpack_require__){
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! core-js/modules/es.array.for-each */"./node_modules/core-js/modules/es.array.for-each.js");
-/* harmony import */var core_js_modules_es_object_keys__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! core-js/modules/es.object.keys */"./node_modules/core-js/modules/es.object.keys.js");
-/* harmony import */var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(/*! core-js/modules/web.dom-collections.for-each */"./node_modules/core-js/modules/web.dom-collections.for-each.js");
-
-
-
-
 function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError("Cannot call a class as a function");}}
 
 function _defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}
@@ -1544,14 +1537,8 @@ if(foundation_sites_js_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["
 /*! exports provided: default */
 /***/function assetsJsModulesAcfMapJs(module,__webpack_exports__,__webpack_require__){
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! core-js/modules/es.array.filter */"./node_modules/core-js/modules/es.array.filter.js");
-/* harmony import */var core_js_modules_es_array_find__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! core-js/modules/es.array.find */"./node_modules/core-js/modules/es.array.find.js");
-/* harmony import */var core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(/*! core-js/modules/es.array.index-of */"./node_modules/core-js/modules/es.array.index-of.js");
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(/*! jquery */"jquery");
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_3___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
+/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! jquery */"jquery");
+/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
@@ -1824,7 +1811,7 @@ map.markers=[];
 map.infoBoxes=[];// add markers
 
 $markers.each(function(){
-add_marker(jquery__WEBPACK_IMPORTED_MODULE_3___default()(this),map);
+add_marker(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),map);
 });// let's open the first map marker
 
 google.maps.event.trigger(map.markers[0],'click');// return
@@ -1903,14 +1890,14 @@ map.panBy(0,-150);// open infowindow
 
 infobox.open(map,marker);// marker._id
 
-var $current=jquery__WEBPACK_IMPORTED_MODULE_3___default()("#map-legend").find('span.active');
+var $current=jquery__WEBPACK_IMPORTED_MODULE_0___default()("#map-legend").find('span.active');
 var current_id=$current.data('marker-id');
 var current_parent_id=$current.parents('.is-accordion-submenu-parent').attr('id');
 var $clicked;
 
 if(current_id!=marker._id){
-jquery__WEBPACK_IMPORTED_MODULE_3___default()("#map-legend").find('span').removeClass('active');
-$clicked=jquery__WEBPACK_IMPORTED_MODULE_3___default()('[data-marker-id="'+marker._id+'"]',"#map-legend");
+jquery__WEBPACK_IMPORTED_MODULE_0___default()("#map-legend").find('span').removeClass('active');
+$clicked=jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-marker-id="'+marker._id+'"]',"#map-legend");
 $clicked.addClass('active');
 
 if($clicked.parents('.is-accordion-submenu-parent').attr('id')!=current_parent_id){
@@ -1968,28 +1955,28 @@ infobox.close();
 
 var map=null;// Loop all instances, though we're only going to use one this time.
 
-jquery__WEBPACK_IMPORTED_MODULE_3___default()('.acf-map').each(function(){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.acf-map').each(function(){
 // create map
-map=render_map(jquery__WEBPACK_IMPORTED_MODULE_3___default()(this));
+map=render_map(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this));
 google.maps.event.addDomListener(window,"resize",function(){
 var center=map.getCenter();
 google.maps.event.trigger(map,"resize");
 map.setCenter(center);
 });
-jquery__WEBPACK_IMPORTED_MODULE_3___default()("#map-legend").addClass('show');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()("#map-legend").addClass('show');
 });
-jquery__WEBPACK_IMPORTED_MODULE_3___default()("#map-legend").on('click','.marker-anchor',function(){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()("#map-legend").on('click','.marker-anchor',function(){
 // Do nothing if active marker
-if(jquery__WEBPACK_IMPORTED_MODULE_3___default()(this).hasClass('active')){
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).hasClass('active')){
 return;
 }
 
-var id=jquery__WEBPACK_IMPORTED_MODULE_3___default()(this).data('marker-id');
+var id=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('marker-id');
 
 for(var i=0;i<map.markers.length;i++){
 if(map.markers[i]._id==id){
-jquery__WEBPACK_IMPORTED_MODULE_3___default()("#map-legend").find('span').removeClass('active');
-jquery__WEBPACK_IMPORTED_MODULE_3___default()(this).addClass('active');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()("#map-legend").find('span').removeClass('active');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
 google.maps.event.trigger(map.markers[i],'click');
 break;
 }
@@ -2007,49 +1994,41 @@ break;
 /*! exports provided: default */
 /***/function assetsJsModulesAnimateNumbersJs(module,__webpack_exports__,__webpack_require__){
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! core-js/modules/es.object.to-string */"./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! core-js/modules/es.regexp.exec */"./node_modules/core-js/modules/es.regexp.exec.js");
-/* harmony import */var core_js_modules_es_regexp_to_string__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(/*! core-js/modules/es.regexp.to-string */"./node_modules/core-js/modules/es.regexp.to-string.js");
-/* harmony import */var core_js_modules_es_string_replace__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(/*! core-js/modules/es.string.replace */"./node_modules/core-js/modules/es.string.replace.js");
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(/*! jquery */"jquery");
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_4___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
-
+/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! jquery */"jquery");
+/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
-jquery__WEBPACK_IMPORTED_MODULE_4___default()(window).scroll(animateNumbers);
-jquery__WEBPACK_IMPORTED_MODULE_4___default()(window).on("load scroll",function(e){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scroll(animateNumbers);
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("load scroll",function(e){
 animateNumbers();
 });
 var viewed=false;
 
 function isScrolledIntoView(elem){
-if(!jquery__WEBPACK_IMPORTED_MODULE_4___default()(elem).length){
+if(!jquery__WEBPACK_IMPORTED_MODULE_0___default()(elem).length){
 return false;
 }
 
-var docViewTop=jquery__WEBPACK_IMPORTED_MODULE_4___default()(window).scrollTop();
-var docViewBottom=docViewTop+jquery__WEBPACK_IMPORTED_MODULE_4___default()(window).height();
-var elemTop=jquery__WEBPACK_IMPORTED_MODULE_4___default()(elem).offset().top;
-var elemBottom=elemTop+jquery__WEBPACK_IMPORTED_MODULE_4___default()(elem).height();
+var docViewTop=jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop();
+var docViewBottom=docViewTop+jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height();
+var elemTop=jquery__WEBPACK_IMPORTED_MODULE_0___default()(elem).offset().top;
+var elemBottom=elemTop+jquery__WEBPACK_IMPORTED_MODULE_0___default()(elem).height();
 return elemBottom<=docViewBottom&&elemTop>=docViewTop;
 }
 
 function animateNumbers(){
-if(isScrolledIntoView(jquery__WEBPACK_IMPORTED_MODULE_4___default()(".numbers"))&&!viewed){
+if(isScrolledIntoView(jquery__WEBPACK_IMPORTED_MODULE_0___default()(".numbers"))&&!viewed){
 viewed=true;
-jquery__WEBPACK_IMPORTED_MODULE_4___default()('.number').each(function(){
-jquery__WEBPACK_IMPORTED_MODULE_4___default()(this).css('opacity',1);
-jquery__WEBPACK_IMPORTED_MODULE_4___default()(this).prop('Counter',0).animate({
-Counter:jquery__WEBPACK_IMPORTED_MODULE_4___default()(this).text().replace(/,/g,'')},
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.number').each(function(){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).css('opacity',1);
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).prop('Counter',0).animate({
+Counter:jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).text().replace(/,/g,'')},
 {
 duration:4000,
 easing:'swing',
 step:function step(now){
-jquery__WEBPACK_IMPORTED_MODULE_4___default()(this).text(Math.ceil(now).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g,"$1,"));
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).text(Math.ceil(now).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g,"$1,"));
 }});
 
 });
@@ -2438,16 +2417,14 @@ row:true});
 /*! exports provided: default */
 /***/function assetsJsModulesObjectFitJs(module,__webpack_exports__,__webpack_require__){
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */var core_js_modules_es_array_find__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! core-js/modules/es.array.find */"./node_modules/core-js/modules/es.array.find.js");
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! jquery */"jquery");
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_1___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-
+/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! jquery */"jquery");
+/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
 if(!Modernizr.objectfit){
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.object-fit-parent').each(function(){
-var $container=jquery__WEBPACK_IMPORTED_MODULE_1___default()(this),
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.object-fit-parent').each(function(){
+var $container=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
 imgUrl=$container.find('img').prop('src');
 
 if(imgUrl){
@@ -2467,27 +2444,25 @@ $container.css('backgroundImage','url('+imgUrl+')').addClass('compat-object-fit'
 /*! exports provided: default */
 /***/function assetsJsModulesSlickJs(module,__webpack_exports__,__webpack_require__){
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */var core_js_modules_es_array_find__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! core-js/modules/es.array.find */"./node_modules/core-js/modules/es.array.find.js");
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! jquery */"jquery");
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_1___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */var slick_carousel_slick_slick__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(/*! slick-carousel/slick/slick */"./node_modules/slick-carousel/slick/slick.js");
-/* harmony import */var imagesloaded__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(/*! imagesloaded */"./node_modules/imagesloaded/imagesloaded.js");
-
+/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! jquery */"jquery");
+/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */var slick_carousel_slick_slick__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! slick-carousel/slick/slick */"./node_modules/slick-carousel/slick/slick.js");
+/* harmony import */var imagesloaded__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(/*! imagesloaded */"./node_modules/imagesloaded/imagesloaded.js");
 
 
 
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
-var $heroSlider=jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-hero .slider');
+var $heroSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-hero .slider');
 
-if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$heroSlider).length){
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$heroSlider).on('init',function(){
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$heroSlider).length){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$heroSlider).on('init',function(){
 $heroSlider.css({
 opacity:1,
 visibility:'visible'});
 
 });
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$heroSlider).slick({
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$heroSlider).slick({
 fade:true,
 autoplay:true,
 infinite:true,
@@ -2501,8 +2476,8 @@ lazyLoad:'progressive'//nextArrow: $('.slick-next', $heroSlider),
 //prevArrow: $('.slick-prev', $heroSlider),
 });
 
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$heroSlider).on("lazyLoaded",function(e,slick,image,imageSource){
-var parentSlide=jquery__WEBPACK_IMPORTED_MODULE_1___default()(image).parent(".slick-slide",$heroSlider);
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$heroSlider).on("lazyLoaded",function(e,slick,image,imageSource){
+var parentSlide=jquery__WEBPACK_IMPORTED_MODULE_0___default()(image).parent(".slick-slide",$heroSlider);
 parentSlide.css("background-image",'url("'+imageSource+'")').addClass("loaded");//replace with background instead
 
 image.remove();// remove source
@@ -2510,13 +2485,13 @@ image.remove();// remove source
 }// About - history
 
 
-var $tabsSlider=jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-advantage .slider');
+var $tabsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-advantage .slider');
 
-if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$tabsSlider).length){
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$tabsSlider).length){
 $tabsSlider.imagesLoaded({
 background:true}).
 done(function(instance){
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$tabsSlider).slick({
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$tabsSlider).slick({
 fade:true,
 autoplay:false,
 infinite:true,
@@ -2530,8 +2505,8 @@ rows:0,
               return title;
           },*/
 speed:300,
-nextArrow:jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick-next',$tabsSlider),
-prevArrow:jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick-prev',$tabsSlider),
+nextArrow:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next',$tabsSlider),
+prevArrow:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev',$tabsSlider),
 responsive:[{
 breakpoint:991,
 settings:{
@@ -2540,28 +2515,28 @@ dots:true}}]});
 
 
 
-$tabsSlider.prepend(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$tabsSlider).find('.slick-dots'));
+$tabsSlider.prepend(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$tabsSlider).find('.slick-dots'));
 $tabsSlider.addClass('images-loaded');
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-advantage .slick-tabs').on('click','li',function(){
-var index=jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).index();
-jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).siblings().removeClass('active');
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$tabsSlider).slick('slickGoTo',index);
-jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).addClass('active');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-advantage .slick-tabs').on('click','li',function(){
+var index=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).index();
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings().removeClass('active');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$tabsSlider).slick('slickGoTo',index);
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
 });
 });
 }
 
-var $benefitsSlider=jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-benefits .slider');
+var $benefitsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .slider');
 
-if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$benefitsSlider).length){
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$benefitsSlider).length){
 $benefitsSlider.imagesLoaded().done(function(instance){
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-benefits .grid').on('click','.grid-item',function(e){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .grid').on('click','.grid-item',function(e){
 e.preventDefault();
-var slideIndex=jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).parent().index();
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$benefitsSlider).slick('slickGoTo',parseInt(slideIndex));
+var slideIndex=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().index();
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$benefitsSlider).slick('slickGoTo',parseInt(slideIndex));
 });
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('<div class="slick-arrows"></div>').insertAfter('.section-benefits .slick');
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$benefitsSlider).slick({
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="slick-arrows"></div>').insertAfter('.section-benefits .slick');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$benefitsSlider).slick({
 fade:true,
 autoplay:false,
 infinite:true,
@@ -2570,18 +2545,18 @@ arrows:true,
 dots:true,
 rows:0,
 speed:300,
-appendArrows:jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-benefits .slick-arrows')});
+appendArrows:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .slick-arrows')});
 
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-benefits').addClass('images-loaded');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits').addClass('images-loaded');
 });
 }// Careers - Testimonials
 
 
-var $testimonialsSlider=jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-testimonials .slider');
+var $testimonialsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-testimonials .slider');
 
-if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$testimonialsSlider).length){
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$testimonialsSlider).length){
 $testimonialsSlider.imagesLoaded().done(function(instance){
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$testimonialsSlider).slick({
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$testimonialsSlider).slick({
 fade:true,
 autoplay:false,
 infinite:true,
@@ -2598,24 +2573,24 @@ rows:0,
           },
           */
 speed:300,
-nextArrow:jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick-next',$testimonialsSlider),
-prevArrow:jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick-prev',$testimonialsSlider)});
+nextArrow:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next',$testimonialsSlider),
+prevArrow:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev',$testimonialsSlider)});
 
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.wrap',$testimonialsSlider).append(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$testimonialsSlider).find('.slick-dots'));
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.wrap',$testimonialsSlider).append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$testimonialsSlider).find('.slick-dots'));
 $testimonialsSlider.addClass('images-loaded');
 });
 }
 
-var $serviceGallerySlider=jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-service-gallery .slider');
+var $serviceGallerySlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-service-gallery .slider');
 
-if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$serviceGallerySlider).length){
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$serviceGallerySlider).on('init',function(){
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$serviceGallerySlider).length){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$serviceGallerySlider).on('init',function(){
 $serviceGallerySlider.css({
 opacity:1,
 visibility:'visible'});
 
 });
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$serviceGallerySlider).slick({
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$serviceGallerySlider).slick({
 autoplay:false,
 infinite:true,
 adaptiveHeight:false,
@@ -2628,8 +2603,8 @@ slidesToShow:1,
 centerMode:true,
 variableWidth:true,
 lazyLoad:'progressive',
-nextArrow:jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick-next',$serviceGallerySlider),
-prevArrow:jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick-prev',$serviceGallerySlider),
+nextArrow:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next',$serviceGallerySlider),
+prevArrow:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev',$serviceGallerySlider),
 responsive:[{
 breakpoint:991,
 settings:{
@@ -2639,18 +2614,18 @@ centerMode:false}}]});
 
 
 
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick',$serviceGallerySlider).on("lazyLoaded",function(e,slick,image,imageSource){
-var parentSlide=jquery__WEBPACK_IMPORTED_MODULE_1___default()(image).parents(".slick-slide",$serviceGallerySlider);
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$serviceGallerySlider).on("lazyLoaded",function(e,slick,image,imageSource){
+var parentSlide=jquery__WEBPACK_IMPORTED_MODULE_0___default()(image).parents(".slick-slide",$serviceGallerySlider);
 parentSlide.find('.background-image').css("background-image",'url("'+imageSource+'")').addClass("loaded");//replace with background instead
 
 image.remove();// remove source
 });
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick-slider',$serviceGallerySlider).on('click','.slick-slide',function(e){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-slider',$serviceGallerySlider).on('click','.slick-slide',function(e){
 e.stopPropagation();
-var index=jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).data("slick-index");
+var index=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data("slick-index");
 
-if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick-slider').slick('slickCurrentSlide')!==index){
-jquery__WEBPACK_IMPORTED_MODULE_1___default()('.slick-slider').slick('slickGoTo',index);
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-slider').slick('slickCurrentSlide')!==index){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-slider').slick('slickGoTo',index);
 }
 });
 }

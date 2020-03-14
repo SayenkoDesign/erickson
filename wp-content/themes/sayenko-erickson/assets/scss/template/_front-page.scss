@@ -2,7 +2,7 @@
 // Front Page
 //
 
-html.sr .home .scroll-reveal,
+html.sr .home main .scroll-reveal,
 html.sr .home .section-services .grid-item,
 html.sr .home .section-customers header,
 html.sr .home .section-customers .logos li,
@@ -12,7 +12,7 @@ html.sr .home .section-case-studies header,
 html.sr .home .section-case-studies article,
 html.sr .home .section-featured-post header,
 html.sr .home .section-featured-post .grid .cell {
-    visibility: hidden;
+    //visibility: hidden;
 }
 
 .home {
@@ -21,7 +21,7 @@ html.sr .home .section-featured-post .grid .cell {
         background: #ffffff;
         position: relative;
         overflow: hidden;
-        
+        visibility: hidden;
         
         
         @include breakpoint(xlarge) {

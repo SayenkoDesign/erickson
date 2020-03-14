@@ -774,13 +774,8 @@ _export({ target: 'Array', proto: true, forced: NEGATIVE_ZERO || !STRICT_METHOD 
 /*!******************************!*\
   !*** ./assets/js/infobox.js ***!
   \******************************/
-/*! no exports provided */
-/***/function assetsJsInfoboxJs(module,__webpack_exports__,__webpack_require__){
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */var core_js_modules_es_array_filter__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! core-js/modules/es.array.filter */"./node_modules/core-js/modules/es.array.filter.js");
-/* harmony import */var core_js_modules_es_array_index_of__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! core-js/modules/es.array.index-of */"./node_modules/core-js/modules/es.array.index-of.js");
-
-
+/*! no static exports found */
+/***/function assetsJsInfoboxJs(module,exports){
 
 /**
  * @name InfoBox
@@ -1646,7 +1641,7 @@ module.exports=__webpack_require__(/*! /Users/kylerumble/Sites/ericksoninc/wp-co
 
 /***/}},
 
-[[2,"/js/manifest","/js/vendor"]]]);
+[[2,"/js/manifest"]]]);
 
 }());
 
