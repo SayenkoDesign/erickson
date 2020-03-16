@@ -48,28 +48,39 @@
     */
     
     // Hero
-    ScrollReveal().reveal('.home .section-hero' );
+    ScrollReveal().reveal('.section-hero' );
     
-    ScrollReveal().reveal('.home .section-hero h1', { 
+    ScrollReveal().reveal('.section-hero:not(.has-background) h1:not(.no-reveal)', { 
+        delay: 400,
+        distance: '100%',
+    });
+    
+    ScrollReveal().reveal('.section-hero.has-background h1', { 
         delay: 400,
         origin: 'left',
         distance: '100%',
     });
     
-    ScrollReveal().reveal('.home .section-hero h4', { 
+    ScrollReveal().reveal('.section-hero.has-background h4', { 
         delay: 800,
         origin: 'right',
         distance: '100%',
     });
     
-    ScrollReveal().reveal('.home .section-hero .button', { 
+    ScrollReveal().reveal('.section-hero.has-background h3', { 
         delay: 1200,
+        origin: 'right',
+        distance: '100%',
+    });
+    
+    ScrollReveal().reveal('.section-hero.has-background .button', { 
+        delay: 1600,
         distance: '100%',
     });
     
     
-    ScrollReveal().reveal('.home .section-hero .play-video', { 
-        delay: 1600,
+    ScrollReveal().reveal('.section-hero.has-background .play-video', { 
+        delay: 2000,
         scale: 0.1,
         afterReveal: function (el) {
             el.classList.add('revealed');
@@ -86,57 +97,89 @@
         interval: 200
     });
     
-    ScrollReveal().reveal( '.home .section-advantage' );
+    ScrollReveal().reveal( '.section-advantage' );
     
     
-    ScrollReveal().reveal( '.home .section-advantage header', { 
+    ScrollReveal().reveal( '.section-advantage header', { 
         delay: 200,
         distance: '100%'
     });
     
-    ScrollReveal().reveal( '.home .section-advantage .slider', { 
+    ScrollReveal().reveal( '.section-advantage .slider', { 
         delay: 400,
         distance: '100%'
     });
     
     
-    ScrollReveal().reveal( '.home .section-case-studies' );
+    // Case studies
+    ScrollReveal().reveal( '.section-case-studies' );
     
-    ScrollReveal().reveal('.home .section-case-studies header', { 
+    ScrollReveal().reveal('.section-case-studies header', { 
         delay: 400,
         distance: '100%'
     });
     
-    ScrollReveal().reveal('.home .section-case-studies article', { 
+    ScrollReveal().reveal('.section-case-studies article', { 
         delay: 800,
         interval: 250,
         distance: '100%'
     });
     
     
-    ScrollReveal().reveal('.home .section-featured-post' );
+    // Related Posts
+    ScrollReveal().reveal( '.section-related-posts' );
+    
+    ScrollReveal().reveal('.section-related-posts header', { 
+        delay: 400,
+        distance: '100%'
+    });
+    
+    ScrollReveal().reveal('.section-related-posts article', { 
+        delay: 800,
+        interval: 250,
+        distance: '100%'
+    });
     
     
-    ScrollReveal().reveal('.home .section-featured-post header', { 
+    // Posts
+    ScrollReveal().reveal( '.section-posts' );
+    
+    ScrollReveal().reveal('.section-posts header', { 
+        delay: 400,
+        distance: '100%'
+    });
+    
+    ScrollReveal().reveal('.section-posts article', { 
+        delay: 800,
+        interval: 250,
+        distance: '100%'
+    });
+    
+    
+    // Featured Post
+    ScrollReveal().reveal('.section-featured-post' );
+    
+    ScrollReveal().reveal('.section-featured-post header', { 
         delay: 200,
         distance: '100%'
     });
     
-    ScrollReveal().reveal( '.home .section-featured-post .grid .cell', { 
+    ScrollReveal().reveal( '.section-featured-post .grid .cell', { 
         delay: 400,
         interval: 250,
         distance: '100%'
     });
     
- 
-    ScrollReveal().reveal( '.home .section-customers' );
     
-    ScrollReveal().reveal( '.home .section-customers header', { 
+    // Customers
+    ScrollReveal().reveal( '.section-customers' );
+    
+    ScrollReveal().reveal( '.section-customers header', { 
         delay: 400,
         distance: '100%'
     });
     
-    ScrollReveal().reveal( '.home .section-customers .logos li', { 
+    ScrollReveal().reveal( '.section-customers .logos li', { 
         easing: "ease-out",
         delay: 800,
         interval: 200,
@@ -144,7 +187,291 @@
         distance: '100%'
     });
     
+    
+    // Services
+    
+    // Approach
+    
+    ScrollReveal().reveal( '.section-approach header', { 
+        distance: '100%'
+    });
+    
+    $('.section-approach .grid-margin-bottom .cell').each(function () {
+        if( ! $(this).attr('id') ) {
+            $(this).attr('id', ID);
+        }
+    });
+    
+    $('.section-approach .grid-margin-bottom .cell').each(function (index, element) {
+        console.log(element.id);
+        ScrollReveal().reveal( '#' + element.id, { 
+            delay: 400,
+            origin: index % 2 ? 'left' : 'right',
+            distance: '100%',
+            interval: 400
+        });
+    }); 
+    
+    
+    // Results
+    
+    ScrollReveal().reveal( '.section-results header', { 
+        distance: '100%',
+    });
+    
+    ScrollReveal().reveal( '.section-results .cell', { 
+        delay: 400,
+        distance: '100%',
+        interval: 200
+    });
+    
+    
+    // Clients
+    
+    ScrollReveal().reveal( '.section-clients', { 
+        distance: '100%',
+    });
+    
+    ScrollReveal().reveal( '.section-clients header', { 
+        delay: 400,
+        distance: '100%',
+        interval: 200
+    });
+    
+    // Service Gallery
+    
+    ScrollReveal().reveal( '.section-service-gallery header', { 
+        distance: '100%',
+    });
+    
+    ScrollReveal().reveal( '.section-service-gallery .slick', { 
+        delay: 400,
+        distance: '100%',
+        interval: 200
+    });
+    
+    
+    // Fleet
+    
+    ScrollReveal().reveal( '.post-type-archive-fleet #secondary h2', { 
+        distance: '100%',
+    });
+    
+    ScrollReveal().reveal( '.post-type-archive-fleet #secondary li', { 
+        delay: 400,
+        distance: '100%',
+        interval: 200
+    });
+    
+     
+    ScrollReveal().reveal( '.post-type-archive-fleet #primary .facetwp-template article', { 
+        delay: 800,
+        distance: '100%',
+        interval: 200
+    }); 
+    
+    
+    ScrollReveal().reveal( '.post-type-archive-fleet #primary .facetwp-type-pager', { 
+        delay: 200,
+        distance: '100%'
+    });
+    
+    
+    // Case Studies Archive
+    ScrollReveal().reveal( '.post-type-archive-case_study header', { 
+        distance: '100%',
+    });
+    
+    ScrollReveal().reveal( '.post-type-archive-case_study .facetwp-filters', { 
+        delay: 400,
+        distance: '100%',
+    });
+    
+    
+    ScrollReveal().reveal( '.post-type-archive-case_study .facetwp-template article', { 
+        delay: 800,
+        distance: '100%',
+        interval: 200
+    }); 
+    
+    
+    ScrollReveal().reveal( '.post-type-archive-case_study .facetwp-type-pager', { 
+        delay: 200,
+        distance: '100%'
+    });
+    
+    
+    // Photo gallery
+    
+    ScrollReveal().reveal( '.template-photo-gallery .facetwp-filters', { 
+        delay: 400,
+        distance: '100%',
+    });
+    
+    
+    ScrollReveal().reveal( '.template-photo-gallery .facetwp-template article', { 
+        delay: 800,
+        distance: '100%',
+        interval: 200
+    }); 
+    
+    
+    ScrollReveal().reveal( '.template-photo-gallery .facetwp-type-pager', { 
+        delay: 200,
+        distance: '100%'
+    });
+    
+    
+    // video Gallery
+    
+    ScrollReveal().reveal( '.post-type-archive-video_gallery .facetwp-filters', { 
+        delay: 400,
+        distance: '100%',
+    });
+    
+    
+    ScrollReveal().reveal( '.post-type-archive-video_gallery .facetwp-template article', { 
+        delay: 800,
+        distance: '100%',
+        interval: 200
+    }); 
+    
+    ScrollReveal().reveal( '.post-type-archive-video_gallery .facetwp-type-pager', { 
+        delay: 200,
+        distance: '100%'
+    });
+    
+    
+    // Archive
+    
+    ScrollReveal().reveal( '.archive .section-hero', { 
+        delay: 200,
+        distance: '100%'
+    });
+    
+    ScrollReveal().reveal( '.archive .facetwp-filters', { 
+        delay: 400,
+        distance: '100%',
+    });
+    
+    
+    ScrollReveal().reveal( '.archive .facetwp-template article', { 
+        delay: 800,
+        distance: '100%',
+        interval: 200
+    }); 
+    
+    ScrollReveal().reveal( '.archive .facetwp-pager', { 
+        delay: 200,
+        distance: '100%'
+    });
+    
+    
+    
+    // About
+    ScrollReveal().reveal( '.page-template-about .section-hero .hero-content p', { 
+        delay: 400,
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-about .mission-vision', { 
+        distance: '100%'
+    }); 
+    
+    
+    ScrollReveal().reveal( '.page-template-about .section-core-values header', { 
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-about .section-core-values .grid .cell', { 
+        delay: 400,
+        distance: '100%',
+        interval: 200
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-about .section-commitment', { 
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-about .section-commitment header', { 
+        delay: 400,
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-about .section-commitment .grid .cell', { 
+        delay: 400,
+        distance: '100%',
+        interval: 200
+    }); 
+    
+    
+    ScrollReveal().reveal( '.page-template-about .section-awards header', { 
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-about .section-awards .grid .cell', { 
+        delay: 400,
+        distance: '100%',
+        interval: 200
+    }); 
+    
+   
+    // Careers
+    
+    ScrollReveal().reveal('.template-careers .section-hero .button', { 
+        delay: 2000,
+        distance: '100%',
+    });
+    
+    
+    ScrollReveal().reveal('.template-careers .section-hero .play-video', { 
+        delay: 1600,
+        scale: 0.1,
+        afterReveal: function (el) {
+            el.classList.add('revealed');
+        }
+    });
+    
+    
+    ScrollReveal().reveal( '.page-template-careers .section-benefits header', { 
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-careers .section-benefits .grid .cell', { 
+        delay: 400,
+        distance: '100%',
+        interval: 200
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-careers .section-benefits .slider', { 
+        delay: 400,
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-careers .section-testimonials', { 
         
+    }); 
+    
+    
+    ScrollReveal().reveal( '.page-template-careers .section-values' );
+    
+    $('.page-template-careers .section-values .cell').each(function () {
+        if( ! $(this).attr('id') ) {
+            $(this).attr('id', ID);
+        }
+    });
+    
+    $('.page-template-careers .section-values .cell').each(function (index, element) {
+        console.log(element.id);
+        ScrollReveal().reveal( '#' + element.id, { 
+            delay: 400,
+            origin: index % 2 ? 'left' : 'right',
+            distance: '100%',
+            interval: 400
+        });
+    }); 
+    
+    
     
     // History
     $('.section-history .timeline').children('article').each(function (index, element) {
@@ -157,38 +484,6 @@
             viewFactor: 0.5
         });
     });
-
-    
-   
-    
-    // Hero
-    ScrollReveal().reveal('.template-careers .section-hero h1', { 
-        delay: 400,
-        origin: 'left',
-	    distance: '100%',
-    });
-    
-    ScrollReveal().reveal('.template-careers .section-hero h4', { 
-        delay: 800,
-        origin: 'right',
-	    distance: '100%',
-    });
-    
-    
-    ScrollReveal().reveal('.template-careers .section-hero .play-video', { 
-        delay: 1200,
-        scale: 0.1,
-        afterReveal: function (el) {
-            el.classList.add('revealed');
-        }
-    });
-    
-    ScrollReveal().reveal('.template-careers .section-hero .button', { 
-        delay: 1600,
-        origin: 'bottom',
-	    distance: '100%',
-    });
-    
     
     
     // ----------------------

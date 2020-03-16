@@ -4,6 +4,11 @@ html.sr .load-hidden {
     visibility: hidden;
 }
 
+html.sr  .no-reveal {
+    visibility: inherit!important;
+    opacity: inherit!important;
+}
+
 // Global
 
 html.sr .section-footer-cta {
@@ -16,12 +21,12 @@ html.sr .section-footer-cta {
     }
 }
 
-html.sr .home,
-html.sr .template-careers {
+html.sr {
  
     .section-hero {
-      
+        &.has-background,
         h1,
+        h3,
         h4,
         .button,
         .play-video {
@@ -29,26 +34,167 @@ html.sr .template-careers {
         }
     }
     
-    /*
-    .clients-section {
-        .section-title,
-        .grid > .column {
-            visibility: hidden;
-        }
-    }
-    */
         
 }
 
-// About
-html.sr {
-    .section-history .event {
-        visibility: hidden;
-    }
-    
-    .fifty-fifty-block-section img {
+// home
+html.sr .home {
+    .section-services .grid-item,
+    .section-customers header,
+    .section-customers .logos li, {
         visibility: hidden;
     }
     
 }
 
+
+// Sections
+html.sr { 
+    .section-advantage header,
+    .section-advantage .images-loaded,
+    .section-case-studies header,
+    .section-case-studies article,
+    .section-featured-post header,
+    .section-featured-post .grid .cell,
+    .section-service-gallery header,
+    .section-service-gallery .slick {
+        visibility: hidden;
+    }
+}
+
+
+
+// Services
+html.sr {
+ 
+    .section-approach {
+        h1 {
+            visibility: hidden; 
+        }
+        
+        .grid-margin-bottom .cell {
+            visibility: hidden; 
+        }
+    }
+    
+    .section-results .numbers {
+        header,
+        .cell {
+           visibility: hidden;
+        }
+    }
+    
+    .section-clients {
+        visibility: hidden;
+        header {
+           visibility: hidden;
+        }
+    }
+    
+}
+
+
+// Fleet
+html.sr {
+    .post-type-archive-fleet {
+        
+        #secondary {
+            h2,
+            ul li {
+               visibility: hidden; 
+            }
+        }
+        
+        #primary .facetwp-template article {
+            visibility: hidden; 
+        }
+        
+        .facetwp-type-pager {
+            visibility: hidden; 
+        }
+    }
+}
+
+
+// Archive 
+html.sr .archive {
+    .section-hero,
+    .facetwp-filters,
+    .facetwp-type-pager {
+        visibility: hidden;   
+    }
+}
+
+html.sr .facetwp-template article {
+    visibility: hidden; 
+}
+
+// Case Studies
+
+
+html.sr {
+    .post-type-archive-case_study {
+        header,
+        .facetwp-filters,
+        .facetwp-pager {
+            visibility: hidden;   
+        }
+    }
+}
+
+
+// video/ Pghoto Gallery
+
+html.sr {
+    .post-type-archive-video_gallery,
+    .template-photo-gallery {
+        .facetwp-filters,
+        .facetwp-type-pager {
+            visibility: hidden;   
+        }
+    }
+}
+
+
+// About
+html.sr {
+    
+    .page-template-about {
+        .section-hero .hero-content p,
+        .mission-vision,
+        .section-core-values header,
+        .section-core-values .grid .cell,
+        .section-commitment,
+        .section-commitment header,
+        .section-commitment .grid .cell,
+        .section-awards header,
+        .section-awards .grid .cell {
+            visibility: hidden;
+        }
+    }
+    
+}
+
+// Careers
+
+.page-template-careers {
+    .section-benefits header,
+    .section-benefits .grid .cell,
+    .section-benefits .slider,
+    .section-testimonials,
+    .section-values,
+    .section-values .cell {
+        visibility: hidden;
+    }
+}
+
+
+// History
+
+html.sr {
+    .template-history {
+        .section-history .event {
+            visibility: hidden;
+        } 
+    }
+}

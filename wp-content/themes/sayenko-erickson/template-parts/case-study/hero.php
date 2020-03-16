@@ -37,7 +37,7 @@ if( ! class_exists( 'Hero_Section' ) ) {
         public function render() {
             
             $heading = ! empty( $this->get_fields( 'heading' ) ) ? $this->get_fields( 'heading' ) : __( 'Case Studies', '_s' );
-            $heading = _s_format_string( $heading, 'h1' );
+            $heading = _s_format_string( $heading, 'h1', [ 'class' => 'no-reveal' ] );
             $description = $this->get_fields( 'description' );
             $heading = sprintf( '<header>%s%s%s</header>', get_svg( 'posts-icon' ), $heading, $description  );  
 

@@ -392,6 +392,7 @@
             
             ul {
                 padding-left: rem-calc(30); 
+                display: inline-block;
             
                 @include breakpoint(large) {
                     padding-left: rem-calc(60); 

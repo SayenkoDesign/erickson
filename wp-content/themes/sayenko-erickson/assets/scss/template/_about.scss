@@ -9,6 +9,9 @@
  
  
     .section-hero {
+        
+        z-index: 0;
+        
         @include breakpoint(xlarge) {
             &:before {
                 content: '';
@@ -182,7 +185,7 @@
         }
         
         .grid {
-            background-color: #fff; 
+            
             position: relative;
             z-index: 3;
             box-shadow: $box-shadow;  
@@ -190,6 +193,7 @@
             margin-bottom: rem-calc(-100);
             
             .cell {
+                background-color: #fff; 
                  &:first-child {
                     @include breakpoint(large) {
                         box-shadow: $box-shadow; 
