@@ -434,22 +434,28 @@
     
     
     ScrollReveal().reveal( '.page-template-careers .section-benefits header', { 
-        distance: '100%'
+        distance: '100%',
+        afterReveal: function (el) {
+            $('.page-template-careers .section-benefits .slider').show();
+        }
     }); 
     
     ScrollReveal().reveal( '.page-template-careers .section-benefits .grid .cell', { 
         delay: 400,
         distance: '100%',
         interval: 200
+        
     }); 
     
-    ScrollReveal().reveal( '.page-template-careers .section-benefits .slider', { 
-        delay: 400,
-        distance: '100%'
-    }); 
+
     
     ScrollReveal().reveal( '.page-template-careers .section-testimonials', { 
-        
+        distance: '100%',
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-careers .section-testimonials .slider', { 
+        delay: 400,
+        distance: '100%',
     }); 
     
     
@@ -472,27 +478,123 @@
     }); 
     
     
+    ScrollReveal().reveal( '.page-template-careers .section-jobs header', { 
+        distance: '100%',
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-careers .section-jobs .entry-content', { 
+        delay: 400,
+        distance: '100%',
+    }); 
+    
     
     // History
-    $('.section-history .timeline').children('article').each(function (index, element) {
+    
+    ScrollReveal().reveal( '.page-template-history .section-hero .hero-content img', { 
+        delay: 400,
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-history .section-hero .hero-content h1', { 
+        delay: 800,
+        origin: 'bottom',
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-history .section-introduction', { 
+        delay: 800,
+        origin: 'bottom',
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-history .section-timeline .facetwp-facet', { 
+        delay: 800,
+        origin: 'bottom',
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-history .section-timeline .facetwp-template', { 
+        delay: 800,
+        origin: 'bottom',
+        distance: '100%'
+    }); 
+    
+    
+    $('.section-timeline .facetwp-template article').each(function (index, element) {
         //var id = $(element).attr('id'); 
-        ScrollReveal().reveal( '#' + element.id + ' .event', { 
-            delay: 100,
-            origin: index % 2 ? 'right' : 'left',
+        ScrollReveal().reveal( '.event', { 
+            delay: 1200,
             distance: '100%',
-            interval: 1000,
-            viewFactor: 0.5
+            interval: 400
         });
     });
     
     
+    ScrollReveal().reveal( '.post-type-archive-video_gallery .facetwp-type-pager', { 
+        delay: 200,
+        distance: '100%'
+    });
+    
+    
+    // Team
+    
+    ScrollReveal().reveal( '.page-template-team .facetwp-facet', { 
+        delay: 800,
+        origin: 'bottom',
+        distance: '100%'
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-team .facetwp-template .cell', { 
+        delay: 800,
+        origin: 'bottom',
+        distance: '100%',
+        interval: 400
+    }); 
+    
+    ScrollReveal().reveal( '.page-template-team .facetwp-type-pager', { 
+        delay: 200,
+        distance: '100%'
+    });
+    
     // ----------------------
     
-    ScrollReveal().reveal('.fifty-fifty-block-section img', { 
+    // Multipurpose page
+    
+    ScrollReveal().reveal( '.template-multi-purpose .section-block', { 
         delay: 400,
         origin: 'bottom',
-	    distance: '25%',
-        viewFactor: .5
+        distance: '100%'
+    }); 
+    
+    
+    ScrollReveal().reveal( '.template-multi-purpose .section-block .cell', { 
+        delay: 800,
+        origin: 'bottom',
+        distance: '100%',
+        interval: 400,
+        afterReveal: function (el) {
+            $('.template-multi-purpose .section-block .cell .play-video').addClass('revealed');
+        }
+    }); 
+    
+    
+    // Contact
+    
+    ScrollReveal().reveal( '.section-form-directory .cell', { 
+        delay: 400,
+        origin: 'bottom',
+        distance: '100%',
+        interval: 400
+    }); 
+    
+    
+    ScrollReveal().reveal( '.section-offices', { 
+        distance: '100%',
+    });
+    
+    ScrollReveal().reveal( '.section-offices header', { 
+        delay: 400,
+        distance: '100%'
     });
     
     /*

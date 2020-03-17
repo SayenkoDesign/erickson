@@ -134,8 +134,10 @@
         .grid {
             position: relative;
             z-index: 2;
-            display: none;
-            //transition: all .2s ease-in-out;
+            visibility: hidden;
+            opacity: 0;
+            //height: 0;
+            transition: all .2s ease-in-out;
                         
             .grid-item {
                 cursor: pointer;
@@ -174,9 +176,6 @@
         @include breakpoint(large) {
                 
             .grid {
-                display: flex;
-                min-height: 320px;
-                
                 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
                    /* IE10+ specific styles go here */  
                    height: 100%;
@@ -191,7 +190,7 @@
         }
         
         .slider {
-                                    
+                          
             @include breakpoint(large) {
                 opacity: 0;
                 visibility: hidden;
@@ -200,10 +199,9 @@
                 height: 100%;
                 top: 0;
                 left: 100%;
-                margin-left: -100%;
-                float: left;
+                //margin-left: -100%;
+                //float: left;
                 //transition: all .2s ease-in-out;
-                display: none;
                 
                 @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {  
                    /* IE10+ specific styles go here */  
@@ -248,7 +246,6 @@
                         
         &.slider-show {
             @include breakpoint(large) {
-                display: block;
                 .grid {
                     opacity: 0!important;
                     visibility: hidden!important;  

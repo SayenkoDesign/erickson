@@ -176,15 +176,18 @@ html.sr {
 }
 
 // Careers
-
-.page-template-careers {
-    .section-benefits header,
-    .section-benefits .grid .cell,
-    .section-benefits .slider,
-    .section-testimonials,
-    .section-values,
-    .section-values .cell {
-        visibility: hidden;
+html.sr {
+    .page-template-careers {
+        .section-benefits header,
+        .section-benefits .grid .cell,
+        .section-testimonials,
+        .section-testimonials .slider,
+        .section-values,
+        .section-values .cell,
+        .section-jobs header,
+        .section-jobs .entry-content {
+            visibility: hidden;
+        }
     }
 }
 
@@ -193,8 +196,51 @@ html.sr {
 
 html.sr {
     .template-history {
-        .section-history .event {
+        .section-hero img,
+        
+        .section-introduction,
+        .section-timeline .facetwp-facet,
+        .facetwp-template,
+        .section-timeline .event,
+        .section-timeline .facetwp-type-pager {
             visibility: hidden;
         } 
     }
 }
+
+// Team
+
+html.sr {
+    .template-team {
+        .facetwp-facet,
+        .facetwp-template .cell,
+        .facetwp-type-pager {
+            visibility: hidden;
+        } 
+    }
+}
+
+
+// Multipurpose
+
+html.sr {
+    .template-multi-purpose {
+        .section-block,
+        .section-block .cell {
+            visibility: hidden;
+        } 
+    }
+}
+
+// Contact
+
+html.sr {
+    .template-contact {
+        .section-form-directory .cell,
+        .section-clients,
+        .section-clients header  {
+            visibility: hidden;
+        } 
+    }
+}
+
