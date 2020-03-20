@@ -97,7 +97,8 @@
         interval: 200
     });
     
-    ScrollReveal().reveal( '.section-advantage' );
+    
+    //ScrollReveal().reveal( '.section-advantage' );
     
     
     ScrollReveal().reveal( '.section-advantage header', { 
@@ -112,7 +113,7 @@
     
     
     // Case studies
-    ScrollReveal().reveal( '.section-case-studies' );
+    //ScrollReveal().reveal( '.section-case-studies' );
     
     ScrollReveal().reveal('.section-case-studies header', { 
         delay: 400,
@@ -160,12 +161,12 @@
     ScrollReveal().reveal('.section-featured-post' );
     
     ScrollReveal().reveal('.section-featured-post header', { 
-        delay: 200,
+        delay: 400,
         distance: '100%'
     });
     
     ScrollReveal().reveal( '.section-featured-post .grid .cell', { 
-        delay: 400,
+        delay: 800,
         interval: 250,
         distance: '100%'
     });
@@ -596,33 +597,6 @@
         delay: 400,
         distance: '100%'
     });
-    
-    /*
-    ScrollReveal().reveal('.section-details', {
-        afterReveal: function() {
-            ScrollReveal().reveal('.section-details .grid .cell', { 
-                delay: 400,
-                interval: 500,
-                origin: 'bottom',
-                distance: '100%'
-            });
-        }
-    });
-    */
-    
-    /*
-    $('.section-columns .grid-x .cell').each(function (index, element) {
-        console.log(element.id);
-        ScrollReveal().reveal( '#' + element.id, { 
-            delay: 200,
-            origin: index % 2 ? 'right' : 'left',
-            distance: '100%',
-            interval: 800
-        });
-    });
-    */
-    
-    
     
 }(document, window, jQuery));
 

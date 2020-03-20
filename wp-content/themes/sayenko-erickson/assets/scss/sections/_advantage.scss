@@ -17,10 +17,12 @@
         .slider {
             opacity: 0;
             visibility: hidden;
+            height: 500px;
             
             &.images-loaded  {
                 opacity: 1;
                 visibility: visible;
+                height: 100%;
             }
         }
         
