@@ -75,5 +75,7 @@
 		"webfontloader": "^1.6.28",
 		"what-input": "^5.2.7"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"countup.js": "^2.0.4"
+	}
 }

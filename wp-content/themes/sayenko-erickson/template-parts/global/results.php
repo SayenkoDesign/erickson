@@ -51,15 +51,18 @@ if( ! class_exists( 'Results_Section' ) ) {
                         
             $cells = '';
             foreach( $rows as $row ) {
-                $prepend        = _s_format_string( $row['prepend'], 'span', [ 'class' => 'prepend' ] ); 
-                $number         = _s_format_string( $row['number'], 'span', [ 'class' => 'number' ] ); 
-                $append         = _s_format_string( $row['append'], 'span', [ 'class' => 'append' ] ); 
-                $description    = _s_format_string( $row['description'], 'h4' ); 
+                $number        = $row['number']; 
+                $prefix        = $row['prefix']; 
+                $suffix        = $row['suffix']; 
+                $format        = $row['format']; 
+                $description   = _s_format_string( $row['description'], 'h4' ); 
                 
-                $cells .= sprintf( '<div class="cell medium-auto"><div class="panel"><h3 class="h1">%s%s%s</h3>%s</div></div>',
-                                    $prepend,
+                $cells .= sprintf( '<div class="cell medium-auto"><div class="panel">
+                <h3 class="h1 number" data-prefix="%s" data-suffix="%s" data-format="%s" data-value="%s">&nbsp;</h3>%s</div></div>',
+                                    $prefix,
+                                    $suffix,
+                                    $format,
                                     $number,
-                                    $append,
                                     $description
                          );
             }

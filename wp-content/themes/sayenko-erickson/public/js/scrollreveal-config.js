@@ -533,7 +533,10 @@ distance:'100%'});
 ScrollReveal().reveal('.section-results .cell',{
 delay:400,
 distance:'100%',
-interval:200});
+interval:200,
+afterReveal:function afterReveal(el){
+$('.section-results .cell .number').addClass('revealed');
+}});
 // Clients
 
 ScrollReveal().reveal('.section-clients',{

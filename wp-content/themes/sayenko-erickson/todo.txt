@@ -1,24 +1,11 @@
-padding: rem-calc(30 20);  
-            
-            @include breakpoint(large) {
-                padding: rem-calc(60 40);  
-            }
-
-
-
 QA:
 
 - footer cTA phone color
-
+- Services results - dont round up and make format optional
 
 
 TO DO:
 
-- [DONE] Fix Fleet modals
-- [DONE] fix form modals
-- Website QA
-- [DONE] Mobile menu ** need to finish
-- animations to finish, 
 - Pardot integration (which will require help from them), 
 - Email template (which I know is going to go over budget. Creating editable regions etc… there’s lots to learn when creating an email template for an app). 
 - Adding any content I’m supposed to add. 

@@ -1,3 +1,4 @@
+import { CountUp } from 'countup.js';
 import $ from 'jquery';
 
 export default {
@@ -8,6 +9,19 @@ export default {
             animateNumbers(); 
         });
         var viewed = false;
+        
+        // count decimals
+        function countDecimals(num) {
+          let text = num.toString()
+          if (text.indexOf('e-') > -1) {
+            let [base, trail] = text.split('e-')
+            let elen = parseInt(trail, 10)
+            let idx = base.indexOf(".")
+            return idx == -1 ? 0 + elen : (base.length - idx - 1) + elen
+          }
+          let index = text.indexOf(".")
+          return index == -1 ? 0 : (text.length - index - 1)
+        }
         
         function isScrolledIntoView(elem) {
             
@@ -28,18 +42,46 @@ export default {
           
           if (isScrolledIntoView($(".numbers")) && !viewed) {
               viewed = true;
-              $('.number').each(function () {
-              $(this).css('opacity', 1);
-              $(this).prop('Counter',0).animate({
-                  Counter: $(this).text().replace(/,/g, '')
-              }, {
-                  duration: 4000,
-                  easing: 'swing',
-                  step: function (now) {
-                      $(this).text(Math.ceil(now).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-                  }
-              });
+              
+              
+            
+            // Find all Statistics on page, put them inside a variable
+            var number = $(".number");
+            
+            // For each Statistic we find, animate it
+            number.each(function(index) {
+                // Find the value we want to animate (what lives inside the p tags)
+                var value = $(number[index]).data('value');
+                var decimalPlaces = countDecimals(value);
+                var prefix    = $(number[index]).data('prefix') ?? '';
+                var suffix    = $(number[index]).data('suffix') ?? '';
+                var format = $(number[index]).data('format') ?? false;
+                
+                var options = {
+                    useEasing: true,
+                    useGrouping: true,
+                    decimalPlaces: decimalPlaces,
+                    prefix: prefix,
+                    suffix: suffix,
+                    useGrouping: format,
+                    decimal: "."
+                };
+                
+                // Start animating
+                
+                setTimeout(function(){
+                    var numberAnimation = new CountUp(number[index], value, options);
+                    if (!numberAnimation.error) {
+                         numberAnimation.start();
+                    } else {
+                      console.error(numberAnimation.error);
+                    }
+                
+                }, 1000);
+                
             });
+              
+              
           }
         }
 	},
