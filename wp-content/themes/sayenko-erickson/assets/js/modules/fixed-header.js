@@ -11,10 +11,10 @@ export default {
         
         $(window).on("load resize", function(){
                     
-            if( $notificationBar.height() === 0 ) {
+            if( ! $notificationBar.length ) {
                 return;
             }
-            
+                        
             if($('body').hasClass('logged-in')) {
                 if ($(window).width() > 782) {
                    $wpAdminBar = 32;
@@ -37,12 +37,10 @@ export default {
         
         $(window).on("scroll", function(){
             
-            if( $notificationBar.height() === 0 ) {
+            if( ! $notificationBar.length ) {
                 return;
             }
-            
-            console.log($notificationBar.height() );
-            
+                        
             if($('body').hasClass('logged-in')) {
                 if ($(window).width() > 782) {
                    $wpAdminBar = 32;

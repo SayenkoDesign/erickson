@@ -2919,7 +2919,7 @@ var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-not
 var $wpAdminBar=0;
 var $height=0;
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("load resize",function(){
-if($notificationBar.height()===0){
+if(!$notificationBar.length){
 return;
 }
 
@@ -2941,11 +2941,9 @@ $stickyHeader.removeAttr('style');
 }
 });
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("scroll",function(){
-if($notificationBar.height()===0){
+if(!$notificationBar.length){
 return;
 }
-
-console.log($notificationBar.height());
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('logged-in')){
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width()>782){

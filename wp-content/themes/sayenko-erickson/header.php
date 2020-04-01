@@ -38,7 +38,9 @@ $notification_bar = _s_get_template_part( 'template-parts/global', 'notification
 </ul>
 
 <?php
-echo $notification_bar;
+if( ! is_user_logged_in() ) {
+    echo $notification_bar;
+}
 ?>
 
 <div class="sticky-header">
