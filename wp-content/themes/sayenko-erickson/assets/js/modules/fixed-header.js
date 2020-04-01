@@ -5,7 +5,7 @@ export default {
 		
             
         var $stickyHeader = $(".sticky-header .site-header");
-        
+        var $body = $('body');
         var $wpAdminBar = 0;
         var $height = 0;
         
@@ -14,7 +14,7 @@ export default {
             var $notificationBar = $('.section-notification-bar');        
             
             if( ! $notificationBar.length ) {
-                $stickyHeader.removeAttr( 'style' );
+                $body.removeAttr( 'style' );
                 return;
             }
                         
@@ -29,10 +29,10 @@ export default {
             $height = $notificationBar.height() + $wpAdminBar;
             
             if (Foundation.MediaQuery.atLeast('xlarge')) {
-                $stickyHeader.css( 'top', $height );
+                $body.css( 'top', $height );
             } else {
-                $stickyHeader.css( 'top', 'auto' );
-                $stickyHeader.removeAttr( 'style' );
+                $body.css( 'top', 'auto' );
+                $body.removeAttr( 'style' );
             }            
         
         });  
@@ -59,23 +59,23 @@ export default {
                     
             if( $(window).scrollTop() >= $height ){
               $stickyHeader.addClass("fixed");
-              $stickyHeader.removeAttr( 'style' );
+              $body.removeAttr( 'style' );
             } else {
                 $stickyHeader.removeClass("fixed");
                 
                 if (Foundation.MediaQuery.atLeast('xlarge')) {
-                    $stickyHeader.css( 'top', $height );
+                    $body.css( 'top', $height );
                 } else {
-                    $stickyHeader.css( 'top', 'auto' );
-                    $stickyHeader.removeAttr( 'style' );
+                    $body.css( 'top', 'auto' );
+                    $body.removeAttr( 'style' );
                 } 
             }
         });
         
         $(document).on('close.zf.trigger', '[data-closable]', function(e) {
             console.log( 'closed' );
-            $stickyHeader.css( 'top', 'auto' );
-            $stickyHeader.removeAttr( 'style' );
+            $body.css( 'top', 'auto' );
+            $body.removeAttr( 'style' );
             $('.section-notification-bar').remove();
         });
 
