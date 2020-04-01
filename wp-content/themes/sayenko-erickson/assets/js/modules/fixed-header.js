@@ -5,13 +5,16 @@ export default {
 		
             
         var $stickyHeader = $(".sticky-header .site-header");
-        var $notificationBar = $('.section-notification-bar');
+        
         var $wpAdminBar = 0;
         var $height = 0;
         
         $(window).on("load resize", function(){
-                    
+            
+            var $notificationBar = $('.section-notification-bar');        
+            
             if( ! $notificationBar.length ) {
+                $stickyHeader.removeAttr( 'style' );
                 return;
             }
                         
@@ -37,9 +40,14 @@ export default {
         
         $(window).on("scroll", function(){
             
+            var $notificationBar = $('.section-notification-bar');
+            
             if( ! $notificationBar.length ) {
+                $stickyHeader.removeAttr( 'style' );
                 return;
             }
+            
+            console.log('test');
                         
             if($('body').hasClass('logged-in')) {
                 if ($(window).width() > 782) {
@@ -68,7 +76,7 @@ export default {
             console.log( 'closed' );
             $stickyHeader.css( 'top', 'auto' );
             $stickyHeader.removeAttr( 'style' );
-            $notificationBar.remove();
+            $('.section-notification-bar').remove();
         });
 
 	},

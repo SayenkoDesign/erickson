@@ -2915,11 +2915,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
 var $stickyHeader=jquery__WEBPACK_IMPORTED_MODULE_0___default()(".sticky-header .site-header");
-var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar');
 var $wpAdminBar=0;
 var $height=0;
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("load resize",function(){
+var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar');
+
 if(!$notificationBar.length){
+$stickyHeader.removeAttr('style');
 return;
 }
 
@@ -2941,9 +2943,14 @@ $stickyHeader.removeAttr('style');
 }
 });
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("scroll",function(){
+var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar');
+
 if(!$notificationBar.length){
+$stickyHeader.removeAttr('style');
 return;
 }
+
+console.log('test');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('logged-in')){
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width()>782){
@@ -2971,7 +2978,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('close.zf.trigger','[
 console.log('closed');
 $stickyHeader.css('top','auto');
 $stickyHeader.removeAttr('style');
-$notificationBar.remove();
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar').remove();
 });
 }};
 
