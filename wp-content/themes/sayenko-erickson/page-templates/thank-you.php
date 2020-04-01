@@ -57,7 +57,7 @@ _s_get_template_part( 'template-parts/thank-you', 'hero' );
             $show_resources = get_field( 'show_resources' );
             
             if( $show_resources ) {
-                _s_get_template_part( 'template-parts/thank-you', 'related-posts' );
+                _s_get_template_part( 'template-parts/thank-you', 'posts' );
             }            
             ?>
             </main>

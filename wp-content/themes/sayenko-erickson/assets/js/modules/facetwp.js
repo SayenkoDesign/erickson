@@ -23,7 +23,15 @@ export default {
             } else {
                 $('body').removeClass('is-paged');
             }
+            
+            
+            if ( FWP.loaded ) {
+				var target = $( '.blog .facetwp-template' );
 
+				Foundation.SmoothScroll.scrollToLoc( target, {offset: -100} );
+
+			}
+            
 		} );
         
         $(document).on('facetwp-refresh', function() {

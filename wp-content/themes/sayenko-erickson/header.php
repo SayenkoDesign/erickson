@@ -23,9 +23,12 @@
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f58025">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="theme-color" content="#ffffff">   
-    <script src="//unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 	<?php wp_head(); ?>
 </head>
+
+<?php
+$notification_bar = _s_get_template_part( 'template-parts/global', 'notification-bar', [], true );
+?>
 
 <body <?php body_class( wp_is_mobile() ? 'is-mobile' : 'is-desktop' ); ?> id="top">
 
@@ -34,8 +37,12 @@
 	<li><a href="#footer" class="screen-reader-shortcut"><?php esc_html_e( 'Skip to footer', '_s' ); ?></a></li>
 </ul>
 
+<?php
+echo $notification_bar;
+?>
+
 <div class="sticky-header">
-        <header id="masthead" class="site-header fixed" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+        <header id="masthead" class="site-header <?php empty( $notification_bar ) ? 'fixed' : ''; ?>" role="banner" itemscope itemtype="https://schema.org/WPHeader">
                         
             <div class="wrap">
             

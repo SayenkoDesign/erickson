@@ -59,7 +59,16 @@ $nav-arrow-color-hover: $orange;
             @include screen-reader-text;   
         }
         
-        .number {
+        .dots {
+            display: list-item;
+            font-size: rem-calc(18);
+            line-height: rem-calc(48);
+            color: $dark-gray;
+            margin: rem-calc(0 10 0);
+
+        }
+        
+        li:not(.nav-previous):not(.nav-next) {
             margin-top: rem-calc(12);
             a,
             > span {
@@ -86,7 +95,7 @@ $nav-arrow-color-hover: $orange;
         
         .active a,
         .number span.current {
-            color: $orange;
+            color: $orange!important;
             
             &:after {
                 background: $orange;   

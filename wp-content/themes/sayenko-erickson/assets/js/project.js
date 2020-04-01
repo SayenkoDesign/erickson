@@ -36,6 +36,8 @@ import fancyBox from './modules/fancybox';
 
 //import infiniteScroll from './modules/infinite-scroll';
 
+import scrollReveal from './modules/scrollreveal';
+
 
 const modules = new ModuleLoader( {
     acfMap,
@@ -43,7 +45,7 @@ const modules = new ModuleLoader( {
 	externalLinks,
 	facetWp,
     fancyBox,
-	//fixedHeader,
+	fixedHeader,
 	general,
 	// inlineSvg,
 	// modalVideo,
@@ -55,7 +57,8 @@ const modules = new ModuleLoader( {
 	// superfish
 	//backgroundVideo,
 	//menuToggle,
-    accordionFix
+    accordionFix,
+    scrollReveal
 } );
 
 $( document ).ready( () => {
