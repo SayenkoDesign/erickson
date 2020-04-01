@@ -44,6 +44,12 @@ if( ! class_exists( 'Notification_Bar_Section' ) ) {
         // Add content
         public function render() {
             
+            $show = $this->get_fields( 'show' );
+            
+            if( ! $show ) {
+                return false;
+            }
+            
             $text = $this->get_fields( 'text' );
             
             if( empty( $text ) ) {
