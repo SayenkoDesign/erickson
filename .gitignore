@@ -183,4 +183,4 @@ node_modules
 /assets
 db.php
 /wp-content/themes/sayenko-erickson/todo.txt
-/email-templates
+#/email-templates
