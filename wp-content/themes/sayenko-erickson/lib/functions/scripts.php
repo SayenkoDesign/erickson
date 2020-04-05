@@ -71,3 +71,11 @@ function _s_load_scripts() {
     
     //wp_enqueue_script( 'scrollreveal-config' );
 }
+
+
+function gioga_add_defer_attribute($tag, $handle) {
+	//if ( 'googleapis' === $handle )
+	//return $tag;
+	return str_replace( ' src', ' defer src', $tag );
+}
+add_filter('script_loader_tag', 'gioga_add_defer_attribute', 10, 2);
