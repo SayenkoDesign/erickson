@@ -72,6 +72,8 @@
     include_once( 'functions/photo-gallery.php' );
     
     include_once( 'functions/investors.php' );
+    
+    include_once( 'functions/relative-urls.php' );
 
 /****************************************
 	ACF Custom Fields
