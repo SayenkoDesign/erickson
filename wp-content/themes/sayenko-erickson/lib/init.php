@@ -73,7 +73,7 @@
     
     include_once( 'functions/investors.php' );
     
-    include_once( 'functions/relative-urls.php' );
+    include_once( 'functions/autoptimize.php' );
 
 /****************************************
 	ACF Custom Fields
