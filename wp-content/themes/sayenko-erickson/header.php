@@ -9,7 +9,7 @@
  * @package _s
  */
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?> class="no-js">
+<html <?php language_attributes(); ?> class="no-js sr">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -24,6 +24,7 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="theme-color" content="#ffffff">   
 	<?php wp_head(); ?>
+    <script>ScrollReveal({});</script>
 </head>
 
 <?php
