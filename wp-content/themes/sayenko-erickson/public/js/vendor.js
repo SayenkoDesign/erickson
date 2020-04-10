@@ -21066,6 +21066,20 @@ return [];
 
 /***/},
 
+/***/"./node_modules/webpack/buildin/amd-options.js":
+/*!****************************************!*\
+  !*** (webpack)/buildin/amd-options.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/function node_modulesWebpackBuildinAmdOptionsJs(module,exports){
+
+/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__){/* globals __webpack_amd_options__ */
+module.exports=__webpack_amd_options__;
+
+/* WEBPACK VAR INJECTION */}).call(this,{});
+
+/***/},
+
 /***/"./node_modules/what-input/dist/what-input.js":
 /*!****************************************************!*\
   !*** ./node_modules/what-input/dist/what-input.js ***!
