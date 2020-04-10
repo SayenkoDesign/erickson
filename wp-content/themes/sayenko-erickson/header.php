@@ -24,7 +24,6 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="theme-color" content="#ffffff">   
 	<?php wp_head(); ?>
-    <script>ScrollReveal({});</script>
 </head>
 
 <?php
