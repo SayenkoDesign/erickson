@@ -3338,32 +3338,33 @@ if(!jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')){
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id',ID);
 }
 });
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])({});
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('load',function(){
-/*
-      ScrollReveal().reveal('section.scroll-reveal', {
-          origin: 'bottom',
-          
-          afterReveal: function() {
-              ScrollReveal().reveal('.animate-left', { 
-                  delay: 200,
-                  origin: 'left',
-                  distance: '100%',
-              });
-              
-              ScrollReveal().reveal('.animate-right', { 
-                  delay: 400,
-                  origin: 'right',
-                  distance: '100%',
-              });
-          }
-      });
-      */
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])({});//$( window ).on( 'load', function() {
 
 /*
-          HOME
-      */
+    ScrollReveal().reveal('section.scroll-reveal', {
+        origin: 'bottom',
+        
+        afterReveal: function() {
+            ScrollReveal().reveal('.animate-left', { 
+                delay: 200,
+                origin: 'left',
+                distance: '100%',
+            });
+            
+            ScrollReveal().reveal('.animate-right', { 
+                delay: 400,
+                origin: 'right',
+                distance: '100%',
+            });
+        }
+    });
+    */
+
+/*
+        HOME
+    */
 // Hero
+
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero');
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero:not(.has-background) h1:not(.no-reveal)',{
 delay:400,
@@ -3788,8 +3789,7 @@ distance:'100%'});
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-offices header',{
 delay:400,
 distance:'100%'});
-
-});
+// } );         
 }};
 
 

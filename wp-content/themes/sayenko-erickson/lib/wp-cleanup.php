@@ -266,3 +266,16 @@ function wpse240579_fix_svg_size_attributes( $out, $id ) {
     return array( $image_url, null, null, false );
 }
 add_filter( 'image_downsize', 'wpse240579_fix_svg_size_attributes', 10, 2 ); 
+
+
+/**
+ * Dequeue jQuery Migrate
+ *
+ */
+function _s_dequeue_jquery_migrate( &$scripts ){
+	if( !is_admin() ) {
+		$scripts->remove( 'jquery');
+		$scripts->add( 'jquery', false, array( 'jquery-core' ), '' );
+	}
+}
+add_filter( 'wp_default_scripts', '_s_dequeue_jquery_migrate' );

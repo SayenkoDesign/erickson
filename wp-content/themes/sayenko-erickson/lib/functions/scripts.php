@@ -27,7 +27,7 @@ function be_gutenberg_scripts() {
 add_action( 'wp_enqueue_scripts', '_s_register_scripts' );
 function _s_register_scripts() {
 
-	wp_register_script( 'modernizr', _s_asset_path( '/js/modernizr-custom.js' ), false, '', false );
+	wp_register_script( 'modernizr', _s_asset_path( '/js/modernizr-custom.js' ), ['jquery'], '', false );
             
     wp_register_script( 'gmaps', 
 						sprintf( '//maps.googleapis.com/maps/api/js?key=%s', GOOGLE_API_KEY ), 
@@ -74,8 +74,9 @@ function _s_load_scripts() {
 
 
 function gioga_add_defer_attribute($tag, $handle) {
-	//if ( 'googleapis' === $handle )
-	//return $tag;
+    printf( "<!-- %s -->\n", $handle );
+	if ( 'jquery-core' === $handle )
+	    return $tag;
 	return str_replace( ' src', ' defer src', $tag );
 }
 add_filter('script_loader_tag', 'gioga_add_defer_attribute', 10, 2);

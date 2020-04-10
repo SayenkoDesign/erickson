@@ -23,9 +23,8 @@ export default {
         
         ScrollReveal({});
         
-        $( window ).on( 'load', function() {
+        //$( window ).on( 'load', function() {
        
-        
             
             /*
             ScrollReveal().reveal('section.scroll-reveal', {
@@ -622,7 +621,7 @@ export default {
                 distance: '100%'
             });
         
-        } );         
+       // } );         
                           
 	},
 };
