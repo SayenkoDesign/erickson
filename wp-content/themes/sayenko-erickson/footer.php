@@ -13,7 +13,8 @@
 </div><!-- #content -->
 
 <?php
-_s_get_template_part( 'template-parts/global', 'footer-cta' );
+global $footer_cta;
+echo $footer_cta;
 ?>
 
 <div class="footer-widgets">

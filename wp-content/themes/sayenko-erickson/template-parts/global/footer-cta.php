@@ -32,6 +32,13 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
             $fields = get_field( 'footer_cta', $this->post_id );
             
             if( $hide_call_to_action ) {
+                
+                add_filter( 'body_class', function ( $classes ) {
+                    $classes[] = 'footer-cta-none';
+                    // $classes[] = '';
+                    return $classes;
+                }, 99 );
+                
                 return false;
             }
                                                                                     
@@ -91,5 +98,6 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
         
     }
 }
-   
+
+
 new Footer_CTA_Section;

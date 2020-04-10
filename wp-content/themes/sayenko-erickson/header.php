@@ -28,6 +28,10 @@
 
 <?php
 $notification_bar = _s_get_template_part( 'template-parts/global', 'notification-bar', [], true );
+
+// Load this early so we can add a body class
+$footer_cta = _s_get_template_part( 'template-parts/global', 'footer-cta', [], true );
+
 ?>
 
 <body <?php body_class( wp_is_mobile() ? 'is-mobile' : 'is-desktop' ); ?> id="top">
