@@ -3736,7 +3736,7 @@ delay:800,
 origin:'bottom',
 distance:'100%'});
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-timeline .facetwp-template article').each(function(index,element){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.page-template-history .section-timeline .facetwp-template').each(function(index,element){
 //var id = $(element).attr('id'); 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.event',{
 delay:1200,
@@ -3744,6 +3744,16 @@ distance:'100%',
 interval:400});
 
 });
+
+(function($){
+$(document).on('facetwp-loaded',function(){
+$('.page-template-history .section-timeline .facetwp-template article').css({
+opacity:1,
+visibility:'visible'});
+
+});
+})(jQuery);
+
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.post-type-archive-video_gallery .facetwp-type-pager',{
 delay:200,
 distance:'100%'});

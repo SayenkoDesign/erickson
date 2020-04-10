@@ -544,7 +544,7 @@ export default {
             }); 
             
             
-            $('.section-timeline .facetwp-template article').each(function (index, element) {
+            $('.page-template-history .section-timeline .facetwp-template').each(function (index, element) {
                 //var id = $(element).attr('id'); 
                 ScrollReveal().reveal( '.event', { 
                     delay: 1200,
@@ -552,6 +552,13 @@ export default {
                     interval: 400
                 });
             });
+            
+            
+            (function($) {
+                $(document).on('facetwp-loaded', function() {
+                     $( '.page-template-history .section-timeline .facetwp-template article' ).css({ opacity: 1, visibility: 'visible' });
+                });
+            })(jQuery);    
             
             
             ScrollReveal().reveal( '.post-type-archive-video_gallery .facetwp-type-pager', { 
