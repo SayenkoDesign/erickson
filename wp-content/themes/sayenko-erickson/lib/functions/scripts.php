@@ -74,6 +74,11 @@ function _s_load_scripts() {
 
 
 function gioga_add_defer_attribute($tag, $handle) {
+    
+    if( is_admin() ) {
+        return $tag;
+    }
+    
     printf( "<!-- %s -->\n", $handle );
 	if ( 'jquery-core' === $handle )
 	    return $tag;
