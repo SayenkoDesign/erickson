@@ -235,6 +235,8 @@
     .section-awards {
         
         padding: rem-calc(125 0 75 0);
+        position: relative;
+        z-index: 3;
         
         background-color: #fff;
         
