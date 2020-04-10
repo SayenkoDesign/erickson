@@ -138,7 +138,7 @@ add_filter('wp_nav_menu','wp_nav_menu_accordion_sub_menu_classes', 11, 2 );
 function _s_menu_item_accordion( $item_output, $item, $depth, $args ) {
     
     $classes = explode( ' ', $args->menu_class );
-    if ( ! empty( $classes ) && in_array( 'accordion-menu', $classes ) ) {
+    if ( ! empty( $classes ) && in_array( 'accordion-menu', $classes ) && $depth === 0 ) {
         return preg_replace('/href="(.*?)"/', '', $item_output );
     }
 
