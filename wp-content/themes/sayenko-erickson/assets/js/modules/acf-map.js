@@ -177,6 +177,8 @@ export default {
         
             // create map
             var map = new google.maps.Map( $el[0], args);
+            
+            map.setOptions({ minZoom: 5, maxZoom: 15 });
         
             // add a markers reference
             map.markers = [];
