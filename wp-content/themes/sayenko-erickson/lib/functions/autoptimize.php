@@ -3,7 +3,7 @@
 add_filter ('wp_get_attachment_url', 'wp_make_theme_links_protocols_relative');
 function wp_make_theme_links_protocols_relative( $link ) {
     
-    if( ! defined( AUTOPTIMIZE_PLUGIN_VERSION ) ) {
+    if( ! defined( 'AUTOPTIMIZE_PLUGIN_VERSION' ) ) {
         return $link;
     }
     
