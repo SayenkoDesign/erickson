@@ -14,5 +14,7 @@
     "/js/scrollreveal-config.js": "/js/scrollreveal-config.js",
     "/js/scrollreveal-config.js.map": "/js/scrollreveal-config.js.map",
     "/js/vendor.js": "/js/vendor.js",
-    "/js/vendor.js.map": "/js/vendor.js.map"
+    "/js/vendor.js.map": "/js/vendor.js.map",
+    "/css/editor.css": "/css/editor.css",
+    "/css/editor.css.map": "/css/editor.css.map"
 }

@@ -1,0 +1,22 @@
+// Block: Core Values
+
+.block-core-values {
+        
+    padding-top: rem-calc(25);
+    padding-bottom: rem-calc(75);
+    
+    header {
+        margin-bottom: rem-calc(45);   
+    }
+    
+    .grid {
+        text-align: center;
+        .grid-image {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            height: rem-calc(110);
+            margin-bottom: rem-calc(35);
+        }
+    }
+}

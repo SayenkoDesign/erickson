@@ -6,63 +6,77 @@
 
 @charset 'utf-8';
 
-@import "foundation/settings";
+$content-width: 1260px;
 
-// Import Foundation
-@import "../../node_modules/foundation-sites/scss/foundation";
 
-// Global styles
 
-.wp-block .acf-block-preview {
-    @include foundation-global-styles;
-    @include foundation-typography;
-    @include foundation-button;
-    @include foundation-table;
+
+.acf-block-component {
     
-    // Grids (choose one)
-    @include foundation-xy-grid-classes;
-    // @include foundation-grid;
-    //@include foundation-flex-grid;
+    .acf-block-preview .acf-block-placeholder {
+        text-align: center; 
+        color: #fff; 
+        background: #333; 
+        font-size: 20px;
+        padding: 50px 30px;
+    }
     
-    // Generic components
-    //@include foundation-button;
-    //@include foundation-button-group;
-    
-    // Helpers
-    @include foundation-float-classes;
-    @include foundation-flex-classes;
-    @include foundation-visibility-classes;
+    .acf-field-message {
+        .acf-label {
+            font-size: 20px;   
+        }
+    }
 }
 
+/* Post title width */
+.editor-post-title__block.wp-block {
+	max-width: $content-width;
 
-/** === Content Width === */
+	/* Post title styling */
+	.editor-post-title__input {
+	}
+}
+
+/* Main column width */
 .wp-block {
-	max-width: $global-width;
+    max-width: $content-width;
+
+	/* Wide column width */
+	&[data-align="wide"] {
+		max-width: none;
+
+		@media screen and (min-width: 640px) {
+			max-width: none;
+			margin-left: calc(25vw - 25%);
+			margin-right: calc(25vw - 25%);
+		}
+	}
+
+	/* Full column width */
+	&[data-align="full"] {
+		max-width: none;
+	}
 }
+
 
 /** === Base Typography === */
 .wp-block .acf-block-preview {
-	font-size: $global-font-size;
-	font-family: $body-font-family;
-	color: $body-font-color;
 }
 
-/** === Blocks === */
+/** === Blocks === 
 .wp-block .acf-block-preview {
 	@import 'blocks';
 }
+*/
 
-/** === Post Title === */
-.editor-post-title__block .editor-post-title__input{
-    @extend h1;
-}
+
 
 /** === Button === */
 .wp-block-button {
 
 	// add general foundation button styling to button in editor
 	.wp-block-button__link {
-		@extend .button;
+		
 	}
 
 	// add special styling for squared buttons
@@ -72,7 +86,7 @@
 
 	// add outline styles
 	&.is-style-outline .wp-block-button__link{
-		@extend .hollow;
+		
 	}
 
 	// set transparent background to block for outline button
@@ -82,19 +96,4 @@
 	&.is-style-outline:active {
 		background: transparent;
 	}
-}
-
-/** === Pullquote === */
-.wp-block-paragraph.has-background{
-	padding: rem-calc(20px 30px);
-}
-
-/** === Table === */
-.wp-block-table td{
-	border: none;
-}
-
-/** === Latest Posts grid view === */
-.wp-block-latest-posts.is-grid{
-	list-style: none;
 }

@@ -1,17 +1,19 @@
 <?php
-// About - Awards
+// Block: Awards
 
-if( ! class_exists( 'About_Awards' ) ) {
-    class About_Awards extends Element_section {
+if( ! class_exists( 'Awards_Block' ) ) {
+    class Awards_Block extends Element_Block {
                 
-        public function __construct() {
-            parent::__construct();
+        public function __construct( $data ) {
+            parent::__construct( $data );
                                     
-            $fields = get_field( 'awards' );
-            $this->set_fields( $fields );
+            $this->set_fields( 'heading', get_field( 'heading' ) );
+            $this->set_fields( 'grid', get_field( 'grid' ) );
             
-            $settings = $this->get_fields( 'settings' );
-            $this->set_settings( $settings );
+            /*
+            $this->set_settings( 'padding', get_field( 'padding' )  );
+            $this->set_settings( 'margin', get_field( 'margin' )  );
+            */
             
             // print the section
             $this->print_element();        
@@ -22,19 +24,6 @@ if( ! class_exists( 'About_Awards' ) ) {
             
              // use parent attributes
             parent::_add_render_attributes();
-            
-            $this->add_render_attribute(
-                'wrapper', 'class', [
-                     $this->get_name() . '-awards',
-                ]
-            ); 
-            
-            $this->add_render_attribute(
-                'wrapper', 'id', [
-                     $this->get_name() . '-awards',
-                ],
-                true
-            ); 
                                         
         } 
                
@@ -42,9 +31,9 @@ if( ! class_exists( 'About_Awards' ) ) {
         // Add content
         public function render() {
             
-            $heading = ! empty( $this->get_fields( 'heading' ) ) ? $this->get_fields( 'heading' ) : __( 'You might also be interested in', '_s' );          
-            $heading = _s_format_string( $heading, 'h2' );
-            $heading = sprintf( '<header>%s%s</header>', get_svg( 'best-seller-icon' ), $heading  );  
+            if( ! empty( $this->get_fields( 'heading' ) ) ) {
+                $heading = sprintf( '<header>%s%s</header>', get_svg( 'best-seller-icon' ), _s_format_string( $this->get_fields( 'heading' ), 'h2' )  );  
+            }
                         
             $grid = $this->get_grid();
                         
@@ -108,4 +97,4 @@ if( ! class_exists( 'About_Awards' ) ) {
     }
 }
    
-new About_Awards;
+new Awards_Block( $data );

@@ -4130,6 +4130,17 @@ modules.init();
 
 /***/},
 
+/***/"./assets/scss/editor.scss":
+/*!*********************************!*\
+  !*** ./assets/scss/editor.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/function assetsScssEditorScss(module,exports){
+
+// removed by extract-text-webpack-plugin
+
+/***/},
+
 /***/"./assets/scss/login.scss":
 /*!********************************!*\
   !*** ./assets/scss/login.scss ***!
@@ -4153,15 +4164,16 @@ modules.init();
 /***/},
 
 /***/0:
-/*!**************************************************************************************!*\
-  !*** multi ./assets/js/project.js ./assets/scss/style.scss ./assets/scss/login.scss ***!
-  \**************************************************************************************/
+/*!****************************************************************************************************************!*\
+  !*** multi ./assets/js/project.js ./assets/scss/style.scss ./assets/scss/login.scss ./assets/scss/editor.scss ***!
+  \****************************************************************************************************************/
 /*! no static exports found */
 /***/function _(module,exports,__webpack_require__){
 
 __webpack_require__(/*! /Users/kylerumble/Sites/ericksoninc/wp-content/themes/sayenko-erickson/assets/js/project.js */"./assets/js/project.js");
 __webpack_require__(/*! /Users/kylerumble/Sites/ericksoninc/wp-content/themes/sayenko-erickson/assets/scss/style.scss */"./assets/scss/style.scss");
-module.exports=__webpack_require__(/*! /Users/kylerumble/Sites/ericksoninc/wp-content/themes/sayenko-erickson/assets/scss/login.scss */"./assets/scss/login.scss");
+__webpack_require__(/*! /Users/kylerumble/Sites/ericksoninc/wp-content/themes/sayenko-erickson/assets/scss/login.scss */"./assets/scss/login.scss");
+module.exports=__webpack_require__(/*! /Users/kylerumble/Sites/ericksoninc/wp-content/themes/sayenko-erickson/assets/scss/editor.scss */"./assets/scss/editor.scss");
 
 
 /***/},

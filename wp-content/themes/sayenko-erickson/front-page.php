@@ -16,35 +16,34 @@ add_filter( 'body_class', function ( $classes ) {
 
 get_header(); ?>
 
-<?php
-_s_get_template_part( 'template-parts/home', 'hero' );
-?>
-  
-    <div id="primary" class="content-area">
+<div id="primary" class="content-area">
 
-        <main id="main" class="site-main" role="main">
+    <main id="main" class="site-main" role="main">
 
-            <?php
-            while ( have_posts() ) :
+        <?php
+        while ( have_posts() ) :
 
-                the_post();
+            the_post();
+            
+            get_template_part( 'template-parts/content', 'page' );
 
-                _s_get_template_part( 'template-parts/home', 'services' );
+            /*_s_get_template_part( 'template-parts/home', 'services' );
+            
+            _s_get_template_part( 'template-parts/home', 'customers' );
+            
+            _s_get_template_part( 'template-parts/global', 'advantage' );
+            
+            _s_get_template_part( 'template-parts/global', 'case-studies' );
+            
+            _s_get_template_part( 'template-parts/global', 'featured-post' );
+            */
                 
-                _s_get_template_part( 'template-parts/home', 'customers' );
-                
-                _s_get_template_part( 'template-parts/global', 'advantage' );
-                
-                _s_get_template_part( 'template-parts/global', 'case-studies' );
-                
-                _s_get_template_part( 'template-parts/global', 'featured-post' );
-                    
-            endwhile;       
-           ?>
+        endwhile;       
+       ?>
 
-        </main>
+    </main>
 
-    </div>
+</div>
 
 <?php
 get_footer();

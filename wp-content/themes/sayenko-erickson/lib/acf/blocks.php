@@ -18,7 +18,7 @@ add_filter( 'block_categories', function( $categories, $post ) {
 		[
 			[
 				'slug'  => 'theme-blocks',
-				'title' => __( 'Theme Blocks', '_s' ),
+				'title' => __( 'Erickson Custom Blocks', '_s' ),
 			]
 		],
 		$categories
@@ -32,35 +32,6 @@ function _s_acf_register_blocks() {
 
 	// check function exists
 	if ( function_exists( 'acf_register_block_type' ) ) {
-
-		
-        // Hero
-		acf_register_block_type( array(
-			'name'            => 'hero-home',
-			'title'           => __( 'Hero Home', '_s' ),
-			'description'     => __( 'Hero for homepage', '_s' ),
-			'render_callback' => '_s_acf_block_render_callback',
-			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comments',
-			'keywords'        => array( 'hero homepage' ),
-            //'post_types' => array('post', 'page'),
-            'mode' => 'edit',
-            'supports' => ['anchor' => false]
-		) );		
-        
-        // Hero
-		acf_register_block_type( array(
-			'name'            => 'hero',
-			'title'           => __( 'Hero', '_s' ),
-			'description'     => __( 'Hero', '_s' ),
-			'render_callback' => '_s_acf_block_render_callback',
-			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comments',
-			'keywords'        => array( 'hero' ),
-            //'post_types' => array('post', 'page'),
-            'mode' => 'edit',
-            'supports' => ['anchor' => true]
-		) );		
         
         // Button
 		acf_register_block_type( array(
@@ -72,43 +43,251 @@ function _s_acf_register_blocks() {
 			'icon'            => '<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><g><path d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z"></path></g></svg>',
 			'keywords'        => array( 'button' ),
             //'post_types' => array('post', 'page'),
-            'mode' => 'edit',
             'supports' => ['anchor' => false]
 		) );		
         
-        // Grid
-        /*
-		acf_register_block( array(
-			'name'            => 'grid',
-			'title'           => __( 'Grid', '_s' ),
-			'description'     => __( 'Grid', '_s' ),
+                
+        acf_register_block_type( array(
+			'name'            => 'commitment',
+			'title'           => __( 'Commitment', '_s' ),
+			'description'     => __( 'Commitment block', '_s' ),
 			'render_callback' => '_s_acf_block_render_callback',
 			'category'        => 'theme-blocks',
 			'icon'            => 'admin-comments',
-			'keywords'        => array( 'acf grid' ),
-            //'post_types' => array('post', 'page'),
-            //'mode' => 'auto',
-            'supports' => ['anchor' => true]
-		) );		*/
+			'keywords'        => array( 'commitment' ),
+            'post_types' => array('page'),
+            'align' => 'full',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
         
-        // About - core Values
-        /*
-		acf_register_block( array(
+		acf_register_block_type( array(
 			'name'            => 'core-values',
 			'title'           => __( 'Core Values', '_s' ),
-			'description'     => __( 'About - core values', '_s' ),
+			'description'     => __( 'Core values block', '_s' ),
 			'render_callback' => '_s_acf_block_render_callback',
 			'category'        => 'theme-blocks',
 			'icon'            => 'admin-comments',
-			'keywords'        => array( 'acf core values' ),
+			'keywords'        => array( 'core values' ),
             'post_types' => array('page'),
-            //'mode' => 'auto',
-            'supports' => ['anchor' => true]
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
 		) );
-        */
+        
+        acf_register_block_type( array(
+			'name'            => 'mission-vision',
+			'title'           => __( 'Mission & Vision', '_s' ),
+			'description'     => __( 'Mission & Vision block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'mission vision' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        
+        acf_register_block_type( array(
+			'name'            => 'awards',
+			'title'           => __( 'Awrds & Accolades', '_s' ),
+			'description'     => __( 'awards & accolades block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'awards accolades' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'content',
+			'title'           => __( 'Generic Content', '_s' ),
+			'description'     => __( 'generic content block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'generic content, video, image' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'services',
+			'title'           => __( 'Services List', '_s' ),
+			'description'     => __( 'list of services by category', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'services' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'customers',
+			'title'           => __( 'Customers', '_s' ),
+			'description'     => __( 'Customer logos', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'customer logos' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'erickson-advantage',
+			'title'           => __( 'Erickson Advantage', '_s' ),
+			'description'     => __( 'Erickson Advantage slideshow', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'Erickson Advantage slideshow' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'multiple' => false,
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'case-studies',
+			'title'           => __( 'Case Studies', '_s' ),
+			'description'     => __( 'Case Studies grid', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'case study' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'featured-post',
+			'title'           => __( 'Featured Post', '_s' ),
+			'description'     => __( 'Erickson featured post', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'featured post' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'hero',
+			'title'           => __( 'Hero', '_s' ),
+			'description'     => __( 'Hero', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'hero' ),
+            'post_types'      => array('page'),
+            //'mode'          => 'edit',
+            'multiple'        => false,
+            'supports'        => [ 'align' => false, 'anchor' => false ]
+		) );
 	}
 }
 
 add_action( 'acf/init', '_s_acf_register_blocks' );
 
 
+function _s_allowed_block_types( $allowed_blocks, $post ) {
+    
+    if ( $post->post_type == 'page' ) {
+        
+        /*
+        // Example page template
+        $page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+        
+        if( 'page-templates/contact.php' == $page_template ) {
+            $allowed_blocks = array(
+            'acf/button',
+            'core/block',
+            'core-embed/youtube',
+            'core/image',
+            'core/paragraph',
+            'core/heading',
+            'core/list',
+            //'core/button'
+        ); 
+        } 
+        */
+        
+       $allowed_blocks = array(
+            'acf/awards',
+            'acf/button',
+            'acf/case-studies',
+            'acf/commitment',
+            'acf/content',
+            'acf/core-values',
+            'acf/customers',
+            'acf/erickson-advantage',
+            'acf/featured-post',
+            'acf/hero',
+            'acf/mission-vision',
+            'acf/services',
+                        
+            'core/group',
+            'core/reusableBlock',
+            'core-embed/youtube',
+            'core/image',
+            'core/paragraph',
+            'core/heading',
+            'core/list',
+            //'core/button'
+        );   
+        
+    }
+    
+    // Remove blocks if array exists
+    if( ! empty( $remove_blocks ) ) {
+        foreach( $remove_blocks as $block ) {
+            if ( ($key = array_search( $block, $allowed_blocks ) ) !== false ) {
+                unset( $allowed_blocks[$key] );
+            }
+        }
+    }
+        
+    return $allowed_blocks;
+ 
+}
+add_filter( 'allowed_block_types', '_s_allowed_block_types', 10, 2 );
+
+
+
+// block templates
+function _s_maybe_add_block_template() {
+    if ( ! is_admin() || ! isset( $_GET['post'] ) || '1234' !== $_GET['post'] ) {
+        // This is not the post/page we want to limit things to.
+        return false;
+    }
+
+    $post_type_object = get_post_type_object( 'post' );
+    $post_type_object->template = array(
+        array( 'core/paragraph', array(
+            'placeholder' => 'Add Description...',
+        ) ),
+    );
+    $post_type_object->template_lock = 'all';
+}
+//add_action( 'init', '_s_maybe_add_block_template' );
+
+
+
+function _s_acf_block_render_callback( $block ) {
+        
+	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
+	$slug = str_replace( 'acf/', '', $block['name'] );
+                
+	// include a template part from within the "template-parts/block" folder
+    $data = [ 'block' => $block ];
+            
+    _s_get_template_part( "blocks", $slug, $data ); 
+}

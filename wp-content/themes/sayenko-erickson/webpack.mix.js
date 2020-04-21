@@ -124,7 +124,7 @@ var sassEditorConfig = {
 // Compile SASS/CSS.
 mix.sass( `${ devPath }/scss/style.scss`, 'css', sassConfig );
 mix.sass( `${ devPath }/scss/login.scss`, 'css', sassEditorConfig );
-//mix.sass( `${ devPath }/scss/editor.scss`, 'css', sassEditorConfig );
+mix.sass( `${ devPath }/scss/editor.scss`, 'css', sassEditorConfig );
 
 /*
  * Add custom Webpack configuration.

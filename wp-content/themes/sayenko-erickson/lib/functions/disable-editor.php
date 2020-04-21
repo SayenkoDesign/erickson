@@ -1,24 +1,19 @@
 <?php
 
-// disable Gutenberg on everything but posts
-function sayenko_disable_gutenberg($current_status, $post_type)
-{
-    if ($post_type !== 'post') return false;
-        return $current_status;
-}
-
-add_filter('use_block_editor_for_post_type', 'sayenko_disable_gutenberg', 100, 2);
-
 /**
- * Templates and Page IDs without editor
+ * Exclude Templates and Page IDs from Gutenberg editor
  *
  */
-function ea_disable_editor( $id = false ) {
+function _s_disable_editor( $id = false ) {
 
 	$excluded_templates = array(
-        'page-templates/multi-purpose.php',
-        'page-templates/partners.php',
-        //'page-templates/contact.php',
+        'page-templates/contact.php',
+        'page-templates/history.php',
+        'page-templates/investor-relations.php',
+        'page-templates/photo-gallery.php',
+        'page-templates/team.php',
+        'page-templates/thank-you.php',
+        
 	);
 
 	$excluded_ids = array(
@@ -34,53 +29,61 @@ function ea_disable_editor( $id = false ) {
 	return in_array( $id, $excluded_ids ) || in_array( $template, $excluded_templates );
 }
 
+
+
 /**
  * Disable Gutenberg by template
  *
  */
-function ea_disable_gutenberg( $can_edit, $post_type ) {
+function _s_disable_gutenberg( $can_edit, $post_type ) {
 
 	if( ! ( is_admin() && !empty( $_GET['post'] ) ) )
 		return $can_edit;
 
-	if( ea_disable_editor( $_GET['post'] ) )
+	if( _s_disable_editor( $_GET['post'] ) )
 		$can_edit = false;
-
+        
+    // Choose posts types to include
+    $include_post_types = [ 'post', 'page' ];
+    
+    if ( ! in_array( $post_type, $include_post_types ) ) 
+        $can_edit = false;
+    
 	return $can_edit;
 
 }
-add_filter( 'gutenberg_can_edit_post_type', 'ea_disable_gutenberg', 10, 2 );
-add_filter( 'use_block_editor_for_post_type', 'ea_disable_gutenberg', 10, 2 );
+add_filter( 'gutenberg_can_edit_post_type', '_s_disable_gutenberg', 10, 2 );
+add_filter( 'use_block_editor_for_post_type', '_s_disable_gutenberg', 10, 2 );
 
 /**
  * Disable Classic Editor by template
  *
  */
-function ea_disable_classic_editor() {
+function _s_disable_classic_editor() {
 
 	$screen = get_current_screen();
 	if( 'page' !== $screen->id || ! isset( $_GET['post']) )
 		return;
 
-	if( ea_disable_editor( $_GET['post'] ) ) {
+	if( _s_disable_editor( $_GET['post'] ) ) {
 		remove_post_type_support( 'page', 'editor' );
 	}
 
 }
-add_action( 'admin_head', 'ea_disable_classic_editor' );
+add_action( 'admin_head', '_s_disable_classic_editor' );
 
 
 /**
  * Modifies the TinyMCE settings array
  */
-function ssm_tiny_mce_before_init( $init ) {
+function _s_tiny_mce_before_init( $init ) {
 
 	// Restrict the Formats available in TinyMCE. Currently excluded: h1,h5,h6,address,pre
 	$init['block_formats'] = 'Paragraph=p;Heading 1=h1; Heading 2=h2; Heading 3=h3; Heading 4=h4;';
 	return $init;
 
 }
-add_filter( 'tiny_mce_before_init', 'ssm_tiny_mce_before_init' );
+add_filter( 'tiny_mce_before_init', '_s_tiny_mce_before_init' );
 
 
 /**
@@ -118,6 +121,8 @@ function _s_remove_tiny_mce_buttons_from_editor( $buttons ) {
     }
     return $buttons;
 }
+
+
 /**
  * Removes buttons from the second row (kitchen sink) of the tiny mce editor
  *

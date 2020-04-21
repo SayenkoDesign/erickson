@@ -1,44 +1,34 @@
 <?php
-// About - Commitment
+// Block - Commitment
 
-if( ! class_exists( 'About_Commitment' ) ) {
-    class About_Commitment extends Element_Section {
+if( ! class_exists( 'Commitment_Block' ) ) {
+    class Commitment_Block extends Element_Block {
                 
-        public function __construct() {
-            parent::__construct();
+        public function __construct( $data ) {
+            parent::__construct( $data );
             
             $fields = get_field( 'commitment' );
             $this->set_fields( $fields );
                         
             $settings = get_field( 'settings' );
             $this->set_settings( $settings );
-            
+                        
             // print the section
             $this->print_element();        
         }
               
         // Add default attributes to section        
         protected function _add_render_attributes() {
-            
             // use parent attributes
             parent::_add_render_attributes();
-    
-            $this->add_render_attribute(
-                'wrapper', 'class', [
-                     $this->get_name() . '-commitment'
-                ]
-            );   
-
-            $this->add_render_attribute(
-                'wrapper', 'id', [
-                     $this->get_name() . '-commitment'
-                ], true
-            );  
-
         }          
         
         // Add content
         public function render() {
+            
+            if( is_admin() ) {
+                return $this->render_backend();
+            }
                         
             $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : '';
             $description = $this->get_fields( 'description' );
@@ -55,6 +45,11 @@ if( ! class_exists( 'About_Commitment' ) ) {
                             $heading,
                             $grid
                          );  
+        }
+        
+        
+        private function render_backend() {
+            return sprintf( '<div style="text-align: center; color: #fff; background: #333; padding: 50px 30px;">%s</div>', 'Commitment Block' );
         }
         
         
@@ -100,4 +95,4 @@ if( ! class_exists( 'About_Commitment' ) ) {
     }
 }
    
-new About_Commitment;
+new Commitment_Block( $data );

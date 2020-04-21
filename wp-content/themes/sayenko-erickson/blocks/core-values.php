@@ -1,23 +1,20 @@
 <?php
-// About - Core Values
+// Block: Core Values
 
-if( ! class_exists( 'About_Core_Values' ) ) {
-    class About_Core_Values extends Element_Section {
+if( ! class_exists( 'Core_Values_Block' ) ) {
+    class Core_Values_Block extends Element_Block {
                 
-        public function __construct() {
-            parent::__construct();
+        public function __construct( $data ) {
+            parent::__construct( $data );
             
-            $fields = get_field( 'core_values' );
-            $this->set_fields( $fields );
-                        
-            $settings = get_field( 'settings' );
-            $this->set_settings( $settings );
-                        
-            // Render the section
-            if( empty( $this->render() ) ) {
-                return;   
-            }
+            $this->set_fields( 'heading', get_field( 'heading' ) );
+            $this->set_fields( 'grid', get_field( 'grid' ) );
             
+            /*
+            $this->set_settings( 'padding', get_field( 'padding' )  );
+            $this->set_settings( 'margin', get_field( 'margin' )  );
+            */
+                                    
             // print the section
             $this->print_element();        
         }
@@ -27,24 +24,19 @@ if( ! class_exists( 'About_Core_Values' ) ) {
             
             // use parent attributes
             parent::_add_render_attributes();
-    
+            
+            // Add custom classes
+            /*
             $this->add_render_attribute(
-                'wrapper', 'class', [
-                     $this->get_name() . '-core-values'
-                ]
-            );   
-
-            $this->add_render_attribute(
-                'wrapper', 'id', [
-                     $this->get_name() . '-core-values'
-                ], true
+                'wrapper', 'class', [ 'class-1', 'class-2' ]
             );  
+            */ 
 
         }          
         
         // Add content
-        public function render() {
-                        
+        public function render() {         
+            
             $heading = $this->get_fields( 'heading' );
             $heading = _s_format_string( $heading, 'h2' );
             if( ! empty( $heading ) ) {
@@ -97,4 +89,4 @@ if( ! class_exists( 'About_Core_Values' ) ) {
     }
 }
    
-new About_Core_Values;
+new Core_Values_Block( $data );

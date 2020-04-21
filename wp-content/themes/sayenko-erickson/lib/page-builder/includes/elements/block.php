@@ -5,10 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor section element class.
- *
- * Elementor repeater handler class is responsible for initializing the section
- * element.
+ * Block class
  *
  * @since 1.0.0
  */
@@ -17,25 +14,23 @@ class Element_Block extends Element_Base {
     private $_block;
     
     /**
-	 * Get section name.
+	 * Get block name.
 	 *
-	 * Retrieve the section name.
+	 * Retrieve the block name.
 	 *
 	 * @since 1.0.0
 	 * @access public
 	 *
-	 * @return string Section name.
+	 * @return string Block name.
 	 */
 	public function get_name() {
-        
         return sanitize_title_with_dashes( str_replace( 'acf/', '', $this->_block['name'] ) ); 
-        
 	}
     
     /**
-	 * Get element ID.
+	 * Get block ID.
 	 *
-	 * Retrieve the element generic ID.
+	 * Retrieve the block generic ID.
 	 *
 	 * @since 1.4.0
 	 * @access public
@@ -43,18 +38,149 @@ class Element_Block extends Element_Base {
 	 * @return string The ID.
 	 */
 	public function get_id() {
+       return $this->_block['id']; 
+	}
+    
+    /**
+	 * Get block IDs.
+	 *
+	 * Retrieve the block generic IDs.
+	 *
+	 * @since 1.4.0
+	 * @access public
+	 *
+	 * @return array The IDs.
+	 */
+    public function get_block_ids() {
+        global $post;
         
-        if( ! empty( $this->_block['anchor'] ) ) {
-            return sanitize_title_with_dashes( $this->_block['anchor'] ); 
+        // get all blocks
+        $parse_blocks = parse_blocks( $post->post_content );
+        
+        // Remove empty blocks
+        $parse_blocks = array_filter($parse_blocks);
+        
+        if( empty( $parse_blocks ) ) {
+            return NULL;
+        }
+                
+        $ids = [];
+        foreach( $parse_blocks as $block ) {
+            if( ! empty( $block['attrs']['id'] ) ) {
+                $ids[] = $block['attrs']['id'];
+            }
         }
         
-		return $this->_block['id'];
-	}
-        
+        return $ids;   
+    }
+    
+    
     /**
-	 * Before section rendering.
+	 * Get block anchor.
 	 *
-	 * Used to add stuff before the section element.
+	 * Retrieve the block anchor.
+	 *
+	 * @since 1.4.0
+	 * @access public
+	 *
+	 * @return string The ID.
+	 */
+	public function get_anchor() {
+        if( ! empty( $this->_block['anchor'] ) ) {
+            return $this->_block['anchor']; 
+        }
+	}
+    
+    
+    /**
+	 * Get block index
+	 *
+	 * Retrieve the block index.
+	 *
+	 *
+	 * @return integer
+	 */
+    public function get_block_index() {
+       
+        $ids = $this->get_block_ids();
+        
+        if( empty( $ids ) ) {
+            return false;
+        }
+        
+        // Find the id by key
+        $key = array_search( $this->get_id(), $ids ) ;
+        
+        if( false !== $key ) {
+            return $key + 1;
+        }
+        
+        return false;
+    }
+    
+    
+    /**
+	 * Is First Block
+	 *
+	 * Find the first block
+	 *
+	 *
+	 * @return boolean
+	 */
+    public function is_first_block() {
+       
+        $ids = $this->get_block_ids();
+        
+        if( empty( $ids ) ) {
+            return false;
+        }
+        
+        $key = NULL;
+
+        if ( is_array( $ids ) ) {
+            
+            if( reset( $ids ) == $this->get_id() ) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    
+    /**
+	 * Is Last Block
+	 *
+	 * Find the last block
+	 *
+	 *
+	 * @return boolean
+	 */
+    public function is_last_block() {
+       
+        $ids = $this->get_block_ids();
+        
+        if( empty( $ids ) ) {
+            return false;
+        }
+        
+        $key = NULL;
+
+        if ( is_array( $ids ) ) {
+            
+            if( end( $ids ) == $this->get_id() ) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+            
+    /**
+	 * Before block rendering.
+	 *
+	 * Used to add stuff before the block block.
 	 *
 	 * @since 1.0.0
 	 * @access public
@@ -75,9 +201,9 @@ class Element_Block extends Element_Base {
     
 
 	/**
-	 * After section rendering.
+	 * After block rendering.
 	 *
-	 * Used to add stuff after the section element.
+	 * Used to add stuff after the block block.
 	 *
 	 * @since 1.0.0
 	 * @access public
@@ -88,9 +214,9 @@ class Element_Block extends Element_Base {
     
 
 	/**
-	 * Add section render attributes.
+	 * Add block render attributes.
 	 *
-	 * Used to add render attributes to the section element.
+	 * Used to add render attributes to the block block.
 	 *
 	 * @since 1.3.0
 	 * @access protected
@@ -101,7 +227,7 @@ class Element_Block extends Element_Base {
                 
         $this->add_render_attribute(
             'wrapper', 'class', [
-                $this->get_name()
+                'block-' . $this->get_name()
              ]
         );
         
@@ -112,11 +238,43 @@ class Element_Block extends Element_Base {
                  ]
             );
         }
+                
+        if( $this->get_block_index() ) {
+            $this->add_render_attribute(
+            'wrapper', 'class', [
+                'block-' . $this->get_block_index()
+             ]
+            );
+        }
         
-        if( ! is_admin() ) {
+        if( $this->is_first_block() ) {
+            $this->add_render_attribute(
+            'wrapper', 'class', [
+                'block-first'
+             ]
+            );
+        }
+        
+        if( $this->is_last_block() ) {
+            $this->add_render_attribute(
+            'wrapper', 'class', [
+                'block-last'
+             ]
+            );
+        }
+        
+        if( ! empty( $this->_block['align'] ) ) {       
+            $this->add_render_attribute(
+                'wrapper', 'class', [
+                    $this->_block['align']
+                 ]
+            );
+        }
+        
+        if( ! is_admin() && $this->get_anchor() ) {
             $this->add_render_attribute(
                 'wrapper', 'id', [
-                    $this->get_id()
+                    $this->get_anchor()
                 ]
             );
         }
@@ -127,12 +285,12 @@ class Element_Block extends Element_Base {
 	/**
 	 * Get HTML tag.
 	 *
-	 * Retrieve the section element HTML tag.
+	 * Retrieve the block block HTML tag.
 	 *
 	 * @since 1.5.3
 	 * @access private
 	 *
-	 * @return string Section HTML tag.
+	 * @return string Block HTML tag.
 	 */
 	public function get_html_tag() {
 	
@@ -142,13 +300,65 @@ class Element_Block extends Element_Base {
 	}
     
     
+    /**
+	 * Print block.
+	 *
+	 * Used to generate the block final HTML on the frontend and the editor.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function print_element() {        
+		echo $this->get_element();
+	}
+    
+    /**
+	 * Get block.
+	 *
+	 * Used to get the block final HTML on the frontend.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function get_element() {   
+    
+        if( is_admin() ) {
+            return $this->get_admin_block();
+        }
+        
+        $content = $this->render();
+        
+		if ( $content ) {
+            
+            $this->enqueue_styles();
+            
+			$this->_add_render_attributes();
+            
+            $output  = '';
+            $output .= $this->before_render();
+            $output .= $content;
+            $output .= $this->after_render();
+    
+            $this->enqueue_scripts();
+            
+		}
+
+        return $output;
+	}
+    
+    
+    public function get_admin_block() {
+        $name = ucwords( str_replace( '-', ' ', $this->get_name() ) );
+        return sprintf( '<div class="acf-block-placeholder">%s Block</div>', $name );
+    }
+        
     public function __construct( array $data = [], array $args = null ) {
         if ( $args ) {
 			$this->_default_args = $args;
 		}
         
         $this->_block = $data['block'];
-                                
+                                        
         parent::__construct( $data );
 	}
     

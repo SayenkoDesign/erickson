@@ -85,7 +85,7 @@
     
     include_once( 'acf/gutenberg.php' );
     
-	//include_once( 'acf/blocks.php' );
+	include_once( 'acf/blocks.php' );
     
     include_once( 'acf/filters.php' );
         
