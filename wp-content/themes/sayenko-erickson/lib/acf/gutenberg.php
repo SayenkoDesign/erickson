@@ -104,3 +104,31 @@ function _s_acf_block_image_sizes( $sizes ) {
     ) );
 }
 // add_filter( 'image_size_names_choose', '_s_acf_block_image_sizes' );
+
+
+
+
+function _s_has_h1_block( $blocks = array() ) {
+	foreach ( $blocks as $block ) {
+
+		if( ! isset( $block['blockName'] ) )
+			continue;
+
+		// Custom header block
+		if( 'acf/hero' === $block['blockName'] ) {
+			return true;
+
+		// Heading block
+		} elseif( 'core/heading' === $block['blockName'] && isset( $block['attrs']['level'] ) && 1 === $block['attrs']['level'] ) {
+			return true;
+
+		// Scan inner blocks for headings
+		} elseif( isset( $block['innerBlocks'] ) && !empty( $block['innerBlocks'] ) ) {
+			$inner_h1 = be_has_h1_block( $block['innerBlocks'] );
+			if( $inner_h1 )
+				return true;
+		}
+	}
+
+	return false;
+}

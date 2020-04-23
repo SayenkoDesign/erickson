@@ -42,7 +42,7 @@ function _s_acf_register_blocks() {
 			'category'        => 'theme-blocks',
 			'icon'            => '<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><g><path d="M19 6H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H5V8h14v8z"></path></g></svg>',
 			'keywords'        => array( 'button' ),
-            //'post_types' => array('post', 'page'),
+            'post_types' => array('post', 'page', 'service'),
             'supports' => ['anchor' => false]
 		) );		
         
@@ -106,9 +106,9 @@ function _s_acf_register_blocks() {
 			'description'     => __( 'generic content block', '_s' ),
 			'render_callback' => '_s_acf_block_render_callback',
 			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comments',
+			'icon'            => 'admin-page',
 			'keywords'        => array( 'generic content, video, image' ),
-            'post_types' => array('page'),
+            'post_types' => array('post', 'service'),
             //'mode' => 'edit',
             'supports' => [ 'align' => false, 'anchor' => true ]
 		) );
@@ -119,7 +119,7 @@ function _s_acf_register_blocks() {
 			'description'     => __( 'list of services by category', '_s' ),
 			'render_callback' => '_s_acf_block_render_callback',
 			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comments',
+			'icon'            => 'editor-ul',
 			'keywords'        => array( 'services' ),
             'post_types' => array('page'),
             //'mode' => 'edit',
@@ -132,7 +132,7 @@ function _s_acf_register_blocks() {
 			'description'     => __( 'Customer logos', '_s' ),
 			'render_callback' => '_s_acf_block_render_callback',
 			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comments',
+			'icon'            => 'admin-users',
 			'keywords'        => array( 'customer logos' ),
             'post_types' => array('page'),
             //'mode' => 'edit',
@@ -161,7 +161,7 @@ function _s_acf_register_blocks() {
 			'category'        => 'theme-blocks',
 			'icon'            => 'admin-comments',
 			'keywords'        => array( 'case study' ),
-            'post_types' => array('page'),
+            'post_types' => array('page', 'service' ),
             //'mode' => 'edit',
             'supports' => [ 'align' => false, 'anchor' => true ]
 		) );
@@ -187,10 +187,117 @@ function _s_acf_register_blocks() {
 			'category'        => 'theme-blocks',
 			'icon'            => 'admin-comments',
 			'keywords'        => array( 'hero' ),
-            'post_types'      => array('page'),
+            'post_types'      => array('page', 'service' ),
             //'mode'          => 'edit',
             'multiple'        => false,
             'supports'        => [ 'align' => false, 'anchor' => false ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'photo-gallery',
+			'title'           => __( 'Photo Gallery', '_s' ),
+			'description'     => __( 'photo gallery', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'format-gallery',
+			'keywords'        => array( 'photo gallery' ),
+            'post_types'      => array('page', 'service' ),
+            //'mode'          => 'edit',
+            'multiple'        => false,
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'results',
+			'title'           => __( 'Results', '_s' ),
+			'description'     => __( 'results', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comment',
+			'keywords'        => array( 'results' ),
+            'post_types'      => array('page', 'service' ),
+            //'mode'          => 'edit',
+            'multiple'        => false,
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'clients',
+			'title'           => __( 'Clients', '_s' ),
+			'description'     => __( 'clients', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comment',
+			'keywords'        => array( 'clients' ),
+            'post_types'      => array('service'),
+            //'mode'          => 'edit',
+            'multiple'        => false,
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'approach',
+			'title'           => __( 'Approach', '_s' ),
+			'description'     => __( 'approach', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comment',
+			'keywords'        => array( 'approach' ),
+            'post_types'      => array('service'),
+            //'mode'          => 'edit',
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'benefits',
+			'title'           => __( 'Benefits', '_s' ),
+			'description'     => __( 'benefits', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comment',
+			'keywords'        => array( 'benefits' ),
+            'post_types'      => array('page'),
+            //'mode'          => 'edit',
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'jobs',
+			'title'           => __( 'Jobs', '_s' ),
+			'description'     => __( 'approach', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comment',
+			'keywords'        => array( 'jobs' ),
+            'post_types'      => array('page'),
+            //'mode'          => 'edit',
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'testimonials',
+			'title'           => __( 'Testimonials', '_s' ),
+			'description'     => __( 'testimonials', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comment',
+			'keywords'        => array( 'testimonials' ),
+            'post_types'      => array('page'),
+            //'mode'          => 'edit',
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'values',
+			'title'           => __( 'Values', '_s' ),
+			'description'     => __( 'values', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comment',
+			'keywords'        => array( 'values' ),
+            'post_types'      => array('page'),
+            //'mode'          => 'edit',
+            'supports'        => [ 'align' => false, 'anchor' => true ]
 		) );
 	}
 }
@@ -230,9 +337,16 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/customers',
             'acf/erickson-advantage',
             'acf/featured-post',
+            'acf/photo-gallery',
             'acf/hero',
             'acf/mission-vision',
             'acf/services',
+            
+            'acf/benefits',
+            'acf/jobs',
+            'acf/testimonials',
+            'acf/values',
+            
                         
             'core/group',
             'core/reusableBlock',
@@ -244,6 +358,28 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             //'core/button'
         );   
         
+    }
+    
+    
+    if( $post->post_type == 'service' ) {
+        $allowed_blocks = array(
+            'acf/hero',
+            'acf/approach',
+            'acf/clients',
+            'acf/results',
+            'acf/case-studies',
+            'acf/photo-gallery',
+            'acf/content',
+            'acf/button',
+                        
+            'core/group',
+            'core/reusableBlock',
+            'core/image',
+            'core/paragraph',
+            'core/heading',
+            'core/list',
+            //'core/button'
+        );      
     }
     
     // Remove blocks if array exists

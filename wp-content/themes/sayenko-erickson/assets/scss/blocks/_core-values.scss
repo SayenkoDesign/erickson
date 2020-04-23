@@ -5,6 +5,8 @@
     padding-top: rem-calc(25);
     padding-bottom: rem-calc(75);
     
+    @include full-width;
+    
     header {
         margin-bottom: rem-calc(45);   
     }

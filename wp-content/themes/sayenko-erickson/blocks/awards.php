@@ -37,14 +37,11 @@ if( ! class_exists( 'Awards_Block' ) ) {
                         
             $grid = $this->get_grid();
                         
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 <div class="grid-x grid-margin-x">
                                 <div class="cell">%s</div>
                                 </div>
-                            </div>
-                            <div class="grid-container full">
                                 %s
-                            </div>
                             ',
                             $heading,
                             $grid

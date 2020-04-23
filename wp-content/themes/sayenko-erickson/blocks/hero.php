@@ -58,7 +58,7 @@ if( ! class_exists( 'Hero_Block' ) ) {
                                                                           $background_position_x, $background_position_y ) );
                 
                 if( true == $background_overlay ) {
-                     $this->add_render_attribute( 'wrapper', 'class', 'background-overlay' ); 
+                     $this->add_render_attribute( 'wrapper', 'class', 'has-background-overlay' ); 
                 }
                 
             } else {
@@ -121,9 +121,9 @@ if( ! class_exists( 'Hero_Block' ) ) {
             
                 
             return sprintf( '%s<div class="hero-content">
-                                <div class="grid-container"><div class="grid-x grid-padding-x align-bottom">
+                                <div class="grid-x grid-padding-x align-bottom">
                                     <div class="cell">%s%s%s%s</div>
-                                </div></div>
+                                </div>
                             </div>',
                             $slideshow,
                             $heading,

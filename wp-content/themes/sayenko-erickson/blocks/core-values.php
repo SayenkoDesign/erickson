@@ -38,18 +38,18 @@ if( ! class_exists( 'Core_Values_Block' ) ) {
         public function render() {         
             
             $heading = $this->get_fields( 'heading' );
-            $heading = _s_format_string( $heading, 'h2' );
             if( ! empty( $heading ) ) {
+                $heading = _s_format_string( $heading, 'h2' );
                 $heading = sprintf( '<header>%s</header>', $heading  );  
             }
                         
             $grid = $this->get_grid();
                         
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 <div class="grid-x grid-margin-x">
                                 <div class="cell">%s%s</div>
                                 </div>
-                            </div>',
+                            ',
                             $heading,
                             $grid
                          );  

@@ -6,3 +6,20 @@
 
 // Backend block styles
 .wp-block .block-name {}
+
+
+.full-width {
+    @include full-width;   
+}
+
+.block-content,
+.block-awards,
+.block-clients,
+.block-commitments,
+.block-customers,
+.block-featured-post,
+.block-hero,
+.block-photo-gallery,
+.block-testimonials {
+    @include full-width;   
+}

@@ -1,8 +1,27 @@
-// Global block styles
-.block-name {}
+// Hero
 
-// Frontend block styles
-.frontend .block-name {}
+.section-hero {
+    background-color: $navy;
+    max-width: 2560px;
+    margin: 0 auto;
+     
+    &.background-image {        
+        background-color: transparent;
+        background-size: cover;
+        position: relative;
+    }
+    
+    .hero-content {
+        padding: rem-calc(30 0);
+        
+        h1 {
+            color: #fff;
+            margin-bottom: 0;   
+        }  
+    }
+    
+    &.has-background .hero-content {
+        padding: rem-calc(60 0);   
+    }
 
-// Backend block styles
-.wp-block .block-name {}
+}

@@ -132,35 +132,38 @@ function _s_acf_button( $args = [] ) {
 	if ( empty( $title ) && empty( $url ) ) {
 		return false;
 	}
+    
+    $url = sprintf( ' href="%s"', esc_url( $url ) ); 
                
     $parts = wp_parse_url( $url );
-    $path = $parts['path'];
-    if ( $_post = get_page_by_path( basename( untrailingslashit( $path ) ), OBJECT, 'modal' ) ) {
-        $post_id = $_post->ID;
-        $slug = sanitize_title_with_dashes( get_the_title( $post_id ) );
-        if( is_array( $classes ) ) {
-            $classes[] = 'modal-form';
-        } else {
-              $classes .= ' modal-form'; 
-        }
-        
-        $options = [
-            'src' => '#' . $slug,
-            'modal' => true,
-            'baseClass' => "full-screen",
-            'closeExisting' => true,
-            'touch' => false,
-            'hash' => false,
-            'backFocus' => false
-        ];
-        $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
-        
-        $url = sprintf( ' data-fancybox %s href="javascript:;"', $options );
-        // $url = sprintf( ' data-src="%s" data-type="iframe" data-fancybox="%s" href="javascript:;"', $url, uniqid() );
-    } else {
-        $url = sprintf( ' href="%s"', esc_url( $url ) );   
+    
+    if( ! is_array( $parts ) ) {
+        $path = $parts['path'];
+        if ( $_post = get_page_by_path( basename( untrailingslashit( $path ) ), OBJECT, 'modal' ) ) {
+            $post_id = $_post->ID;
+            $slug = sanitize_title_with_dashes( get_the_title( $post_id ) );
+            if( is_array( $classes ) ) {
+                $classes[] = 'modal-form';
+            } else {
+                  $classes .= ' modal-form'; 
+            }
+            
+            $options = [
+                'src' => '#' . $slug,
+                'modal' => true,
+                'baseClass' => "full-screen",
+                'closeExisting' => true,
+                'touch' => false,
+                'hash' => false,
+                'backFocus' => false
+            ];
+            $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
+            
+            $url = sprintf( ' data-fancybox %s href="javascript:;"', $options );
+            // $url = sprintf( ' data-src="%s" data-type="iframe" data-fancybox="%s" href="javascript:;"', $url, uniqid() );
+        }  
     }
-        
+    
     // Classes
     if( ! empty( $classes ) ) {
         if( is_array( $classes ) ) {

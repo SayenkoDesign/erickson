@@ -3825,7 +3825,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
-var $heroSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-hero .slider');
+var $heroSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-hero .slider, .block-hero .slider');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$heroSlider).length){
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$heroSlider).on('init',function(){
@@ -3857,7 +3857,7 @@ image.remove();// remove source
 }// About - history
 
 
-var $tabsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-advantage .slider');
+var $tabsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-advantage .slider, .block-erickson-advantage .slider');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$tabsSlider).length){
 $tabsSlider.imagesLoaded({
@@ -3889,16 +3889,20 @@ dots:true}}]});
 
 $tabsSlider.prepend(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$tabsSlider).find('.slick-dots'));
 $tabsSlider.addClass('images-loaded');
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-advantage .slick-tabs').on('click','li',function(){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-advantage .slick-tabs, .block-erickson-advantage .slick-tabs').on('click','li',function(){
 var index=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).index();
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).siblings().removeClass('active');
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$tabsSlider).slick('slickGoTo',index);
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
 });
+$tabsSlider.on('afterChange',function(event,slick,currentSlide){
+console.log(currentSlide);
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-erickson-advantage .slick-tabs').find('li').removeClass('active').eq(currentSlide).addClass('active');
+});
 });
 }
 
-var $benefitsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .slider');
+var $benefitsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .slider, .block-benefits .slider');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$benefitsSlider).length){
 $benefitsSlider.imagesLoaded().done(function(instance){
@@ -3924,7 +3928,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits').addClass('ima
 }// Careers - Testimonials
 
 
-var $testimonialsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-testimonials .slider');
+var $testimonialsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-testimonials .slider, .block-testimonials .slider');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$testimonialsSlider).length){
 $testimonialsSlider.imagesLoaded().done(function(instance){
@@ -3953,7 +3957,7 @@ $testimonialsSlider.addClass('images-loaded');
 });
 }
 
-var $serviceGallerySlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-service-gallery .slider');
+var $serviceGallerySlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-service-gallery .slider, .block-photo-gallery .slider');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$serviceGallerySlider).length){
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$serviceGallerySlider).on('init',function(){

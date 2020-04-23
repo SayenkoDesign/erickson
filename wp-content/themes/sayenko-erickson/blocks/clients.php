@@ -1,17 +1,19 @@
 <?php
-// Service - Clients
+// Block - Clients
 
-if( ! class_exists( 'Clients_Section' ) ) {
-    class Clients_Section extends Element_Section {
+if( ! class_exists( 'Clients_Block' ) ) {
+    class Clients_Block extends Element_Block {
                 
-        public function __construct() {
-            parent::__construct();
+        public function __construct( $data ) {
+            parent::__construct( $data );
             
-            $fields = get_field( 'clients' );
-            $this->set_fields( $fields );
-                        
-            $settings = $this->get_fields( 'clients' );
-            $this->set_settings( $settings );
+            $this->set_fields( 'heading', get_field( 'heading' ) );
+            $this->set_fields( 'locations', get_field( 'locations' ) );
+            
+            /*
+            $this->set_settings( 'padding', get_field( 'padding' )  );
+            $this->set_settings( 'margin', get_field( 'margin' )  );
+            */
             
             // print the section
             $this->print_element();        
@@ -21,19 +23,7 @@ if( ! class_exists( 'Clients_Section' ) ) {
         protected function _add_render_attributes() {
             
             // use parent attributes
-            parent::_add_render_attributes();
-    
-            $this->add_render_attribute(
-                'wrapper', 'class', [
-                     $this->get_name() . '-clients'
-                ]
-            );   
-
-            $this->add_render_attribute(
-                'wrapper', 'id', [
-                     $this->get_name() . '-clients'
-                ], true
-            );            
+            parent::_add_render_attributes();          
             
         }  
                 
@@ -41,9 +31,12 @@ if( ! class_exists( 'Clients_Section' ) ) {
         // Add content
         public function render() {
                                     
-            $heading = _s_format_string( $this->get_fields( 'heading' ), 'h2' );
+            $heading = $this->get_fields( 'heading' );
+            if( ! empty( $heading ) ) {
+                $heading = _s_format_string( $heading, 'h2' );
+            }
             
-            $rows       = $this->get_fields( 'locations' );
+            $rows = $this->get_fields( 'locations' );
             
             if( empty( $rows ) ) {
                 return false;
@@ -91,11 +84,11 @@ if( ! class_exists( 'Clients_Section' ) ) {
             
             $markers = sprintf( '<div class="full-width"><div class="acf-map google-map">%s</div></div>', $markers );
                                         
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 <div class="grid-x">
                                     <div class="cell"><header>%s%s</header></div>
                                 </div>
-                            </div>%s',
+                            %s',
                             $heading,
                             ul( $legend, [ 'class' => 'no-bullet', 'id' => 'map-legend'] ),
                             $markers
@@ -106,4 +99,4 @@ if( ! class_exists( 'Clients_Section' ) ) {
     }
 }
    
-new Clients_Section;
+new Clients_Block( $data );

@@ -1,87 +1,8 @@
 // Service
 
-.single-service {
+.single-service {    
     
-    
-    .section-hero {
-        @include breakpoint(xlarge) {
-            &:before {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: -2px;
-                left: 0;
-                width: 100%;
-                height: 13%;
-                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 13' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23ffffff' points='0 0, 0 13,40 13'/%3E%3C/svg%3E");
-                z-index: 1;
-            }
-            
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: -2px;
-                right: 0;
-                width: 100%;
-                height: 13%;
-                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 8' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23ffffff' points='60 8, 100 0,100 8'/%3E%3C/svg%3E");
-                z-index: 1;
-            }
-        }
-        
-        @supports (clip-path: polygon(100% 0, 100% 88%, 64% 100%, 36% 100%, 0 88%, 0 0)) {
-            &:before,
-            &:after {
-                display: none;   
-            }
-            clip-path: polygon(100% 0, 100% 88%, 64% 100%, 36% 100%, 0 88%, 0 0);
-        }
-        
-        .wrap {
-            background-color: rgba(18,55,89,0.7);   
-        }
-        
-        .grid-x {
-            &:before {
-              content: "";
-              width: 1px;
-              margin-left: -1px;
-              float: left;
-              height: 0;
-              padding-top: 46%;
-            }
-            &:after { /* to clear float */
-              content: "";
-              display: table;
-              clear: both;
-            }
-        }
-        
-        .hero-content {
-            
-            text-align: center;
-            
-            h1 {
-                color: #fff; 
-                margin-bottom: 0;   
-            }
-            
-            h4 {
-                color: #ECECEC;
-                margin: rem-calc(20 auto 0);  
-                max-width: rem-calc(900);
-            }
-            
-            a {
-                margin-top: rem-calc(50);   
-            }
-        }
-    }
-    
-    
-    
-    .section-approach {
+    .block-approach {
         padding-top: rem-calc(75); 
         
         .wrap {
@@ -104,6 +25,7 @@
             padding: rem-calc(50 40); 
             
             display: flex;
+            flex-direction: column;
             align-items: center;
             
             clip-path: polygon(50% 0%, 100% 0, 100% 100%, 15% 100%, 0% 85%, 0 0%);
@@ -131,7 +53,7 @@
     }
     
     
-    .section-results {
+    .block-results {
         padding-top: rem-calc(35);
         padding-bottom: rem-calc(20);
         
@@ -236,12 +158,12 @@
         
     }
     
-    .section-results + .section-clients {
+    .block-results + .block-clients {
         margin-top: 0;   
     }
     
     
-    .section-clients {
+    .block-clients {
         
         background-color: $light-gray;
         margin-top: rem-calc(45);
@@ -300,147 +222,7 @@
             @include full-width;    
         }
     }
-    
-    
-    .section-service-gallery {
         
-        padding-top: rem-calc(75);  
-    
-        header {
-            margin-bottom: rem-calc(60); 
-            
-            .share {
-                margin-top: rem-calc(30);
-                
-                h4 {
-                    margin-bottom: rem-calc(10);   
-                }
-            }
-        }
-     
-        .slider {
-            position: relative;   
-        }
-     
-        .slick {
-            
-            
-            .slick-slide {
-                position: relative;
-                height: 40vh;
-                width: 100vw;
-                
-                @include breakpoint(landscape) {
-                    height: 80vh;
-                }
-                
-                @include breakpoint(large) {
-                    height: 80vh;
-                    width: 75vw!important;   
-                }
-                
-                .background-image {
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    background-size: cover;
-                    background-position: center;   
-                }
-                
-                img {
-                    opacity: 0;
-                    visibility: hidden;                    
-                }
-                
-                .slick-caption {
-                    position: absolute;
-                    bottom: 0;
-                    width: 100%;
-                    padding: rem-calc(10 20);
-                    background-color: rgba($navy, .8); 
-                    color: #fff;  
-                    opacity: 0;
-                    font-size: rem-calc(16);
-                }
-                
-                &.slick-active .slick-caption {
-                    opacity: 1;
-                }
-                
-                
-                &[aria-hidden="true"] {
-                    //cursor: pointer;
-                    position: relative;
-                    
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        bottom: 0;
-                        left: 0;
-                        background: rgba(255,255,255,0.8);
-                    }
-                }
-            }   
-        }
-        
-        .slick-dots {
-            bottom: auto;
-            margin-top: rem-calc(20);
-            position: relative;   
-            
-            @include breakpoint(large) {
-                display: none!important;
-            }
-        }
-        
-        .slick-arrows {
-            @include breakpoint(medium down) {
-                display: none!important;
-            }
-            
-            .slick-arrow {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                border: 2px solid $gray;
-                
-                &.slick-prev {
-                    left: calc(12.5vw / 2);
-                    margin-left: -31px;
-                    
-                    &:before {
-                        margin-left: -2px;   
-                        @include slick-arrow( $gray );
-                    }
-                    
-                    &:hover:before {
-                        @include slick-arrow( $orange );
-                    }
-                }
-                
-                &.slick-next {
-                    right: calc(12.5vw / 2);
-                    margin-right: -31px;
-                    
-                    &:before { 
-                        @include slick-arrow( $gray, right );
-                    }
-                    
-                    &:hover:before {
-                        @include slick-arrow( $orange, right );
-                    }
-                }
-                
-                &:hover {
-                    border-color: $orange;   
-                }
-            }
-        }
-        
-    }
-    
 }
 
 

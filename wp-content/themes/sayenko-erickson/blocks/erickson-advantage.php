@@ -37,9 +37,8 @@ if( ! class_exists( 'Erickson_Advantage_Block' ) ) {
             
             $tabs = $this->get_tabs();
                         
-            return sprintf( '<div class="grid-container">
-                                <div class="grid-x grid-margin-x"><div class="cell">%s</div></div>
-                            </div>%s',
+            return sprintf( '<div class="grid-x grid-margin-x"><div class="cell">%s</div></div>
+                            %s',
                             $heading,
                             $tabs
                          );  

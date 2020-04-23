@@ -1,20 +1,23 @@
 <?php
-// Service - Gallery
+// Block: Gallery
 
-if( ! class_exists( 'Service_Gallery' ) ) {
-    class Service_Gallery extends Element_Section {
+if( ! class_exists( 'Gallery_Block' ) ) {
+    class Gallery_Block extends Element_Block {
                 
-        public function __construct() {
-            parent::__construct();
+        public function __construct( $data ) {
+            parent::__construct( $data );
             
-            $fields = get_field( 'gallery' );
-            $this->set_fields( $fields );
-                        
-            $settings = get_field( 'settings' );
-            $this->set_settings( $settings );
+            $this->set_fields( 'heading', get_field( 'heading' ) );
+            $this->set_fields( 'description', get_field( 'description' ) );
+            $this->set_fields( 'photos', get_field( 'photos' ) );
+            
+            /*
+            $this->set_settings( 'padding', get_field( 'padding' )  );
+            $this->set_settings( 'margin', get_field( 'margin' )  );
+            */
             
             // print the section
-            $this->print_element();        
+            $this->print_element( $data );        
         }
               
         // Add default attributes to section        
@@ -54,9 +57,8 @@ if( ! class_exists( 'Service_Gallery' ) ) {
                 return false;
             }
                         
-            return sprintf( '<div class="grid-container">
-                                <div class="grid-x grid-margin-x"><div class="cell">%s</div></div>
-                            </div>%s',
+            return sprintf( '<div class="grid-x grid-margin-x"><div class="cell">%s</div></div>
+                            %s',
                             $heading,
                             $slideshow
                          );  
@@ -102,7 +104,7 @@ if( ! class_exists( 'Service_Gallery' ) ) {
             }
             
             if( ! empty( $images ) ) {
-                $slideshow = sprintf( '<div class="slider"><div class="slick">%s</div>%s</div>', $images, $buttons );
+                $slideshow = sprintf( '<div class="slider full-width"><div class="slick">%s</div>%s</div>', $images, $buttons );
             }
             
                 
@@ -112,4 +114,4 @@ if( ! class_exists( 'Service_Gallery' ) ) {
     }
 }
    
-new Service_Gallery;
+new Gallery_Block( $data );

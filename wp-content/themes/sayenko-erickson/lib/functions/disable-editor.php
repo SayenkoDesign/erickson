@@ -42,12 +42,6 @@ function _s_disable_gutenberg( $can_edit, $post_type ) {
 
 	if( _s_disable_editor( $_GET['post'] ) )
 		$can_edit = false;
-        
-    // Choose posts types to include
-    $include_post_types = [ 'post', 'page' ];
-    
-    if ( ! in_array( $post_type, $include_post_types ) ) 
-        $can_edit = false;
     
 	return $can_edit;
 

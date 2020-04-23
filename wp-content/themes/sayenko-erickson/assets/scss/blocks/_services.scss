@@ -1,0 +1,65 @@
+// Services
+
+.block-services {
+        
+    padding-top: rem-calc(100);        
+    
+    .grid {
+        
+        header {
+            margin-bottom: rem-calc(10);
+            text-align: center;
+            
+            span {
+                display: block;
+                margin-bottom: rem-calc(10);   
+            }
+            
+            @include breakpoint(large) {
+                
+                text-align: left;
+                
+                > * {
+                    display: inline-block; 
+                    vertical-align: top;  
+                }
+                
+                span {
+                    display: inline-block; 
+                    margin-right: rem-calc(15);  
+                    margin-bottom: 0; 
+                }
+            }
+        }
+        
+        footer {
+            text-align: center;   
+        }
+        
+        ul {
+            @include bullets($orange);
+            margin-bottom: rem-calc(50);
+            
+            display: inline-block;
+            
+            @include breakpoint(medium-large) {
+                display: block;
+            }
+            
+            li {
+                text-align: left;
+                margin-top: rem-calc(10);
+                
+                
+                a {
+                    color: $dark-gray;
+                    letter-spacing: 0.7px;
+                    font-family: $barlow;
+                    font-size: rem-calc(18);
+                    font-weight: 500;
+                    text-transform: uppercase;   
+                }
+            }
+        }
+    }
+}
