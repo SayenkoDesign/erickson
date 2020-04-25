@@ -3902,16 +3902,16 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-erickson-advantage .slick-
 });
 }
 
-var $benefitsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .slider, .block-benefits .slider');
+var $benefitsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-benefits .slider');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$benefitsSlider).length){
 $benefitsSlider.imagesLoaded().done(function(instance){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .grid').on('click','.grid-item',function(e){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-benefits .grid').on('click','.grid-item',function(e){
 e.preventDefault();
 var slideIndex=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().index();
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$benefitsSlider).slick('slickGoTo',parseInt(slideIndex));
 });
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="slick-arrows"></div>').insertAfter('.section-benefits .slick');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="slick-arrows"></div>').insertAfter('.block-benefits .slick');
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$benefitsSlider).slick({
 fade:true,
 autoplay:false,
@@ -3921,9 +3921,9 @@ arrows:true,
 dots:true,
 rows:0,
 speed:300,
-appendArrows:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits .slick-arrows')});
+appendArrows:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-benefits .slick-arrows')});
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-benefits').addClass('images-loaded');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-benefits').addClass('images-loaded');
 });
 }// Careers - Testimonials
 

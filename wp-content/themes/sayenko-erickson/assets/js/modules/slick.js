@@ -96,7 +96,7 @@ export default {
         
         
         
-        let $benefitsSlider = $('.section-benefits .slider, .block-benefits .slider');
+        let $benefitsSlider = $('.block-benefits .slider');
         
         if ( $('.slick', $benefitsSlider).length ) {
             
@@ -104,13 +104,13 @@ export default {
             
                 .done( function( instance ) {
                     
-                    $('.section-benefits .grid').on('click','.grid-item', function(e){
+                    $('.block-benefits .grid').on('click','.grid-item', function(e){
                         e.preventDefault();
                         var slideIndex = $(this).parent().index();
                         $('.slick', $benefitsSlider).slick( 'slickGoTo', parseInt(slideIndex) );
                     });
                     
-                    $( '<div class="slick-arrows"></div>' ).insertAfter( '.section-benefits .slick' );
+                    $( '<div class="slick-arrows"></div>' ).insertAfter( '.block-benefits .slick' );
             
                     $('.slick', $benefitsSlider).slick({
                         fade: true,
@@ -121,10 +121,10 @@ export default {
                         dots: true,
                         rows: 0,
                         speed: 300,
-                        appendArrows: $('.section-benefits .slick-arrows')
+                        appendArrows: $('.block-benefits .slick-arrows')
                     });
                 
-                    $('.section-benefits').addClass('images-loaded');
+                    $('.block-benefits').addClass('images-loaded');
                     
              });
              

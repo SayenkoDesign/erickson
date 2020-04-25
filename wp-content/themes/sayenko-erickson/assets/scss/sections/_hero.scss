@@ -13,10 +13,20 @@
         margin-bottom: 0;  
     }
     
-    h4 {
+    h3 {
+        color: #fff; 
+        margin-top: rem-calc(30);  
+    }
+        
+    h4,
+    p {
         color: #ECECEC;
         margin: rem-calc(20 auto 0);  
         max-width: rem-calc(900);
+    }
+    
+    p {
+        font-size: rem-calc(18);   
     }
     
     > *:last-of-type {

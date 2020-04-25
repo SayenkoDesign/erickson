@@ -69,6 +69,7 @@ function _s_acf_register_blocks() {
 			'keywords'        => array( 'benefits' ),
             'post_types'      => array('page'),
             //'mode'          => 'edit',
+            'multiple' => false,
             'supports'        => [ 'align' => false, 'anchor' => true ]
 		) );
         

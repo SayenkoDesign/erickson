@@ -15,6 +15,7 @@ if( ! class_exists( 'Hero_Block' ) ) {
             parent::__construct( $data );
             
             $this->set_fields( 'heading', get_field( 'heading' ) );
+            $this->set_fields( 'subheading', get_field( 'subheading' ) );
             $this->set_fields( 'description', get_field( 'description' ) );
             $this->set_fields( 'button', get_field( 'button' ) );
             $this->set_fields( 'video', get_field( 'video' ) );
@@ -72,10 +73,11 @@ if( ! class_exists( 'Hero_Block' ) ) {
         // Add content
         public function render() {
             
-            $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
-            $heading = _s_format_string( $heading, 'h1' );
+            $heading = _s_format_string( $this->get_fields( 'heading' ), 'h1' );
             
-            $description = empty( $this->get_fields( 'description' ) ) ? '' : _s_format_string( $this->get_fields( 'description' ), 'h4' );
+            $description = $this->get_fields( 'description' );
+            
+            $subheading = _s_format_string( $this->get_fields( 'subheading' ), 'h3' );
             
             $button = $this->get_fields( 'button' );
                       
@@ -122,14 +124,16 @@ if( ! class_exists( 'Hero_Block' ) ) {
                 
             return sprintf( '%s<div class="hero-content">
                                 <div class="grid-x grid-padding-x align-middle">
-                                    <div class="cell">%s%s%s%s</div>
+                                    <div class="cell">%s%s%s%s%s</div>
                                 </div>
                             </div>',
                             $slideshow,
                             $heading,
                             $description,
-                            $button,
-                            $video_link
+                            $subheading,
+                            $video_link,
+                            $button
+                            
                          );
         }
     }

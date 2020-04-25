@@ -25,18 +25,6 @@ if( ! class_exists( 'Benefits_Block' ) ) {
             
             // use parent attributes
             parent::_add_render_attributes();
-    
-            $this->add_render_attribute(
-                'wrapper', 'class', [
-                     $this->get_name() . '-benefits'
-                ]
-            );   
-
-            $this->add_render_attribute(
-                'wrapper', 'id', [
-                     $this->get_name() . '-benefits'
-                ], true
-            );  
             
             $this->add_render_attribute(
                 'wrapper', 'data-toggler', '.slider-show' );                  
@@ -84,7 +72,7 @@ if( ! class_exists( 'Benefits_Block' ) ) {
                 $title = _s_format_string( $row['grid_title'], 'h4' ); 
                                                           
                 $items .= sprintf( '<div class="cell">
-                                    <div class="grid-item" data-toggle="section-benefits">
+                                    <div class="grid-item" data-toggle="block-benefits">
                                         <div class="grid-image">%s</div>
                                         <footer>%s</footer>
                                     </div>
@@ -121,7 +109,7 @@ if( ! class_exists( 'Benefits_Block' ) ) {
                                  $image, $title, $text );
             }
             
-            $button = '<button class="close-slider" data-toggle="section-benefits" aria-hidden="true"><span class="screen-reader-text">close</span></button>';
+            $button = '<button class="close-slider" data-toggle="block-benefits" aria-hidden="true"><span class="screen-reader-text">close</span></button>';
             
             return sprintf( '<div class="slider" id="slider">%s<div class="slick">%s</div></div>', $button, $items );  
         }
