@@ -33,6 +33,45 @@ function _s_acf_register_blocks() {
 	// check function exists
 	if ( function_exists( 'acf_register_block_type' ) ) {
         
+        acf_register_block_type( array(
+			'name'            => 'approach',
+			'title'           => __( 'Approach', '_s' ),
+			'description'     => __( 'approach', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'approach' ),
+            'post_types'      => array('service'),
+            //'mode'          => 'edit',
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );
+                
+        acf_register_block_type( array(
+			'name'            => 'awards',
+			'title'           => __( 'Awrds & Accolades', '_s' ),
+			'description'     => __( 'awards & accolades block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'awards accolades' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'benefits',
+			'title'           => __( 'Benefits', '_s' ),
+			'description'     => __( 'benefits', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'benefits' ),
+            'post_types'      => array('page'),
+            //'mode'          => 'edit',
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );
+        
         // Button
 		acf_register_block_type( array(
 			'name'            => 'button',
@@ -44,8 +83,34 @@ function _s_acf_register_blocks() {
 			'keywords'        => array( 'button' ),
             'post_types' => array('post', 'page', 'service'),
             'supports' => ['anchor' => false]
-		) );		
+		) );	
         
+        acf_register_block_type( array(
+			'name'            => 'case-studies',
+			'title'           => __( 'Case Studies', '_s' ),
+			'description'     => __( 'Case Studies grid', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'case study' ),
+            'post_types' => array('page', 'service' ),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );	
+        
+        acf_register_block_type( array(
+			'name'            => 'clients',
+			'title'           => __( 'Clients', '_s' ),
+			'description'     => __( 'clients', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'clients' ),
+            'post_types'      => array('service'),
+            //'mode'          => 'edit',
+            'multiple'        => false,
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );        
                 
         acf_register_block_type( array(
 			'name'            => 'commitment',
@@ -57,6 +122,19 @@ function _s_acf_register_blocks() {
 			'keywords'        => array( 'commitment' ),
             'post_types' => array('page'),
             'align' => 'full',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'content',
+			'title'           => __( 'Generic Content', '_s' ),
+			'description'     => __( 'generic content block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-page',
+			'keywords'        => array( 'generic content, video, image' ),
+            'post_types' => array('page', 'service'),
+            //'mode' => 'edit',
             'supports' => [ 'align' => false, 'anchor' => true ]
 		) );
         
@@ -72,60 +150,7 @@ function _s_acf_register_blocks() {
             //'mode' => 'edit',
             'supports' => [ 'align' => false, 'anchor' => true ]
 		) );
-        
-        acf_register_block_type( array(
-			'name'            => 'mission-vision',
-			'title'           => __( 'Mission & Vision', '_s' ),
-			'description'     => __( 'Mission & Vision block', '_s' ),
-			'render_callback' => '_s_acf_block_render_callback',
-			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comments',
-			'keywords'        => array( 'mission vision' ),
-            'post_types' => array('page'),
-            //'mode' => 'edit',
-            'supports' => [ 'align' => false, 'anchor' => true ]
-		) );
-        
-        
-        acf_register_block_type( array(
-			'name'            => 'awards',
-			'title'           => __( 'Awrds & Accolades', '_s' ),
-			'description'     => __( 'awards & accolades block', '_s' ),
-			'render_callback' => '_s_acf_block_render_callback',
-			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comments',
-			'keywords'        => array( 'awards accolades' ),
-            'post_types' => array('page'),
-            //'mode' => 'edit',
-            'supports' => [ 'align' => false, 'anchor' => true ]
-		) );
-        
-        acf_register_block_type( array(
-			'name'            => 'content',
-			'title'           => __( 'Generic Content', '_s' ),
-			'description'     => __( 'generic content block', '_s' ),
-			'render_callback' => '_s_acf_block_render_callback',
-			'category'        => 'theme-blocks',
-			'icon'            => 'admin-page',
-			'keywords'        => array( 'generic content, video, image' ),
-            'post_types' => array('post', 'service'),
-            //'mode' => 'edit',
-            'supports' => [ 'align' => false, 'anchor' => true ]
-		) );
-        
-        acf_register_block_type( array(
-			'name'            => 'services',
-			'title'           => __( 'Services List', '_s' ),
-			'description'     => __( 'list of services by category', '_s' ),
-			'render_callback' => '_s_acf_block_render_callback',
-			'category'        => 'theme-blocks',
-			'icon'            => 'editor-ul',
-			'keywords'        => array( 'services' ),
-            'post_types' => array('page'),
-            //'mode' => 'edit',
-            'supports' => [ 'align' => false, 'anchor' => true ]
-		) );
-        
+                
         acf_register_block_type( array(
 			'name'            => 'customers',
 			'title'           => __( 'Customers', '_s' ),
@@ -152,20 +177,7 @@ function _s_acf_register_blocks() {
             'multiple' => false,
             'supports' => [ 'align' => false, 'anchor' => true ]
 		) );
-        
-        acf_register_block_type( array(
-			'name'            => 'case-studies',
-			'title'           => __( 'Case Studies', '_s' ),
-			'description'     => __( 'Case Studies grid', '_s' ),
-			'render_callback' => '_s_acf_block_render_callback',
-			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comments',
-			'keywords'        => array( 'case study' ),
-            'post_types' => array('page', 'service' ),
-            //'mode' => 'edit',
-            'supports' => [ 'align' => false, 'anchor' => true ]
-		) );
-        
+                
         acf_register_block_type( array(
 			'name'            => 'featured-post',
 			'title'           => __( 'Featured Post', '_s' ),
@@ -194,6 +206,32 @@ function _s_acf_register_blocks() {
 		) );
         
         acf_register_block_type( array(
+			'name'            => 'jobs',
+			'title'           => __( 'Jobs', '_s' ),
+			'description'     => __( 'approach', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'jobs' ),
+            'post_types'      => array('page'),
+            //'mode'          => 'edit',
+            'supports'        => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'mission-vision',
+			'title'           => __( 'Mission & Vision', '_s' ),
+			'description'     => __( 'Mission & Vision block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'mission vision' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
 			'name'            => 'photo-gallery',
 			'title'           => __( 'Photo Gallery', '_s' ),
 			'description'     => __( 'photo gallery', '_s' ),
@@ -213,7 +251,7 @@ function _s_acf_register_blocks() {
 			'description'     => __( 'results', '_s' ),
 			'render_callback' => '_s_acf_block_render_callback',
 			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comment',
+			'icon'            => 'admin-comments',
 			'keywords'        => array( 'results' ),
             'post_types'      => array('page', 'service' ),
             //'mode'          => 'edit',
@@ -222,56 +260,16 @@ function _s_acf_register_blocks() {
 		) );
         
         acf_register_block_type( array(
-			'name'            => 'clients',
-			'title'           => __( 'Clients', '_s' ),
-			'description'     => __( 'clients', '_s' ),
+			'name'            => 'services',
+			'title'           => __( 'Services List', '_s' ),
+			'description'     => __( 'list of services by category', '_s' ),
 			'render_callback' => '_s_acf_block_render_callback',
 			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comment',
-			'keywords'        => array( 'clients' ),
-            'post_types'      => array('service'),
-            //'mode'          => 'edit',
-            'multiple'        => false,
-            'supports'        => [ 'align' => false, 'anchor' => true ]
-		) );
-        
-        acf_register_block_type( array(
-			'name'            => 'approach',
-			'title'           => __( 'Approach', '_s' ),
-			'description'     => __( 'approach', '_s' ),
-			'render_callback' => '_s_acf_block_render_callback',
-			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comment',
-			'keywords'        => array( 'approach' ),
-            'post_types'      => array('service'),
-            //'mode'          => 'edit',
-            'supports'        => [ 'align' => false, 'anchor' => true ]
-		) );
-        
-        acf_register_block_type( array(
-			'name'            => 'benefits',
-			'title'           => __( 'Benefits', '_s' ),
-			'description'     => __( 'benefits', '_s' ),
-			'render_callback' => '_s_acf_block_render_callback',
-			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comment',
-			'keywords'        => array( 'benefits' ),
-            'post_types'      => array('page'),
-            //'mode'          => 'edit',
-            'supports'        => [ 'align' => false, 'anchor' => true ]
-		) );
-        
-        acf_register_block_type( array(
-			'name'            => 'jobs',
-			'title'           => __( 'Jobs', '_s' ),
-			'description'     => __( 'approach', '_s' ),
-			'render_callback' => '_s_acf_block_render_callback',
-			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comment',
-			'keywords'        => array( 'jobs' ),
-            'post_types'      => array('page'),
-            //'mode'          => 'edit',
-            'supports'        => [ 'align' => false, 'anchor' => true ]
+			'icon'            => 'editor-ul',
+			'keywords'        => array( 'services' ),
+            'post_types' => array('page'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
 		) );
         
         acf_register_block_type( array(
@@ -280,7 +278,7 @@ function _s_acf_register_blocks() {
 			'description'     => __( 'testimonials', '_s' ),
 			'render_callback' => '_s_acf_block_render_callback',
 			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comment',
+			'icon'            => 'admin-comments',
 			'keywords'        => array( 'testimonials' ),
             'post_types'      => array('page'),
             //'mode'          => 'edit',
@@ -293,7 +291,7 @@ function _s_acf_register_blocks() {
 			'description'     => __( 'values', '_s' ),
 			'render_callback' => '_s_acf_block_render_callback',
 			'category'        => 'theme-blocks',
-			'icon'            => 'admin-comment',
+			'icon'            => 'admin-comments',
 			'keywords'        => array( 'values' ),
             'post_types'      => array('page'),
             //'mode'          => 'edit',
@@ -327,7 +325,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
         } 
         */
         
-       $allowed_blocks = array(
+       /*$allowed_blocks = array(
             'acf/awards',
             'acf/button',
             'acf/case-studies',
@@ -356,7 +354,8 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'core/heading',
             'core/list',
             //'core/button'
-        );   
+        );  
+       */ 
         
     }
     

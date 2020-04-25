@@ -121,7 +121,7 @@ if( ! class_exists( 'Hero_Block' ) ) {
             
                 
             return sprintf( '%s<div class="hero-content">
-                                <div class="grid-x grid-padding-x align-bottom">
+                                <div class="grid-x grid-padding-x align-middle">
                                     <div class="cell">%s%s%s%s</div>
                                 </div>
                             </div>',

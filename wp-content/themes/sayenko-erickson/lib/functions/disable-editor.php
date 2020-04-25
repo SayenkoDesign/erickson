@@ -13,6 +13,7 @@ function _s_disable_editor( $id = false ) {
         'page-templates/photo-gallery.php',
         'page-templates/team.php',
         'page-templates/thank-you.php',
+        'page-templates/no-blocks.php',
         
 	);
 
@@ -64,7 +65,7 @@ function _s_disable_classic_editor() {
 	}
 
 }
-add_action( 'admin_head', '_s_disable_classic_editor' );
+//add_action( 'admin_head', '_s_disable_classic_editor' );
 
 
 /**

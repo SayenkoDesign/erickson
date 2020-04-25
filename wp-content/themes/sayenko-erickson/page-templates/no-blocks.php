@@ -1,9 +1,14 @@
 <?php
 /*
-Template Name: About
+Template Name: No Blocks
 */
 
 get_header(); ?>
+
+<?php    
+    printf( '<section class="section-hero"><div class="wrap"><div class="container"><div class="grid-container"><div class="grid-x"><div class="cell"><div class="hero-content">%s</div></div></div></div></div></div></section>', 
+            the_title( '<h1>', '</h1>', false ) );
+?>
 
 <div class="grid-container">
 
@@ -30,8 +35,6 @@ get_header(); ?>
     </div>
 
 </div>
-
-
 
 <?php
 get_footer();

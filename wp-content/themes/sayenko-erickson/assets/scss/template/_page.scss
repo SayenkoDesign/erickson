@@ -11,33 +11,34 @@ body {
     }   
 }
 
-.page-template-default {
-    
-    .section-hero {
-        background-color: $navy;
-        
-        h1 {
-            color: #fff;   
-        }
-    }
+
+.template-no-blocks {
     
     .site-main {
+        margin: 0 auto;
+        max-width: rem-calc(900);   
+    }
+    
+    .entry-content {
         padding-top: rem-calc(75);
+        padding-bottom: rem-calc(75);
+    }
+    
+}
+
+
+.page-template-default {
+    
+    .entry-content {
+        .gform_body {
+            margin-top: -17px;   
+        }
     }
     
 }
 
 .error404 {
-    
-    .section-hero {
-        background-color: $navy;
-        text-align: center;
-        
-        h1 {
-            color: #fff;   
-        }
-    }
-    
+
     .site-main {
         padding-top: rem-calc(75);
             

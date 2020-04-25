@@ -8,7 +8,7 @@
     }
  
  
-    .section-hero {
+    .block-hero {
         
         z-index: 0;
         
@@ -42,23 +42,7 @@
         .wrap {
             background-color: rgba(18,55,89,0.7);   
         }
-        
-        .grid-x {
-            &:before {
-              content: "";
-              width: 1px;
-              margin-left: -1px;
-              float: left;
-              height: 0;
-              padding-top: 46%;
-            }
-            &:after { /* to clear float */
-              content: "";
-              display: table;
-              clear: both;
-            }
-        }
-        
+                
         .hero-content {
             padding-bottom: rem-calc(150);
             
@@ -73,10 +57,11 @@
                 margin-bottom: 0;   
             }
             
-            p {
+            h4 {
                 color: #ECECEC;
                 margin: rem-calc(20 auto 0);  
                 max-width: rem-calc(600);
+                text-transform: none;
             }
             
             a {
@@ -87,35 +72,24 @@
     
     
     
-    .mission-vision {
+    .block-mission-vision { 
         .wrap {
             background: #ffffff;
             max-width: 80%;
             box-shadow: $box-shadow;   
             position: relative;
             z-index: 2;
-            margin: rem-calc(-100) auto rem-calc(75);
+            margin: rem-calc(-100) auto 0;
             
             @include breakpoint(large) {
-                margin: rem-calc(-100) auto rem-calc(75);
-            }
-            
-            @include breakpoint(xxlarge) {
-                max-width: rem-calc(1000);
-            }
-        }
-        
-        .panel {
-            padding: rem-calc(30 20);  
-            
-            @include breakpoint(large) {
-                padding: rem-calc(60 40);  
-            }
-            
-            h2 {
-                margin-bottom: rem-calc(20);   
-            }
+                margin: rem-calc(-100) auto 0;
+            }          
         }
     }
     
+    
+    .block-mission-vision + .block-core-values {
+        //padding-top: rem-calc(25);
+    }
+        
 }

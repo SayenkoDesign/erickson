@@ -4,6 +4,7 @@
     background-color: $navy;
     padding: rem-calc(75 0);
     position: relative;
+    z-index: 4;
     
     @include breakpoint(xlarge) {
         &:before {
@@ -54,18 +55,25 @@
         .cell {
             background-color: #fff; 
              &:first-child {
+                /*
                 @include breakpoint(large) {
                     box-shadow: $box-shadow; 
                 }
+                */
              }
         }
         
         .panel {
+            position: relative;
+            z-index: 2;
+            @include breakpoint(large) {
+                box-shadow: $box-shadow; 
+            }
             
             div:nth-child(even) {
                 background: #f8f7f7;
                 position: relative;
-                z-index: -1;
+                //z-index: -1;
             }
         }
         

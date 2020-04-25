@@ -7,11 +7,14 @@ if( ! class_exists( 'Commitment_Block' ) ) {
         public function __construct( $data ) {
             parent::__construct( $data );
             
-            $fields = get_field( 'commitment' );
-            $this->set_fields( $fields );
-                        
-            $settings = get_field( 'settings' );
-            $this->set_settings( $settings );
+            $this->set_fields( 'heading', get_field( 'heading' ) );
+            $this->set_fields( 'description', get_field( 'description' ) );
+            $this->set_fields( 'policies', get_field( 'policies' ) );
+            
+            /*
+            $this->set_settings( 'padding', get_field( 'padding' )  );
+            $this->set_settings( 'margin', get_field( 'margin' )  );
+            */
                         
             // print the section
             $this->print_element();        

@@ -1,0 +1,27 @@
+// Block Mission & Vision
+
+.block-mission-vision {
+    .wrap {
+        background: #ffffff;
+        max-width: 80%;
+        box-shadow: $box-shadow;   
+        
+        @include breakpoint(xxlarge) {
+            max-width: rem-calc(1000);
+        }
+        
+        margin-top: 75px;
+    }
+    
+    .panel {
+        padding: rem-calc(30 20);  
+        
+        @include breakpoint(large) {
+            padding: rem-calc(60 40);  
+        }
+        
+        h2 {
+            margin-bottom: rem-calc(20);   
+        }
+    }
+}
