@@ -1,8 +1,24 @@
 <?php
-// Category page
+/**
+ * The main template file.
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package _s
+ */
 
 add_filter( 'body_class', function ( $classes ) {
-    $classes[] = 'blog archive';
+    $classes[] = 'blog';
+    $classes[] = 'archive';
+    
+    if( ! empty( $_GET[ 'fwp_paged' ] ) ) {
+        $classes[] = 'is-paged';
+    }
+    
 	return $classes;
 }, 99 );
 
@@ -44,72 +60,23 @@ wp_reset_postdata();
             
                 <main id="main" class="site-main" role="main">
                            
-                    <?php
-                    // Categories?
+                    <?php    
+                                                             
+                    if ( have_posts() ) : 
                     
-                    /*
-                    $cat_current = false;
-                    $categories = get_categories( [ 'exclude' => 1 ] );
-                    if( ! empty( $categories ) ) {
-                        $out = '';
-                        
-                        if ( is_category() ) { 
-                            $taxonomy = get_queried_object();
-                            if ( is_a( $taxonomy, 'WP_Term') ) {
-                                $cat_current = $taxonomy->term_id;
-                            }
-                        } 
-                        
-                        foreach( $categories as $cat ) {
-                            $class = $cat->term_id == $cat_current ? ' class="cat-current' : '';
-                            $out .= sprintf( '<li><a%s href="%s">%s</a></li>', $class, get_term_link( $cat->term_id ), $cat->name );
+                        // Only show filters on main blog page
+                        if( is_home() ) {
+                            printf( '<ul class="menu facetwp-filters"><li>%s</li><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
+                                facetwp_display( 'facet', 'categories' ),
+                                sprintf( '<div class="facet-wrap"><h5 class="facet-label">%s</h5>%s</div>', __( 'Order' ), facetwp_display( 'sort' ) ),
+                                __( 'reset' )
+                             );
+                             
                         }
-                        
-                        if( ! empty( $out ) ) {
-                            printf( '<ul class="no-bullet categories">%s</ul>', $out );      
-                        }
-                    }
-                    */
-                    
-                    $args = array(
-                        'theme_location' => 'resources',
-                        'container' => '',
-                        'container_class' => '',
-                        'container_id' => '',
-                        'menu_id'        => '',
-                        'before' => '',
-                        'after' => '',
-                        'link_before' => '',
-                        'link_after' => '',
-                        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'echo' => false
-                     );
-                     
-                     $menu = wp_nav_menu($args);
-                     
-                     $select = wp_nav_menu( array(
-                        'theme_location' => 'resources',
-                        'container' => '',
-                        'container_class' => '',
-                        'container_id' => '',
-                        'menu_id'        => '',
-                        'before' => '',
-                        'after' => '',
-                        'walker'         => new Walker_Nav_Menu_Dropdown(),
-                        'items_wrap'     => '<select onchange="if (this.value) window.location.href=this.value">%3$s</select>',
-                        'echo' => false
-                    ) );	
-    
-                                      
-                    printf( '<div class="category-filters"><div class="categories">%s%s</div></div>', $menu, $select );
-                    
-                    $classes[] = 'small-up-1 medium-up-2 large-up-3 xxlarge-up-4';
-                    
-                    printf( '<div class="grid-x grid-margin-x %s grid" data-equalizer data-equalize-on="medium" data-equalize-by-row="true">', join( ' ', $classes ) );
-                     
-                    if ( have_posts() ) : ?>
-                        
-                       <?php
+                         
+                        $classes[] = 'small-up-1 medium-up-2 large-up-4';
+                
+                        printf( '<div class="grid-x grid-margin-x grid-margin-bottom %s facetwp-template">', join( ' ', $classes ) );
                                                       
                         while ( have_posts() ) :
             
@@ -118,16 +85,19 @@ wp_reset_postdata();
                             _s_get_template_part( 'template-parts', 'content-post-column' );
                             
                         endwhile;
+                        
+                        echo '</div>';
+                        
+                        if( function_exists( 'facetwp_display' ) ) {
+                            echo facetwp_display( 'pager' );
+                            //echo facetwp_display( 'facet', 'load_more' );
+                        } else if( function_exists( '_s_paginate_links' ) ) {
+                            echo _s_paginate_links();
+                        } else {
+                            echo paginate_links();   
+                        }
                    
                     endif; 
-                    
-                    echo '</div>';
-                    
-                    if( function_exists( '_s_paginate_links' ) ) {
-                        echo _s_paginate_links();
-                    } else {
-                        echo paginate_links();   
-                    }
                     ?>
             
                 </main>

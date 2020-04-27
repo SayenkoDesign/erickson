@@ -75,7 +75,13 @@
                 .cell {
                     margin-bottom: rem-calc(10);   
                 }
+                
+                &.four-up {
+                    @include xy-grid-layout(4, '.cell', true, 10);
+                }
             }   
+            
+            
             
             .cell {
                 &:before {
@@ -101,23 +107,26 @@
                 .panel {
                     height: 100%;
                     position: relative; 
-                    padding: rem-calc(50); 
+                    padding: rem-calc(50 25); 
                     text-align: center; 
                     
                     h3 {
                         color: $orange;
                         margin-bottom: 0;
+                        text-transform: none;
+                        
+                        font-size: rem-calc(35);
                         
                         @include breakpoint(medium) {
                             font-size: rem-calc(25);
                         }
                         
                         @media screen and #{breakpoint(large)} and #{breakpoint(xlarge down)} {
-                            font-size: rem-calc(35);
+                            font-size: rem-calc(30);
                         }
                         
                         @include breakpoint(xlarge) {
-                            font-size: rem-calc(40);
+                            font-size: rem-calc(35);
                         }
                     }
                     

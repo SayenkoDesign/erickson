@@ -30,6 +30,7 @@
 $notification_bar = _s_get_template_part( 'template-parts/global', 'notification-bar', [], true );
 
 // Load this early so we can add a body class
+global $footer_cta;
 $footer_cta = _s_get_template_part( 'template-parts/global', 'footer-cta', [], true );
 
 ?>

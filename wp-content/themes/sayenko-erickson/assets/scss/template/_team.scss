@@ -104,10 +104,12 @@
 
 .people-modal {
     background: transparent;
-    width: rem-calc(600);
+    
     padding: rem-calc(44 22);
     
-    
+    @include breakpoint(medium) {
+        width: rem-calc(650);
+    }
     
     .fancybox-button--close, .fancybox-close-small {
         background: transparent;
@@ -121,8 +123,8 @@
     }
     
     .people-modal-content {
-        background: #eff3f1;   
-        padding: rem-calc(30); 
+        background: #ffffff;   
+        padding: rem-calc(30 45); 
         position: relative;
         overflow: hidden;
         z-index: 1;  
@@ -131,13 +133,12 @@
         &:before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 50vw;
-            height: 12vw;
-            margin-top: calc(-12vw + 70px);
-            background-color: #ffffff;
-            transform-origin: right bottom;
+            top: 70px;
+            right: -70px;
+            width: 200%;
+            height: 200%;
+            background-color: #eff3f1;
+            transform-origin: top right;
             transform: rotate(-13deg);
             z-index: -1;   
         }
@@ -157,7 +158,7 @@
         position: relative;
         
         &.padding-left {
-            padding-left: rem-calc(40);   
+            padding-left: rem-calc(45);   
         }
                         
         .linkedin {

@@ -26,28 +26,13 @@ if( ! class_exists( 'Values_Block' ) ) {
             
             // use parent attributes
             parent::_add_render_attributes();
-    
-            $this->add_render_attribute(
-                'wrapper', 'class', [
-                     $this->get_name() . '-values',
-                ]
-            ); 
-            
-            $this->add_render_attribute(
-                'wrapper', 'id', [
-                     $this->get_name() . '-values',
-                ],
-                true
-            ); 
-                        
+      
         }
               
         
         // Add content
         public function render() {
-            
-            
-            
+                        
             $title = $this->get_fields( 'title' );
             $title = sprintf( '<header>%s%s</header>', get_svg( 'world-icon' ),  _s_format_string( $title, 'h2' ) );
 

@@ -23,6 +23,21 @@ export default {
             } else {
                 $('body').removeClass('is-paged');
             }
+                        
+            // facetwp-facet-categories
+            if( 'undefined' !== typeof FWP_HTTP.get.fwp_categories ) {
+                var selected = $(".facetwp-facet-categories option[value='"+ FWP_HTTP.get.fwp_categories + "']").text();
+                                
+                if('' !== selected) {
+                    selected = selected.split('(')[0];
+                } else {
+                    selected = erickson_options.blog_title;
+                }
+                
+                $('.blog .section-hero header h1').text(selected);
+            } else {
+                $('.blog .section-hero header h1').text(erickson_options.blog_title);
+            }
             
             
             if ( FWP.loaded ) {

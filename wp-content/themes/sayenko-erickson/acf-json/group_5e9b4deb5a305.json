@@ -1,10 +1,10 @@
 {
-    "key": "group_5ea0ce15bedd6",
-    "title": "Block: Core Values",
+    "key": "group_5e9b4deb5a305",
+    "title": "Block: Benefits",
     "fields": [
         {
-            "key": "field_5ea0ce15ed61c",
-            "label": "Core Values",
+            "key": "field_5e9df161e816b",
+            "label": "Benefits",
             "name": "",
             "type": "message",
             "instructions": "",
@@ -20,10 +20,10 @@
             "esc_html": 0
         },
         {
-            "key": "field_5d4a68b416551",
+            "key": "field_5e9b4debb6ffa",
             "label": "Heading",
             "name": "heading",
-            "type": "textarea",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -34,31 +34,12 @@
             },
             "default_value": "",
             "placeholder": "",
-            "maxlength": "",
-            "rows": 2,
-            "new_lines": "br"
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_5df026e952911",
-            "label": "Description",
-            "name": "description",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": "wpautop"
-        },
-        {
-            "key": "field_5d4a68b41656b",
+            "key": "field_5e9df77ba2e6c",
             "label": "Grid",
             "name": "grid",
             "type": "repeater",
@@ -73,13 +54,13 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "block",
-            "button_label": "Add Grid Items",
+            "layout": "table",
+            "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5d4a68b4259ed",
+                    "key": "field_5e9df785a2e6d",
                     "label": "Image",
-                    "name": "grid_image",
+                    "name": "image",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -101,10 +82,10 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5d4a68b4259fc",
+                    "key": "field_5e9df796a2e6e",
                     "label": "Title",
-                    "name": "grid_title",
-                    "type": "textarea",
+                    "name": "title",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -115,28 +96,9 @@
                     },
                     "default_value": "",
                     "placeholder": "",
-                    "maxlength": "",
-                    "rows": 2,
-                    "new_lines": ""
-                },
-                {
-                    "key": "field_5df0272752912",
-                    "label": "Text",
-                    "name": "grid_text",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 4,
-                    "new_lines": "wpautop"
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -146,17 +108,19 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/core-values"
+                "value": "acf\/benefits"
             }
         ]
     ],
-    "menu_order": 1,
+    "menu_order": 10,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1587947570
+    "modified": 1587947600
 }

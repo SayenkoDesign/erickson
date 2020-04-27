@@ -270,6 +270,30 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5ea746952bbff",
+            "label": "Edges",
+            "name": "edges",
+            "type": "radio",
+            "instructions": "This is the angled edges you see at the bottom of the hero.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "White": "White",
+                "Gray": "Gray"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "White",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -291,5 +315,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1587850502
+    "modified": 1588021056
 }

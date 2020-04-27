@@ -21,11 +21,11 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
             // default to TRUE for the blog
             if( is_singular() ) {
                 $fields = get_field( 'footer_cta' );
-                if( ! empty( $fields['title'] ) && ! empty( $fields['button_url'] ) && ! empty( $fields['button_text'] ) ) {
-                    // $this->post_id = get_the_ID();
+                if( ! empty( $fields['heading'] ) && ! empty( $fields['button'] ) ) {
+                    $this->post_id = get_the_ID();
                 }
-                
-                $hide_call_to_action = get_field( 'hide_call_to_action' );   
+                                
+                $hide_call_to_action = get_field( 'hide_call_to_action', $this->post_id );   
                 
             }
             
@@ -43,11 +43,6 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
             }
                                                                                     
             $this->set_fields( $fields );  
-            
-            // Render the section
-            if( empty( $this->render() ) ) {
-                //return;   
-            }   
             
             // print the section
             $this->print_element();        

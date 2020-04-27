@@ -93,8 +93,7 @@ if (mix.inProduction()) {
 	.extract();
 
  mix.js( `${ devPath }/js/modernizr-custom.js`, 'js' )
-    .js( `${ devPath }/js/infobox.js`, 'js' )
-    .js( `${ devPath }/js/scrollreveal-config.js`, 'js' );
+    .js( `${ devPath }/js/infobox.js`, 'js' );
 
 //mix.react( `${devPath}/js/editor.js`, 'js' );
 

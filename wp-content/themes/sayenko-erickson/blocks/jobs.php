@@ -25,19 +25,6 @@ if( ! class_exists( 'Jobs_Block' ) ) {
             
             // use parent attributes
             parent::_add_render_attributes();
-    
-            $this->add_render_attribute(
-                'wrapper', 'class', [
-                     $this->get_name() . '-jobs',
-                ]
-            ); 
-            
-            $this->add_render_attribute(
-                'wrapper', 'id', [
-                     $this->get_name() . '-jobs',
-                ],
-                true
-            ); 
                         
         }  
         

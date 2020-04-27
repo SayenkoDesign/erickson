@@ -24,20 +24,7 @@ if( ! class_exists( 'Gallery_Block' ) ) {
         protected function _add_render_attributes() {
             
             // use parent attributes
-            parent::_add_render_attributes();
-    
-            $this->add_render_attribute(
-                'wrapper', 'class', [
-                     $this->get_name() . '-service-gallery'
-                ]
-            );   
-
-            $this->add_render_attribute(
-                'wrapper', 'id', [
-                     $this->get_name() . '-service-gallery'
-                ], true
-            );            
-            
+            parent::_add_render_attributes();        
         }  
                 
         

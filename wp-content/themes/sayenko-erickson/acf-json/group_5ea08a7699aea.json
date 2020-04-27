@@ -58,6 +58,25 @@
             "button_label": "",
             "sub_fields": [
                 {
+                    "key": "field_5de80e30fb221",
+                    "label": "Prefix",
+                    "name": "prefix",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "10",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_5de80de9fb21f",
                     "label": "Number",
                     "name": "number",
@@ -77,25 +96,6 @@
                     "min": "",
                     "max": "",
                     "step": ""
-                },
-                {
-                    "key": "field_5de80e30fb221",
-                    "label": "Prefix",
-                    "name": "prefix",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "10",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
                 },
                 {
                     "key": "field_5de80e3bfb222",
@@ -176,5 +176,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1587851022
+    "modified": 1587939388
 }

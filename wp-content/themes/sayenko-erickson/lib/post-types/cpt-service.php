@@ -38,7 +38,15 @@ class CPT_Service extends CPT_Core {
 				'exclude_from_search' => false,
                 'show_in_rest'        => true,
 				'rewrite'             => array( 'slug' => 'aviation-services' ),
-				'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' )
+				'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+                'template' => array(
+                    array( 'acf/hero' ),
+                    array( 'acf/approach' ),
+                    array( 'acf/results' ),
+                    array( 'acf/clients' ),
+                    array( 'acf/case-studies' ),
+                    array( 'acf/photo-gallery' )
+                )
 			)
 
         );

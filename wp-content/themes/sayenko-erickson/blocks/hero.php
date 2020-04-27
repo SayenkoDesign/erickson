@@ -23,9 +23,10 @@ if( ! class_exists( 'Hero_Block' ) ) {
             $this->set_fields( 'slideshow', get_field( 'slideshow' ) );
             
             $settings = [
-                'background_position_x' => get_field( 'background_position_x' ) ? strtolower( get_field( 'background_position_x' ) ) : 'center',
-                'background_position_y' => get_field( 'background_position_y' ) ? strtolower( get_field( 'background_position_y' ) ) : 'center',
-                'background_overlay'    => get_field( 'background_overlay' )
+                'background_position_x' => get_field( 'background_position_x' ) ? get_field( 'background_position_x' ) : 'center',
+                'background_position_y' => get_field( 'background_position_y' ) ? get_field( 'background_position_y' ) : 'center',
+                'background_overlay'    => get_field( 'background_overlay' ),
+                'edges' => get_field( 'edges' )
             ];
                         
             $this->set_settings( $settings );
@@ -42,13 +43,22 @@ if( ! class_exists( 'Hero_Block' ) ) {
         
             $background_image       = $this->get_fields( 'background_image' );
             
-            $background_position_x  = $this->get_settings( 'background_position_x' );
-            $background_position_y  = $this->get_settings( 'background_position_y' );
+            $background_position_x  = strtolower( $this->get_settings( 'background_position_x' ) );
+            $background_position_y  = strtolower( $this->get_settings( 'background_position_y' ) );
             $background_overlay     = $this->get_settings( 'background_overlay' );
+            $edges                  = strtolower( $this->get_settings( 'edges' ) );
             
             if( $this->get_fields( 'slideshow' ) ) {
             
                 $this->add_render_attribute( 'wrapper', 'class', 'has-slideshow' );
+                
+                if( true == $background_overlay ) {
+                     $this->add_render_attribute( 'wrapper', 'class', 'has-background-overlay' ); 
+                }
+                
+                if( ! empty( $edges ) && 'gray' == $edges ) {
+                     $this->add_render_attribute( 'wrapper', 'class', 'has-gray-edges' ); 
+                }
             
             } else if( ! empty( $background_image ) ) {
                 
@@ -60,6 +70,10 @@ if( ! class_exists( 'Hero_Block' ) ) {
                 
                 if( true == $background_overlay ) {
                      $this->add_render_attribute( 'wrapper', 'class', 'has-background-overlay' ); 
+                }
+                
+                if( ! empty( $edges ) && 'gray' == $edges ) {
+                     $this->add_render_attribute( 'wrapper', 'class', 'has-gray-edges' ); 
                 }
                 
             } else {
@@ -131,9 +145,8 @@ if( ! class_exists( 'Hero_Block' ) ) {
                             $heading,
                             $description,
                             $subheading,
-                            $video_link,
-                            $button
-                            
+                            $button,
+                            $video_link                            
                          );
         }
     }

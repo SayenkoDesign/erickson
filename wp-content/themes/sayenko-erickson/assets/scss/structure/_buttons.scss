@@ -167,6 +167,10 @@ button {
    }
 }
 
+a.link {
+    @include fancy-link();   
+}
+
 .menu a.button {
     @include breakpoint(large down) {
         max-width: 100%;

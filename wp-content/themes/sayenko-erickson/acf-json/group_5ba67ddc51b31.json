@@ -3,6 +3,22 @@
     "title": "Block: Generic Content",
     "fields": [
         {
+            "key": "field_5ea748175b571",
+            "label": "Content",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5e9e2660e9064",
             "label": "Image",
             "name": "image",
@@ -174,6 +190,46 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
+        },
+        {
+            "key": "field_5ea7482e5b572",
+            "label": "Settings",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5ea7483a5b573",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "White": "White",
+                "Gray": "Gray"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "White",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -185,7 +241,7 @@
             }
         ]
     ],
-    "menu_order": 9,
+    "menu_order": 14,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -193,5 +249,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1587584410
+    "modified": 1588021348
 }

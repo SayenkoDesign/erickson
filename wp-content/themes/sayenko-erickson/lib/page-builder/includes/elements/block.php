@@ -52,6 +52,12 @@ class Element_Block extends Element_Base {
 	 * @return array The IDs.
 	 */
     public function get_block_ids() {
+        
+        if( ! is_singular() ) {
+            return false;
+        }
+        
+        
         global $post;
         
         // get all blocks
@@ -101,7 +107,7 @@ class Element_Block extends Element_Base {
 	 * @return integer
 	 */
     public function get_block_index() {
-       
+               
         $ids = $this->get_block_ids();
         
         if( empty( $ids ) ) {
@@ -329,21 +335,18 @@ class Element_Block extends Element_Base {
         $content = $this->render();
         
 		if ( $content ) {
-            
-            $this->enqueue_styles();
-            
+                        
 			$this->_add_render_attributes();
             
             $output  = '';
             $output .= $this->before_render();
             $output .= $content;
             $output .= $this->after_render();
-    
-            $this->enqueue_scripts();
             
+            return $output;            
 		}
 
-        return $output;
+        
 	}
     
     

@@ -10,6 +10,7 @@ register_via_taxonomy_core( $service_categories,
 	array(
 		'public' => true,
         'rewrite' => false,
+        'show_in_rest' => true,
 	), 
 	array( 'service', 'fleet', 'case_study' ) 
 );

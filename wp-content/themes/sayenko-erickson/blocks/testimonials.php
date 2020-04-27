@@ -28,13 +28,6 @@ if( ! class_exists( 'Testimonials_Block' ) ) {
             
             // use parent attributes
             parent::_add_render_attributes();
-    
-            $this->add_render_attribute(
-                'wrapper', 'class', [
-                     $this->get_name() . '-testimonials',
-                     $this->get_name() . '-testimonials' . '-' . $this->get_id(),
-                ]
-            );
             
         }
         

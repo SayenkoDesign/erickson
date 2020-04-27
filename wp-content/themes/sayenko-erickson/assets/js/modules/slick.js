@@ -96,23 +96,19 @@ export default {
         
         
         
-        let $benefitsSlider = $('.block-benefits .slider');
+        let $coreValues = $('.block-core-values .slider');
         
-        if ( $('.slick', $benefitsSlider).length ) {
+        if ( $('.slick', $coreValues).length ) {
             
-            $benefitsSlider.imagesLoaded()
+            
+            
+            $coreValues.imagesLoaded()
             
                 .done( function( instance ) {
-                    
-                    $('.block-benefits .grid').on('click','.grid-item', function(e){
-                        e.preventDefault();
-                        var slideIndex = $(this).parent().index();
-                        $('.slick', $benefitsSlider).slick( 'slickGoTo', parseInt(slideIndex) );
-                    });
-                    
-                    $( '<div class="slick-arrows"></div>' ).insertAfter( '.block-benefits .slick' );
+                                        
+                    $( '<div class="slick-arrows"></div>' ).insertAfter( '.block-core-values .slick' );
             
-                    $('.slick', $benefitsSlider).slick({
+                    $('.slick', $coreValues).slick({
                         fade: true,
                         autoplay: false,
                         infinite: true,
@@ -121,10 +117,17 @@ export default {
                         dots: true,
                         rows: 0,
                         speed: 300,
-                        appendArrows: $('.block-benefits .slick-arrows')
+                        appendArrows: $('.block-core-values .slick-arrows')
                     });
                 
-                    $('.block-benefits').addClass('images-loaded');
+                    $('.block-core-values').addClass('images-loaded');
+                    
+                    
+                    $('.block-core-values .grid').on('click','.grid-item', function(e){
+                        //e.preventDefault();
+                        var slideIndex = $(this).parent().index();
+                        $('.slick', $coreValues).slick( 'slickGoTo', parseInt(slideIndex) );
+                    });
                     
              });
              

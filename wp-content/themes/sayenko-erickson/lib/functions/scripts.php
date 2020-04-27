@@ -56,7 +56,12 @@ function _s_register_scripts() {
                    'cross' => sprintf( '%sservice/cross.svg', trailingslashit( THEME_IMG ) )
             )
 	);
-
+    
+    wp_localize_script( 'project', 
+			'erickson_options', 
+			array( 'blog_title' => get_the_title( get_option('page_for_posts') )
+            )
+	);
 
 }
 

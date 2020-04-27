@@ -2800,6 +2800,21 @@ if('undefined'!==typeof FWP_HTTP.get.fwp_paged){
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('is-paged');
 }else {
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('is-paged');
+}// facetwp-facet-categories
+
+
+if('undefined'!==typeof FWP_HTTP.get.fwp_categories){
+var selected=jquery__WEBPACK_IMPORTED_MODULE_0___default()(".facetwp-facet-categories option[value='"+FWP_HTTP.get.fwp_categories+"']").text();
+
+if(''!==selected){
+selected=selected.split('(')[0];
+}else {
+selected=erickson_options.blog_title;
+}
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.blog .section-hero header h1').text(selected);
+}else {
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.blog .section-hero header h1').text(erickson_options.blog_title);
 }
 
 if(FWP.loaded){
@@ -3341,90 +3356,337 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.load-hidden').each(function(){
 if(!jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')){
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id',ID);
 }
-});
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])({});//$( window ).on( 'load', function() {
+});// ScrollReveal({});
 
 /*
-    ScrollReveal().reveal('section.scroll-reveal', {
-        origin: 'bottom',
-        
-        afterReveal: function() {
-            ScrollReveal().reveal('.animate-left', { 
-                delay: 200,
-                origin: 'left',
-                distance: '100%',
-            });
-            
-            ScrollReveal().reveal('.animate-right', { 
-                delay: 400,
-                origin: 'right',
-                distance: '100%',
-            });
-        }
-    });
+        Blocks
     */
 
-/*
-        HOME
-    */
-// Hero
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-hero',{
+delay:200});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero');
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero:not(.has-background) h1:not(.no-reveal)',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-hero h1',{
 delay:400,
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero.has-background h1',{
-delay:400,
-origin:'left',
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero.has-background h4',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-hero p',{
 delay:800,
-origin:'right',
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero.has-background h3',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-hero h3',{
 delay:1200,
-origin:'right',
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero.has-background .button',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-hero .button',{
 delay:1600,
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero.has-background .play-video',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-hero .play-video',{
 delay:2000,
 scale:0.1,
 afterReveal:function afterReveal(el){
 el.classList.add('revealed');
 }});
-// Section Services
+// Services
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.home .section-services');
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.home .section-services .grid-item',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-services');
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-services .grid-item',{
 delay:400,
 distance:'100%',
 interval:200});
-//ScrollReveal().reveal( '.section-advantage' );
+//ScrollReveal().reveal( '.block-erickson-advantage' );
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-advantage header',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-erickson-advantage header',{
 delay:200,
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-advantage .slider',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-erickson-advantage .slider',{
 delay:400,
 distance:'100%'});
-// Case studies
-//ScrollReveal().reveal( '.section-case-studies' );
+// Featured Post
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-case-studies header',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-featured-post');
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-featured-post header',{
 delay:400,
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-case-studies article',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-featured-post .grid .cell',{
 delay:800,
 interval:250,
+distance:'100%'});
+// Customers
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-customers');
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-customers header',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-customers .logos li',{
+easing:"ease-out",
+delay:800,
+interval:200,
+origin:'bottom',
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-approach header',{
+distance:'100%'});
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-approach .grid-margin-bottom .cell').each(function(){
+if(!jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id',ID);
+}
+});
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-approach .grid-margin-bottom .cell').each(function(index,element){
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('#'+element.id,{
+delay:400,
+origin:index%2?'left':'right',
+distance:'100%',
+interval:400});
+
+});
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-results header',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-results .cell',{
+delay:400,
+distance:'100%',
+interval:200,
+afterReveal:function afterReveal(el){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-results .cell .number').addClass('revealed');
+}});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-clients',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-clients header',{
+delay:400,
+distance:'100%',
+interval:200});
+// Service Gallery
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-service-gallery header',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-service-gallery .slick',{
+delay:400,
+distance:'100%',
+interval:200});
+//ScrollReveal().reveal( '.section-case-studies' );
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-case-studies header',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-case-studies article',{
+delay:800,
+interval:250,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-mission-vision',{
+distance:'100%'});
+// Old core Values
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-benefits header',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-benefits .grid .cell',{
+delay:400,
+distance:'100%',
+interval:200});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-commitment',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-commitment header',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-commitment .grid .cell',{
+delay:400,
+distance:'100%',
+interval:200});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-awards header',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-awards .grid .cell',{
+delay:400,
+distance:'100%',
+interval:200});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-core-values header',{
+distance:'100%',
+afterReveal:function afterReveal(el){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-core-values .slider').show();
+}});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-core-values .grid .cell',{
+delay:400,
+distance:'100%',
+interval:200});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-testimonials',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-testimonials .slider',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-values');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-values .cell').each(function(){
+if(!jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id',ID);
+}
+});
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-values .cell').each(function(index,element){
+console.log(element.id);
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('#'+element.id,{
+delay:400,
+origin:index%2?'left':'right',
+distance:'100%',
+interval:400});
+
+});
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-jobs header',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-jobs .entry-content',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-content',{
+delay:400,
+origin:'bottom',
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-content .cell',{
+delay:800,
+origin:'bottom',
+distance:'100%',
+interval:400,
+afterReveal:function afterReveal(el){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-content .cell .play-video').addClass('revealed');
+}});
+
+/*
+        Pages
+    */
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero',{
+delay:200});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero:not(.has-background-image) h1:not(.no-reveal)',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero.has-background-image h1',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero p',{
+delay:800,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero h3',{
+delay:1200,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero .button',{
+delay:1600,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-hero .play-video',{
+delay:2000,
+scale:0.1,
+afterReveal:function afterReveal(el){
+el.classList.add('revealed');
+}});
+// History
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .section-hero .hero-content img',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .section-hero .hero-content h1',{
+delay:800,
+origin:'bottom',
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .section-introduction',{
+delay:800,
+origin:'bottom',
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .section-timeline .facetwp-facet',{
+delay:800,
+origin:'bottom',
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .section-timeline .facetwp-template',{
+delay:800,
+origin:'bottom',
+distance:'100%'});
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.page-template-history .section-timeline .facetwp-template').each(function(index,element){
+//var id = $(element).attr('id'); 
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.event',{
+delay:1200,
+distance:'100%',
+interval:400});
+
+});
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .facetwp-type-pager',{
+delay:200,
+distance:'100%'});
+
+
+(function($){
+$(document).on('facetwp-loaded',function(){
+$('.page-template-history .facetwp-template article, .page-template-history .facetwp-type-pager').css({
+opacity:1,
+visibility:'visible'});
+
+});
+})(jQuery);// Team
+
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-team .facetwp-facet',{
+delay:800,
+origin:'bottom',
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-team .facetwp-template .cell',{
+delay:800,
+origin:'bottom',
+distance:'100%',
+interval:400});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-team .facetwp-type-pager',{
+delay:200,
+distance:'100%'});
+
+
+(function($){
+$(document).on('facetwp-loaded',function(){
+$('.page-template-team .facetwp-template .cell, .page-template-team .facetwp-pager').css({
+opacity:1,
+visibility:'visible'});
+
+});
+})(jQuery);// Contact
+
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-form-directory .cell',{
+delay:400,
+origin:'bottom',
+distance:'100%',
+interval:400});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-offices',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-offices header',{
+delay:400,
 distance:'100%'});
 // Related Posts
 
@@ -3448,79 +3710,6 @@ Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-
 delay:800,
 interval:250,
 distance:'100%'});
-// Featured Post
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-featured-post');
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-featured-post header',{
-delay:400,
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-featured-post .grid .cell',{
-delay:800,
-interval:250,
-distance:'100%'});
-// Customers
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-customers');
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-customers header',{
-delay:400,
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-customers .logos li',{
-easing:"ease-out",
-delay:800,
-interval:200,
-origin:'bottom',
-distance:'100%'});
-// Services
-// Approach
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-approach header',{
-distance:'100%'});
-
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-approach .grid-margin-bottom .cell').each(function(){
-if(!jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id',ID);
-}
-});
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-approach .grid-margin-bottom .cell').each(function(index,element){
-console.log(element.id);
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('#'+element.id,{
-delay:400,
-origin:index%2?'left':'right',
-distance:'100%',
-interval:400});
-
-});// Results
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-results header',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-results .cell',{
-delay:400,
-distance:'100%',
-interval:200,
-afterReveal:function afterReveal(el){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-results .cell .number').addClass('revealed');
-}});
-// Clients
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-clients',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-clients header',{
-delay:400,
-distance:'100%',
-interval:200});
-// Service Gallery
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-service-gallery header',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-service-gallery .slick',{
-delay:400,
-distance:'100%',
-interval:200});
 // Fleet
 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.post-type-archive-fleet #secondary h2',{
@@ -3622,188 +3811,7 @@ visibility:'visible'});
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.archive .facetwp-pager',{
 delay:200,
 distance:'100%'});
-// About
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-about .section-hero .hero-content p',{
-delay:400,
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-about .mission-vision',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-about .section-core-values header',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-about .section-core-values .grid .cell',{
-delay:400,
-distance:'100%',
-interval:200});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-about .section-commitment',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-about .section-commitment header',{
-delay:400,
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-about .section-commitment .grid .cell',{
-delay:400,
-distance:'100%',
-interval:200});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-about .section-awards header',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-about .section-awards .grid .cell',{
-delay:400,
-distance:'100%',
-interval:200});
-// Careers
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.template-careers .section-hero .button',{
-delay:2000,
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.template-careers .section-hero .play-video',{
-delay:1600,
-scale:0.1,
-afterReveal:function afterReveal(el){
-el.classList.add('revealed');
-}});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-careers .section-benefits header',{
-distance:'100%',
-afterReveal:function afterReveal(el){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.page-template-careers .section-benefits .slider').show();
-}});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-careers .section-benefits .grid .cell',{
-delay:400,
-distance:'100%',
-interval:200});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-careers .section-testimonials',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-careers .section-testimonials .slider',{
-delay:400,
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-careers .section-values');
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.page-template-careers .section-values .cell').each(function(){
-if(!jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id')){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('id',ID);
-}
-});
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.page-template-careers .section-values .cell').each(function(index,element){
-console.log(element.id);
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('#'+element.id,{
-delay:400,
-origin:index%2?'left':'right',
-distance:'100%',
-interval:400});
-
-});
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-careers .section-jobs header',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-careers .section-jobs .entry-content',{
-delay:400,
-distance:'100%'});
-// History
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .section-hero .hero-content img',{
-delay:400,
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .section-hero .hero-content h1',{
-delay:800,
-origin:'bottom',
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .section-introduction',{
-delay:800,
-origin:'bottom',
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .section-timeline .facetwp-facet',{
-delay:800,
-origin:'bottom',
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-history .section-timeline .facetwp-template',{
-delay:800,
-origin:'bottom',
-distance:'100%'});
-
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.page-template-history .section-timeline .facetwp-template').each(function(index,element){
-//var id = $(element).attr('id'); 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.event',{
-delay:1200,
-distance:'100%',
-interval:400});
-
-});
-
-(function($){
-$(document).on('facetwp-loaded',function(){
-$('.page-template-history .section-timeline .facetwp-template article').css({
-opacity:1,
-visibility:'visible'});
-
-});
-})(jQuery);
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.post-type-archive-video_gallery .facetwp-type-pager',{
-delay:200,
-distance:'100%'});
-// Team
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-team .facetwp-facet',{
-delay:800,
-origin:'bottom',
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-team .facetwp-template .cell',{
-delay:800,
-origin:'bottom',
-distance:'100%',
-interval:400});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.page-template-team .facetwp-type-pager',{
-delay:200,
-distance:'100%'});
-// ----------------------
-// Multipurpose page
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.template-multi-purpose .section-block',{
-delay:400,
-origin:'bottom',
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.template-multi-purpose .section-block .cell',{
-delay:800,
-origin:'bottom',
-distance:'100%',
-interval:400,
-afterReveal:function afterReveal(el){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.template-multi-purpose .section-block .cell .play-video').addClass('revealed');
-}});
-// Contact
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-form-directory .cell',{
-delay:400,
-origin:'bottom',
-distance:'100%',
-interval:400});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-offices',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.section-offices header',{
-delay:400,
-distance:'100%'});
-// } );         
 }};
 
 
@@ -3902,17 +3910,12 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-erickson-advantage .slick-
 });
 }
 
-var $benefitsSlider=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-benefits .slider');
+var $coreValues=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-core-values .slider');
 
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$benefitsSlider).length){
-$benefitsSlider.imagesLoaded().done(function(instance){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-benefits .grid').on('click','.grid-item',function(e){
-e.preventDefault();
-var slideIndex=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().index();
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$benefitsSlider).slick('slickGoTo',parseInt(slideIndex));
-});
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="slick-arrows"></div>').insertAfter('.block-benefits .slick');
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$benefitsSlider).slick({
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$coreValues).length){
+$coreValues.imagesLoaded().done(function(instance){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="slick-arrows"></div>').insertAfter('.block-core-values .slick');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$coreValues).slick({
 fade:true,
 autoplay:false,
 infinite:true,
@@ -3921,9 +3924,14 @@ arrows:true,
 dots:true,
 rows:0,
 speed:300,
-appendArrows:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-benefits .slick-arrows')});
+appendArrows:jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-core-values .slick-arrows')});
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-benefits').addClass('images-loaded');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-core-values').addClass('images-loaded');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-core-values .grid').on('click','.grid-item',function(e){
+//e.preventDefault();
+var slideIndex=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().index();
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick',$coreValues).slick('slickGoTo',parseInt(slideIndex));
+});
 });
 }// Careers - Testimonials
 
