@@ -3011,11 +3011,7 @@ var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-not
 $notificationBar.removeClass('hide');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('logged-in')){
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width()>782){
-$wpAdminBar=32;
-}else {
-$wpAdminBar=46;
-}
+return;// ignore
 }//height = $notificationBar.height() + $wpAdminBar;
 
 
@@ -3035,11 +3031,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("resize",function(){
 var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('logged-in')){
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width()>782){
-$wpAdminBar=32;
-}else {
-$wpAdminBar=46;
-}
+return;// ignore
 }
 
 height=$notificationBar.height()+$wpAdminBar;
@@ -3059,11 +3051,7 @@ return;
 }
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('logged-in')){
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width()>782){
-$wpAdminBar=32;
-}else {
-$wpAdminBar=46;
-}
+return;// ignore
 }
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop()>=height){

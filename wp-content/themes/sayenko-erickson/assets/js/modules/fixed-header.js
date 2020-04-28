@@ -32,6 +32,8 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
             $notificationBar.removeClass('hide');
             
             if($('body').hasClass('logged-in')) {
+                return;
+                // ignore
                 if ($(window).width() > 782) {
                    $wpAdminBar = 32;
                 } else {
@@ -61,6 +63,8 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
             var $notificationBar = $('.section-notification-bar');  
                         
             if($('body').hasClass('logged-in')) {
+                return;
+                // ignore
                 if ($(window).width() > 782) {
                    $wpAdminBar = 32;
                 } else {
@@ -89,6 +93,8 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
             }
                                                 
             if($('body').hasClass('logged-in')) {
+                return;
+                // ignore
                 if ($(window).width() > 782) {
                    $wpAdminBar = 32;
                 } else {
