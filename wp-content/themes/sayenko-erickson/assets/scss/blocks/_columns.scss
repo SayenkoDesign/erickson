@@ -1,0 +1,27 @@
+// Generic content
+
+.block-columns {
+    padding-top: rem-calc(75);
+        
+    &.background-color-gray {
+        background-color: #EFF3F0;
+        padding-bottom: rem-calc(50);    }
+        
+    
+    header {
+        text-align: center; 
+        margin-bottom: rem-calc(50); 
+    }
+    
+    .cell {
+                            
+        .panel > *:last-child {
+            margin-bottom: 0;   
+        }        
+    }
+}
+
+
+.block.background-color-white + .block.background-color-gray {
+    margin-top: rem-calc(75);
+}

@@ -192,7 +192,7 @@ export default {
             distance: '100%'
         }); 
         
-        // Old core Values
+
         ScrollReveal().reveal( '.block-benefits header', { 
             distance: '100%'
         }); 
@@ -202,6 +202,33 @@ export default {
             distance: '100%',
             interval: 200
         }); 
+        
+        
+        ScrollReveal().reveal( '.block-columns header', { 
+            distance: '100%'
+        }); 
+        
+        ScrollReveal().reveal( '.block-columns .grid .cell', { 
+            delay: 400,
+            distance: '100%',
+            interval: 200
+        }); 
+        
+        ScrollReveal().reveal( '.block-columns.background-color-gray', { 
+            distance: '100%'
+        }); 
+        
+        ScrollReveal().reveal( '.block-columns.background-color-gray header', { 
+            delay: 400,
+            distance: '100%'
+        }); 
+        
+        ScrollReveal().reveal( '.block-columns.background-color-gray.grid .cell', { 
+            delay: 800,
+            distance: '100%',
+            interval: 200
+        }); 
+        
         
         ScrollReveal().reveal( '.block-commitment', { 
             distance: '100%'

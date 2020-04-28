@@ -19,8 +19,18 @@ add_theme_support( 'editor-gradient-palette', [] );
 // Editor Color Pallete - match theme colors
 add_theme_support( 'editor-color-palette', array(   
     array(
+		'name'  => __( 'Dark Gray', '_s' ),
+		'slug'  => 'dark-gray',
+		'color' => '#474447',
+	),
+    array(
 		'name'  => __( 'Light Gray', '_s' ),
 		'slug'  => 'light-gray',
-		'color' => '#F5F5F5',
+		'color' => '#EFF3F0',
+	),
+    array(
+		'name'  => __( 'White', '_s' ),
+		'slug'  => 'white',
+		'color' => '#ffffff',
 	)
 ) );

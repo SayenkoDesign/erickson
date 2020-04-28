@@ -233,6 +233,12 @@ class Element_Block extends Element_Base {
                 
         $this->add_render_attribute(
             'wrapper', 'class', [
+                'block'
+             ]
+        );
+        
+        $this->add_render_attribute(
+            'wrapper', 'class', [
                 'block-' . $this->get_name()
              ]
         );

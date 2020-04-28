@@ -52,7 +52,8 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
                     $body.removeAttr( 'style' );
                 } 
                 
-                $notificationBar.show();      
+                //$notificationBar.show();   
+                   
             }, 3000);     
         
         });  
@@ -87,7 +88,8 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
             
             var $notificationBar = $('.section-notification-bar');
             
-            if( ! $notificationBar.length ) {
+            if( ! $notificationBar.length && $notificationBar.not(":visible") ) {
+                $body.removeAttr( 'style' );
                 $stickyHeader.removeAttr( 'style' );
                 return;
             }

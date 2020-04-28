@@ -3022,9 +3022,8 @@ $body.css('top',height);
 }else {
 $body.css('top','auto');
 $body.removeAttr('style');
-}
+}//$notificationBar.show();   
 
-$notificationBar.show();
 },3000);
 });
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("resize",function(){
@@ -3045,7 +3044,8 @@ $body.removeAttr('style');
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("scroll",function(){
 var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar');
 
-if(!$notificationBar.length){
+if(!$notificationBar.length&&$notificationBar.not(":visible")){
+$body.removeAttr('style');
 $stickyHeader.removeAttr('style');
 return;
 }
@@ -3455,13 +3455,32 @@ distance:'100%'});
 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-mission-vision',{
 distance:'100%'});
-// Old core Values
 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-benefits header',{
 distance:'100%'});
 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-benefits .grid .cell',{
 delay:400,
+distance:'100%',
+interval:200});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-columns header',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-columns .grid .cell',{
+delay:400,
+distance:'100%',
+interval:200});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-columns.background-color-gray',{
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-columns.background-color-gray header',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-columns.background-color-gray.grid .cell',{
+delay:800,
 distance:'100%',
 interval:200});
 

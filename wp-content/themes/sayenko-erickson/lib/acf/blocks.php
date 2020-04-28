@@ -111,7 +111,20 @@ function _s_acf_register_blocks() {
             //'mode'          => 'edit',
             'multiple'        => false,
             'supports'        => [ 'align' => false, 'anchor' => true ]
-		) );        
+		) );  
+        
+        acf_register_block_type( array(
+			'name'            => 'columns',
+			'title'           => __( 'Columns', '_s' ),
+			'description'     => __( 'Columns block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'columns' ),
+            'post_types' => array('page'),
+            'align' => 'full',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );      
                 
         acf_register_block_type( array(
 			'name'            => 'commitment',
@@ -339,7 +352,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
         } 
         */
         
-       /*$allowed_blocks = array(
+       $allowed_blocks = array(
             'acf/awards',
             'acf/button',
             'acf/case-studies',
@@ -353,6 +366,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/hero',
             'acf/mission-vision',
             'acf/services',
+            'acf/columns',
             
             'acf/benefits',
             'acf/jobs',
@@ -360,16 +374,16 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/values',
             
                         
-            'core/group',
+            //'core/group',
             'core/reusableBlock',
-            'core-embed/youtube',
+            //'core-embed/youtube',
             'core/image',
             'core/paragraph',
             'core/heading',
             'core/list',
             //'core/button'
         );  
-       */ 
+       
         
     }
     
@@ -386,12 +400,12 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/button',
             'acf/fleet',
                         
-            'core/group',
-            'core/reusableBlock',
-            'core/image',
-            'core/paragraph',
-            'core/heading',
-            'core/list',
+           // 'core/group',
+           // 'core/reusableBlock',
+            //'core/image',
+            //'core/paragraph',
+            //'core/heading',
+            //'core/list',
             //'core/button'
         );      
     }
