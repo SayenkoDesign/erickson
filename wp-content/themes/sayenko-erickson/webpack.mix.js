@@ -93,8 +93,7 @@ if (mix.inProduction()) {
 	.extract();
 
  mix.js( `${ devPath }/js/modernizr-custom.js`, 'js' )
-    .js( `${ devPath }/js/infobox.js`, 'js' )
-    .js( `${ devPath }/js/scrollreveal-config.js`, 'js' );
+    .js( `${ devPath }/js/infobox.js`, 'js' );
 
 //mix.react( `${devPath}/js/editor.js`, 'js' );
 
@@ -124,7 +123,7 @@ var sassEditorConfig = {
 // Compile SASS/CSS.
 mix.sass( `${ devPath }/scss/style.scss`, 'css', sassConfig );
 mix.sass( `${ devPath }/scss/login.scss`, 'css', sassEditorConfig );
-//mix.sass( `${ devPath }/scss/editor.scss`, 'css', sassEditorConfig );
+mix.sass( `${ devPath }/scss/editor.scss`, 'css', sassEditorConfig );
 
 /*
  * Add custom Webpack configuration.

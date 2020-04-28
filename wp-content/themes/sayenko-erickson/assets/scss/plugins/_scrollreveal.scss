@@ -11,53 +11,66 @@ html.sr  .no-reveal {
 
 // Global
 
-html.sr .section-footer-cta {
-    
-    //visibility: hidden;
-    
-    h1,
-    .shrink {
-        // visibility: hidden;   
-    }
-}
-
 html.sr {
  
-    .section-hero {
-        &.has-background,
+    .section-hero,
+    .block-hero {
         h1,
         h3,
         h4,
+        p,
         .button,
         .play-video {
             visibility: hidden; 
         }
     }
-    
         
-}
-
-// home
-html.sr .home {
-    .section-services .grid-item,
-    .section-customers header,
-    .section-customers .logos li, {
+    .block-services .grid-item,
+    .block-customers header,
+    .block-customers .logos li, {
         visibility: hidden;
     }
     
 }
 
 
-// Sections
+// Blocks
 html.sr { 
-    .section-advantage header,
-    .section-advantage .slider,
-    .section-case-studies header,
-    .section-case-studies article,
-    .section-featured-post header,
-    .section-featured-post .grid .cell,
-    .section-service-gallery header,
-    .section-service-gallery .slick {
+    .block-erickson-advantage header,
+    .block-erickson-advantage .slider,
+    
+    .block-case-studies header,
+    .block-case-studies article,
+    
+    .block-featured-post header,
+    .block-featured-post .grid .cell,
+    
+    .block-service-gallery header,
+    .block-service-gallery .slick,
+    
+    .block-mission-vision,
+    
+    .block-core-values header,
+    .block-core-values .grid .cell,
+    
+    .block-commitment,
+    .block-commitment header,
+    .block-commitment .grid .cell,
+    
+    .block-awards header,
+    .block-awards .grid .cell,
+
+    .block-benefits header,
+    .block-benefits .grid .cell,
+    
+    .block-testimonials,
+    .block-testimonials .slider,
+    
+    .block-values,
+    .block-values .cell,
+    
+    .block-jobs header,
+    .block-jobs .entry-content {
         visibility: hidden;
     }
 }
@@ -67,7 +80,7 @@ html.sr {
 // Services
 html.sr {
  
-    .section-approach {
+    .block-approach {
         h1 {
             visibility: hidden; 
         }
@@ -77,14 +90,14 @@ html.sr {
         }
     }
     
-    .section-results .numbers {
+    .block-results .numbers {
         header,
         .cell {
            visibility: hidden;
         }
     }
     
-    .section-clients {
+    .block-clients {
         visibility: hidden;
         header {
            visibility: hidden;
@@ -117,6 +130,7 @@ html.sr {
 
 
 // Archive 
+
 html.sr .archive {
     .section-hero,
     .facetwp-filters,
@@ -129,8 +143,8 @@ html.sr .facetwp-template article {
     visibility: hidden; 
 }
 
-// Case Studies
 
+// Case Studies
 
 html.sr {
     .post-type-archive-case_study {
@@ -143,7 +157,7 @@ html.sr {
 }
 
 
-// video/ Pghoto Gallery
+// video/Photo Gallery
 
 html.sr {
     .post-type-archive-video_gallery,
@@ -156,40 +170,7 @@ html.sr {
 }
 
 
-// About
-html.sr {
-    
-    .page-template-about {
-        .section-hero .hero-content p,
-        .mission-vision,
-        .section-core-values header,
-        .section-core-values .grid .cell,
-        .section-commitment,
-        .section-commitment header,
-        .section-commitment .grid .cell,
-        .section-awards header,
-        .section-awards .grid .cell {
-            visibility: hidden;
-        }
-    }
-    
-}
 
-// Careers
-html.sr {
-    .page-template-careers {
-        .section-benefits header,
-        .section-benefits .grid .cell,
-        .section-testimonials,
-        .section-testimonials .slider,
-        .section-values,
-        .section-values .cell,
-        .section-jobs header,
-        .section-jobs .entry-content {
-            visibility: hidden;
-        }
-    }
-}
 
 
 // History

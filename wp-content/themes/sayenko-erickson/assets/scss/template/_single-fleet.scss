@@ -44,7 +44,13 @@
             @include xy-gutters(10, 'margin', $negative:true); // negative for the nested grid
             
             .cell {
-                margin-bottom: rem-calc(10);   
+                margin-bottom: rem-calc(10);  
+                
+                h4 {
+                    font-family: $barlow;
+                    font-weight: 700;   
+                    margin-bottom: rem-calc(15);
+                }
             }
         }      
     }
@@ -59,7 +65,7 @@
             background-color: $light-gray;  
             
             .panel {
-                padding: rem-calc(60 40);  
+                padding: rem-calc(60 30);  
                 
                 @include breakpoint(medium down) {
                     h4 {

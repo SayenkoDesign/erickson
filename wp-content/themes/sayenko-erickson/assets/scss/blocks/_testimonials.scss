@@ -1,0 +1,153 @@
+// Testimonials
+
+.block-testimonials {
+        
+    $quote-offset: 35px;
+    
+    position: relative;
+    
+    &:before {
+        content: '';
+        width: 100%;
+        height: calc(100% - #{$quote-offset});
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: $light-gray;   
+    }
+    
+    
+    //padding-top: rem-calc(60);
+    padding-bottom: rem-calc(60);
+    
+    
+    .quote-mark {
+        position: absolute;
+        top: 0;
+        z-index: 3;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: -120px;
+        
+        @include breakpoint(large) {
+            left: auto;
+            top: 0;
+            margin-left: -30px;
+            transform: none;
+        }
+    } 
+    
+    
+    .container {
+        position: relative;   
+    }
+    
+    
+    .slider {
+        
+        @include breakpoint(large) {
+            padding-left: (1/12) * 100%;
+            padding-right: (1/12) * 100%;
+        }
+        
+        opacity: 0;
+        visibility: hidden;
+        
+        &.images-loaded {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        position: relative;
+        
+        .thumbnail {
+            background-size: cover;
+            background-position: center top;
+            width: 240px;
+            height: 240px;
+            border-radius: 100%;  
+            margin: 0 auto; 
+        }
+    }
+    
+    .slick-arrows {
+        width: rem-calc(180);
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto 0;
+        
+        .slick-prev,
+        .slick-next {
+            margin-top: 35px;
+            position: relative;
+            
+        }
+        
+        
+        
+        @include breakpoint(xxlarge) {
+            .slick-prev,
+            .slick-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-top: 35px;
+            }
+            
+            .slick-prev {
+                left: -15px;
+            }
+            
+            .slick-next {
+                right: -15px;
+            }
+            
+        }
+        
+        
+        
+    }
+    
+    .slick-dots {
+        display: none!important;
+                    
+        position: absolute;
+        top: 50%;
+        transform: transtaeY(-50%);
+        right: 0;
+        bottom: auto;
+        width: auto;  
+        
+        li {
+            display: block;   
+        }
+    }
+    
+    
+    .quote {
+        text-align: center;
+        
+        @include breakpoint(large) {
+            padding-top: 100px;
+            padding-left: rem-calc(30);
+            text-align: left;
+        }
+        
+        p {
+            font-family: $barlow;
+            font-size: rem-calc(24);
+            font-style: italic;
+            letter-spacing: 0.7px;
+            line-height: 1.5;
+        }
+        
+        h6 {
+           letter-spacing: 0.7px;
+           font-size: rem-calc(18);
+           line-height: 1.388888889;
+           margin-top: rem-calc(25);
+           font-weight: 500;
+        }
+    }
+    
+}

@@ -30,7 +30,7 @@ if( ! class_exists( 'Notification_Bar_Section' ) ) {
     
             $this->add_render_attribute(
                 'wrapper', 'class', [
-                     $this->get_name() . '-notification-bar'
+                     $this->get_name() . '-notification-bar', 'hide'
                 ]
             ); 
             

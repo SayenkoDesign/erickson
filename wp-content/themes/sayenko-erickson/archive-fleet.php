@@ -14,9 +14,8 @@ _s_get_template_part( 'template-parts/fleet', 'hero' );
             
                 <main id="main" class="site-main" role="main">
                            
-                    <?php                    
+                    <?php 
                     
-
                     $classes[] = 'small-up-1 large-up-2';
                     
                     printf( '<div class="grid-x grid-margin-x grid-margin-bottom facetwp-template %s">', join( ' ', $classes ) );
@@ -52,20 +51,38 @@ _s_get_template_part( 'template-parts/fleet', 'hero' );
         
         <div id="secondary" class="cell large-3 small-order-1 widget-area" role="complementary">
             <?php 
-                // Special Mission Equipment
-                // Payload
-                // Mission Type                   
+                $fleet_filters = [
+                    'Manufacturer',
+                    'Introduction',
+                    'Powerplant',
+                    'Capacity',
+                    'Fuselage Length',
+                    'Max Internal Cargo*',
+                    'Max External Cargo*',
+                    'Lift Capacity*',
+                    'Max Takeoff Weight',
+                    'Max Speed',
+                    'Max Range',
+                ];
+                
+                $filters = ''; 
+                
+                foreach( $fleet_filters as $filter ) {
+                    
+                    $slug = str_replace( '-', '_', sanitize_title_with_dashes( $filter ) );
+                    
+                    $facet = facetwp_display( 'facet', $slug );
+                    
+                    $filters .= sprintf( '<li>%s</li>', $facet );
+                }
+                                 
                 printf( '<h2>%s</h2>
                         <ul class="no-bullet facetwp-filters">
-                            <li>%s</li>
-                            <li>%s</li>
-                            <li>%s</li>
+                            %s
                             <li><button class="button" onclick="FWP.reset()">%s</button></li>
                         </ul>', 
                         __( 'Sort By' ),
-                        facetwp_display( 'facet', 'special_mission_equipment' ),
-                        facetwp_display( 'facet', 'payload' ),
-                        facetwp_display( 'facet', 'mission_type' ),
+                        $filters,
                         __( 'reset' )
                  );
             ?>

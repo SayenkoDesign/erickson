@@ -100,15 +100,18 @@
                     color: $dark-gray;
                     padding: $global-menu-padding;
                     font-size: rem-calc(15);
+                    
+                    &:hover {
+                        //color: $navy;
+                        //font-weight: 600;   
+                    }
                 }
                 
                 @include breakpoint(xxlarge) {
                     font-size: rem-calc(16);
                 }
                 
-                &:hover {
-                    //color: #ffffff;   
-                }
+                
                 
                 h5 {
                     color: inherit;  
@@ -167,6 +170,7 @@
                         
                         @include breakpoint(xlarge) {
                             color: $navy;   
+                            font-weight: 600;
                         }
                     }
                 }
@@ -322,7 +326,8 @@
                     font-size: rem-calc(18);
                     
                     &:hover {
-                        color: $red;   
+                        color: $red;
+                        //font-weight: 400;   
                     }
                                        
                 }

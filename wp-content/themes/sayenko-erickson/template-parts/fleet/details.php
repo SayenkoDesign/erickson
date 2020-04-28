@@ -51,19 +51,39 @@ if( ! class_exists( 'Details_Section' ) ) {
         // Add content
         public function render() {
                                     
-            $rows = $this->get_fields( 'description' );
             $cells = '';
             $grid = '';
-            if( ! empty( $rows ) ) {
-                foreach( $rows as $row ) {
-                    $cells .= sprintf( '<div class="cell"><h4>%s</h4><p>%s</p></div>', $row['title'], $row['text'] );
-                }
+            
+            $fleet_filters = [
+                'Manufacturer',
+                'Introduction',
+                'Powerplant',
+                'Capacity',
+                'Fuselage Length',
+                'Max Internal Cargo*',
+                'Max External Cargo*',
+                'Lift Capacity*',
+                'Max Takeoff Weight',
+                'Max Speed',
+                'Max Range',
+            ];
+            
+            foreach( $fleet_filters as $filter ) {
+                $slug = sanitize_title_with_dashes( $filter );
                 
-                if( ! empty( $cells ) ) {
-                    $grid = sprintf( '<div class="grid-x grid-margin-x small-up-1 medium-up-2 medium-large-up-3">%s</div>', $cells );
+                $terms = wp_get_post_terms( get_the_ID(), $slug, array( 'fields' => 'names' ) );
+                
+                if( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+                    $term_list = join( ', ', $terms );
+                    $cells .= sprintf( '<div class="cell"><h4 class="h5" data-mh="h4">%s</h4><p>%s</p></div>', $filter, $term_list );
                 }
             }
             
+            
+            if( ! empty( $cells ) ) {
+                $grid = sprintf( '<div class="grid-x grid-margin-x small-up-1 medium-up-2 medium-large-up-3">%s</div>', $cells );
+            }
+                
             $buttons = '';
             
             $file = $this->get_fields( 'file' );             

@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Cookies from 'js-cookie'
 
 export default {
 	init() {
@@ -16,17 +17,20 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         var $stickyHeader = $(".sticky-header .site-header");
         var $body = $('body');
         var $wpAdminBar = 0;
-        var $height = 0;
+        var height = 0;
+        
+        var showNotificationBar = Cookies.get('show-notification-bar');
         
         $(window).on("load", function(){
             
-            var $notificationBar = $('.section-notification-bar');        
-            
-            if( ! $notificationBar.length ) {
-                $body.removeAttr( 'style' );
+            if( 'no' === showNotificationBar) {
                 return;
             }
-                        
+            
+            var $notificationBar = $('.section-notification-bar');        
+            
+            $notificationBar.removeClass('hide');
+            
             if($('body').hasClass('logged-in')) {
                 if ($(window).width() > 782) {
                    $wpAdminBar = 32;
@@ -35,13 +39,12 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
                 }
             }
             
-            //$height = $notificationBar.height() + $wpAdminBar;
-            $height = $notificationBar.actual('height') + $wpAdminBar;
-            
+            //height = $notificationBar.height() + $wpAdminBar;
+            height = $notificationBar.actual('height') + $wpAdminBar;
             
             setTimeout(function(){  
                 if (Foundation.MediaQuery.atLeast('xlarge')) {
-                    $body.css( 'top', $height );
+                    $body.css( 'top', height );
                 } else {
                     $body.css( 'top', 'auto' );
                     $body.removeAttr( 'style' );
@@ -54,13 +57,8 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         
         
         $(window).on("resize", function(){
-            
-            var $notificationBar = $('.section-notification-bar');        
-            
-            if( ! $notificationBar.length ) {
-                $body.removeAttr( 'style' );
-                return;
-            }
+                        
+            var $notificationBar = $('.section-notification-bar');  
                         
             if($('body').hasClass('logged-in')) {
                 if ($(window).width() > 782) {
@@ -70,12 +68,11 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
                 }
             }
             
-            $height = $notificationBar.height() + $wpAdminBar;
+            height = $notificationBar.height() + $wpAdminBar;
             
             if (Foundation.MediaQuery.atLeast('xlarge')) {
-                $body.css( 'top', $height );
+                $body.css( 'top', height );
             } else {
-                $body.css( 'top', 'auto' );
                 $body.removeAttr( 'style' );
             }            
         
@@ -90,9 +87,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
                 $stickyHeader.removeAttr( 'style' );
                 return;
             }
-            
-            console.log('test');
-                        
+                                                
             if($('body').hasClass('logged-in')) {
                 if ($(window).width() > 782) {
                    $wpAdminBar = 32;
@@ -101,26 +96,26 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
                 }
             }
                     
-            if( $(window).scrollTop() >= $height ){
+            if( $(window).scrollTop() >= height ){
               $stickyHeader.addClass("fixed");
               $body.removeAttr( 'style' );
             } else {
                 $stickyHeader.removeClass("fixed");
                 
                 if (Foundation.MediaQuery.atLeast('xlarge')) {
-                    $body.css( 'top', $height );
+                    $body.css( 'top', height );
                 } else {
-                    $body.css( 'top', 'auto' );
                     $body.removeAttr( 'style' );
                 } 
             }
         });
         
-        $(document).on('close.zf.trigger', '[data-closable]', function(e) {
-            console.log( 'closed' );
+        $(document).on('close.zf.trigger', '.section-notification-bar[data-closable]', function(e) {
             $body.css( 'top', 'auto' );
             $body.removeAttr( 'style' );
+            $stickyHeader.removeAttr( 'style' );
             $('.section-notification-bar').remove();
+            Cookies.set('show-notification-bar', 'no', { expires: 1 })
         });
 
 	},

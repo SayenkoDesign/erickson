@@ -10,6 +10,7 @@ register_via_taxonomy_core( $service_categories,
 	array(
 		'public' => true,
         'rewrite' => false,
+        'show_in_rest' => true,
 	), 
 	array( 'service', 'fleet', 'case_study' ) 
 );
@@ -48,45 +49,49 @@ register_via_taxonomy_core( $taxonomy_location,
 );
 
 
-// Special Mission Equipment
-// Payload
-// Mission Type
+// Fleet Specs
 
-register_via_taxonomy_core( 
-    array(
-        __( 'Equipment', '_s', '_s' ), // Singular
-        __( 'Special Mission Equipment', '_s', '_s' ), // Plural
-        'equipment' // Registered name
-    ), 
-	array(
-		'public' => false,
-        'rewrite' => false,
-	), 
-	array( 'fleet' ) 
-);
+/*
+Manufacturer
+Introduction
+Powerplant
+Capacity
+Fuselage Length
+Max Internal Cargo*
+Max External Cargo*
+Max Speed
+Max Range
+*/
 
-register_via_taxonomy_core( 
-    array(
-        __( 'Payload', '_s', '_s' ), // Singular
-        __( 'Payload', '_s', '_s' ), // Plural
-        'payload' // Registered name
-    ), 
-	array(
-		'public' => false,
-        'rewrite' => false,
-	), 
-	array( 'fleet' ) 
-);
+$fleet_filters = [
+    'Manufacturer',
+    'Introduction',
+    'Powerplant',
+    'Capacity',
+    'Fuselage Length',
+    'Max Internal Cargo*',
+    'Max External Cargo*',
+    'Lift Capacity*',
+    'Max Takeoff Weight',
+    'Max Speed',
+    'Max Range',
+];
 
-register_via_taxonomy_core( 
-    array(
-        __( 'Mission Type', '_s', '_s' ), // Singular
-        __( 'Mission Type', '_s', '_s' ), // Plural
-        'mission-type' // Registered name
-    ), 
-	array(
-		'public' => false,
-        'rewrite' => false,
-	), 
-	array( 'fleet' ) 
-);
+foreach( $fleet_filters as $filter ) {
+    
+    $slug = sanitize_title_with_dashes( $filter );
+    
+    register_via_taxonomy_core( 
+        array(
+            __( $filter, '_s', '_s' ), // Singular
+            __( $filter, '_s', '_s' ), // Plural
+            $slug // Registered name
+        ), 
+        array(
+            'public' => false,
+            'rewrite' => false,
+        ), 
+        array( 'fleet' ) 
+    );
+}
+

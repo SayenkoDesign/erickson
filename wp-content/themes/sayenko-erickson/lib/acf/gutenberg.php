@@ -1,27 +1,4 @@
 <?php
-
-function _s_acf_block_render_callback( $block ) {
-
-	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
-	$slug = str_replace( 'acf/', '', $block['name'] );
-            
-	// include a template part from within the "template-parts/block" folder
-    
-    _s_get_template_part( "template-parts/block", $slug, [ 'data' => [ 'block' => $block ] ] ); 
-    
-    /*
-    if( is_admin() ) {
-        //$template = get_theme_file_path( "/template-parts/block/{$slug}/backend.php" );
-        _s_get_template_part( "template-parts/block/{$slug}", "backend", $data ); 
-    } else {
-        //$template = get_theme_file_path( "/template-parts/block/{$slug}/frontend.php" );  
-        _s_get_template_part( "template-parts/block/{$slug}", "frontend", $data ); 
-    }
-    */
-}
-
-
-
 /**
  * Load colors dynamically into select field from _s_get_theme_colors()
  *
@@ -62,9 +39,9 @@ function _s_acf_load_color_picker_field_choices( $field ) {
  */
 function _s_get_theme_colors() {
 	return array(
-		esc_html__( 'Gray', '_s' )           => '#4A4A4A',
+		esc_html__( 'Light Gray', '_s' )     => '#ECECEC',
 		esc_html__( 'White', '_s' )          => '#ffffff',
-        esc_html__( 'Blue', '_s' )           => '#00ACCA'
+        esc_html__( 'Navy', '_s' )           => '#123759'
 	);
 }
 
@@ -110,7 +87,7 @@ function _s_get_theme_background_colors() {
 	return array(
 		esc_html__( 'White', '_s' )          => '#ffffff',
         esc_html__( 'Gray', '_s' )           => '#EFF3F1',
-        esc_html__( 'Dark Blue', '_s' )      => '#0F3D4A'
+        esc_html__( 'Dark Blue', '_s' )      => '#123759'
 	);
 }
 
@@ -127,3 +104,31 @@ function _s_acf_block_image_sizes( $sizes ) {
     ) );
 }
 // add_filter( 'image_size_names_choose', '_s_acf_block_image_sizes' );
+
+
+
+
+function _s_has_h1_block( $blocks = array() ) {
+	foreach ( $blocks as $block ) {
+
+		if( ! isset( $block['blockName'] ) )
+			continue;
+
+		// Custom header block
+		if( 'acf/hero' === $block['blockName'] ) {
+			return true;
+
+		// Heading block
+		} elseif( 'core/heading' === $block['blockName'] && isset( $block['attrs']['level'] ) && 1 === $block['attrs']['level'] ) {
+			return true;
+
+		// Scan inner blocks for headings
+		} elseif( isset( $block['innerBlocks'] ) && !empty( $block['innerBlocks'] ) ) {
+			$inner_h1 = be_has_h1_block( $block['innerBlocks'] );
+			if( $inner_h1 )
+				return true;
+		}
+	}
+
+	return false;
+}

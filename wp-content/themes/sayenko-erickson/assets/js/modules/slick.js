@@ -5,7 +5,7 @@ import imagesLoaded from 'imagesloaded';
 export default {
 	init() {
         
-        let $heroSlider = $('.section-hero .slider');
+        let $heroSlider = $('.section-hero .slider, .block-hero .slider');
         
         if ( $('.slick', $heroSlider).length ) {
             
@@ -41,7 +41,7 @@ export default {
         
         // About - history
         
-        let $tabsSlider = $('.section-advantage .slider');
+        let $tabsSlider = $('.section-advantage .slider, .block-erickson-advantage .slider');
         
         if ( $('.slick', $tabsSlider).length ) {
             
@@ -79,35 +79,36 @@ export default {
                 
                 $tabsSlider.addClass('images-loaded');
                 
-                $('.section-advantage .slick-tabs').on('click', 'li', function() {
+                $('.section-advantage .slick-tabs, .block-erickson-advantage .slick-tabs').on('click', 'li', function() {
                     let index = $(this).index();
                     $(this).siblings().removeClass('active');
                     $('.slick', $tabsSlider).slick('slickGoTo', index);
                     $(this).addClass('active');
                  });
+                 
+                 $tabsSlider.on( 'afterChange', function( event, slick, currentSlide ) {
+                     console.log(currentSlide);
+                    $('.block-erickson-advantage .slick-tabs').find('li').removeClass('active').eq(currentSlide).addClass('active');
+                });
                     
              });
         }
         
         
         
-        let $benefitsSlider = $('.section-benefits .slider');
+        let $coreValues = $('.block-core-values .slider');
         
-        if ( $('.slick', $benefitsSlider).length ) {
+        if ( $('.slick', $coreValues).length ) {
             
-            $benefitsSlider.imagesLoaded()
+            
+            
+            $coreValues.imagesLoaded()
             
                 .done( function( instance ) {
-                    
-                    $('.section-benefits .grid').on('click','.grid-item', function(e){
-                        e.preventDefault();
-                        var slideIndex = $(this).parent().index();
-                        $('.slick', $benefitsSlider).slick( 'slickGoTo', parseInt(slideIndex) );
-                    });
-                    
-                    $( '<div class="slick-arrows"></div>' ).insertAfter( '.section-benefits .slick' );
+                                        
+                    $( '<div class="slick-arrows"></div>' ).insertAfter( '.block-core-values .slick' );
             
-                    $('.slick', $benefitsSlider).slick({
+                    $('.slick', $coreValues).slick({
                         fade: true,
                         autoplay: false,
                         infinite: true,
@@ -116,10 +117,17 @@ export default {
                         dots: true,
                         rows: 0,
                         speed: 300,
-                        appendArrows: $('.section-benefits .slick-arrows')
+                        appendArrows: $('.block-core-values .slick-arrows')
                     });
                 
-                    $('.section-benefits').addClass('images-loaded');
+                    $('.block-core-values').addClass('images-loaded');
+                    
+                    
+                    $('.block-core-values .grid').on('click','.grid-item', function(e){
+                        //e.preventDefault();
+                        var slideIndex = $(this).parent().index();
+                        $('.slick', $coreValues).slick( 'slickGoTo', parseInt(slideIndex) );
+                    });
                     
              });
              
@@ -129,7 +137,7 @@ export default {
         
         // Careers - Testimonials
         
-        let $testimonialsSlider = $('.section-testimonials .slider');
+        let $testimonialsSlider = $('.section-testimonials .slider, .block-testimonials .slider');
         
         if ( $('.slick', $testimonialsSlider).length ) {
             
@@ -166,7 +174,7 @@ export default {
         
         
         
-        let $serviceGallerySlider = $('.section-service-gallery .slider');
+        let $serviceGallerySlider = $('.section-service-gallery .slider, .block-photo-gallery .slider');
         
         if ( $('.slick', $serviceGallerySlider).length ) {
             

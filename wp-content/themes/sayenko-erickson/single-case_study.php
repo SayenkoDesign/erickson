@@ -19,7 +19,7 @@ _s_get_template_part( 'template-parts/case-study', 'post-hero' );
             
             _s_get_template_part( 'template-parts/case-study', 'solution' );
             
-            _s_get_template_part( 'template-parts/global', 'results' );
+            _s_get_template_part( 'template-parts/case-study', 'results' );
             
             _s_get_template_part( 'template-parts/case-study', 'testimonial' ); 
                 

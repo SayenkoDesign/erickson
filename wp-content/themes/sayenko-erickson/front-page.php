@@ -9,42 +9,38 @@
 
 add_filter( 'body_class', function ( $classes ) {
 	unset( $classes[ array_search( 'page-template-default', $classes ) ] );
-    $classes[] = 'pinned-header';
 	// $classes[] = '';
 	return $classes;
 }, 99 );
 
 get_header(); ?>
 
-<?php
-_s_get_template_part( 'template-parts/home', 'hero' );
-?>
+<div class="grid-container">
+
+    <div class="grid-x grid-margin-x">    
   
-    <div id="primary" class="content-area">
-
-        <main id="main" class="site-main" role="main">
-
-            <?php
-            while ( have_posts() ) :
-
-                the_post();
-
-                _s_get_template_part( 'template-parts/home', 'services' );
-                
-                _s_get_template_part( 'template-parts/home', 'customers' );
-                
-                _s_get_template_part( 'template-parts/global', 'advantage' );
-                
-                _s_get_template_part( 'template-parts/global', 'case-studies' );
-                
-                _s_get_template_part( 'template-parts/global', 'featured-post' );
+        <div id="primary" class="cell content-area">
+    
+            <main id="main" class="site-main" role="main">
+            <?php		
                     
-            endwhile;       
-           ?>
-
-        </main>
-
+            while ( have_posts() ) :
+        
+                the_post();
+                            
+                get_template_part( 'template-parts/content', 'page' );
+                    
+            endwhile;
+            
+            ?>
+            </main>
+        
+        </div>
+    
     </div>
+
+</div>
+
 
 <?php
 get_footer();

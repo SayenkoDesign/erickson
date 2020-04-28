@@ -1,0 +1,77 @@
+// Values
+
+.block-values {
+        
+    background-color: #faf6f6;
+    padding: rem-calc(80 0);
+    
+    @include breakpoint(large) {
+        padding: rem-calc(160 0); 
+    }
+    
+    .panel {
+        padding: rem-calc(0 30 30); 
+        
+        @include breakpoint(large) {
+            padding: rem-calc(0 60); 
+        }
+        
+        text-align: center;
+        
+        header {
+            margin-bottom: rem-calc(20);  
+        }
+        
+        p:first-of-type {
+            margin-bottom: rem-calc(60);   
+        }
+        
+        ul {
+            padding-left: rem-calc(30); 
+            display: inline-block;
+        
+            @include breakpoint(large) {
+                padding-left: rem-calc(60); 
+            }
+            
+            li {
+                text-align: left;  
+                letter-spacing: 0.98px; 
+                font-family: $barlow;
+                font-weight: 500;
+            }
+        }
+        
+    }
+         
+    .grid {
+        $column-gap: 5px;
+        
+        display: flex;
+        flex-flow: row wrap;
+        
+        .grid-item {
+            padding: 0 rem-calc($column-gap) 0 0; 
+            margin-top: $column-gap;
+            
+            flex: 0 0 50%;
+            max-width: 50%;
+            .background {
+                padding-top: 60%;  
+                background-size: cover;
+                background-position: center;     
+            }
+            
+            &:first-child {
+                flex: 0 0 100%;
+                max-width: 100%;
+                .background {
+                    padding-top: 60%;   
+                }
+            }
+
+        }
+    } // .grid
+    
+                    
+}

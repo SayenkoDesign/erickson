@@ -219,24 +219,26 @@
                 .panel {
                     height: 100%;
                     position: relative; 
-                    padding: rem-calc(50); 
+                    padding: rem-calc(50 25); 
                     text-align: center; 
                     background: $navy;
                     
                     h3 {
                         color: #ffffff;
                         margin-bottom: 0;
+                                                
+                        font-size: rem-calc(35);
                         
                         @include breakpoint(medium) {
                             font-size: rem-calc(25);
                         }
                         
                         @media screen and #{breakpoint(large)} and #{breakpoint(xlarge down)} {
-                            font-size: rem-calc(35);
+                            font-size: rem-calc(30);
                         }
                         
                         @include breakpoint(xlarge) {
-                            font-size: rem-calc(40);
+                            font-size: rem-calc(35);
                         }
                     }
                     
