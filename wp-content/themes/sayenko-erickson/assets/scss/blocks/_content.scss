@@ -3,13 +3,15 @@
 .block-content {
     padding-top: rem-calc(75);
     
-    &.content-width-narrow .wrap {
+    &.content-width-narrow .container {
         margin: 0 auto;
         max-width: rem-calc(600);   
     }
     
-    &.content-align-center {
+    &.content-align-center .container {
         text-align: center;
+        margin: 0 auto;
+        max-width: rem-calc(900);
     }
     
     &.background-color-gray {

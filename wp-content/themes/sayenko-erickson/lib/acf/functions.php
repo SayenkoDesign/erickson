@@ -137,7 +137,8 @@ function _s_acf_button( $args = [] ) {
                
     $parts = wp_parse_url( $url );
     
-    if( is_array( $parts ) ) {
+    if( is_array( $parts ) && ! empty( $parts['path'] ) ) {
+        
         $path = $parts['path'];
 
         if ( $_post = get_page_by_path( basename( untrailingslashit( $path ) ), OBJECT, 'modal' ) ) {

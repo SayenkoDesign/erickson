@@ -193,6 +193,19 @@ function _s_acf_register_blocks() {
 		) );
         
         acf_register_block_type( array(
+			'name'            => 'fleet',
+			'title'           => __( 'Fleet', '_s' ),
+			'description'     => __( 'Services Fleet block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'fleet block' ),
+            'post_types' => array('page', 'service' ),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );	
+        
+        acf_register_block_type( array(
 			'name'            => 'hero',
 			'title'           => __( 'Hero', '_s' ),
 			'description'     => __( 'Hero', '_s' ),
@@ -371,6 +384,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/photo-gallery',
             'acf/content',
             'acf/button',
+            'acf/fleet',
                         
             'core/group',
             'core/reusableBlock',
