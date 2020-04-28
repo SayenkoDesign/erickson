@@ -141,15 +141,7 @@ export default {
             distance: '100%',
         });
         
-        ScrollReveal().reveal( '.block-results .cell', { 
-            delay: 400,
-            distance: '100%',
-            interval: 200,
-            afterReveal: function (el) {
-                $('.block-results .cell .number').addClass('revealed');
-            }
-        });
-        
+
          
         ScrollReveal().reveal( '.block-clients', { 
             distance: '100%',

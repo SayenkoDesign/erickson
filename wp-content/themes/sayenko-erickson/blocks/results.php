@@ -54,7 +54,7 @@ if( ! class_exists( 'Block_Results' ) ) {
                 $description   = _s_format_string( $row['description'], 'h4' ); 
                 
                 $cells .= sprintf( '<div class="cell medium-auto"><div class="panel">
-                <h3 class="number" data-prefix="%s" data-suffix="%s" data-format="%s" data-value="%s">&nbsp;</h3>%s</div></div>',
+                <h3 class="number animate" data-prefix="%s" data-suffix="%s" data-format="%s" data-value="%s">&nbsp;</h3>%s</div></div>',
                                     $prefix,
                                     $suffix,
                                     $format,

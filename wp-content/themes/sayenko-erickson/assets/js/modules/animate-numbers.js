@@ -3,12 +3,16 @@ import $ from 'jquery';
 
 export default {
 	init() {
-        $(window).scroll(animateNumbers);
     
-        $(window).on("load scroll",function(e){
-            animateNumbers(); 
+
+        $(window).on('load.animateNumbers scroll.animateNumbers', function(){
+          if( $('.block-results').is_on_screen() ) {
+             animateNumbers();
+             $(window).off('load.animateNumbers scroll.animateNumbers');
+          }
         });
-        var viewed = false;
+        
+        // var viewed = false;
         
         // count decimals
         function countDecimals(num) {
@@ -23,30 +27,29 @@ export default {
           return index == -1 ? 0 : (text.length - index - 1)
         }
         
-        function isScrolledIntoView(elem) {
+        $.fn.is_on_screen = function(){
+
+            var win = $(window);
             
-            if( ! $(elem).length ) {
-                return false;
-            }
+            var viewport = {
+                top : win.scrollTop(),
+                left : win.scrollLeft()
+            };
+            viewport.right = viewport.left + win.width();
+            viewport.bottom = viewport.top + win.height();
             
-            var docViewTop = $(window).scrollTop();
-            var docViewBottom = docViewTop + $(window).height();
-        
-            var elemTop = $(elem).offset().top;
-            var elemBottom = elemTop + $(elem).height();
-        
-            return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-        }
-        
+            var bounds = this.offset();
+            bounds.right = bounds.left + this.outerWidth();
+            bounds.bottom = bounds.top + this.outerHeight();
+            
+            return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+            
+        };
+       
         function animateNumbers() {
-          
-          if (isScrolledIntoView($(".numbers")) && !viewed) {
-              viewed = true;
-              
-              
-            
+                      
             // Find all Statistics on page, put them inside a variable
-            var number = $(".number");
+            var number = $(".block-results .number");
             
             // For each Statistic we find, animate it
             number.each(function(index) {
@@ -66,9 +69,8 @@ export default {
                     useGrouping: format,
                     decimal: "."
                 };
-                
-                // Start animating
-                
+            
+                                    
                 setTimeout(function(){
                     var numberAnimation = new CountUp(number[index], value, options);
                     if (!numberAnimation.error) {
@@ -79,10 +81,9 @@ export default {
                 
                 }, 1000);
                 
-            });
-              
-              
-          }
+                $(number[index]).removeClass('animate')
+           });
+                        
         }
 	},
 };

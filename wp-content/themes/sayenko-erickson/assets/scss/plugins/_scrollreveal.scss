@@ -83,7 +83,7 @@ html.sr {
 html.sr {
  
     .block-approach {
-        h1 {
+        header {
             visibility: hidden; 
         }
         
@@ -95,7 +95,7 @@ html.sr {
     .block-results .numbers {
         header,
         .cell {
-           visibility: hidden;
+          // visibility: hidden;
         }
     }
     

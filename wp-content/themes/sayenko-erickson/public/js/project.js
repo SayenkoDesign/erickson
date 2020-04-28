@@ -2669,11 +2669,13 @@ function _arrayWithHoles(arr){if(Array.isArray(arr))return arr;}
 
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
-jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scroll(animateNumbers);
-jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on("load scroll",function(e){
+jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on('load.animateNumbers scroll.animateNumbers',function(){
+if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results').is_on_screen()){
 animateNumbers();
-});
-var viewed=false;// count decimals
+jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).off('load.animateNumbers scroll.animateNumbers');
+}
+});// var viewed = false;
+// count decimals
 
 function countDecimals(num){
 var text=num.toString();
@@ -2693,23 +2695,23 @@ var index=text.indexOf(".");
 return index==-1?0:text.length-index-1;
 }
 
-function isScrolledIntoView(elem){
-if(!jquery__WEBPACK_IMPORTED_MODULE_1___default()(elem).length){
-return false;
-}
+jquery__WEBPACK_IMPORTED_MODULE_1___default.a.fn.is_on_screen=function(){
+var win=jquery__WEBPACK_IMPORTED_MODULE_1___default()(window);
+var viewport={
+top:win.scrollTop(),
+left:win.scrollLeft()};
 
-var docViewTop=jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scrollTop();
-var docViewBottom=docViewTop+jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).height();
-var elemTop=jquery__WEBPACK_IMPORTED_MODULE_1___default()(elem).offset().top;
-var elemBottom=elemTop+jquery__WEBPACK_IMPORTED_MODULE_1___default()(elem).height();
-return elemBottom<=docViewBottom&&elemTop>=docViewTop;
-}
+viewport.right=viewport.left+win.width();
+viewport.bottom=viewport.top+win.height();
+var bounds=this.offset();
+bounds.right=bounds.left+this.outerWidth();
+bounds.bottom=bounds.top+this.outerHeight();
+return !(viewport.right<bounds.left||viewport.left>bounds.right||viewport.bottom<bounds.top||viewport.top>bounds.bottom);
+};
 
 function animateNumbers(){
-if(isScrolledIntoView(jquery__WEBPACK_IMPORTED_MODULE_1___default()(".numbers"))&&!viewed){
-viewed=true;// Find all Statistics on page, put them inside a variable
-
-var number=jquery__WEBPACK_IMPORTED_MODULE_1___default()(".number");// For each Statistic we find, animate it
+// Find all Statistics on page, put them inside a variable
+var number=jquery__WEBPACK_IMPORTED_MODULE_1___default()(".block-results .number");// For each Statistic we find, animate it
 
 number.each(function(index){
 var _$$data,_$$data2,_$$data3,_options;
@@ -2726,8 +2728,7 @@ useGrouping:true,
 decimalPlaces:decimalPlaces,
 prefix:prefix,
 suffix:suffix},
-_defineProperty(_options,"useGrouping",format),_defineProperty(_options,"decimal","."),_options);// Start animating
-
+_defineProperty(_options,"useGrouping",format),_defineProperty(_options,"decimal","."),_options);
 setTimeout(function(){
 var numberAnimation=new countup_js__WEBPACK_IMPORTED_MODULE_0__["CountUp"](number[index],value,options);
 
@@ -2737,8 +2738,8 @@ numberAnimation.start();
 console.error(numberAnimation.error);
 }
 },1000);
+jquery__WEBPACK_IMPORTED_MODULE_1___default()(number[index]).removeClass('animate');
 });
-}
 }
 }};
 
@@ -3417,14 +3418,6 @@ interval:400});
 });
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-results header',{
 distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-results .cell',{
-delay:400,
-distance:'100%',
-interval:200,
-afterReveal:function afterReveal(el){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.block-results .cell .number').addClass('revealed');
-}});
 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.block-clients',{
 distance:'100%'});
