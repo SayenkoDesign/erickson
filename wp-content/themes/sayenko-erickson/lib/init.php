@@ -75,29 +75,6 @@
     
     include_once( 'functions/autoptimize.php' );
 
-/****************************************
-	ACF Custom Fields
- *****************************************/
-    
-    include_once( 'acf/admin.php' );
-    
-	include_once( 'acf/functions.php' );
-    
-    include_once( 'acf/gutenberg.php' );
-    
-	include_once( 'acf/blocks.php' );
-    
-    include_once( 'acf/filters.php' );
-        
-    include_once( 'acf/options.php' );
-    
-    include_once( 'acf/search.php' );
-    
-    
-        
-    // Load fields via PHP
-    // include_once( 'acf/fields.php' );
-
 
 /****************************************
 	include_onces (Foundation)
@@ -129,3 +106,27 @@ include_once( 'foundation/class-foundation-accordion.php' );
     include_once( 'post-types/cpt-video-gallery.php' );
     
     include_once( 'post-types/cpt-landing-page.php' );
+    
+    
+/****************************************
+	ACF Custom Fields
+ *****************************************/
+    
+    include_once( 'acf/admin.php' );
+    
+	include_once( 'acf/functions.php' );
+    
+    include_once( 'acf/gutenberg.php' );
+    
+	include_once( 'acf/blocks.php' );
+    
+    include_once( 'acf/filters.php' );
+        
+    include_once( 'acf/options.php' );
+    
+    include_once( 'acf/search.php' );
+    
+    
+        
+    // Load fields via PHP
+    // include_once( 'acf/fields.php' );

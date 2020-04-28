@@ -44,11 +44,7 @@
             
             li:first-child {
                 
-                border-top: 1px solid #f1f4f2; 
-                
-                > a {
-                    color: $red;
-                }
+                border-top: 1px solid #f1f4f2;                 
             }
             
             li {
@@ -68,6 +64,12 @@
                     line-height: 1.611111111; 
                     text-transform: uppercase;
                     font-family: $barlow; 
+                }
+                
+                &.red {
+                    > a {
+                        color: $red;
+                    }   
                 }
             }
         }

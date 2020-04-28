@@ -1,6 +1,7 @@
 <?php
 
 // Wrap category links with an inner span so that we can better style them if needed this created <a href=""><span></span></a>
+/*
 add_filter( 'the_category', function( $the_list ) {  
 
     if( is_admin() || empty( $the_list ) ) {
@@ -18,6 +19,7 @@ add_filter( 'the_category', function( $the_list ) {
     
     return $dom->saveHtml();
 });
+*/
 
 
 // Custom paginate links function

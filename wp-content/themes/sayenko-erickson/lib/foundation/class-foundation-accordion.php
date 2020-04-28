@@ -30,6 +30,8 @@ class Foundation_Accordion extends Foundation {
 
     public function add_item( $args = array() ) {
                 
+        $defaults = [ 'classes' => '' ];
+        
         if( !is_array( $args ) ) {
             wp_die( __( 'It is required to pass an array of arguments: title, content', 'foundation' ) );
         }
@@ -37,6 +39,8 @@ class Foundation_Accordion extends Foundation {
         if( ! isset( $args['title'] ) && ! isset( $args['content'] ) ) {
             wp_die( __( 'Tab title and content are required', 'foundation' ) );
         }
+        
+        $args = wp_parse_args( $args, $defaults );
         
         $this->items[] = $args;
 	}
@@ -55,11 +59,11 @@ class Foundation_Accordion extends Foundation {
         $count = 0;
         
         foreach( $items as $item ) {
-            $accordion .= sprintf( '<li class="accordion-item%s" data-accordion-item>
+            $accordion .= sprintf( '<li class="accordion-item %s" data-accordion-item>
                                         <a href="#" class="accordion-title">%s</a>
                                         <div class="accordion-content" data-tab-content>%s</div>
                                    </li>',
-                                    $item['active'] ? ' is-active' : '',
+                                    $item['classes'],
                                     $item['title'],
                                     $item['content']   
                                  );

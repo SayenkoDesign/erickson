@@ -71,6 +71,7 @@ if( ! class_exists( 'Contact_Directory' ) ) {
                 $icon = _s_get_acf_image( $row[ 'image' ] );
                 
                 $title   = sprintf( '%s%s', $icon, $row['title'] ); 
+                $title_red = $row['title_red'];
                 $content = _s_format_string( $row['address'], 'p' ); 
                 
                 $lines = '';
@@ -92,13 +93,22 @@ if( ! class_exists( 'Contact_Directory' ) ) {
                     continue;
                 }
                                 
-                // $active = ! $key ? true : false;
-                $active = false;
+                $classes = [];
+                
+                /*
+                if( ! $key ) {
+                    $classes[]] = 'is-active';
+                }
+                */
+                
+                if( $title_red ) {
+                    $classes[] = 'red';
+                }
                                 
                 $fa->add_item( [
                     'title' => $title, 
                     'content' => $content,
-                    'active' => $active 
+                    'classes' => join( ' ', $classes )  
                 ] );
                 
                 $count ++;                

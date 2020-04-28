@@ -1,5 +1,10 @@
 <?php     
 //Case Study Post Column
+$target = '';
+
+if( ! empty( $data['target'] ) ) {
+    $target = sprintf( ' target="%s"', $data['target'] );
+}
 
 $size = wp_is_mobile() ? 'medium' : 'large';
 $image = get_the_post_thumbnail_url( get_the_ID(), $size ); 
@@ -11,13 +16,14 @@ if( ! empty( $term ) ) {
 }   
 
 printf( '<article id="post-%s" class="%s"%s><div class="panel">
-            %s<h3><a class="post-link" href="%s">%s</a></h3>
+            %s<h3><a class="post-link" href="%s"%s>%s</a></h3>
         </div></article>', 
         get_the_ID(), 
         join( ' ', get_post_class( 'cell' ) ),
         $style, 
         $term, 
         get_permalink(), 
+        $target,
         get_the_title() 
 );
 

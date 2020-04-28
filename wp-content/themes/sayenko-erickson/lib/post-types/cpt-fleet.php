@@ -44,7 +44,7 @@ class CPT_FLEET extends CPT_Core {
         
         add_action( 'pre_get_posts', array( $this,'pre_get_posts' ) );
         
-        add_filter('acf/load_value/key=field_5e20ed5017a45',  [ $this, 'afc_load_my_repeater_value'], 10, 3); // preload descrption repeater
+        // add_filter('acf/load_value/key=field_5e20ed5017a45',  [ $this, 'afc_load_my_repeater_value'], 10, 3); // preload descrption repeater
 		
      }
      

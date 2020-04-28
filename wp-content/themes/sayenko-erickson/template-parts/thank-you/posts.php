@@ -100,10 +100,12 @@ if( ! class_exists( 'Landing_Page_Posts' ) ) {
     
                     $loop->the_post(); 
                     
+                    $data = [ 'target' => '_blank' ];
+                    
                     if( 'case_study' == get_post_type() ) {
-                        $cells .= _s_get_template_part( 'template-parts/case-study', 'post-column', false, true );
+                        $cells .= _s_get_template_part( 'template-parts/case-study', 'post-column', $data, true );
                     } else {
-                        $cells .= _s_get_template_part( 'template-parts/blog', 'related-post-column', false, true );
+                        $cells .= _s_get_template_part( 'template-parts/blog', 'related-post-column', $data, true );
                     }
     
                 endwhile;

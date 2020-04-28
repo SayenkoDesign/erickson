@@ -133,12 +133,13 @@ function _s_acf_button( $args = [] ) {
 		return false;
 	}
     
-    $url = sprintf( ' href="%s"', esc_url( $url ) ); 
+    $link = sprintf( ' href="%s"', esc_url( $url ) ); 
                
     $parts = wp_parse_url( $url );
     
-    if( ! is_array( $parts ) ) {
+    if( is_array( $parts ) ) {
         $path = $parts['path'];
+
         if ( $_post = get_page_by_path( basename( untrailingslashit( $path ) ), OBJECT, 'modal' ) ) {
             $post_id = $_post->ID;
             $slug = sanitize_title_with_dashes( get_the_title( $post_id ) );
@@ -159,7 +160,7 @@ function _s_acf_button( $args = [] ) {
             ];
             $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
             
-            $url = sprintf( ' data-fancybox %s href="javascript:;"', $options );
+            $link = sprintf( ' data-fancybox %s href="javascript:;"', $options );
             // $url = sprintf( ' data-src="%s" data-type="iframe" data-fancybox="%s" href="javascript:;"', $url, uniqid() );
         }  
     }
@@ -175,7 +176,7 @@ function _s_acf_button( $args = [] ) {
 
 	$output = sprintf(
 		'<a%s%s%s><span>%s</span></a>',
-		$url,
+		$link,
 		$classes,
         esc_attr( $target ),
 		esc_html( $title )

@@ -2783,18 +2783,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('facetwp-loaded',function(){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.facetwp-facet-years').append('<div class="facetwp-reset"><span onclick="FWP.reset()">All</span></div>');// Fleet Add labels
-
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.facetwp-filters .facetwp-facet').each(function(){
-var $facet=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
-var facet_name=$facet.attr('data-name');
-var facet_label=FWP.settings.labels[facet_name];
-
-if($facet.closest('.facet-wrap').length<1&&$facet.closest('.facetwp-flyout').length<1){
-$facet.wrap('<div class="facet-wrap"></div>');
-$facet.before('<h5 class="facet-label">'+facet_label+'</h5>');
-}
-});
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).find('.facetwp-facet-years').append('<div class="facetwp-reset"><span onclick="FWP.reset()">All</span></div>');
 
 if('undefined'!==typeof FWP_HTTP.get.fwp_paged){
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('is-paged');
@@ -2824,7 +2813,11 @@ offset:-100});
 
 }
 });
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('facetwp-refresh',function(){});
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('facetwp-refresh',function(){
+if(FWP.loaded){
+console.log('page loaded');
+}
+});
 /*
     $(document).on('click', '.section-people .facetwp-facet .checked', function() { 
         FWP.facets['departments'] = ['all']; 
@@ -2864,19 +2857,11 @@ init:function init(){
         }
     });
     
+    
     $('a[data-fancybox]').fancybox({
         
         afterShow: function (instance, current) {
-            let $a = current.opts.$orig;
-            let url = $a.data('url');
-            if( url ) {
-                $(".fancybox-image").wrap($("<a />", {
-                    // set anchor attributes
-                    href: url, //or your target link
-                    target: "_blank" // optional
-                }));
-            }
-            
+            $.fn.matchHeight._update();
         }
      });
     */
@@ -2930,6 +2915,9 @@ buttons:[//'share',
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! jquery */"jquery");
 /* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */var js_cookie__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! js-cookie */"./node_modules/js-cookie/src/js.cookie.js");
+/* harmony import */var js_cookie__WEBPACK_IMPORTED_MODULE_1___default=/*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_1__);
+
 
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
@@ -3012,14 +3000,15 @@ return k;
 var $stickyHeader=jquery__WEBPACK_IMPORTED_MODULE_0___default()(".sticky-header .site-header");
 var $body=jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
 var $wpAdminBar=0;
-var $height=0;
+var height=0;
+var showNotificationBar=js_cookie__WEBPACK_IMPORTED_MODULE_1___default.a.get('show-notification-bar');
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("load",function(){
-var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar');
-
-if(!$notificationBar.length){
-$body.removeAttr('style');
+if('no'===showNotificationBar){
 return;
 }
+
+var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar');
+$notificationBar.removeClass('hide');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('logged-in')){
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width()>782){
@@ -3027,13 +3016,13 @@ $wpAdminBar=32;
 }else {
 $wpAdminBar=46;
 }
-}//$height = $notificationBar.height() + $wpAdminBar;
+}//height = $notificationBar.height() + $wpAdminBar;
 
 
-$height=$notificationBar.actual('height')+$wpAdminBar;
+height=$notificationBar.actual('height')+$wpAdminBar;
 setTimeout(function(){
 if(Foundation.MediaQuery.atLeast('xlarge')){
-$body.css('top',$height);
+$body.css('top',height);
 }else {
 $body.css('top','auto');
 $body.removeAttr('style');
@@ -3045,11 +3034,6 @@ $notificationBar.show();
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("resize",function(){
 var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar');
 
-if(!$notificationBar.length){
-$body.removeAttr('style');
-return;
-}
-
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('logged-in')){
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width()>782){
 $wpAdminBar=32;
@@ -3058,12 +3042,11 @@ $wpAdminBar=46;
 }
 }
 
-$height=$notificationBar.height()+$wpAdminBar;
+height=$notificationBar.height()+$wpAdminBar;
 
 if(Foundation.MediaQuery.atLeast('xlarge')){
-$body.css('top',$height);
+$body.css('top',height);
 }else {
-$body.css('top','auto');
 $body.removeAttr('style');
 }
 });
@@ -3075,8 +3058,6 @@ $stickyHeader.removeAttr('style');
 return;
 }
 
-console.log('test');
-
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('logged-in')){
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width()>782){
 $wpAdminBar=32;
@@ -3085,25 +3066,27 @@ $wpAdminBar=46;
 }
 }
 
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop()>=$height){
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop()>=height){
 $stickyHeader.addClass("fixed");
 $body.removeAttr('style');
 }else {
 $stickyHeader.removeClass("fixed");
 
 if(Foundation.MediaQuery.atLeast('xlarge')){
-$body.css('top',$height);
+$body.css('top',height);
 }else {
-$body.css('top','auto');
 $body.removeAttr('style');
 }
 }
 });
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('close.zf.trigger','[data-closable]',function(e){
-console.log('closed');
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('close.zf.trigger','.section-notification-bar[data-closable]',function(e){
 $body.css('top','auto');
 $body.removeAttr('style');
+$stickyHeader.removeAttr('style');
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar').remove();
+js_cookie__WEBPACK_IMPORTED_MODULE_1___default.a.set('show-notification-bar','no',{
+expires:1});
+
 });
 }};
 
