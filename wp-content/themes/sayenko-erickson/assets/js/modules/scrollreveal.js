@@ -5,6 +5,12 @@ export default {
 	init() {
 
 		'use strict';
+        
+        
+        $('.is-mobile .block-hero .play-video').addClass('revealed');
+        $('.is-mobile .section-hero .play-video').addClass('revealed');
+        $('.is-mobile .block-content .cell .play-video').addClass('revealed');
+        
     
         // https://scrollrevealjs.org/api/defaults.html
         
@@ -21,38 +27,38 @@ export default {
             }
         });
         
-        // ScrollReveal({});
+        // ScrollReveal({ mobile: false });
                         
         /*
             Blocks
         */
             
-        ScrollReveal().reveal('.block-hero', {
-            delay: 200
+        ScrollReveal().reveal('.is-desktop .block-hero', {
+            delay: 200,
         });
         
-        ScrollReveal().reveal('.block-hero h1', { 
+        ScrollReveal().reveal('.is-desktop .block-hero h1', { 
             delay: 400,
             distance: '100%',
         });
         
-        ScrollReveal().reveal('.block-hero p', { 
+        ScrollReveal().reveal('.is-desktop .block-hero p', { 
             delay: 800,
             distance: '100%',
         });
         
-        ScrollReveal().reveal('.block-hero h3', { 
+        ScrollReveal().reveal('.is-desktop .block-hero h3', { 
             delay: 1200,
             distance: '100%',
         });
         
-        ScrollReveal().reveal('.block-hero .button', { 
+        ScrollReveal().reveal('.is-desktop .block-hero .button', { 
             delay: 1600,
             distance: '100%',
         });
         
         
-        ScrollReveal().reveal('.block-hero .play-video', { 
+        ScrollReveal().reveal('.is-desktop .block-hero .play-video', { 
             delay: 2000,
             scale: 0.1,
             afterReveal: function (el) {
@@ -62,38 +68,38 @@ export default {
             
         // Services
         
-        ScrollReveal().reveal( '.block-services' );
+        ScrollReveal().reveal( '.is-desktop .block-services' );
         
-        ScrollReveal().reveal( '.block-services .grid-item', { 
+        ScrollReveal().reveal( '.is-desktop .block-services .grid-item', { 
             delay: 400,
             distance: '100%',
             interval: 200
         });
             
             
-        //ScrollReveal().reveal( '.block-erickson-advantage' );
+        //ScrollReveal().reveal( '.is-desktop .block-erickson-advantage' );
         
         
-        ScrollReveal().reveal( '.block-erickson-advantage header', { 
+        ScrollReveal().reveal( '.is-desktop .block-erickson-advantage header', { 
             delay: 200,
             distance: '100%'
         });
         
-        ScrollReveal().reveal( '.block-erickson-advantage .slider', { 
+        ScrollReveal().reveal( '.is-desktop .block-erickson-advantage .slider', { 
             delay: 400,
             distance: '100%'
         });
             
             
         // Featured Post
-        ScrollReveal().reveal('.block-featured-post' );
+        ScrollReveal().reveal('.is-desktop .block-featured-post' );
         
-        ScrollReveal().reveal('.block-featured-post header', { 
+        ScrollReveal().reveal('.is-desktop.block-featured-post header', { 
             delay: 400,
             distance: '100%'
         });
         
-        ScrollReveal().reveal( '.block-featured-post .grid .cell', { 
+        ScrollReveal().reveal( '.is-desktop.block-featured-post .grid .cell', { 
             delay: 800,
             interval: 250,
             distance: '100%'
@@ -101,14 +107,14 @@ export default {
         
         
         // Customers
-        ScrollReveal().reveal( '.block-customers' );
+        ScrollReveal().reveal( '.is-desktop .block-customers' );
         
-        ScrollReveal().reveal( '.block-customers header', { 
+        ScrollReveal().reveal( '.is-desktop .block-customers header', { 
             delay: 400,
             distance: '100%'
         });
         
-        ScrollReveal().reveal( '.block-customers .logos li', { 
+        ScrollReveal().reveal( '.is-desktop .block-customers .logos li', { 
             easing: "ease-out",
             delay: 800,
             interval: 200,
@@ -117,7 +123,7 @@ export default {
         });
         
                         
-        ScrollReveal().reveal( '.block-approach header', { 
+        ScrollReveal().reveal( '.is-desktop .block-approach header', { 
             distance: '100%'
         });
         
@@ -128,7 +134,7 @@ export default {
         });
         
         $('.block-approach .grid-margin-bottom .cell').each(function (index, element) {
-             ScrollReveal().reveal( '#' + element.id, { 
+             ScrollReveal().reveal( '.is-desktop #' + element.id, { 
                 delay: 400,
                 origin: index % 2 ? 'left' : 'right',
                 distance: '100%',
@@ -137,17 +143,17 @@ export default {
         }); 
         
                 
-        ScrollReveal().reveal( '.block-results header', { 
+        ScrollReveal().reveal( '.is-desktop .block-results header', { 
             distance: '100%',
         });
         
 
          
-        ScrollReveal().reveal( '.block-clients', { 
+        ScrollReveal().reveal( '.is-desktop .block-clients', { 
             distance: '100%',
         });
         
-        ScrollReveal().reveal( '.block-clients header', { 
+        ScrollReveal().reveal( '.is-desktop .block-clients header', { 
             delay: 400,
             distance: '100%',
             interval: 200
@@ -155,108 +161,108 @@ export default {
         
         // Service Gallery
         
-        ScrollReveal().reveal( '.block-service-gallery header', { 
+        ScrollReveal().reveal( '.is-desktop .block-service-gallery header', { 
             distance: '100%',
         });
         
-        ScrollReveal().reveal( '.block-service-gallery .slick', { 
+        ScrollReveal().reveal( '.is-desktop .block-service-gallery .slick', { 
             delay: 400,
             distance: '100%',
             interval: 200
         });
         
                 
-        //ScrollReveal().reveal( '.section-case-studies' );
+        //ScrollReveal().reveal( '.is-desktop .section-case-studies' );
         
-        ScrollReveal().reveal('.block-case-studies header', { 
+        ScrollReveal().reveal('.is-desktop .block-case-studies header', { 
             delay: 400,
             distance: '100%'
         });
         
-        ScrollReveal().reveal('.block-case-studies article', { 
+        ScrollReveal().reveal('.is-desktop .block-case-studies article', { 
             delay: 800,
             interval: 250,
             distance: '100%'
         });
                 
         
-        ScrollReveal().reveal( '.block-mission-vision', { 
+        ScrollReveal().reveal( '.is-desktop .block-mission-vision', { 
             distance: '100%'
         }); 
         
 
-        ScrollReveal().reveal( '.block-benefits header', { 
+        ScrollReveal().reveal( '.is-desktop .block-benefits header', { 
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.block-benefits .grid .cell', { 
+        ScrollReveal().reveal( '.is-desktop .block-benefits .grid .cell', { 
             delay: 400,
             distance: '100%',
             interval: 200
         }); 
         
         
-        ScrollReveal().reveal( '.block-columns header', { 
+        ScrollReveal().reveal( '.is-desktop .block-columns header', { 
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.block-columns .grid .cell', { 
+        ScrollReveal().reveal( '.is-desktop .block-columns .grid .cell', { 
             delay: 400,
             distance: '100%',
             interval: 200
         }); 
         
-        ScrollReveal().reveal( '.block-columns.background-color-gray', { 
+        ScrollReveal().reveal( '.is-desktop .block-columns.background-color-gray', { 
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.block-columns.background-color-gray header', { 
+        ScrollReveal().reveal( '.is-desktop .block-columns.background-color-gray header', { 
             delay: 400,
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.block-columns.background-color-gray.grid .cell', { 
+        ScrollReveal().reveal( '.is-desktop .block-columns.background-color-gray.grid .cell', { 
             delay: 800,
             distance: '100%',
             interval: 200
         }); 
         
         
-        ScrollReveal().reveal( '.block-commitment', { 
+        ScrollReveal().reveal( '.is-desktop .block-commitment', { 
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.block-commitment header', { 
+        ScrollReveal().reveal( '.is-desktop .block-commitment header', { 
             delay: 400,
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.block-commitment .grid .cell', { 
+        ScrollReveal().reveal( '.is-desktop .block-commitment .grid .cell', { 
             delay: 400,
             distance: '100%',
             interval: 200
         }); 
         
         
-        ScrollReveal().reveal( '.block-awards header', { 
+        ScrollReveal().reveal( '.is-desktop .block-awards header', { 
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.block-awards .grid .cell', { 
+        ScrollReveal().reveal( '.is-desktop .block-awards .grid .cell', { 
             delay: 400,
             distance: '100%',
             interval: 200
         }); 
         
                 
-        ScrollReveal().reveal( '.block-core-values header', { 
+        ScrollReveal().reveal( '.is-desktop .block-core-values header', { 
             distance: '100%',
             afterReveal: function (el) {
                 $('.block-core-values .slider').show();
             }
         }); 
         
-        ScrollReveal().reveal( '.block-core-values .grid .cell', { 
+        ScrollReveal().reveal( '.is-desktop .block-core-values .grid .cell', { 
             delay: 400,
             distance: '100%',
             interval: 200
@@ -265,17 +271,17 @@ export default {
         
     
         
-        ScrollReveal().reveal( '.block-testimonials', { 
+        ScrollReveal().reveal( '.is-desktop .block-testimonials', { 
             distance: '100%',
         }); 
         
-        ScrollReveal().reveal( '.block-testimonials .slider', { 
+        ScrollReveal().reveal( '.is-desktop .block-testimonials .slider', { 
             delay: 400,
             distance: '100%',
         }); 
         
         
-        ScrollReveal().reveal( '.block-values' );
+        ScrollReveal().reveal( '.is-desktop .block-values' );
         
         $('.block-values .cell').each(function () {
             if( ! $(this).attr('id') ) {
@@ -283,7 +289,7 @@ export default {
             }
         });
         
-        $('.block-values .cell').each(function (index, element) {
+        $('.is-desktop .block-values .cell').each(function (index, element) {
             console.log(element.id);
             ScrollReveal().reveal( '#' + element.id, { 
                 delay: 400,
@@ -294,24 +300,24 @@ export default {
         }); 
         
         
-        ScrollReveal().reveal( '.block-jobs header', { 
+        ScrollReveal().reveal( '.is-desktop .block-jobs header', { 
             distance: '100%',
         }); 
         
-        ScrollReveal().reveal( '.block-jobs .entry-content', { 
+        ScrollReveal().reveal( '.is-desktop .block-jobs .entry-content', { 
             delay: 400,
             distance: '100%',
         }); 
         
                 
-        ScrollReveal().reveal( '.block-content', { 
+        ScrollReveal().reveal( '.is-desktop .block-content', { 
             delay: 400,
             origin: 'bottom',
             distance: '100%'
         }); 
         
         
-        ScrollReveal().reveal( '.block-content .cell', { 
+        ScrollReveal().reveal( '.is-desktop .block-content .cell', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%',
@@ -327,37 +333,37 @@ export default {
         */
         
         
-        ScrollReveal().reveal('.section-hero', {
+        ScrollReveal().reveal('.is-desktop .section-hero', {
             delay: 200
         });
         
-        ScrollReveal().reveal('.section-hero:not(.has-background-image) h1:not(.no-reveal)', { 
+        ScrollReveal().reveal('.is-desktop .section-hero:not(.has-background-image) h1:not(.no-reveal)', { 
             delay: 400,
             distance: '100%',
         });
         
-        ScrollReveal().reveal('.section-hero.has-background-image h1', { 
+        ScrollReveal().reveal('.is-desktop .section-hero.has-background-image h1', { 
             delay: 400,
             distance: '100%',
         });
         
-        ScrollReveal().reveal('.section-hero p', { 
+        ScrollReveal().reveal('.is-desktop .section-hero p', { 
             delay: 800,
             distance: '100%',
         });
         
-        ScrollReveal().reveal('.section-hero h3', { 
+        ScrollReveal().reveal('.is-desktop .section-hero h3', { 
             delay: 1200,
             distance: '100%',
         });
         
-        ScrollReveal().reveal('.section-hero .button', { 
+        ScrollReveal().reveal('.is-desktop .section-hero .button', { 
             delay: 1600,
             distance: '100%',
         });
         
         
-        ScrollReveal().reveal('.section-hero .play-video', { 
+        ScrollReveal().reveal('.is-desktop .section-hero .play-video', { 
             delay: 2000,
             scale: 0.1,
             afterReveal: function (el) {
@@ -367,37 +373,37 @@ export default {
         
         // History
         
-        ScrollReveal().reveal( '.page-template-history .section-hero .hero-content img', { 
+        ScrollReveal().reveal( '.is-desktop .page-template-history .section-hero .hero-content img', { 
             delay: 400,
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.page-template-history .section-hero .hero-content h1', { 
+        ScrollReveal().reveal( '.is-desktop .page-template-history .section-hero .hero-content h1', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.page-template-history .section-introduction', { 
+        ScrollReveal().reveal( '.is-desktop .page-template-history .section-introduction', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.page-template-history .section-timeline .facetwp-facet', { 
+        ScrollReveal().reveal( '.is-desktop .page-template-history .section-timeline .facetwp-facet', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.page-template-history .section-timeline .facetwp-template', { 
+        ScrollReveal().reveal( '.is-desktop .page-template-history .section-timeline .facetwp-template', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%'
         }); 
         
         
-        $('.page-template-history .section-timeline .facetwp-template').each(function (index, element) {
+        $('.is-desktop .page-template-history .section-timeline .facetwp-template').each(function (index, element) {
             //var id = $(element).attr('id'); 
             ScrollReveal().reveal( '.event', { 
                 delay: 1200,
@@ -407,7 +413,7 @@ export default {
         });
                
         
-        ScrollReveal().reveal( '.page-template-history .facetwp-type-pager', { 
+        ScrollReveal().reveal( '.is-desktop .page-template-history .facetwp-type-pager', { 
             delay: 200,
             distance: '100%'
         });
@@ -422,20 +428,20 @@ export default {
         
         // Team
         
-        ScrollReveal().reveal( '.page-template-team .facetwp-facet', { 
+        ScrollReveal().reveal( '.is-desktop .page-template-team .facetwp-facet', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.page-template-team .facetwp-template .cell', { 
+        ScrollReveal().reveal( '.is-desktop .page-template-team .facetwp-template .cell', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%',
             interval: 400
         }); 
                 
-        ScrollReveal().reveal( '.page-template-team .facetwp-type-pager', { 
+        ScrollReveal().reveal( '.is-desktop .page-template-team .facetwp-type-pager', { 
             delay: 200,
             distance: '100%'
         });
@@ -450,7 +456,7 @@ export default {
         
         // Contact
         
-        ScrollReveal().reveal( '.section-form-directory .cell', { 
+        ScrollReveal().reveal( '.is-desktop .section-form-directory .cell', { 
             delay: 400,
             origin: 'bottom',
             distance: '100%',
@@ -458,25 +464,25 @@ export default {
         }); 
         
         
-        ScrollReveal().reveal( '.section-offices', { 
+        ScrollReveal().reveal( '.is-desktop .section-offices', { 
             distance: '100%',
         });
         
-        ScrollReveal().reveal( '.section-offices header', { 
+        ScrollReveal().reveal( '.is-desktop .section-offices header', { 
             delay: 400,
             distance: '100%'
         });
         
         
         // Related Posts
-        ScrollReveal().reveal( '.section-related-posts' );
+        ScrollReveal().reveal( '.is-desktop .section-related-posts' );
         
-        ScrollReveal().reveal('.section-related-posts header', { 
+        ScrollReveal().reveal('.is-desktop .section-related-posts header', { 
             delay: 400,
             distance: '100%'
         });
         
-        ScrollReveal().reveal('.section-related-posts article', { 
+        ScrollReveal().reveal('.is-desktop .section-related-posts article', { 
             delay: 800,
             interval: 250,
             distance: '100%'
@@ -484,14 +490,14 @@ export default {
             
             
         // Posts
-        ScrollReveal().reveal( '.section-posts' );
+        ScrollReveal().reveal( '.is-desktop .section-posts' );
         
-        ScrollReveal().reveal('.section-posts header', { 
+        ScrollReveal().reveal('.is-desktop .section-posts header', { 
             delay: 400,
             distance: '100%'
         });
         
-        ScrollReveal().reveal('.section-posts article', { 
+        ScrollReveal().reveal('.is-desktop .section-posts article', { 
             delay: 800,
             interval: 250,
             distance: '100%'
@@ -500,12 +506,14 @@ export default {
             
         // Fleet
         
-        /*
-        ScrollReveal().reveal( '.post-type-archive-fleet #secondary h2', { 
+        
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-fleet #secondary h2', { 
             distance: '100%',
         });
         
-        ScrollReveal().reveal( '.post-type-archive-fleet #secondary li', { 
+        /*
+        
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-fleet #secondary li', { 
             delay: 400,
             distance: '100%',
             interval: 200
@@ -513,38 +521,38 @@ export default {
         */
         
          
-        ScrollReveal().reveal( '.post-type-archive-fleet #primary .facetwp-template article', { 
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-fleet #primary .facetwp-template article', { 
             delay: 800,
             distance: '100%',
             interval: 200
         }); 
         
         
-        ScrollReveal().reveal( '.post-type-archive-fleet #primary .facetwp-type-pager', { 
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-fleet #primary .facetwp-type-pager', { 
             delay: 200,
             distance: '100%'
         });
         
         
         // Case Studies Archive
-        ScrollReveal().reveal( '.post-type-archive-case_study header', { 
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-case_study header', { 
             distance: '100%',
         });
         
-        ScrollReveal().reveal( '.post-type-archive-case_study .facetwp-filters', { 
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-case_study .facetwp-filters', { 
             delay: 400,
             distance: '100%',
         });
         
         
-        ScrollReveal().reveal( '.post-type-archive-case_study .facetwp-template article', { 
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-case_study .facetwp-template article', { 
             delay: 800,
             distance: '100%',
             interval: 200
         }); 
         
         
-        ScrollReveal().reveal( '.post-type-archive-case_study .facetwp-type-pager', { 
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-case_study .facetwp-type-pager', { 
             delay: 200,
             distance: '100%'
         });
@@ -552,13 +560,13 @@ export default {
         
         // Photo gallery
         
-        ScrollReveal().reveal( '.template-photo-gallery .facetwp-filters', { 
+        ScrollReveal().reveal( '.is-desktop.template-photo-gallery .facetwp-filters', { 
             delay: 400,
             distance: '100%',
         });
         
         
-        ScrollReveal().reveal( '.template-photo-gallery .facetwp-template article', { 
+        ScrollReveal().reveal( '.is-desktop.template-photo-gallery .facetwp-template article', { 
             delay: 800,
             distance: '100%',
             interval: 200
@@ -571,7 +579,7 @@ export default {
         })(jQuery);    
         
         
-        ScrollReveal().reveal( '.template-photo-gallery .facetwp-type-pager', { 
+        ScrollReveal().reveal( '.is-desktop.template-photo-gallery .facetwp-type-pager', { 
             delay: 200,
             distance: '100%'
         });
@@ -579,19 +587,19 @@ export default {
         
         // video Gallery
         
-        ScrollReveal().reveal( '.post-type-archive-video_gallery .facetwp-filters', { 
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-video_gallery .facetwp-filters', { 
             delay: 400,
             distance: '100%',
         });
         
         
-        ScrollReveal().reveal( '.post-type-archive-video_gallery .facetwp-template article', { 
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-video_gallery .facetwp-template article', { 
             delay: 800,
             distance: '100%',
             interval: 200
         }); 
         
-        ScrollReveal().reveal( '.post-type-archive-video_gallery .facetwp-type-pager', { 
+        ScrollReveal().reveal( '.is-desktop.post-type-archive-video_gallery .facetwp-type-pager', { 
             delay: 200,
             distance: '100%'
         });
@@ -599,18 +607,17 @@ export default {
         
         // Archive
         
-        ScrollReveal().reveal( '.archive .section-hero', { 
-            delay: 200,
-            distance: '100%'
+        ScrollReveal().reveal( '.is-desktop.archive .section-hero', { 
+            delay: 200
         });
         
-        ScrollReveal().reveal( '.archive .facetwp-filters', { 
+        ScrollReveal().reveal( '.is-desktop.archive .facetwp-filters', { 
             delay: 400,
             distance: '100%',
         });
         
         
-        ScrollReveal().reveal( '.archive .facetwp-template article', { 
+        ScrollReveal().reveal( '.is-desktop.archive .facetwp-template article', { 
             delay: 800,
             distance: '100%',
             interval: 200
@@ -623,7 +630,7 @@ export default {
             });
         })(jQuery);      
         
-        ScrollReveal().reveal( '.archive .facetwp-pager', { 
+        ScrollReveal().reveal( '.is-desktop.archive .facetwp-pager', { 
             delay: 200,
             distance: '100%'
         });

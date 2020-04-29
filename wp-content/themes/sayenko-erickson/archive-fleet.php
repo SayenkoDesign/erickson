@@ -79,7 +79,7 @@ _s_get_template_part( 'template-parts/fleet', 'hero' );
                     
                     $facet = facetwp_display( 'facet', $slug );
                     
-                    $active = ! $key ? ' is-active' : '';
+                    $active = ''; //! $key ? ' is-active' : '';
                     
                     $filters .= sprintf( '<li class="accordion-item%s" data-accordion-item><a href="#" class="accordion-title"><h5 class="facet-label">%s</h5></a> <div class="accordion-content" data-tab-content>%s</div></li>', $active, $filter, $facet );
                 }

@@ -11,7 +11,7 @@ html.sr  .no-reveal {
 
 // Global
 
-html.sr {
+html.sr .is-desktop {
  
     .section-hero,
     .block-hero {
@@ -37,7 +37,7 @@ html.sr {
 
 
 // Blocks
-html.sr { 
+html.sr .is-desktop { 
     .block-erickson-advantage header,
     .block-erickson-advantage .slider,
     
@@ -80,7 +80,7 @@ html.sr {
 
 
 // Services
-html.sr {
+html.sr .is-desktop {
  
     .block-approach {
         header {
@@ -110,17 +110,18 @@ html.sr {
 
 
 // Fleet
-html.sr {
+html.sr .is-desktop {
     .post-type-archive-fleet {
         
-        /*
+        
         #secondary {
-            h2,
+            h2
+            /*
             ul li {
                visibility: hidden; 
             }
+            */
         }
-        */
         
         #primary .facetwp-template article {
             visibility: hidden; 
@@ -135,7 +136,7 @@ html.sr {
 
 // Archive 
 
-html.sr .archive {
+html.sr .is-desktop .archive {
     .section-hero,
     .facetwp-filters,
     .facetwp-type-pager {
@@ -143,14 +144,14 @@ html.sr .archive {
     }
 }
 
-html.sr .facetwp-template article {
+html.sr .is-desktop .facetwp-template article {
     visibility: hidden; 
 }
 
 
 // Case Studies
 
-html.sr {
+html.sr .is-desktop {
     .post-type-archive-case_study {
         .section-hero header,
         .facetwp-filters,
@@ -163,7 +164,7 @@ html.sr {
 
 // video/Photo Gallery
 
-html.sr {
+html.sr .is-desktop {
     .post-type-archive-video_gallery,
     .template-photo-gallery {
         .facetwp-filters,
@@ -179,7 +180,7 @@ html.sr {
 
 // History
 
-html.sr {
+html.sr .is-desktop {
     .template-history {
         .section-hero img,
         
@@ -195,7 +196,7 @@ html.sr {
 
 // Team
 
-html.sr {
+html.sr .is-desktop {
     .template-team {
         .facetwp-facet,
         .facetwp-template .cell,
@@ -208,7 +209,7 @@ html.sr {
 
 // Multipurpose
 
-html.sr {
+html.sr .is-desktop {
     .template-multi-purpose {
         .section-block,
         .section-block .cell {
@@ -219,7 +220,7 @@ html.sr {
 
 // Contact
 
-html.sr {
+html.sr .is-desktop {
     .template-contact {
         .section-form-directory .cell,
         .section-clients,
