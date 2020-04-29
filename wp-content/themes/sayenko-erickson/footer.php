@@ -25,7 +25,7 @@ echo $footer_cta;
             <div class="cell large-auto">
                 <?php
                 
-                printf('<img src="%slogo.svg" alt="site logo" class="logo" /><h5>Tested and trusted&reg;</h5>', trailingslashit( THEME_IMG ) ); 
+                printf('<img src="%slogo.svg" alt="site logo" class="logo" /><h5>Tested and Trusted&reg;</h5>', trailingslashit( THEME_IMG ) ); 
                 
                 // Company
                 $address    = get_field( 'address', 'option' );
