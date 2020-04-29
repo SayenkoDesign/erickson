@@ -83,10 +83,9 @@
         .widget-area {
             background-color: $light-gray;
             padding-top: rem-calc(30);
-            padding-bottom: rem-calc(50);
             padding-right: rem-calc(30);
             
-            @include breakpoint(medium down) {
+            @include breakpoint(medium-large down) {
                 
                 .facetwp-filters {
                     height: 0;
@@ -108,6 +107,10 @@
                 &.expanded p span:before {
                     content: "\2212";
                 }
+            }
+            
+            @include breakpoint(large) {
+                padding-bottom: rem-calc(50);   
             }
             
             h2 {
