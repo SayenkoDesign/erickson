@@ -83,6 +83,7 @@
         .widget-area {
             background-color: $light-gray;
             padding-top: rem-calc(30);
+            padding-bottom: rem-calc(50);
             padding-right: rem-calc(30);
             
             @include breakpoint(medium down) {
