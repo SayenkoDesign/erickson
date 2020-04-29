@@ -34,7 +34,7 @@ if( ! class_exists( 'Fleet_Block' ) ) {
                                     
             $heading = _s_format_string( $this->get_fields( 'heading' ), 'h2' );
             $description = $this->get_fields( 'description' ); 
-            $heading = sprintf( '<header>%s%s</header>', $heading, $description  );  
+            $heading = sprintf( '<header>%s%s%s</header>', get_svg( 'fleet-icon' ), $heading, $description  );  
             
             $posts = $this->get_posts();
             
