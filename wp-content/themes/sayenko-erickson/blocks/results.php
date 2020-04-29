@@ -43,7 +43,7 @@ if( ! class_exists( 'Block_Results' ) ) {
             }
             
             $total = count( $rows );
-            $classes = 4 > $total ? 'three-up' : 'four-up';
+            $classes = 4 > $total ? 'medium-auto' : 'medium-2';
                         
             $cells = '';
             foreach( $rows as $row ) {
@@ -53,8 +53,9 @@ if( ! class_exists( 'Block_Results' ) ) {
                 $format        = $row['format']; 
                 $description   = _s_format_string( $row['description'], 'h4' ); 
                 
-                $cells .= sprintf( '<div class="cell medium-auto"><div class="panel">
+                $cells .= sprintf( '<div class="cell %s"><div class="panel">
                 <h3 class="number animate" data-prefix="%s" data-suffix="%s" data-format="%s" data-value="%s">&nbsp;</h3>%s</div></div>',
+                                    $classes,
                                     $prefix,
                                     $suffix,
                                     $format,
@@ -63,7 +64,8 @@ if( ! class_exists( 'Block_Results' ) ) {
                          );
             }
             
-                                        
+            $classes = 4 > $total ? 'three-up' : 'four-up';
+                                      
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-margin-x">
                                     <div class="cell">%s</div>

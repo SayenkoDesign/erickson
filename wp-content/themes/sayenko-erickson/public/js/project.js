@@ -2671,7 +2671,12 @@ function _arrayWithHoles(arr){if(Array.isArray(arr))return arr;}
 init:function init(){
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on('load.animateNumbers scroll.animateNumbers',function(){
 if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results').length&&jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results').isInViewport()){
-animateNumbers();
+animateNumbers(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results'));
+jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).off('load.animateNumbers scroll.animateNumbers');
+}
+
+if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-results').length&&jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-results').isInViewport()){
+animateNumbers(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.section-results'));
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).off('load.animateNumbers scroll.animateNumbers');
 }
 });// var viewed = false;
@@ -2694,18 +2699,6 @@ return idx==-1?0+elen:base.length-idx-1+elen;
 var index=text.indexOf(".");
 return index==-1?0:text.length-index-1;
 }
-/*
-    var isInViewport = function (elem) {
-        var bounding = elem.getBoundingClientRect();
-        return (
-            bounding.top >= 0 &&
-            bounding.left >= 0 &&
-            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    };
-    */
-
 
 jquery__WEBPACK_IMPORTED_MODULE_1___default.a.fn.isInViewport=function(){
 var elementTop=jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).offset().top;
@@ -2715,9 +2708,9 @@ var viewportBottom=viewportTop+jquery__WEBPACK_IMPORTED_MODULE_1___default()(win
 return elementBottom>viewportTop&&elementTop<viewportBottom;
 };
 
-function animateNumbers(){
+function animateNumbers(el){
 // Find all Statistics on page, put them inside a variable
-var number=jquery__WEBPACK_IMPORTED_MODULE_1___default()(".block-results .number");// For each Statistic we find, animate it
+var number=el.find('.number');// For each Statistic we find, animate it
 
 number.each(function(index){
 var _$$data,_$$data2,_$$data3,_options;

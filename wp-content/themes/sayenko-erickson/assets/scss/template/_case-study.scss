@@ -186,12 +186,29 @@
         
         .numbers {
             
+            @include breakpoint(medium) {
+                @include xy-grid-layout(3, '.cell', true, 10);
+                @include xy-gutters(10, 'margin', $negative:true); // negative for the nested grid
+                
+                .cell {
+                    margin-bottom: rem-calc(10);   
+                }
+                
+                &.four-up {
+                    @include xy-grid-layout(2, '.cell', true, 10);
+                }
+            }     
+            
             @include breakpoint(large) {
                 @include xy-grid-layout(3, '.cell', true, 10);
                 @include xy-gutters(10, 'margin', $negative:true); // negative for the nested grid
                 
                 .cell {
                     margin-bottom: rem-calc(10);   
+                }
+                
+                &.four-up {
+                    @include xy-grid-layout(4, '.cell', true, 10);
                 }
             }   
             
