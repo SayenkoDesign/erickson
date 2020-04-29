@@ -85,8 +85,47 @@
             padding-top: rem-calc(30);
             padding-right: rem-calc(30);
             
+            @include breakpoint(medium down) {
+                
+                .facetwp-filters {
+                    height: 0;
+                    overflow: hidden;   
+                }
+                
+                &.expanded {
+                    .facetwp-filters {
+                        height: 100%;   
+                    }
+                }
+                
+                p span:before {
+                    content: "\002B";
+                    width: 10px;
+                } 
+
+            
+                &.expanded p span:before {
+                    content: "\2212";
+                }
+            }
+            
             h2 {
-                margin-bottom: rem-calc(30);   
+                margin-bottom: rem-calc(15);
+                
+                @include breakpoint(large) {
+                    margin-bottom: rem-calc(30);
+                }
+            }
+            
+            p a {
+                color: $dark-gray;
+                font-family: $barlow;
+                font-size: rem-calc(20);  
+                font-weight: 500; 
+                
+                span {
+                   
+                }
             }
             
             @include breakpoint(large) {
@@ -117,6 +156,52 @@
                     z-index: -1;
                 }
             }
+            
+            ul li:last-child {
+                margin-top: rem-calc(20);
+            }
+            
+            .accordion {
+                
+                .accordion-title {
+                    padding-left: 0;
+                    
+                    h5 {
+                        margin-bottom: 0;   
+                    }
+ 
+                }
+                
+                
+                .accordion-title::before {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 1rem;
+                    margin-top: 0!important;
+                    color: $dark-gray;
+                    font-size: rem-calc(24);
+                    content: "\002B";
+                } 
+
+            
+                .is-active>.accordion-title::before {
+                    content: "\2212";
+                }
+                
+                
+                .accordion-content {
+                    background: transparent;  
+                    
+                    padding: 0;
+                    
+                    .facet-label {
+                        display: none;   
+                    } 
+                }
+            }
+            
+            
         }
         
     }

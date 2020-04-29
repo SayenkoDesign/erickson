@@ -500,6 +500,7 @@ export default {
             
         // Fleet
         
+        /*
         ScrollReveal().reveal( '.post-type-archive-fleet #secondary h2', { 
             distance: '100%',
         });
@@ -509,6 +510,7 @@ export default {
             distance: '100%',
             interval: 200
         });
+        */
         
          
         ScrollReveal().reveal( '.post-type-archive-fleet #primary .facetwp-template article', { 

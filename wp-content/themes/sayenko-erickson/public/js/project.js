@@ -2670,7 +2670,7 @@ function _arrayWithHoles(arr){if(Array.isArray(arr))return arr;}
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on('load.animateNumbers scroll.animateNumbers',function(){
-if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results').is_on_screen()){
+if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results').length&&isInViewport(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results')[0])){
 animateNumbers();
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).off('load.animateNumbers scroll.animateNumbers');
 }
@@ -2695,18 +2695,9 @@ var index=text.indexOf(".");
 return index==-1?0:text.length-index-1;
 }
 
-jquery__WEBPACK_IMPORTED_MODULE_1___default.a.fn.is_on_screen=function(){
-var win=jquery__WEBPACK_IMPORTED_MODULE_1___default()(window);
-var viewport={
-top:win.scrollTop(),
-left:win.scrollLeft()};
-
-viewport.right=viewport.left+win.width();
-viewport.bottom=viewport.top+win.height();
-var bounds=this.offset();
-bounds.right=bounds.left+this.outerWidth();
-bounds.bottom=bounds.top+this.outerHeight();
-return !(viewport.right<bounds.left||viewport.left>bounds.right||viewport.bottom<bounds.top||viewport.top>bounds.bottom);
+var isInViewport=function isInViewport(elem){
+var bounding=elem.getBoundingClientRect();
+return bounding.top>=0&&bounding.left>=0&&bounding.bottom<=(window.innerHeight||document.documentElement.clientHeight)&&bounding.right<=(window.innerWidth||document.documentElement.clientWidth);
 };
 
 function animateNumbers(){
@@ -2832,6 +2823,9 @@ if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-people').length&&''==
 FWP.facets['departments']=['all'];
 delete FWP.facets['paged'];// remove "paged" from URL
 }
+});
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('facetwp-refresh',function(){
+if(FWP.loaded);
 });
 }};
 
@@ -3695,13 +3689,17 @@ interval:250,
 distance:'100%'});
 // Fleet
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.post-type-archive-fleet #secondary h2',{
-distance:'100%'});
-
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.post-type-archive-fleet #secondary li',{
-delay:400,
-distance:'100%',
-interval:200});
+/*
+    ScrollReveal().reveal( '.post-type-archive-fleet #secondary h2', { 
+        distance: '100%',
+    });
+    
+    ScrollReveal().reveal( '.post-type-archive-fleet #secondary li', { 
+        delay: 400,
+        distance: '100%',
+        interval: 200
+    });
+    */
 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.post-type-archive-fleet #primary .facetwp-template article',{
 delay:800,

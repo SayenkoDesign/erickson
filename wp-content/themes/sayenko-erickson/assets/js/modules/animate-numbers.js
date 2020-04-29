@@ -6,7 +6,7 @@ export default {
     
 
         $(window).on('load.animateNumbers scroll.animateNumbers', function(){
-          if( $('.block-results').is_on_screen() ) {
+          if( $('.block-results').length && isInViewport($('.block-results')[0] ) ) {
              animateNumbers();
              $(window).off('load.animateNumbers scroll.animateNumbers');
           }
@@ -27,23 +27,14 @@ export default {
           return index == -1 ? 0 : (text.length - index - 1)
         }
         
-        $.fn.is_on_screen = function(){
-
-            var win = $(window);
-            
-            var viewport = {
-                top : win.scrollTop(),
-                left : win.scrollLeft()
-            };
-            viewport.right = viewport.left + win.width();
-            viewport.bottom = viewport.top + win.height();
-            
-            var bounds = this.offset();
-            bounds.right = bounds.left + this.outerWidth();
-            bounds.bottom = bounds.top + this.outerHeight();
-            
-            return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
-            
+        var isInViewport = function (elem) {
+            var bounding = elem.getBoundingClientRect();
+            return (
+                bounding.top >= 0 &&
+                bounding.left >= 0 &&
+                bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
         };
        
         function animateNumbers() {

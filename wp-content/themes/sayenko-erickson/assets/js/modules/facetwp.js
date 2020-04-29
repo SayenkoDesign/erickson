@@ -58,6 +58,12 @@ export default {
                 delete FWP.facets['paged']; // remove "paged" from URL
             }
         });
+        
+        $(document).on('facetwp-refresh', function() {
+            if (FWP.loaded) {
+                // $('.post-type-archive-fleet #secondary').removeClass( 'expanded' );
+            }
+        });
                 
 	},
 };
