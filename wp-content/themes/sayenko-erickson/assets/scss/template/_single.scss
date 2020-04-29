@@ -43,10 +43,10 @@
         .nav-previous,
         .nav-next {
             @include breakpoint(medium) {
-                position: absolute; 
-                top: 50%;
-                transform: translateY(-50%); 
-                margin-top: rem-calc(-20); 
+                //position: absolute; 
+                //top: 50%;
+                //transform: translateY(-50%); 
+                //margin-top: rem-calc(-20); 
             }   
         }
         
@@ -55,7 +55,7 @@
             padding-right: rem-calc(20);
             
             @include breakpoint(medium) {
-                left: 0; 
+                //left: 0; 
             }
             
             a {
@@ -76,7 +76,7 @@
             padding-left: rem-calc(20);
             
             @include breakpoint(medium) {
-                right: 0; 
+                //right: 0; 
             }
             
             a {
