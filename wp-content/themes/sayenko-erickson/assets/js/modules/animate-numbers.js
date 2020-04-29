@@ -6,7 +6,7 @@ export default {
     
 
         $(window).on('load.animateNumbers scroll.animateNumbers', function(){
-          if( $('.block-results').length && isInViewport($('.block-results')[0] ) ) {
+          if( $('.block-results').length && $('.block-results').isInViewport() ) {
              animateNumbers();
              $(window).off('load.animateNumbers scroll.animateNumbers');
           }
@@ -27,6 +27,7 @@ export default {
           return index == -1 ? 0 : (text.length - index - 1)
         }
         
+        /*
         var isInViewport = function (elem) {
             var bounding = elem.getBoundingClientRect();
             return (
@@ -35,6 +36,15 @@ export default {
                 bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
                 bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
             );
+        };
+        */
+        
+        $.fn.isInViewport = function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
         };
        
         function animateNumbers() {

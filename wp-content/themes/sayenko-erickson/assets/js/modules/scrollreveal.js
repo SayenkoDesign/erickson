@@ -94,12 +94,12 @@ export default {
         // Featured Post
         ScrollReveal().reveal('.is-desktop .block-featured-post' );
         
-        ScrollReveal().reveal('.is-desktop.block-featured-post header', { 
+        ScrollReveal().reveal('.is-desktop .block-featured-post header', { 
             delay: 400,
             distance: '100%'
         });
         
-        ScrollReveal().reveal( '.is-desktop.block-featured-post .grid .cell', { 
+        ScrollReveal().reveal( '.is-desktop .block-featured-post .grid .cell', { 
             delay: 800,
             interval: 250,
             distance: '100%'
@@ -186,7 +186,7 @@ export default {
         });
                 
         
-        ScrollReveal().reveal( '.is-desktop .block-mission-vision', { 
+        ScrollReveal().reveal( '.is-desktop .block-mission-vision .wrap', { 
             distance: '100%'
         }); 
         
@@ -229,7 +229,10 @@ export default {
         
         
         ScrollReveal().reveal( '.is-desktop .block-commitment', { 
-            distance: '100%'
+            distance: '100%',
+            afterReveal: function (el) {
+                $('.is-desktop .block-commitment').css('z-index','4');
+            }
         }); 
         
         ScrollReveal().reveal( '.is-desktop .block-commitment header', { 

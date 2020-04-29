@@ -2670,7 +2670,7 @@ function _arrayWithHoles(arr){if(Array.isArray(arr))return arr;}
 /* harmony default export */__webpack_exports__["default"]={
 init:function init(){
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).on('load.animateNumbers scroll.animateNumbers',function(){
-if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results').length&&isInViewport(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results')[0])){
+if(jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results').length&&jquery__WEBPACK_IMPORTED_MODULE_1___default()('.block-results').isInViewport()){
 animateNumbers();
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).off('load.animateNumbers scroll.animateNumbers');
 }
@@ -2694,10 +2694,25 @@ return idx==-1?0+elen:base.length-idx-1+elen;
 var index=text.indexOf(".");
 return index==-1?0:text.length-index-1;
 }
+/*
+    var isInViewport = function (elem) {
+        var bounding = elem.getBoundingClientRect();
+        return (
+            bounding.top >= 0 &&
+            bounding.left >= 0 &&
+            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    };
+    */
 
-var isInViewport=function isInViewport(elem){
-var bounding=elem.getBoundingClientRect();
-return bounding.top>=0&&bounding.left>=0&&bounding.bottom<=(window.innerHeight||document.documentElement.clientHeight)&&bounding.right<=(window.innerWidth||document.documentElement.clientWidth);
+
+jquery__WEBPACK_IMPORTED_MODULE_1___default.a.fn.isInViewport=function(){
+var elementTop=jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).offset().top;
+var elementBottom=elementTop+jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).outerHeight();
+var viewportTop=jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).scrollTop();
+var viewportBottom=viewportTop+jquery__WEBPACK_IMPORTED_MODULE_1___default()(window).height();
+return elementBottom>viewportTop&&elementTop<viewportBottom;
 };
 
 function animateNumbers(){
@@ -3376,11 +3391,11 @@ distance:'100%'});
 // Featured Post
 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-featured-post');
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.block-featured-post header',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-featured-post header',{
 delay:400,
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.block-featured-post .grid .cell',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-featured-post .grid .cell',{
 delay:800,
 interval:250,
 distance:'100%'});
@@ -3444,7 +3459,7 @@ delay:800,
 interval:250,
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-mission-vision',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-mission-vision .wrap',{
 distance:'100%'});
 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-benefits header',{
@@ -3476,7 +3491,10 @@ distance:'100%',
 interval:200});
 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-commitment',{
-distance:'100%'});
+distance:'100%',
+afterReveal:function afterReveal(el){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.is-desktop .block-commitment').css('z-index','4');
+}});
 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-commitment header',{
 delay:400,

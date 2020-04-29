@@ -1,11 +1,15 @@
 // Block: Commitment
 
+
+.is-mobile .block-commitment {
+    z-index: 4;
+}
+
 .block-commitment {
     background-color: $navy;
     padding: rem-calc(75 0);
     position: relative;
-    z-index: 4;
-    
+        
     @include breakpoint(xlarge) {
         &:before {
             content: '';

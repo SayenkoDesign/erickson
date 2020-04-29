@@ -36,21 +36,12 @@ if( ! class_exists( 'Mission_Vision_Block' ) ) {
         
         // Add content
         public function render() {         
-            
-            $heading = $this->get_fields( 'heading' );
-            $heading = _s_format_string( $heading, 'h2' );
-            if( ! empty( $heading ) ) {
-                $heading = sprintf( '<header>%s</header>', $heading  );  
-            }
                         
             $grid = $this->get_grid();
                         
             return sprintf( '
-                                <div class="grid-x grid-margin-x">
-                                <div class="cell">%s%s</div>
-                                </div>
+                               %s
                             ',
-                            $heading,
                             $grid
                          );  
         }
