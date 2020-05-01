@@ -62,7 +62,7 @@ if( ! class_exists( 'Notification_Bar_Section' ) ) {
                                   
             if( ! empty( $button['url'] ) && ! empty( $button['title'] ) ) {
                 $target = ! empty( $button['target'] ) ? sprintf( 'target="%s"', $button['target'] ) : '';
-                $content  .= sprintf( '<a href="%s"%s>%s</a>', $button['url'], $target, $button['title'] );
+                $content  .= sprintf( '<a href="%s"%s class="read-more">%s</a>', $button['url'], $target, $button['title'] );
             }
             
             $content = _s_format_string( $content, 'p' );

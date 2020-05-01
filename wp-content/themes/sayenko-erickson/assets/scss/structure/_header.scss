@@ -33,7 +33,14 @@ Header
         margin-bottom: 0;  
         
         a {
-            margin-left: rem-calc(10);   
+            margin-left: rem-calc(10);  
+            font-size: 14px;
+            padding-right: 18px;
+            
+            &:after {
+                width: #{11 * .75}px;
+                height: #{19 * .75}px;
+            }
         }
      }
      
