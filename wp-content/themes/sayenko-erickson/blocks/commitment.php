@@ -65,25 +65,42 @@ if( ! class_exists( 'Commitment_Block' ) ) {
             }
                                
             $out = '';
-               
+            
+            // compare lengths
+            $first = count( array_filter( $rows[0]['items'] ) );
+            $last = count( array_filter( $rows[1]['items'] ) );
+            
+            $difference = $first - $last;
+                                       
             foreach( $rows as $key => $row ) {  
-                
+                                
                 $title = _s_format_string( $row['title'], 'h3', [ 'class' => 'h4' ] ); 
                 
                 $items = $row['items'];
+                
+                if( empty( $items ) ) {
+                    $items = [];
+                }
+                
+                // let's balance the tables with empty cells                 
+                if( ! $key && $difference < 0 ) {
+                    $items = array_pad( $items, $last, ['text' => '' ] );
+                } else if( $key && $difference > 0 ) {
+                    $items = array_pad( $items, $first, ['text' => '' ] );
+                }
+                                
                 $text = '';
                 
-                if( ! empty( $items ) ) {
-                    foreach( $items as $key => $item ) {
-                        $text .= sprintf( '<div class="text" data-mh="text-height-%s">%s</div>', $key, $item['text'] );
-                    }
-                    
+                foreach( $items as $key => $item ) {
+                    $classes = empty( $item['text'] ) ? ' hide-for-small-only' : '';
+                    $text .= sprintf( '<div class="text%s" data-mh="text-height-%s">%s</div>', $classes, $key, $item['text'] );
                 }
+                    
                 
                 
                                                           
                 $out .= sprintf( '<div class="cell large-auto">
-                                        <div class="header">%s</div>
+                                        <div class="header" data-mh="commitment-heading-height">%s</div>
                                         <div class="panel">%s</div>
                                     </div>', 
                                     $title,
