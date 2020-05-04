@@ -11,11 +11,13 @@ add_filter( 'facetwp_is_main_query', function( $is_main_query, $query ) {
     }
     return $is_main_query;
 }, 10, 2 );
-  
+
+/*
 add_filter( 'facetwp_query_args', function( $args ) {
 	$args['post_status'] = 'any';
 	return $args;
 }, 10 );
+*/
 
 /** inherit adds attachment indexing **/
 add_filter( 'facetwp_indexer_query_args', function( $args ) {
