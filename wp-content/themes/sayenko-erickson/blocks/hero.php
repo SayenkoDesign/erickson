@@ -146,7 +146,7 @@ if( ! class_exists( 'Hero_Block' ) ) {
                             $description,
                             $subheading,
                             $video_link,
-                            $button,
+                            $button
                         );
         }
     }

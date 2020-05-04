@@ -172,9 +172,9 @@ $header-lineheight: 1;
 $header-margin-bottom: rem-calc(20);
 $header-styles: (
 	small: (
-		'h1': ('font-size': 45, 'lh': 66/55, 'mb': 20 ),
-		'h2': ('font-size': 38, 'lh': 48/40, 'mb': 20),
-		'h3': ('font-size': 32, 'lh': 37/32, 'mb': 20),
+		'h1': ('font-size': 55*.6, 'lh': 66/55, 'mb': 20 ),
+		'h2': ('font-size': 40*.6, 'lh': 48/40, 'mb': 20),
+		'h3': ('font-size': 32*.6, 'lh': 37/32, 'mb': 20),
 		'h4': ('font-size': 18, 'lh': 22/18, 'mb': 20),
 		'h5': ('font-size': 16, 'lh': 18/16, 'mb': 20),
 		'h6': ('font-size': 16, 'lh': 18/16, 'mb': 20),

@@ -376,37 +376,37 @@ export default {
         
         // History
         
-        ScrollReveal().reveal( '.is-desktop .page-template-history .section-hero .hero-content img', { 
+        ScrollReveal().reveal( '.is-desktop.page-template-history .section-hero .hero-content img', { 
             delay: 400,
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.is-desktop .page-template-history .section-hero .hero-content h1', { 
+        ScrollReveal().reveal( '.is-desktop.page-template-history .section-hero .hero-content h1', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.is-desktop .page-template-history .section-introduction', { 
+        ScrollReveal().reveal( '.is-desktop.page-template-history .section-introduction', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.is-desktop .page-template-history .section-timeline .facetwp-facet', { 
+        ScrollReveal().reveal( '.is-desktop.page-template-history .section-timeline .facetwp-facet', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.is-desktop .page-template-history .section-timeline .facetwp-template', { 
+        ScrollReveal().reveal( '.is-desktop.page-template-history .section-timeline .facetwp-template', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%'
         }); 
         
         
-        $('.is-desktop .page-template-history .section-timeline .facetwp-template').each(function (index, element) {
+        $('.is-desktop.page-template-history .section-timeline .facetwp-template').each(function (index, element) {
             //var id = $(element).attr('id'); 
             ScrollReveal().reveal( '.event', { 
                 delay: 1200,
@@ -416,7 +416,7 @@ export default {
         });
                
         
-        ScrollReveal().reveal( '.is-desktop .page-template-history .facetwp-type-pager', { 
+        ScrollReveal().reveal( '.is-desktop.page-template-history .facetwp-type-pager', { 
             delay: 200,
             distance: '100%'
         });
@@ -431,20 +431,20 @@ export default {
         
         // Team
         
-        ScrollReveal().reveal( '.is-desktop .page-template-team .facetwp-facet', { 
+        ScrollReveal().reveal( '.is-desktop.page-template-team .facetwp-facet', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%'
         }); 
         
-        ScrollReveal().reveal( '.is-desktop .page-template-team .facetwp-template .cell', { 
+        ScrollReveal().reveal( '.is-desktop.page-template-team .facetwp-template .cell', { 
             delay: 800,
             origin: 'bottom',
             distance: '100%',
             interval: 400
         }); 
                 
-        ScrollReveal().reveal( '.is-desktop .page-template-team .facetwp-type-pager', { 
+        ScrollReveal().reveal( '.is-desktop.page-template-team .facetwp-type-pager', { 
             delay: 200,
             distance: '100%'
         });

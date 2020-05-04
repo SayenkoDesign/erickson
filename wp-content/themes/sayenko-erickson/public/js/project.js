@@ -3589,31 +3589,31 @@ el.classList.add('revealed');
 }});
 // History
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .page-template-history .section-hero .hero-content img',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.page-template-history .section-hero .hero-content img',{
 delay:400,
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .page-template-history .section-hero .hero-content h1',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.page-template-history .section-hero .hero-content h1',{
 delay:800,
 origin:'bottom',
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .page-template-history .section-introduction',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.page-template-history .section-introduction',{
 delay:800,
 origin:'bottom',
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .page-template-history .section-timeline .facetwp-facet',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.page-template-history .section-timeline .facetwp-facet',{
 delay:800,
 origin:'bottom',
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .page-template-history .section-timeline .facetwp-template',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.page-template-history .section-timeline .facetwp-template',{
 delay:800,
 origin:'bottom',
 distance:'100%'});
 
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('.is-desktop .page-template-history .section-timeline .facetwp-template').each(function(index,element){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.is-desktop.page-template-history .section-timeline .facetwp-template').each(function(index,element){
 //var id = $(element).attr('id'); 
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.event',{
 delay:1200,
@@ -3621,7 +3621,7 @@ distance:'100%',
 interval:400});
 
 });
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .page-template-history .facetwp-type-pager',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.page-template-history .facetwp-type-pager',{
 delay:200,
 distance:'100%'});
 
@@ -3636,18 +3636,18 @@ visibility:'visible'});
 })(jQuery);// Team
 
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .page-template-team .facetwp-facet',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.page-template-team .facetwp-facet',{
 delay:800,
 origin:'bottom',
 distance:'100%'});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .page-template-team .facetwp-template .cell',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.page-template-team .facetwp-template .cell',{
 delay:800,
 origin:'bottom',
 distance:'100%',
 interval:400});
 
-Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .page-template-team .facetwp-type-pager',{
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.page-template-team .facetwp-type-pager',{
 delay:200,
 distance:'100%'});
 
