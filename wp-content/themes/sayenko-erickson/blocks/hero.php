@@ -145,9 +145,9 @@ if( ! class_exists( 'Hero_Block' ) ) {
                             $heading,
                             $description,
                             $subheading,
+                            $video_link,
                             $button,
-                            $video_link                            
-                         );
+                        );
         }
     }
 }

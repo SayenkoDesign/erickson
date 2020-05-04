@@ -2,10 +2,15 @@
 
 .block-columns {
     padding-top: rem-calc(75);
+    
+    &.text-alignment-center {
+        text-align: center;
+    }
         
     &.background-color-gray {
         background-color: #EFF3F0;
-        padding-bottom: rem-calc(50);    }
+        padding-bottom: rem-calc(50);    
+    }
         
     
     header {
