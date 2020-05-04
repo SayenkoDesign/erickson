@@ -12,6 +12,8 @@ if( ! class_exists( 'Columns_Block' ) ) {
             $this->set_fields( 'columns', get_field( 'columns' ) );
             
             $this->set_settings( 'layout', get_field( 'layout' ) );
+            $this->set_settings( 'image_alignment', get_field( 'image_alignment' ) );
+            $this->set_settings( 'text_alignment', get_field( 'text_alignment' ) );
             $this->set_settings( 'background_color', get_field( 'background_color' ) );
                                     
             // print the section
@@ -23,6 +25,10 @@ if( ! class_exists( 'Columns_Block' ) ) {
             
             // use parent attributes
             parent::_add_render_attributes();
+            
+            if( ! empty( $this->get_settings( 'text_alignment' ) ) ) {                                                              
+                $this->add_render_attribute( 'wrapper', 'class', 'text-alignment-' . strtolower( $this->get_settings( 'text_alignment' ) ) ); 
+            }
                         
             if( ! empty( $this->get_settings( 'background_color' ) ) ) {                                                              
                 $this->add_render_attribute( 'wrapper', 'class', 'background-color-' . strtolower( $this->get_settings( 'background_color' ) ) ); 
@@ -66,10 +72,25 @@ if( ! class_exists( 'Columns_Block' ) ) {
                 
                 $title = _s_format_string( $row['title'], 'h3' ); 
                 $text = $row['text'];
-                                                  
-                $items .=  sprintf( '<div class="cell"><div class="panel">%s%s</div></div>',
+                $image = $row['image'];
+                $image = _s_get_acf_image( $image, 'thumbnail' );   
+                $image_alignment = strtolower( $this->get_settings( 'image_alignment' ) ) ;
+                
+                $image_top = $image_bottom = '';
+                
+                if( ! empty( $image ) ) {
+                    if( 'top' == $image_alignment ) {
+                        $image_top = $image;
+                    } else {
+                        $image_bottom = $image;
+                    }
+                }
+                
+                $items .=  sprintf( '<div class="cell"><div class="panel">%s%s%s%s</div></div>',
+                            $image_top,
                             $title,
-                            $text
+                            $text,
+                            $image_bottom
                          );  
 
             }

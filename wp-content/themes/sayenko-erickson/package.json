@@ -1,10 +1,10 @@
 {
-	"name": "_s",
+	"name": "sayenko-erickson",
 	"version": "1.0.0",
-	"description": "_s is a WordPress starter theme using the Zurb Foundation framework and Laravel Mix build tools based on the Exhale theme by Jason Tadlock.",
-	"author": "Kyle Rumble",
+	"description": "Erickson is a WordPress starter theme using the Zurb Foundation framework and Laravel Mix build tools based on the Exhale theme by Jason Tadlock.",
+	"author": "Sayenko design",
 	"license": "GPL-2.0+",
-	"homepage": "https://kylerumble.com",
+	"homepage": "https://sayenkodesign.com",
 	"main": "assets/js/project.js",
 	"scripts": {
 		"dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -19,15 +19,14 @@
 		"i18n": "npm run i18n:textdomain && npm run i18n:pot",
 		"i18n:textdomain": "npx wpi18n addtextdomain --exclude=vendor,node_modules",
 		"i18n:pot": "npx wpi18n makepot --domain-path=/assets/lang",
-		"build": "npm run prod && npm run i18n && npm run export",
-		"rename": "theme-claim"
+		"build": "npm run prod && npm run i18n"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/iamcanadian1973/_s.git"
+		"url": "git+git@github.com:SayenkoDesign/erickson.git"
 	},
 	"bugs": {
-		"url": "https://github.com/iamcanadian1973/_s/issues"
+		"url": "git@github.com:SayenkoDesign/erickson/issues"
 	},
 	"devDependencies": {
 		"@babel/polyfill": "^7.8.7",

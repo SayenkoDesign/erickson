@@ -11398,341 +11398,6 @@ forceFollow:true};
 
 /***/},
 
-/***/"./node_modules/foundation-sites/js/foundation.equalizer.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/foundation-sites/js/foundation.equalizer.js ***!
-  \******************************************************************/
-/*! exports provided: Equalizer */
-/***/function node_modulesFoundationSitesJsFoundationEqualizerJs(module,__webpack_exports__,__webpack_require__){
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */__webpack_require__.d(__webpack_exports__,"Equalizer",function(){return Equalizer;});
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! jquery */"jquery");
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! ./foundation.util.mediaQuery */"./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
-/* harmony import */var _foundation_util_imageLoader__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(/*! ./foundation.util.imageLoader */"./node_modules/foundation-sites/js/foundation.util.imageLoader.js");
-/* harmony import */var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(/*! ./foundation.core.utils */"./node_modules/foundation-sites/js/foundation.core.utils.js");
-/* harmony import */var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(/*! ./foundation.core.plugin */"./node_modules/foundation-sites/js/foundation.core.plugin.js");
-
-
-
-
-
-
-
-
-/**
- * Equalizer module.
- * @module foundation.equalizer
- * @requires foundation.util.mediaQuery
- * @requires foundation.util.imageLoader if equalizer contains images
- */var
-
-Equalizer=/*#__PURE__*/function(_foundation_core_plug5){_inherits(Equalizer,_foundation_core_plug5);function Equalizer(){_classCallCheck(this,Equalizer);return _possibleConstructorReturn(this,_getPrototypeOf(Equalizer).apply(this,arguments));}_createClass(Equalizer,[{key:"_setup",
-/**
-   * Creates a new instance of Equalizer.
-   * @class
-   * @name Equalizer
-   * @fires Equalizer#init
-   * @param {Object} element - jQuery object to add the trigger to.
-   * @param {Object} options - Overrides to the default plugin settings.
-   */value:function _setup(
-element,options){
-this.$element=element;
-this.options=jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({},Equalizer.defaults,this.$element.data(),options);
-this.className='Equalizer';// ie9 back compat
-
-this._init();
-}
-
-/**
-   * Initializes the Equalizer plugin and calls functions to get equalizer functioning on load.
-   * @private
-   */},{key:"_init",value:function _init()
-{
-var eqId=this.$element.attr('data-equalizer')||'';
-var $watched=this.$element.find("[data-equalizer-watch=\"".concat(eqId,"\"]"));
-
-_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"]._init();
-
-this.$watched=$watched.length?$watched:this.$element.find('[data-equalizer-watch]');
-this.$element.attr('data-resize',eqId||Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["GetYoDigits"])(6,'eq'));
-this.$element.attr('data-mutate',eqId||Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["GetYoDigits"])(6,'eq'));
-
-this.hasNested=this.$element.find('[data-equalizer]').length>0;
-this.isNested=this.$element.parentsUntil(document.body,'[data-equalizer]').length>0;
-this.isOn=false;
-this._bindHandler={
-onResizeMeBound:this._onResizeMe.bind(this),
-onPostEqualizedBound:this._onPostEqualized.bind(this)};
-
-
-var imgs=this.$element.find('img');
-var tooSmall;
-if(this.options.equalizeOn){
-tooSmall=this._checkMQ();
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('changed.zf.mediaquery',this._checkMQ.bind(this));
-}else {
-this._events();
-}
-if(typeof tooSmall!=='undefined'&&tooSmall===false||typeof tooSmall==='undefined'){
-if(imgs.length){
-Object(_foundation_util_imageLoader__WEBPACK_IMPORTED_MODULE_2__["onImagesLoaded"])(imgs,this._reflow.bind(this));
-}else {
-this._reflow();
-}
-}
-}
-
-/**
-   * Removes event listeners if the breakpoint is too small.
-   * @private
-   */},{key:"_pauseEvents",value:function _pauseEvents()
-{
-this.isOn=false;
-this.$element.off({
-'.zf.equalizer':this._bindHandler.onPostEqualizedBound,
-'resizeme.zf.trigger':this._bindHandler.onResizeMeBound,
-'mutateme.zf.trigger':this._bindHandler.onResizeMeBound});
-
-}
-
-/**
-   * function to handle $elements resizeme.zf.trigger, with bound this on _bindHandler.onResizeMeBound
-   * @private
-   */},{key:"_onResizeMe",value:function _onResizeMe(
-e){
-this._reflow();
-}
-
-/**
-   * function to handle $elements postequalized.zf.equalizer, with bound this on _bindHandler.onPostEqualizedBound
-   * @private
-   */},{key:"_onPostEqualized",value:function _onPostEqualized(
-e){
-if(e.target!==this.$element[0]){this._reflow();}
-}
-
-/**
-   * Initializes events for Equalizer.
-   * @private
-   */},{key:"_events",value:function _events()
-{
-this._pauseEvents();
-if(this.hasNested){
-this.$element.on('postequalized.zf.equalizer',this._bindHandler.onPostEqualizedBound);
-}else {
-this.$element.on('resizeme.zf.trigger',this._bindHandler.onResizeMeBound);
-this.$element.on('mutateme.zf.trigger',this._bindHandler.onResizeMeBound);
-}
-this.isOn=true;
-}
-
-/**
-   * Checks the current breakpoint to the minimum required size.
-   * @private
-   */},{key:"_checkMQ",value:function _checkMQ()
-{
-var tooSmall=!_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"].is(this.options.equalizeOn);
-if(tooSmall){
-if(this.isOn){
-this._pauseEvents();
-this.$watched.css('height','auto');
-}
-}else {
-if(!this.isOn){
-this._events();
-}
-}
-return tooSmall;
-}
-
-/**
-   * A noop version for the plugin
-   * @private
-   */},{key:"_killswitch",value:function _killswitch()
-{
-return;
-}
-
-/**
-   * Calls necessary functions to update Equalizer upon DOM change
-   * @private
-   */},{key:"_reflow",value:function _reflow()
-{
-if(!this.options.equalizeOnStack){
-if(this._isStacked()){
-this.$watched.css('height','auto');
-return false;
-}
-}
-if(this.options.equalizeByRow){
-this.getHeightsByRow(this.applyHeightByRow.bind(this));
-}else {
-this.getHeights(this.applyHeight.bind(this));
-}
-}
-
-/**
-   * Manually determines if the first 2 elements are *NOT* stacked.
-   * @private
-   */},{key:"_isStacked",value:function _isStacked()
-{
-if(!this.$watched[0]||!this.$watched[1]){
-return true;
-}
-return this.$watched[0].getBoundingClientRect().top!==this.$watched[1].getBoundingClientRect().top;
-}
-
-/**
-   * Finds the outer heights of children contained within an Equalizer parent and returns them in an array
-   * @param {Function} cb - A non-optional callback to return the heights array to.
-   * @returns {Array} heights - An array of heights of children within Equalizer container
-   */},{key:"getHeights",value:function getHeights(
-cb){
-var heights=[];
-for(var i=0,len=this.$watched.length;i<len;i++){
-this.$watched[i].style.height='auto';
-heights.push(this.$watched[i].offsetHeight);
-}
-cb(heights);
-}
-
-/**
-   * Finds the outer heights of children contained within an Equalizer parent and returns them in an array
-   * @param {Function} cb - A non-optional callback to return the heights array to.
-   * @returns {Array} groups - An array of heights of children within Equalizer container grouped by row with element,height and max as last child
-   */},{key:"getHeightsByRow",value:function getHeightsByRow(
-cb){
-var lastElTopOffset=this.$watched.length?this.$watched.first().offset().top:0,
-groups=[],
-group=0;
-//group by Row
-groups[group]=[];
-for(var i=0,len=this.$watched.length;i<len;i++){
-this.$watched[i].style.height='auto';
-//maybe could use this.$watched[i].offsetTop
-var elOffsetTop=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$watched[i]).offset().top;
-if(elOffsetTop!=lastElTopOffset){
-group++;
-groups[group]=[];
-lastElTopOffset=elOffsetTop;
-}
-groups[group].push([this.$watched[i],this.$watched[i].offsetHeight]);
-}
-
-for(var j=0,ln=groups.length;j<ln;j++){
-var heights=jquery__WEBPACK_IMPORTED_MODULE_0___default()(groups[j]).map(function(){return this[1];}).get();
-var max=Math.max.apply(null,heights);
-groups[j].push(max);
-}
-cb(groups);
-}
-
-/**
-   * Changes the CSS height property of each child in an Equalizer parent to match the tallest
-   * @param {array} heights - An array of heights of children within Equalizer container
-   * @fires Equalizer#preequalized
-   * @fires Equalizer#postequalized
-   */},{key:"applyHeight",value:function applyHeight(
-heights){
-var max=Math.max.apply(null,heights);
-/**
-     * Fires before the heights are applied
-     * @event Equalizer#preequalized
-     */
-this.$element.trigger('preequalized.zf.equalizer');
-
-this.$watched.css('height',max);
-
-/**
-     * Fires when the heights have been applied
-     * @event Equalizer#postequalized
-     */
-this.$element.trigger('postequalized.zf.equalizer');
-}
-
-/**
-   * Changes the CSS height property of each child in an Equalizer parent to match the tallest by row
-   * @param {array} groups - An array of heights of children within Equalizer container grouped by row with element,height and max as last child
-   * @fires Equalizer#preequalized
-   * @fires Equalizer#preequalizedrow
-   * @fires Equalizer#postequalizedrow
-   * @fires Equalizer#postequalized
-   */},{key:"applyHeightByRow",value:function applyHeightByRow(
-groups){
-/**
-     * Fires before the heights are applied
-     */
-this.$element.trigger('preequalized.zf.equalizer');
-for(var i=0,len=groups.length;i<len;i++){
-var groupsILength=groups[i].length,
-max=groups[i][groupsILength-1];
-if(groupsILength<=2){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(groups[i][0][0]).css({'height':'auto'});
-continue;
-}
-/**
-        * Fires before the heights per row are applied
-        * @event Equalizer#preequalizedrow
-        */
-this.$element.trigger('preequalizedrow.zf.equalizer');
-for(var j=0,lenJ=groupsILength-1;j<lenJ;j++){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(groups[i][j][0]).css({'height':max});
-}
-/**
-        * Fires when the heights per row have been applied
-        * @event Equalizer#postequalizedrow
-        */
-this.$element.trigger('postequalizedrow.zf.equalizer');
-}
-/**
-     * Fires when the heights have been applied
-     */
-this.$element.trigger('postequalized.zf.equalizer');
-}
-
-/**
-   * Destroys an instance of Equalizer.
-   * @function
-   */},{key:"_destroy",value:function _destroy()
-{
-this._pauseEvents();
-this.$watched.css('height','auto');
-}}]);return Equalizer;}(_foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__["Plugin"]);
-
-
-/**
- * Default settings for plugin
- */
-Equalizer.defaults={
-/**
-   * Enable height equalization when stacked on smaller screens.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-equalizeOnStack:false,
-/**
-   * Enable height equalization row by row.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-equalizeByRow:false,
-/**
-   * String representing the minimum breakpoint size the plugin should equalize heights on.
-   * @option
-   * @type {string}
-   * @default ''
-   */
-equalizeOn:''};
-
-
-
-
-
-/***/},
-
 /***/"./node_modules/foundation-sites/js/foundation.responsiveAccordionTabs.js":
 /*!********************************************************************************!*\
   !*** ./node_modules/foundation-sites/js/foundation.responsiveAccordionTabs.js ***!
@@ -11785,7 +11450,7 @@ toggle:function toggle(plugin,target){return plugin.toggle(jquery__WEBPACK_IMPOR
  * @requires foundation.tabs
  */var
 
-ResponsiveAccordionTabs=/*#__PURE__*/function(_foundation_core_plug6){_inherits(ResponsiveAccordionTabs,_foundation_core_plug6);
+ResponsiveAccordionTabs=/*#__PURE__*/function(_foundation_core_plug5){_inherits(ResponsiveAccordionTabs,_foundation_core_plug5);
 function ResponsiveAccordionTabs(element,options){var _this9;_classCallCheck(this,ResponsiveAccordionTabs);
 _this9=_possibleConstructorReturn(this,_getPrototypeOf(ResponsiveAccordionTabs).call(this,element,options));
 return _possibleConstructorReturn(_this9,_this9.options.reflow&&_this9.storezfData||_assertThisInitialized(_this9));
@@ -12089,7 +11754,7 @@ plugin:_foundation_accordionMenu__WEBPACK_IMPORTED_MODULE_6__["AccordionMenu"]}}
  * @requires foundation.util.mediaQuery
  */var
 
-ResponsiveMenu=/*#__PURE__*/function(_foundation_core_plug7){_inherits(ResponsiveMenu,_foundation_core_plug7);function ResponsiveMenu(){_classCallCheck(this,ResponsiveMenu);return _possibleConstructorReturn(this,_getPrototypeOf(ResponsiveMenu).apply(this,arguments));}_createClass(ResponsiveMenu,[{key:"_setup",
+ResponsiveMenu=/*#__PURE__*/function(_foundation_core_plug6){_inherits(ResponsiveMenu,_foundation_core_plug6);function ResponsiveMenu(){_classCallCheck(this,ResponsiveMenu);return _possibleConstructorReturn(this,_getPrototypeOf(ResponsiveMenu).apply(this,arguments));}_createClass(ResponsiveMenu,[{key:"_setup",
 /**
    * Creates a new instance of a responsive menu.
    * @class
@@ -12239,7 +11904,7 @@ __webpack_require__.r(__webpack_exports__);
  * @requires foundation.util.motion
  */var
 
-ResponsiveToggle=/*#__PURE__*/function(_foundation_core_plug8){_inherits(ResponsiveToggle,_foundation_core_plug8);function ResponsiveToggle(){_classCallCheck(this,ResponsiveToggle);return _possibleConstructorReturn(this,_getPrototypeOf(ResponsiveToggle).apply(this,arguments));}_createClass(ResponsiveToggle,[{key:"_setup",
+ResponsiveToggle=/*#__PURE__*/function(_foundation_core_plug7){_inherits(ResponsiveToggle,_foundation_core_plug7);function ResponsiveToggle(){_classCallCheck(this,ResponsiveToggle);return _possibleConstructorReturn(this,_getPrototypeOf(ResponsiveToggle).apply(this,arguments));}_createClass(ResponsiveToggle,[{key:"_setup",
 /**
    * Creates a new instance of Tab Bar.
    * @class
@@ -12383,663 +12048,6 @@ animate:false};
 
 /***/},
 
-/***/"./node_modules/foundation-sites/js/foundation.reveal.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/foundation-sites/js/foundation.reveal.js ***!
-  \***************************************************************/
-/*! exports provided: Reveal */
-/***/function node_modulesFoundationSitesJsFoundationRevealJs(module,__webpack_exports__,__webpack_require__){
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */__webpack_require__.d(__webpack_exports__,"Reveal",function(){return Reveal;});
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! jquery */"jquery");
-/* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! ./foundation.core.plugin */"./node_modules/foundation-sites/js/foundation.core.plugin.js");
-/* harmony import */var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(/*! ./foundation.core.utils */"./node_modules/foundation-sites/js/foundation.core.utils.js");
-/* harmony import */var _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__=__webpack_require__(/*! ./foundation.util.keyboard */"./node_modules/foundation-sites/js/foundation.util.keyboard.js");
-/* harmony import */var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_4__=__webpack_require__(/*! ./foundation.util.mediaQuery */"./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
-/* harmony import */var _foundation_util_motion__WEBPACK_IMPORTED_MODULE_5__=__webpack_require__(/*! ./foundation.util.motion */"./node_modules/foundation-sites/js/foundation.util.motion.js");
-/* harmony import */var _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_6__=__webpack_require__(/*! ./foundation.util.triggers */"./node_modules/foundation-sites/js/foundation.util.triggers.js");
-/* harmony import */var _foundation_util_touch__WEBPACK_IMPORTED_MODULE_7__=__webpack_require__(/*! ./foundation.util.touch */"./node_modules/foundation-sites/js/foundation.util.touch.js");
-
-
-
-
-
-
-
-
-
-
-
-/**
- * Reveal module.
- * @module foundation.reveal
- * @requires foundation.util.keyboard
- * @requires foundation.util.touch
- * @requires foundation.util.triggers
- * @requires foundation.util.mediaQuery
- * @requires foundation.util.motion if using animations
- */var
-
-Reveal=/*#__PURE__*/function(_foundation_core_plug9){_inherits(Reveal,_foundation_core_plug9);function Reveal(){_classCallCheck(this,Reveal);return _possibleConstructorReturn(this,_getPrototypeOf(Reveal).apply(this,arguments));}_createClass(Reveal,[{key:"_setup",
-/**
-   * Creates a new instance of Reveal.
-   * @class
-   * @name Reveal
-   * @param {jQuery} element - jQuery object to use for the modal.
-   * @param {Object} options - optional parameters.
-   */value:function _setup(
-element,options){
-this.$element=element;
-this.options=jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({},Reveal.defaults,this.$element.data(),options);
-this.className='Reveal';// ie9 back compat
-this._init();
-
-// Touch and Triggers init are idempotent, just need to make sure they are initialized
-_foundation_util_touch__WEBPACK_IMPORTED_MODULE_7__["Touch"].init(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
-_foundation_util_triggers__WEBPACK_IMPORTED_MODULE_6__["Triggers"].init(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
-
-_foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__["Keyboard"].register('Reveal',{
-'ESCAPE':'close'});
-
-}
-
-/**
-   * Initializes the modal by adding the overlay and close buttons, (if selected).
-   * @private
-   */},{key:"_init",value:function _init()
-{var _this11=this;
-_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_4__["MediaQuery"]._init();
-this.id=this.$element.attr('id');
-this.isActive=false;
-this.cached={mq:_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_4__["MediaQuery"].current};
-
-this.$anchor=jquery__WEBPACK_IMPORTED_MODULE_0___default()("[data-open=\"".concat(this.id,"\"]")).length?jquery__WEBPACK_IMPORTED_MODULE_0___default()("[data-open=\"".concat(this.id,"\"]")):jquery__WEBPACK_IMPORTED_MODULE_0___default()("[data-toggle=\"".concat(this.id,"\"]"));
-this.$anchor.attr({
-'aria-controls':this.id,
-'aria-haspopup':true,
-'tabindex':0});
-
-
-if(this.options.fullScreen||this.$element.hasClass('full')){
-this.options.fullScreen=true;
-this.options.overlay=false;
-}
-if(this.options.overlay&&!this.$overlay){
-this.$overlay=this._makeOverlay(this.id);
-}
-
-this.$element.attr({
-'role':'dialog',
-'aria-hidden':true,
-'data-yeti-box':this.id,
-'data-resize':this.id});
-
-
-if(this.$overlay){
-this.$element.detach().appendTo(this.$overlay);
-}else {
-this.$element.detach().appendTo(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.options.appendTo));
-this.$element.addClass('without-overlay');
-}
-this._events();
-if(this.options.deepLink&&window.location.hash==="#".concat(this.id)){
-this.onLoadListener=Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__["onLoad"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window),function(){return _this11.open();});
-}
-}
-
-/**
-   * Creates an overlay div to display behind the modal.
-   * @private
-   */},{key:"_makeOverlay",value:function _makeOverlay()
-{
-var additionalOverlayClasses='';
-
-if(this.options.additionalOverlayClasses){
-additionalOverlayClasses=' '+this.options.additionalOverlayClasses;
-}
-
-return jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div></div>').
-addClass('reveal-overlay'+additionalOverlayClasses).
-appendTo(this.options.appendTo);
-}
-
-/**
-   * Updates position of modal
-   * TODO:  Figure out if we actually need to cache these values or if it doesn't matter
-   * @private
-   */},{key:"_updatePosition",value:function _updatePosition()
-{
-var width=this.$element.outerWidth();
-var outerWidth=jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width();
-var height=this.$element.outerHeight();
-var outerHeight=jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height();
-var left,top=null;
-if(this.options.hOffset==='auto'){
-left=parseInt((outerWidth-width)/2,10);
-}else {
-left=parseInt(this.options.hOffset,10);
-}
-if(this.options.vOffset==='auto'){
-if(height>outerHeight){
-top=parseInt(Math.min(100,outerHeight/10),10);
-}else {
-top=parseInt((outerHeight-height)/4,10);
-}
-}else if(this.options.vOffset!==null){
-top=parseInt(this.options.vOffset,10);
-}
-
-if(top!==null){
-this.$element.css({top:top+'px'});
-}
-
-// only worry about left if we don't have an overlay or we have a horizontal offset,
-// otherwise we're perfectly in the middle
-if(!this.$overlay||this.options.hOffset!=='auto'){
-this.$element.css({left:left+'px'});
-this.$element.css({margin:'0px'});
-}
-
-}
-
-/**
-   * Adds event handlers for the modal.
-   * @private
-   */},{key:"_events",value:function _events()
-{var _this12=this;
-var _this=this;
-
-this.$element.on({
-'open.zf.trigger':this.open.bind(this),
-'close.zf.trigger':function closeZfTrigger(event,$element){
-if(event.target===_this.$element[0]||
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target).parents('[data-closable]')[0]===$element){// only close reveal when it's explicitly called
-return _this12.close.apply(_this12);
-}
-},
-'toggle.zf.trigger':this.toggle.bind(this),
-'resizeme.zf.trigger':function resizemeZfTrigger(){
-_this._updatePosition();
-}});
-
-
-if(this.options.closeOnClick&&this.options.overlay){
-this.$overlay.off('.zf.reveal').on('click.zf.dropdown tap.zf.dropdown',function(e){
-if(e.target===_this.$element[0]||
-jquery__WEBPACK_IMPORTED_MODULE_0___default.a.contains(_this.$element[0],e.target)||
-!jquery__WEBPACK_IMPORTED_MODULE_0___default.a.contains(document,e.target)){
-return;
-}
-_this.close();
-});
-}
-if(this.options.deepLink){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("hashchange.zf.reveal:".concat(this.id),this._handleState.bind(this));
-}
-}
-
-/**
-   * Handles modal methods on back/forward button clicks or any other event that triggers hashchange.
-   * @private
-   */},{key:"_handleState",value:function _handleState(
-e){
-if(window.location.hash==='#'+this.id&&!this.isActive){this.open();}else
-{this.close();}
-}
-
-/**
-  * Disables the scroll when Reveal is shown to prevent the background from shifting
-  * @param {number} scrollTop - Scroll to visually apply, window current scroll by default
-  */},{key:"_disableScroll",value:function _disableScroll(
-scrollTop){
-scrollTop=scrollTop||jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop();
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).height()>jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height()){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()("html").
-css("top",-scrollTop);
-}
-}
-
-/**
-  * Reenables the scroll when Reveal closes
-  * @param {number} scrollTop - Scroll to restore, html "top" property by default (as set by `_disableScroll`)
-  */},{key:"_enableScroll",value:function _enableScroll(
-scrollTop){
-scrollTop=scrollTop||parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()("html").css("top"));
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).height()>jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height()){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()("html").
-css("top","");
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop(-scrollTop);
-}
-}
-
-
-/**
-   * Opens the modal controlled by `this.$anchor`, and closes all others by default.
-   * @function
-   * @fires Reveal#closeme
-   * @fires Reveal#open
-   */},{key:"open",value:function open()
-{var _this13=this;
-// either update or replace browser history
-var hash="#".concat(this.id);
-if(this.options.deepLink&&window.location.hash!==hash){
-
-if(window.history.pushState){
-if(this.options.updateHistory){
-window.history.pushState({},'',hash);
-}else {
-window.history.replaceState({},'',hash);
-}
-}else {
-window.location.hash=hash;
-}
-}
-
-// Remember anchor that opened it to set focus back later, have general anchors as fallback
-this.$activeAnchor=jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.activeElement).is(this.$anchor)?jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.activeElement):this.$anchor;
-
-this.isActive=true;
-
-// Make elements invisible, but remove display: none so we can get size and positioning
-this.$element.
-css({'visibility':'hidden'}).
-show().
-scrollTop(0);
-if(this.options.overlay){
-this.$overlay.css({'visibility':'hidden'}).show();
-}
-
-this._updatePosition();
-
-this.$element.
-hide().
-css({'visibility':''});
-
-if(this.$overlay){
-this.$overlay.css({'visibility':''}).hide();
-if(this.$element.hasClass('fast')){
-this.$overlay.addClass('fast');
-}else if(this.$element.hasClass('slow')){
-this.$overlay.addClass('slow');
-}
-}
-
-
-if(!this.options.multipleOpened){
-/**
-       * Fires immediately before the modal opens.
-       * Closes any other modals that are currently open
-       * @event Reveal#closeme
-       */
-this.$element.trigger('closeme.zf.reveal',this.id);
-}
-
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.reveal:visible').length===0){
-this._disableScroll();
-}
-
-var _this=this;
-
-// Motion UI method of reveal
-if(this.options.animationIn){var
-afterAnimation=function afterAnimation(){
-_this.$element.
-attr({
-'aria-hidden':false,
-'tabindex':-1}).
-
-focus();
-_this._addGlobalClasses();
-_foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__["Keyboard"].trapFocus(_this.$element);
-};
-if(this.options.overlay){
-_foundation_util_motion__WEBPACK_IMPORTED_MODULE_5__["Motion"].animateIn(this.$overlay,'fade-in');
-}
-_foundation_util_motion__WEBPACK_IMPORTED_MODULE_5__["Motion"].animateIn(this.$element,this.options.animationIn,function(){
-if(_this13.$element){// protect against object having been removed
-_this13.focusableElements=_foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__["Keyboard"].findFocusable(_this13.$element);
-afterAnimation();
-}
-});
-}
-// jQuery method of reveal
-else {
-if(this.options.overlay){
-this.$overlay.show(0);
-}
-this.$element.show(this.options.showDelay);
-}
-
-// handle accessibility
-this.$element.
-attr({
-'aria-hidden':false,
-'tabindex':-1}).
-
-focus();
-_foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__["Keyboard"].trapFocus(this.$element);
-
-this._addGlobalClasses();
-
-this._addGlobalListeners();
-
-/**
-     * Fires when the modal has successfully opened.
-     * @event Reveal#open
-     */
-this.$element.trigger('open.zf.reveal');
-}
-
-/**
-   * Adds classes and listeners on document required by open modals.
-   *
-   * The following classes are added and updated:
-   * - `.is-reveal-open` - Prevents the scroll on document
-   * - `.zf-has-scroll`  - Displays a disabled scrollbar on document if required like if the
-   *                       scroll was not disabled. This prevent a "shift" of the page content due
-   *                       the scrollbar disappearing when the modal opens.
-   *
-   * @private
-   */},{key:"_addGlobalClasses",value:function _addGlobalClasses()
-{
-var updateScrollbarClass=function updateScrollbarClass(){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').toggleClass('zf-has-scroll',!!(jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).height()>jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height()));
-};
-
-this.$element.on('resizeme.zf.trigger.revealScrollbarListener',function(){return updateScrollbarClass();});
-updateScrollbarClass();
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').addClass('is-reveal-open');
-}
-
-/**
-   * Removes classes and listeners on document that were required by open modals.
-   * @private
-   */},{key:"_removeGlobalClasses",value:function _removeGlobalClasses()
-{
-this.$element.off('resizeme.zf.trigger.revealScrollbarListener');
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').removeClass('is-reveal-open');
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').removeClass('zf-has-scroll');
-}
-
-/**
-   * Adds extra event handlers for the body and window if necessary.
-   * @private
-   */},{key:"_addGlobalListeners",value:function _addGlobalListeners()
-{
-var _this=this;
-if(!this.$element){return;}// If we're in the middle of cleanup, don't freak out
-this.focusableElements=_foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__["Keyboard"].findFocusable(this.$element);
-
-if(!this.options.overlay&&this.options.closeOnClick&&!this.options.fullScreen){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click.zf.dropdown tap.zf.dropdown',function(e){
-if(e.target===_this.$element[0]||
-jquery__WEBPACK_IMPORTED_MODULE_0___default.a.contains(_this.$element[0],e.target)||
-!jquery__WEBPACK_IMPORTED_MODULE_0___default.a.contains(document,e.target)){return;}
-_this.close();
-});
-}
-
-if(this.options.closeOnEsc){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('keydown.zf.reveal',function(e){
-_foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__["Keyboard"].handleKey(e,'Reveal',{
-close:function close(){
-if(_this.options.closeOnEsc){
-_this.close();
-}
-}});
-
-});
-}
-}
-
-/**
-   * Closes the modal.
-   * @function
-   * @fires Reveal#closed
-   */},{key:"close",value:function close()
-{
-if(!this.isActive||!this.$element.is(':visible')){
-return false;
-}
-var _this=this;
-
-// Motion UI method of hiding
-if(this.options.animationOut){
-if(this.options.overlay){
-_foundation_util_motion__WEBPACK_IMPORTED_MODULE_5__["Motion"].animateOut(this.$overlay,'fade-out');
-}
-
-_foundation_util_motion__WEBPACK_IMPORTED_MODULE_5__["Motion"].animateOut(this.$element,this.options.animationOut,finishUp);
-}
-// jQuery method of hiding
-else {
-this.$element.hide(this.options.hideDelay);
-
-if(this.options.overlay){
-this.$overlay.hide(0,finishUp);
-}else
-{
-finishUp();
-}
-}
-
-// Conditionals to remove extra event listeners added on open
-if(this.options.closeOnEsc){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('keydown.zf.reveal');
-}
-
-if(!this.options.overlay&&this.options.closeOnClick){
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click.zf.dropdown tap.zf.dropdown');
-}
-
-this.$element.off('keydown.zf.reveal');
-
-function finishUp(){
-
-// Get the current top before the modal is closed and restore the scroll after.
-// TODO: use component properties instead of HTML properties
-// See https://github.com/zurb/foundation-sites/pull/10786
-var scrollTop=parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()("html").css("top"));
-
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.reveal:visible').length===0){
-_this._removeGlobalClasses();// also remove .is-reveal-open from the html element when there is no opened reveal
-}
-
-_foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__["Keyboard"].releaseFocus(_this.$element);
-
-_this.$element.attr('aria-hidden',true);
-
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.reveal:visible').length===0){
-_this._enableScroll(scrollTop);
-}
-
-/**
-      * Fires when the modal is done closing.
-      * @event Reveal#closed
-      */
-_this.$element.trigger('closed.zf.reveal');
-}
-
-/**
-    * Resets the modal content
-    * This prevents a running video to keep going in the background
-    */
-if(this.options.resetOnClose){
-this.$element.html(this.$element.html());
-}
-
-this.isActive=false;
-// If deepLink and we did not switched to an other modal...
-if(_this.options.deepLink&&window.location.hash==="#".concat(this.id)){
-// Remove the history hash
-if(window.history.replaceState){
-var urlWithoutHash=window.location.pathname+window.location.search;
-if(this.options.updateHistory){
-window.history.pushState({},'',urlWithoutHash);// remove the hash
-}else {
-window.history.replaceState('',document.title,urlWithoutHash);
-}
-}else {
-window.location.hash='';
-}
-}
-
-this.$activeAnchor.focus();
-}
-
-/**
-   * Toggles the open/closed state of a modal.
-   * @function
-   */},{key:"toggle",value:function toggle()
-{
-if(this.isActive){
-this.close();
-}else {
-this.open();
-}
-}},{key:"_destroy",
-
-/**
-   * Destroys an instance of a modal.
-   * @function
-   */value:function _destroy()
-{
-if(this.options.overlay){
-this.$element.appendTo(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.options.appendTo));// move $element outside of $overlay to prevent error unregisterPlugin()
-this.$overlay.hide().off().remove();
-}
-this.$element.hide().off();
-this.$anchor.off('.zf');
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(".zf.reveal:".concat(this.id));
-if(this.onLoadListener)jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(this.onLoadListener);
-
-if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.reveal:visible').length===0){
-this._removeGlobalClasses();// also remove .is-reveal-open from the html element when there is no opened reveal
-}
-}}]);return Reveal;}(_foundation_core_plugin__WEBPACK_IMPORTED_MODULE_1__["Plugin"]);
-
-
-Reveal.defaults={
-/**
-   * Motion-UI class to use for animated elements. If none used, defaults to simple show/hide.
-   * @option
-   * @type {string}
-   * @default ''
-   */
-animationIn:'',
-/**
-   * Motion-UI class to use for animated elements. If none used, defaults to simple show/hide.
-   * @option
-   * @type {string}
-   * @default ''
-   */
-animationOut:'',
-/**
-   * Time, in ms, to delay the opening of a modal after a click if no animation used.
-   * @option
-   * @type {number}
-   * @default 0
-   */
-showDelay:0,
-/**
-   * Time, in ms, to delay the closing of a modal after a click if no animation used.
-   * @option
-   * @type {number}
-   * @default 0
-   */
-hideDelay:0,
-/**
-   * Allows a click on the body/overlay to close the modal.
-   * @option
-   * @type {boolean}
-   * @default true
-   */
-closeOnClick:true,
-/**
-   * Allows the modal to close if the user presses the `ESCAPE` key.
-   * @option
-   * @type {boolean}
-   * @default true
-   */
-closeOnEsc:true,
-/**
-   * If true, allows multiple modals to be displayed at once.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-multipleOpened:false,
-/**
-   * Distance, in pixels, the modal should push down from the top of the screen.
-   * @option
-   * @type {number|string}
-   * @default auto
-   */
-vOffset:'auto',
-/**
-   * Distance, in pixels, the modal should push in from the side of the screen.
-   * @option
-   * @type {number|string}
-   * @default auto
-   */
-hOffset:'auto',
-/**
-   * Allows the modal to be fullscreen, completely blocking out the rest of the view. JS checks for this as well.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-fullScreen:false,
-/**
-   * Allows the modal to generate an overlay div, which will cover the view when modal opens.
-   * @option
-   * @type {boolean}
-   * @default true
-   */
-overlay:true,
-/**
-   * Allows the modal to remove and reinject markup on close. Should be true if using video elements w/o using provider's api, otherwise, videos will continue to play in the background.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-resetOnClose:false,
-/**
-   * Link the location hash to the modal.
-   * Set the location hash when the modal is opened/closed, and open/close the modal when the location changes.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-deepLink:false,
-/**
-   * If `deepLink` is enabled, update the browser history with the open modal
-   * @option
-   * @default false
-   */
-updateHistory:false,
-/**
-   * Allows the modal to append to custom div.
-   * @option
-   * @type {string}
-   * @default "body"
-   */
-appendTo:"body",
-/**
-   * Allows adding additional class names to the reveal overlay.
-   * @option
-   * @type {string}
-   * @default ''
-   */
-additionalOverlayClasses:''};
-
-
-
-
-
-/***/},
-
 /***/"./node_modules/foundation-sites/js/foundation.smoothScroll.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/foundation-sites/js/foundation.smoothScroll.js ***!
@@ -13060,7 +12068,7 @@ __webpack_require__.r(__webpack_exports__);
  * SmoothScroll module.
  * @module foundation.smoothScroll
  */var
-SmoothScroll=/*#__PURE__*/function(_foundation_core_plug10){_inherits(SmoothScroll,_foundation_core_plug10);function SmoothScroll(){_classCallCheck(this,SmoothScroll);return _possibleConstructorReturn(this,_getPrototypeOf(SmoothScroll).apply(this,arguments));}_createClass(SmoothScroll,[{key:"_setup",
+SmoothScroll=/*#__PURE__*/function(_foundation_core_plug8){_inherits(SmoothScroll,_foundation_core_plug8);function SmoothScroll(){_classCallCheck(this,SmoothScroll);return _possibleConstructorReturn(this,_getPrototypeOf(SmoothScroll).apply(this,arguments));}_createClass(SmoothScroll,[{key:"_setup",
 /**
    * Creates a new instance of SmoothScroll.
    * @class
@@ -13104,7 +12112,7 @@ this.$element.on('click.zf.smoothScroll','a[href^="#"]',this._linkClickListener)
      * @function
      * @private
      */},{key:"_handleLinkClick",value:function _handleLinkClick(
-e){var _this14=this;
+e){var _this11=this;
 // Follow the link if it does not point to an anchor.
 if(!jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.currentTarget).is('a[href^="#"]'))return;
 
@@ -13113,7 +12121,7 @@ var arrival=e.currentTarget.getAttribute('href');
 this._inTransition=true;
 
 SmoothScroll.scrollToLoc(arrival,this.options,function(){
-_this14._inTransition=false;
+_this11._inTransition=false;
 });
 
 e.preventDefault();
@@ -13225,7 +12233,7 @@ __webpack_require__.r(__webpack_exports__);
  * @requires foundation.util.imageLoader if tabs contain images
  */var
 
-Tabs=/*#__PURE__*/function(_foundation_core_plug11){_inherits(Tabs,_foundation_core_plug11);function Tabs(){_classCallCheck(this,Tabs);return _possibleConstructorReturn(this,_getPrototypeOf(Tabs).apply(this,arguments));}_createClass(Tabs,[{key:"_setup",
+Tabs=/*#__PURE__*/function(_foundation_core_plug9){_inherits(Tabs,_foundation_core_plug9);function Tabs(){_classCallCheck(this,Tabs);return _possibleConstructorReturn(this,_getPrototypeOf(Tabs).apply(this,arguments));}_createClass(Tabs,[{key:"_setup",
 /**
    * Creates a new instance of tabs.
    * @class
@@ -13256,7 +12264,7 @@ _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__["Keyboard"].register('Tab
    * Initializes the tabs by showing and focusing (if autoFocus=true) the preset active tab.
    * @private
    */},{key:"_init",value:function _init()
-{var _this15=this;
+{var _this12=this;
 var _this=this;
 this._isInitializing=true;
 
@@ -13321,38 +12329,38 @@ var anchor=window.location.hash;
 
 if(!anchor.length){
 // If we are still initializing and there is no anchor, then there is nothing to do
-if(_this15._isInitializing)return;
+if(_this12._isInitializing)return;
 // Otherwise, move to the initial anchor
-if(_this15._initialAnchor)anchor=_this15._initialAnchor;
+if(_this12._initialAnchor)anchor=_this12._initialAnchor;
 }
 
 var anchorNoHash=anchor.indexOf('#')>=0?anchor.slice(1):anchor;
 var $anchor=anchorNoHash&&jquery__WEBPACK_IMPORTED_MODULE_0___default()("#".concat(anchorNoHash));
-var $link=anchor&&_this15.$element.find("[href$=\"".concat(anchor,"\"],[data-tabs-target=\"").concat(anchorNoHash,"\"]")).first();
+var $link=anchor&&_this12.$element.find("[href$=\"".concat(anchor,"\"],[data-tabs-target=\"").concat(anchorNoHash,"\"]")).first();
 // Whether the anchor element that has been found is part of this element
 var isOwnAnchor=!!($anchor.length&&$link.length);
 
 if(isOwnAnchor){
 // If there is an anchor for the hash, select it
 if($anchor&&$anchor.length&&$link&&$link.length){
-_this15.selectTab($anchor,true);
+_this12.selectTab($anchor,true);
 }
 // Otherwise, collapse everything
 else {
-_this15._collapse();
+_this12._collapse();
 }
 
 // Roll up a little to show the titles
-if(_this15.options.deepLinkSmudge){
-var offset=_this15.$element.offset();
-jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').animate({scrollTop:offset.top},_this15.options.deepLinkSmudgeDelay);
+if(_this12.options.deepLinkSmudge){
+var offset=_this12.$element.offset();
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').animate({scrollTop:offset.top},_this12.options.deepLinkSmudgeDelay);
 }
 
 /**
          * Fires when the plugin has deeplinked at pageload
          * @event Tabs#deeplink
          */
-_this15.$element.trigger('deeplink.zf.tabs',[$link,$anchor]);
+_this12.$element.trigger('deeplink.zf.tabs',[$link,$anchor]);
 }
 };
 
@@ -13785,7 +12793,7 @@ __webpack_require__.r(__webpack_exports__);
  * @requires foundation.util.triggers
  */var
 
-Toggler=/*#__PURE__*/function(_foundation_core_plug12){_inherits(Toggler,_foundation_core_plug12);function Toggler(){_classCallCheck(this,Toggler);return _possibleConstructorReturn(this,_getPrototypeOf(Toggler).apply(this,arguments));}_createClass(Toggler,[{key:"_setup",
+Toggler=/*#__PURE__*/function(_foundation_core_plug10){_inherits(Toggler,_foundation_core_plug10);function Toggler(){_classCallCheck(this,Toggler);return _possibleConstructorReturn(this,_getPrototypeOf(Toggler).apply(this,arguments));}_createClass(Toggler,[{key:"_setup",
 /**
    * Creates a new instance of Toggler.
    * @class
@@ -14608,8 +13616,8 @@ return null;
    * @param {String} size - Name of the breakpoint.
    * @returns {String|null} - The name of the following breakpoint, or `null` if the passed breakpoint was the last one.
    */
-next:function next(size){var _this16=this;
-var queryIndex=this.queries.findIndex(function(q){return _this16._getQueryName(q)===size;});
+next:function next(size){var _this13=this;
+var queryIndex=this.queries.findIndex(function(q){return _this13._getQueryName(q)===size;});
 if(queryIndex===-1){
 throw new Error("\n        Unknown breakpoint \"".concat(
 size,"\" passed to MediaQuery.next().\n        Ensure it is present in your Sass \"$breakpoints\" setting.\n      "));
@@ -14664,13 +13672,13 @@ return matched&&this._getQueryName(matched);
    * @function
    * @private
    */
-_watcher:function _watcher(){var _this17=this;
+_watcher:function _watcher(){var _this14=this;
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('resize.zf.mediaquery').on('resize.zf.mediaquery',function(){
-var newSize=_this17._getCurrentSize(),currentSize=_this17.current;
+var newSize=_this14._getCurrentSize(),currentSize=_this14.current;
 
 if(newSize!==currentSize){
 // Change the current media query
-_this17.current=newSize;
+_this14.current=newSize;
 
 // Broadcast the media query change on the window
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).trigger('changed.zf.mediaquery',[newSize,currentSize]);

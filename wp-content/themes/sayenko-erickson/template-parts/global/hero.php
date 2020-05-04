@@ -73,7 +73,9 @@ if( ! class_exists( 'Global_Hero' ) ) {
         // Add content
         public function render() {
             
-            $heading = _s_format_string( $this->get_fields( 'heading' ), 'h1' );
+            $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
+            
+            $heading = _s_format_string( $heading, 'h1' );
             
             $description = $this->get_fields( 'description' );
             

@@ -17,7 +17,12 @@
                             
         .panel > *:last-child {
             margin-bottom: 0;   
-        }        
+        } 
+        
+        img {
+            height: 100px;
+            width: auto;   
+        }
     }
 }
 
