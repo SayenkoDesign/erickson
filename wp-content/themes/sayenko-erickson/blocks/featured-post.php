@@ -33,10 +33,10 @@ if( ! class_exists( 'Featured_Post_Block' ) ) {
             
             $_post = $this->get_post();
                         
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 <div class="grid-x grid-margin-x"><div class="cell">%s</div></div>
                                 %s
-                            </div>',
+                            ',
                             $heading,
                             $_post
                          );  

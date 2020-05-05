@@ -69,10 +69,10 @@ if( ! class_exists( 'Approach_Block' ) ) {
             $list = sprintf( '<div class="cell large-5 large-order-1"><div class="panel">%s %s</div></div>', ul( $items ), $button  );
                                         
             return sprintf( '
-                                <div class="grid-x grid-padding-x">
+                                <div class="grid-x grid-margin-x">
                                     <div class="cell">%s</div>
                                 </div>
-                                <div class="grid-x grid-padding-x grid-margin-bottom">
+                                <div class="grid-x grid-margin-x grid-margin-bottom">
                                     <div class="cell large-7 large-order-2">%s</div>
                                     %s
                                 </div>

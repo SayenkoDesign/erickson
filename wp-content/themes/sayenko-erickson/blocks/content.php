@@ -89,11 +89,11 @@ if( ! class_exists( 'Content_Block' ) ) {
             
             $cells .= sprintf( '<div class="cell%s"><div class="panel">%s%s</div></div>', $columns, $this->get_fields( 'text' ), $button  );
                                                 
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 <div class="grid-x grid-padding-x grid-margin-bottom">
                                 %s
                                 </div>
-                            </div>',
+                            ',
                             $cells
                          );  
             

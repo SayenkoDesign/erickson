@@ -40,7 +40,7 @@ if( ! class_exists( 'Quote_Block' ) ) {
             $quote_mark = sprintf( '<div class="quote-mark">%s</div>', 
                                     get_svg( 'left-quote' ) );
                                                                                        
-            return sprintf( '<div class="grid-x">    
+            return sprintf( '<div class="grid-x grid-margin-x">    
             <div class="cell"><div class="quote">%s%s</div></div>', $quote_mark, $this->get_field( 'text' ) );
         }
                       

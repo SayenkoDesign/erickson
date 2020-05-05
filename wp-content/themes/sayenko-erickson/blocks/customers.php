@@ -36,9 +36,9 @@ if( ! class_exists( 'Customers_Block' ) ) {
             
             $grid = $this->get_grid();
                         
-            return sprintf( '<div class="grid-container">
-                                <div class="grid-x"><div class="cell">%s%s</div></div>
-                            </div>',
+            return sprintf( '
+                                <div class="grid-x grid-margin-x"><div class="cell">%s%s</div></div>
+                            ',
                             $heading,
                             $grid
                          );  

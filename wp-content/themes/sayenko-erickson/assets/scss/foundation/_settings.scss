@@ -913,7 +913,12 @@ $grid-padding-gutters: (
   medium-large: 40px,
   large: 40px
 );
-$grid-container-padding: $grid-padding-gutters;
+$grid-container-padding: (
+  small: 40px,
+  medium: 40px,
+  medium-large: 40px,
+  large: 40px
+);
 $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
 

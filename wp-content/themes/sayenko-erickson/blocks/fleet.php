@@ -42,10 +42,10 @@ if( ! class_exists( 'Fleet_Block' ) ) {
                 return false;
             }
                         
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 <div class="grid-x grid-margin-x"><div class="cell">%s</div></div>
                                 %s
-                            </div>',
+                            ',
                             $heading,
                             $posts
                          );  

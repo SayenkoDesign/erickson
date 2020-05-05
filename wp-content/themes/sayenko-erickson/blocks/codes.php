@@ -36,11 +36,11 @@ if( ! class_exists( 'Code_Block' ) ) {
                 
             $grid = $this->get_grid();
                         
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 <div class="grid-x grid-margin-x">
                                 <div class="cell">%s%s</div>
                                 </div>
-                            </div>',
+                            ',
                             $heading,
                             $grid
                          );  

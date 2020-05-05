@@ -50,12 +50,12 @@ if( ! class_exists( 'Values_Block' ) ) {
                 $grid = sprintf( '<div class="cell large-auto small-order-2 large-order-1"><div class="grid">%s</div></div>', $grid ); 
             }
                            
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 <div class="grid-x grid-padding-x">
                                     <div class="cell large-auto small-order-1 large-order-2"><div class="panel">%s%s</div></div>
                                     %s
                                 </div>
-                            </div>',
+                            ',
                             $title,
                             $text,
                             $grid

@@ -47,11 +47,11 @@ if( ! class_exists( 'Core_Values_Block' ) ) {
             
             $slider = $this->get_slider();
                                     
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 <div class="grid-x grid-margin-x">
                                 <div class="cell">%s</div>
                                 </div>%s%s
-                            </div>',
+                            ',
                             $heading,
                             $slider,
                             $grid

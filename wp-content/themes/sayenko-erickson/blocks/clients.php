@@ -85,7 +85,7 @@ if( ! class_exists( 'Clients_Block' ) ) {
             $markers = sprintf( '<div class="full-width"><div class="acf-map google-map">%s</div></div>', $markers );
                                         
             return sprintf( '
-                                <div class="grid-x">
+                                <div class="grid-x grid-margin-x">
                                     <div class="cell"><header>%s%s</header></div>
                                 </div>
                             %s',

@@ -42,9 +42,9 @@ if( ! class_exists( 'Jobs_Block' ) ) {
                 return false;
             }
             
-            return sprintf( '<div class="grid-container"><div class="grid-x grid-margin-x grid-margin-bottom">
+            return sprintf( '<div class="grid-x grid-margin-x grid-margin-bottom">
                                 <div class="cell">%s<div class="entry-content">%s</div></div>
-                            </div></div>',
+                            </div>',
                             $heading,
                             $code
                          );

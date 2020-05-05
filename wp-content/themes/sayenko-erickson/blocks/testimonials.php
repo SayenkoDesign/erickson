@@ -40,8 +40,8 @@ if( ! class_exists( 'Testimonials_Block' ) ) {
                 return false;
             }
                                                    
-            return sprintf( '<div class="grid-container"><div class="grid-x grid-padding-x grid-padding-bottom">    
-            <div class="cell">%s</div></div>', $testimonials );
+            return sprintf( '<div class="grid-x grid-padding-x grid-padding-bottom">    
+            <div class="cell">%s</div>', $testimonials );
         }
         
         private function get_testimonials() {

@@ -31,9 +31,9 @@ if( ! class_exists( 'Services_Block' ) ) {
                                     
             $services = $this->get_grid();
                         
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 %s
-                            </div>',
+                            ',
                             $services
                          );  
         }

@@ -66,14 +66,14 @@ if( ! class_exists( 'Block_Results' ) ) {
             
             $classes = 4 > $total ? 'three-up' : 'four-up';
                                       
-            return sprintf( '<div class="grid-container">
+            return sprintf( '
                                 <div class="grid-x grid-margin-x">
                                     <div class="cell">%s</div>
                                 </div>
                                 <div class="grid-x grid-margin-x grid-margin-bottom numbers align-center %s">
                                     %s
                                 </div>
-                            </div>',
+                            ',
                             $heading,
                             $classes,
                             $cells
