@@ -63,7 +63,7 @@ if( ! class_exists( 'About_Hero' ) ) {
             
             // $icon = sprintf( '<i><img src="%s" /></i>', _s_asset_path( 'images/history/compass.svg' ) );
             
-            $icon = get_svg( 'history-icon' );
+            $icon = get_svg( 'compass-icon' );
             
             $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
             $heading = _s_format_string( $heading, 'h1' );
