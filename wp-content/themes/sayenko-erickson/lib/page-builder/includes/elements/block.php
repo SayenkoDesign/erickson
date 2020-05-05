@@ -358,7 +358,7 @@ class Element_Block extends Element_Base {
     
     public function get_admin_block() {
         $name = ucwords( str_replace( '-', ' ', $this->get_name() ) );
-        return sprintf( '<div class="acf-block-placeholder">%s Block</div>', $name );
+        return sprintf( '<div class="acf-block-placeholder">%s Block</div>', $this->_block['title'] );
     }
         
     public function __construct( array $data = [], array $args = null ) {

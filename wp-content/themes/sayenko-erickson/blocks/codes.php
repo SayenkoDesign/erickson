@@ -1,15 +1,15 @@
 <?php
-// Block - Commitment
+// Block - Code
 
-if( ! class_exists( 'Commitment_Block' ) ) {
-    class Commitment_Block extends Element_Block {
+if( ! class_exists( 'Code_Block' ) ) {
+    class Code_Block extends Element_Block {
                 
         public function __construct( $data ) {
             parent::__construct( $data );
             
             $this->set_fields( 'heading', get_field( 'heading' ) );
             $this->set_fields( 'description', get_field( 'description' ) );
-            $this->set_fields( 'policies', get_field( 'policies' ) );
+            $this->set_fields( 'codes', get_field( 'codes' ) );
             
             /*
             $this->set_settings( 'padding', get_field( 'padding' )  );
@@ -28,7 +28,7 @@ if( ! class_exists( 'Commitment_Block' ) ) {
         
         // Add content
         public function render() {
-                        
+      
             $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : '';
             $description = $this->get_fields( 'description' );
             
@@ -49,7 +49,7 @@ if( ! class_exists( 'Commitment_Block' ) ) {
         
         private function get_grid() {
             
-            $rows = $this->get_fields( 'policies' );
+            $rows = $this->get_fields( 'codes' );
             
             if( empty( $rows ) ) {
                 return false;
@@ -106,4 +106,4 @@ if( ! class_exists( 'Commitment_Block' ) ) {
     }
 }
    
-new Commitment_Block( $data );
+new Code_Block( $data );

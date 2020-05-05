@@ -152,6 +152,34 @@ function _s_acf_register_blocks() {
             'supports' => [ 'align' => false, 'anchor' => true ]
 		) );
         
+        
+        acf_register_block_type( array(
+			'name'            => 'codes',
+			'title'           => __( 'NAIC Codes', '_s' ),
+			'description'     => __( 'NAIC Codes block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'NAIC codes' ),
+            'post_types' => array('service'),
+            'align' => 'full',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        
+        acf_register_block_type( array(
+			'name'            => 'contracts',
+			'title'           => __( 'Prime Contracts', '_s' ),
+			'description'     => __( 'Prime Contracts block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'prime contracts' ),
+            'post_types' => array('service'),
+            'align' => 'full',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
 		acf_register_block_type( array(
 			'name'            => 'core-values',
 			'title'           => __( 'Core Values', '_s' ),
@@ -272,6 +300,21 @@ function _s_acf_register_blocks() {
             'supports'        => [ 'align' => false, 'anchor' => true ]
 		) );
         
+        
+        acf_register_block_type( array(
+			'name'            => 'quote',
+			'title'           => __( 'Service Quote', '_s' ),
+			'description'     => __( 'service quote', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'quote' ),
+            'post_types' => array('service'),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+                
         acf_register_block_type( array(
 			'name'            => 'results',
 			'title'           => __( 'Results', '_s' ),
@@ -331,7 +374,7 @@ add_action( 'acf/init', '_s_acf_register_blocks' );
 
 
 function _s_allowed_block_types( $allowed_blocks, $post ) {
-    
+        
     if ( $post->post_type == 'page' ) {
         
         /*
@@ -399,6 +442,9 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/content',
             'acf/button',
             'acf/fleet',
+            'acf/contracts',
+            'acf/codes',
+            'acf/quote',
                         
            // 'core/group',
            // 'core/reusableBlock',

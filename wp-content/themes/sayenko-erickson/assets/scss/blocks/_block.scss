@@ -17,6 +17,8 @@
 .block-awards,
 .block-clients,
 .block-commitment,
+.block-contracts,
+.block-quote,
 .block-customers,
 .block-featured-post,
 .block-hero,
@@ -24,4 +26,12 @@
 .block-photo-gallery,
 .block-testimonials {
     @include full-width;   
+}
+
+// add margin bottom. But we will need to omit blocks with gray backgrounds.
+.block-last {
+    
+    &.background-color-navy {
+        margin-bottom: rem-calc(75); 
+    }
 }
