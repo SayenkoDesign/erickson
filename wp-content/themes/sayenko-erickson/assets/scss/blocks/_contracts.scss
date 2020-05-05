@@ -91,6 +91,9 @@
             &:nth-child(even) {
                 background: #f8f7f7;
             }
+            
+            overflow-y: scroll; /* has to be scroll, not auto */
+            -webkit-overflow-scrolling: touch;
                          
         }
             
@@ -102,6 +105,11 @@
                 &.panel-odd {
                     padding-top: 0;   
                 }
+            }
+            
+            h3 {
+                color: $orange;
+                margin-bottom: rem-calc(30);   
             }
                         
             p:last-of-type {

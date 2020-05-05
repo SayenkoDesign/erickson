@@ -83,14 +83,16 @@ if( ! class_exists( 'Contracts_Block' ) ) {
                     
                     $out .= sprintf( '<div class="cell">
                                         <div class="grid-x">
-                                            <div class="cell large-auto"><div class="panel panel-even" data-mh="panel-height-%s">%s%s</div></div>
-                                            <div class="cell large-auto"><div class="panel panel-odd" data-mh="panel-height-%s">%s</div></div>
+                                            <div class="cell large-auto"><div class="panel panel-even" data-mh="panel-height-%s"><div class="header-inner hide-for-large">%s</div>%s%s</div></div>
+                                            <div class="cell large-auto"><div class="panel panel-odd" data-mh="panel-height-%s"><div class="header-inner hide-for-large">%s</div>%s</div></div>
                                         </div>
                                     </div>', 
                                     $id,
+                                    _s_format_string( $this->get_fields( 'customer_title' ), 'h3', [ 'class' => 'h4' ] ),
                                     $image,
                                     $text,
                                     $id,
+                                    _s_format_string( $this->get_fields( 'scope_title' ), 'h3', [ 'class' => 'h4' ] ),
                                     $scope
                              );
                     
@@ -99,9 +101,9 @@ if( ! class_exists( 'Contracts_Block' ) ) {
                 }
                                                     
             
-            $headings = sprintf( '<div class="cell large-auto"><div class="header" data-mh="contracts-heading-height-%s">%s</div></div>', 
+            $headings = sprintf( '<div class="cell large-auto show-for-large"><div class="header" data-mh="contracts-heading-height-%s">%s</div></div>', 
                                 $unique_id, _s_format_string( $this->get_fields( 'customer_title' ), 'h3', [ 'class' => 'h4' ] ) );
-            $headings .= sprintf( '<div class="cell large-auto"><div class="header" data-mh="contracts-heading-height-%s">%s</div></div>', 
+            $headings .= sprintf( '<div class="cell large-auto show-for-large"><div class="header" data-mh="contracts-heading-height-%s">%s</div></div>', 
                                 $unique_id, _s_format_string( $this->get_fields( 'scope_title' ), 'h3', [ 'class' => 'h4' ] ) );
             
             return sprintf( '<div class="grid-x">%s</div><div class="grid-x grid">%s</div>', 
