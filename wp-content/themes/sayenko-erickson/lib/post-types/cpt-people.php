@@ -77,6 +77,10 @@ class CPT_People extends CPT_Core {
         
         global $post;
         
+        if( ! isset($post) ) {
+            return $buttons;   
+        }
+        
         if( isset($post) && $post->post_type != self::POST_TYPE ) {
             return $buttons;   
         }
@@ -120,6 +124,10 @@ class CPT_People extends CPT_Core {
      
     public function tiny_mce_remove_unused_formats( $init ) {
         global $post;
+        
+        if( ! isset($post) ) {
+            return $init;   
+        }
         
         if( isset($post) && $post->post_type != self::POST_TYPE ) {
             return $init;   

@@ -11,8 +11,20 @@
         }
     }
     
-    h3 {
-        margin-bottom: 0;   
+    .large-7 {
+        h3 {
+            margin-bottom: 0;   
+        }   
+    }
+    
+    p {
+        font-size: rem-calc(20);   
+    }
+    
+    .no-touchevents & {
+        a:not(.button) {
+            color: $dark-gray;   
+        }
     }
     
     @include breakpoint(large) {

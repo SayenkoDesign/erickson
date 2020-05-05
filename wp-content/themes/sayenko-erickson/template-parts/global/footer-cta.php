@@ -21,7 +21,7 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
             // default to TRUE for the blog
             if( is_singular() ) {
                 $fields = get_field( 'footer_cta' );
-                if( ! empty( $fields['heading'] ) && ! empty( $fields['button'] ) ) {
+                if( ! empty( $fields['text'] ) && ! empty( $fields['button'] ) ) {
                     $this->post_id = get_the_ID();
                 }
                                 
@@ -66,8 +66,9 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
         // Add content
         public function render() {
                                                 
-            $heading = _s_format_string( $this->get_fields( 'heading' ), 'h3' );
+            $text = $this->get_fields( 'text' );
             $button = $this->get_fields( 'button' );
+            $layout = $this->get_fields( 'layout' ) ? strtolower( $this->get_fields( 'layout' ) ) : 'columns';
                       
             if( ! empty( $button['link'] ) ) {
                                 
@@ -81,13 +82,23 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
                 $button = '';
             }
             
-                        
-            return sprintf( '<div class="grid-container">
+            if( 'columns' == $layout ) {
+                $content = sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-padding-x grid-margin-bottom align-middle"><div class="cell large-7">%s</div><div class="cell large-5">%s</div></div>
                             </div>',
-                            $heading,
+                            $text,
                             $button
                          );  
+            } else {
+                $content = sprintf( '<div class="grid-container">
+                                <div class="grid-x grid-padding-x grid-margin-bottom align-middle text-center"><div class="cell">%s%s</div>
+                            </div>',
+                            $text,
+                            $button
+                         );  
+            }
+                        
+            return $content;
                
         }
         
