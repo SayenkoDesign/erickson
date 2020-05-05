@@ -85,15 +85,12 @@
         }   
         
         
-        > .cell {
+        > .grid-x > .cell {
             background-color: #fff; 
             
             &:nth-child(even) {
                 background: #f8f7f7;
             }
-            
-            overflow-y: scroll; /* has to be scroll, not auto */
-            -webkit-overflow-scrolling: touch;
                          
         }
             

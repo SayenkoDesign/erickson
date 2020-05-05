@@ -29,12 +29,18 @@
             } 
             
             .grid-x {
-                min-height: 400px;   
+                min-height: 200px;   
+                
+                @include breakpoint(medium) {
+                    min-height: 400px;  
+                }
             }
             
             h4,
             p {
-                max-width: rem-calc(900);   
+                @include breakpoint(large) {
+                    max-width: rem-calc(900);   
+                }
             }
         } 
         

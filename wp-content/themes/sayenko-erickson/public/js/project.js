@@ -3492,6 +3492,36 @@ delay:400,
 distance:'100%',
 interval:200});
 
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-contracts',{
+distance:'100%',
+afterReveal:function afterReveal(el){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.is-desktop .block-contracts').css('z-index','4');
+}});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-contracts header',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-contracts .grid',{
+delay:400,
+distance:'100%',
+interval:200});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-codes',{
+distance:'100%',
+afterReveal:function afterReveal(el){
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.is-desktop .block-commitment').css('z-index','4');
+}});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-codes header',{
+delay:400,
+distance:'100%'});
+
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-codes .grid .cell',{
+delay:400,
+distance:'100%',
+interval:200});
+
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop .block-awards header',{
 distance:'100%'});
 

@@ -45,7 +45,8 @@ if( ! class_exists( 'Contracts_Block' ) ) {
                         
             return sprintf( '
                                 <div class="grid-x grid-margin-x">
-                                <div class="cell">%s%s</div>
+                                <div class="cell">%s</div>
+                                <div class="cell grid">%s</div>
                                 </div>
                             ',
                             $heading,
@@ -106,7 +107,7 @@ if( ! class_exists( 'Contracts_Block' ) ) {
             $headings .= sprintf( '<div class="cell large-auto show-for-large"><div class="header" data-mh="contracts-heading-height-%s">%s</div></div>', 
                                 $unique_id, _s_format_string( $this->get_fields( 'scope_title' ), 'h3', [ 'class' => 'h4' ] ) );
             
-            return sprintf( '<div class="grid-x">%s</div><div class="grid-x grid">%s</div>', 
+            return sprintf( '<div class="grid-x">%s</div><div class="grid-x">%s</div>', 
                                     $headings,
                                     $out 
                                     );

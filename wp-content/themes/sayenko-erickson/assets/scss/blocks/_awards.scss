@@ -53,6 +53,12 @@
             position: absolute;
             z-index: -100;   
             
+            width: 90%; 
+        
+            @include breakpoint(medium) {
+                width: rem-calc(312);
+            }
+            
             @include breakpoint(xlarge) {
                 top: auto;
                 bottom: 0;
@@ -76,11 +82,7 @@
     
     .tooltip {
         position: relative;  
-        width: calc(100% - 15px); 
-        
-        @include breakpoint(medium) {
-            width: rem-calc(312);
-        }
+        width: 100%;
     }
     
     .tooltip--text:before,
@@ -124,6 +126,8 @@
     .tooltip--text {
       background: #fff;
       padding: rem-calc(20 30 40);
+      position: relative;
+      z-index: 101;
     }
     
     .tooltip--tip {

@@ -247,6 +247,43 @@ export default {
         }); 
         
         
+        ScrollReveal().reveal( '.is-desktop .block-contracts', { 
+            distance: '100%',
+            afterReveal: function (el) {
+                $('.is-desktop .block-contracts').css('z-index','4');
+            }
+        }); 
+        
+        ScrollReveal().reveal( '.is-desktop .block-contracts header', { 
+            delay: 400,
+            distance: '100%'
+        }); 
+        
+        ScrollReveal().reveal( '.is-desktop .block-contracts .grid', { 
+            delay: 400,
+            distance: '100%',
+            interval: 200
+        }); 
+        
+        
+        ScrollReveal().reveal( '.is-desktop .block-codes', { 
+            distance: '100%',
+            afterReveal: function (el) {
+                $('.is-desktop .block-commitment').css('z-index','4');
+            }
+        }); 
+        
+        ScrollReveal().reveal( '.is-desktop .block-codes header', { 
+            delay: 400,
+            distance: '100%'
+        }); 
+        
+        ScrollReveal().reveal( '.is-desktop .block-codes .grid .cell', { 
+            delay: 400,
+            distance: '100%',
+            interval: 200
+        }); 
+        
         ScrollReveal().reveal( '.is-desktop .block-awards header', { 
             distance: '100%'
         }); 
