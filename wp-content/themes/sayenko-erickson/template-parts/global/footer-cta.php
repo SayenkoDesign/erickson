@@ -60,6 +60,16 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
                      $this->get_name() . '-footer-cta'
                 ]
             ); 
+            
+            $layout = $this->get_fields( 'layout' ) ? strtolower( $this->get_fields( 'layout' ) ) : 'columns';
+            
+            if( ! empty( $layout ) ) {                                                              
+                $this->add_render_attribute( 'wrapper', 'class', 'layout-' . $layout ); 
+            }
+            
+            
+            
+            
         }  
         
         

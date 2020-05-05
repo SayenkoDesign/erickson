@@ -22,7 +22,7 @@
     }
     
     .no-touchevents & {
-        a:not(.button) {
+        a[href*="tel"]:not(.button) {
             color: $dark-gray;   
         }
     }
