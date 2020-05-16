@@ -54,7 +54,7 @@ function input_to_button( $button, $form ) {
 
 
 
-add_filter( 'gform_form_tag', 'form_tag', 10, 2 );
+//add_filter( 'gform_form_tag', 'form_tag', 10, 2 );
 function form_tag( $form_tag, $form ) {
     //if ( $form['id'] != 1 ) {
         //not the form whose tag you want to change, return the unchanged tag
