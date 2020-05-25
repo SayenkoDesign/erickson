@@ -60,8 +60,7 @@ img {
 	// height: auto; /* IE8 image height correct, so that img max-width: 100% doesn't produce disproportionate images */
 }
 
-img.aligncenter,
-.aligncenter {
+img.aligncenter {
 	display: block;
 	margin: 0 auto $global-margin auto;
 }
@@ -99,24 +98,6 @@ img.alignright,
 	margin: 0;
 }
 
-img.alignleft,
-img.alignright,
-img.aligncenter {
-}
-
-
-
-@include breakpoint(large) {
-      
-	.alignleft {
-		float: left;
-	}
-	
-	.alignright {
-		float: right;
-	}
-
-}
 
 
 // Video and Image as background.
