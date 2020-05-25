@@ -1,5 +1,9 @@
 <?php
 
+if( ! function_exists( 'FWP' ) ) {
+  return;
+}
+
 function fwp_add_facet_labels() {
 ?>
 <script>
@@ -86,16 +90,11 @@ add_action( 'save_post', '_s_facet_index_post', 10, 3 );
  * @param bool    $update  Whether this is an existing post being updated or not.
 */
 function _s_facet_index_post( $post_id, $post, $update ) {
-  // verify if this is an auto save routine. 
-  // If it is our form has not been submitted, so we dont want to do anything
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
-      return;
-      
-  if( ! class_exists( 'FWP' ) ) {
-      return;
+  if ( wp_is_post_revision( $post_id ) ) {
+    return;
   }
-
-  FWP()->indexer->index();
+        
+  FWP()->indexer->index( $post_id );
   
 }
 
