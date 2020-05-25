@@ -74,7 +74,7 @@ function _s_acf_register_blocks() {
 		) );
         
         // Button
-		acf_register_block_type( array(
+		/*acf_register_block_type( array(
 			'name'            => 'button',
 			'title'           => __( 'Button', '_s' ),
 			'description'     => __( 'Button', '_s' ),
@@ -84,7 +84,8 @@ function _s_acf_register_blocks() {
 			'keywords'        => array( 'button' ),
             'post_types' => array('post', 'page', 'service'),
             'supports' => ['anchor' => false]
-		) );	
+		) );
+        */	
         
         acf_register_block_type( array(
 			'name'            => 'case-studies',
@@ -397,7 +398,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
         
        $allowed_blocks = array(
             'acf/awards',
-            'acf/button',
+            //'acf/button',
             'acf/case-studies',
             'acf/commitment',
             'acf/content',
@@ -424,7 +425,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'core/paragraph',
             'core/heading',
             'core/list',
-            //'core/button'
+            'core/button'
         );  
        
         
@@ -440,7 +441,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/case-studies',
             'acf/photo-gallery',
             'acf/content',
-            'acf/button',
+            //'acf/button',
             'acf/fleet',
             'acf/contracts',
             'acf/codes',
