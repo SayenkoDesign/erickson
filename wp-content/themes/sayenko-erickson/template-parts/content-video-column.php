@@ -27,9 +27,9 @@
         $thumbnail = sprintf( 'background-image: url(%s);', $thumbnail );
     } 
                                    
-    $header = sprintf( '<header class="entry-header screen-reader-text">%s</header>', get_the_title() );
+    $header = sprintf( '<header class="entry-header"><h2 class="h3">%s</h2></header>', get_the_title() );
     
-    printf( '<div class="thumbnail" style="%s">%s</div>%s', $thumbnail, $header, $video_link );
+    printf( '<div class="thumbnail" style="%s">%s</div>%s', $thumbnail, $video_link, $header );
 
     ?>
     
