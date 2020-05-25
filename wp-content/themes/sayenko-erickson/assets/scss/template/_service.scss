@@ -291,6 +291,10 @@
         
         img {
             margin-bottom: rem-calc(10);   
+            max-height: 75px;
+            max-width: 150px;
+            width: auto;
+            height: auto;
         }
         
         p {
