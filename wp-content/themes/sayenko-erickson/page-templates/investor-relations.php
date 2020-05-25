@@ -6,7 +6,7 @@ Template Name: Investor Relations
 get_header(); ?>
 
 <?php
-_s_get_template_part( 'template-parts/global', 'hero' );
+_s_get_template_part( 'template-parts/investor-relations', 'hero' );
 ?>
 
 <div class="grid-container">
