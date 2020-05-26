@@ -15,6 +15,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
 		
             
         var $stickyHeader = $(".sticky-header .site-header");
+        var $stickyNav = $(".sticky-nav");
         var $body = $('body');
         var $wpAdminBar = 0;
         var height = 0;
@@ -41,7 +42,6 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
                 }
             }
             
-            //height = $notificationBar.height() + $wpAdminBar;
             height = $notificationBar.actual('height') + $wpAdminBar;
             
             setTimeout(function(){  
@@ -86,12 +86,15 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
         
         $(window).on("scroll", function(){
             
+            var hasNotificationBar = true;
             var $notificationBar = $('.section-notification-bar');
             
             if( ! $notificationBar.length && $notificationBar.not(":visible") ) {
                 $body.removeAttr( 'style' );
                 $stickyHeader.removeAttr( 'style' );
-                return;
+                $stickyNav.removeAttr( 'style' );
+                hasNotificationBar = false;
+                //return;
             }
                                                 
             if($('body').hasClass('logged-in')) {
@@ -106,11 +109,13 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
                     
             if( $(window).scrollTop() >= height ){
               $stickyHeader.addClass("fixed");
+              $stickyNav.addClass("fixed");
               $body.removeAttr( 'style' );
             } else {
                 $stickyHeader.removeClass("fixed");
+                $stickyNav.removeClass("fixed");
                 
-                if (Foundation.MediaQuery.atLeast('xlarge')) {
+                if (hasNotificationBar && Foundation.MediaQuery.atLeast('xlarge')) {
                     $body.css( 'top', height );
                 } else {
                     $body.removeAttr( 'style' );
@@ -122,6 +127,7 @@ var n=m.attr("style");g.push(n);m.attr("style",n?n+";"+d:d);});};j=function(){c.
             $body.css( 'top', 'auto' );
             $body.removeAttr( 'style' );
             $stickyHeader.removeAttr( 'style' );
+            $stickyNav.removeAttr( 'style' );
             $('.section-notification-bar').remove();
             Cookies.set('show-notification-bar', 'no', { expires: 1 })
         });

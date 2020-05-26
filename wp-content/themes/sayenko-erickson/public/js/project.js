@@ -3001,6 +3001,7 @@ return k;
 });
 
 var $stickyHeader=jquery__WEBPACK_IMPORTED_MODULE_0___default()(".sticky-header .site-header");
+var $stickyNav=jquery__WEBPACK_IMPORTED_MODULE_0___default()(".sticky-nav");
 var $body=jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
 var $wpAdminBar=0;
 var height=0;
@@ -3015,8 +3016,7 @@ $notificationBar.removeClass('hide');
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('logged-in')){
 return;// ignore
-}//height = $notificationBar.height() + $wpAdminBar;
-
+}
 
 height=$notificationBar.actual('height')+$wpAdminBar;
 setTimeout(function(){
@@ -3045,12 +3045,14 @@ $body.removeAttr('style');
 }
 });
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on("scroll",function(){
+var hasNotificationBar=true;
 var $notificationBar=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar');
 
 if(!$notificationBar.length&&$notificationBar.not(":visible")){
 $body.removeAttr('style');
 $stickyHeader.removeAttr('style');
-return;
+$stickyNav.removeAttr('style');
+hasNotificationBar=false;//return;
 }
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('logged-in')){
@@ -3059,11 +3061,13 @@ return;// ignore
 
 if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop()>=height){
 $stickyHeader.addClass("fixed");
+$stickyNav.addClass("fixed");
 $body.removeAttr('style');
 }else {
 $stickyHeader.removeClass("fixed");
+$stickyNav.removeClass("fixed");
 
-if(Foundation.MediaQuery.atLeast('xlarge')){
+if(hasNotificationBar&&Foundation.MediaQuery.atLeast('xlarge')){
 $body.css('top',height);
 }else {
 $body.removeAttr('style');
@@ -3074,6 +3078,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('close.zf.trigger','.
 $body.css('top','auto');
 $body.removeAttr('style');
 $stickyHeader.removeAttr('style');
+$stickyNav.removeAttr('style');
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-notification-bar').remove();
 js_cookie__WEBPACK_IMPORTED_MODULE_1___default.a.set('show-notification-bar','no',{
 expires:1});
@@ -3088,7 +3093,7 @@ expires:1});
 /*!*****************************************!*\
   !*** ./assets/js/modules/foundation.js ***!
   \*****************************************/
-/*! exports provided: Foundation, CoreUtils, Box, onImagesLoaded, Keyboard, MediaQuery, Motion, Nest, Timer, Touch, Triggers, Accordion, AccordionMenu, DropdownMenu, ResponsiveMenu, ResponsiveToggle, SmoothScroll, Tabs, Toggler, ResponsiveAccordionTabs, default */
+/*! exports provided: Foundation, CoreUtils, Box, onImagesLoaded, Keyboard, MediaQuery, Motion, Nest, Timer, Touch, Triggers, Accordion, AccordionMenu, DropdownMenu, ResponsiveMenu, ResponsiveToggle, SmoothScroll, Sticky, Tabs, Toggler, ResponsiveAccordionTabs, default */
 /***/function assetsJsModulesFoundationJs(module,__webpack_exports__,__webpack_require__){
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! jquery */"jquery");
@@ -3143,14 +3148,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */var foundation_sites_js_foundation_smoothScroll__WEBPACK_IMPORTED_MODULE_17__=__webpack_require__(/*! foundation-sites/js/foundation.smoothScroll */"./node_modules/foundation-sites/js/foundation.smoothScroll.js");
 /* harmony reexport (safe) */__webpack_require__.d(__webpack_exports__,"SmoothScroll",function(){return foundation_sites_js_foundation_smoothScroll__WEBPACK_IMPORTED_MODULE_17__["SmoothScroll"];});
 
-/* harmony import */var foundation_sites_js_foundation_tabs__WEBPACK_IMPORTED_MODULE_18__=__webpack_require__(/*! foundation-sites/js/foundation.tabs */"./node_modules/foundation-sites/js/foundation.tabs.js");
-/* harmony reexport (safe) */__webpack_require__.d(__webpack_exports__,"Tabs",function(){return foundation_sites_js_foundation_tabs__WEBPACK_IMPORTED_MODULE_18__["Tabs"];});
+/* harmony import */var foundation_sites_js_foundation_sticky__WEBPACK_IMPORTED_MODULE_18__=__webpack_require__(/*! foundation-sites/js/foundation.sticky */"./node_modules/foundation-sites/js/foundation.sticky.js");
+/* harmony reexport (safe) */__webpack_require__.d(__webpack_exports__,"Sticky",function(){return foundation_sites_js_foundation_sticky__WEBPACK_IMPORTED_MODULE_18__["Sticky"];});
 
-/* harmony import */var foundation_sites_js_foundation_toggler__WEBPACK_IMPORTED_MODULE_19__=__webpack_require__(/*! foundation-sites/js/foundation.toggler */"./node_modules/foundation-sites/js/foundation.toggler.js");
-/* harmony reexport (safe) */__webpack_require__.d(__webpack_exports__,"Toggler",function(){return foundation_sites_js_foundation_toggler__WEBPACK_IMPORTED_MODULE_19__["Toggler"];});
+/* harmony import */var foundation_sites_js_foundation_tabs__WEBPACK_IMPORTED_MODULE_19__=__webpack_require__(/*! foundation-sites/js/foundation.tabs */"./node_modules/foundation-sites/js/foundation.tabs.js");
+/* harmony reexport (safe) */__webpack_require__.d(__webpack_exports__,"Tabs",function(){return foundation_sites_js_foundation_tabs__WEBPACK_IMPORTED_MODULE_19__["Tabs"];});
 
-/* harmony import */var foundation_sites_js_foundation_responsiveAccordionTabs__WEBPACK_IMPORTED_MODULE_20__=__webpack_require__(/*! foundation-sites/js/foundation.responsiveAccordionTabs */"./node_modules/foundation-sites/js/foundation.responsiveAccordionTabs.js");
-/* harmony reexport (safe) */__webpack_require__.d(__webpack_exports__,"ResponsiveAccordionTabs",function(){return foundation_sites_js_foundation_responsiveAccordionTabs__WEBPACK_IMPORTED_MODULE_20__["ResponsiveAccordionTabs"];});
+/* harmony import */var foundation_sites_js_foundation_toggler__WEBPACK_IMPORTED_MODULE_20__=__webpack_require__(/*! foundation-sites/js/foundation.toggler */"./node_modules/foundation-sites/js/foundation.toggler.js");
+/* harmony reexport (safe) */__webpack_require__.d(__webpack_exports__,"Toggler",function(){return foundation_sites_js_foundation_toggler__WEBPACK_IMPORTED_MODULE_20__["Toggler"];});
+
+/* harmony import */var foundation_sites_js_foundation_responsiveAccordionTabs__WEBPACK_IMPORTED_MODULE_21__=__webpack_require__(/*! foundation-sites/js/foundation.responsiveAccordionTabs */"./node_modules/foundation-sites/js/foundation.responsiveAccordionTabs.js");
+/* harmony reexport (safe) */__webpack_require__.d(__webpack_exports__,"ResponsiveAccordionTabs",function(){return foundation_sites_js_foundation_responsiveAccordionTabs__WEBPACK_IMPORTED_MODULE_21__["ResponsiveAccordionTabs"];});
 
 
 
@@ -3179,7 +3187,7 @@ __webpack_require__.r(__webpack_exports__);
 //import { Reveal } from 'foundation-sites/js/foundation.reveal';
 // import { Slider } from 'foundation-sites/js/foundation.slider';
 
-// import { Sticky } from 'foundation-sites/js/foundation.sticky';
+
 
 
 //import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
@@ -3223,12 +3231,12 @@ foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].p
 foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_responsiveToggle__WEBPACK_IMPORTED_MODULE_16__["ResponsiveToggle"],'ResponsiveToggle');//Foundation.plugin(Reveal, 'Reveal');
 // Foundation.plugin(Slider, 'Slider');
 
-foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_smoothScroll__WEBPACK_IMPORTED_MODULE_17__["SmoothScroll"],'SmoothScroll');// Foundation.plugin(Sticky, 'Sticky');
+foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_smoothScroll__WEBPACK_IMPORTED_MODULE_17__["SmoothScroll"],'SmoothScroll');
+foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_sticky__WEBPACK_IMPORTED_MODULE_18__["Sticky"],'Sticky');
+foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_tabs__WEBPACK_IMPORTED_MODULE_19__["Tabs"],'Tabs');
+foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_toggler__WEBPACK_IMPORTED_MODULE_20__["Toggler"],'Toggler');//Foundation.plugin(Tooltip, 'Tooltip');
 
-foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_tabs__WEBPACK_IMPORTED_MODULE_18__["Tabs"],'Tabs');
-foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_toggler__WEBPACK_IMPORTED_MODULE_19__["Toggler"],'Toggler');//Foundation.plugin(Tooltip, 'Tooltip');
-
-foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_responsiveAccordionTabs__WEBPACK_IMPORTED_MODULE_20__["ResponsiveAccordionTabs"],'ResponsiveAccordionTabs');
+foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_responsiveAccordionTabs__WEBPACK_IMPORTED_MODULE_21__["ResponsiveAccordionTabs"],'ResponsiveAccordionTabs');
 
 /* harmony default export */__webpack_exports__["default"]=foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"];
 
@@ -3308,6 +3316,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0__=__webpack_require__(/*! jquery */"jquery");
 /* harmony import */var jquery__WEBPACK_IMPORTED_MODULE_0___default=/*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */var scrollreveal__WEBPACK_IMPORTED_MODULE_1__=__webpack_require__(/*! scrollreveal */"./node_modules/scrollreveal/dist/scrollreveal.es.js");
+/* harmony import */var foundation_sites_js_foundation_smoothScroll__WEBPACK_IMPORTED_MODULE_2__=__webpack_require__(/*! foundation-sites/js/foundation.smoothScroll */"./node_modules/foundation-sites/js/foundation.smoothScroll.js");
+
 
 
 /* harmony default export */__webpack_exports__["default"]={
@@ -3831,6 +3841,21 @@ Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-deskt
 delay:200,
 distance:'100%'});
 
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('a[href^="#"]').on('click',function(event){
+event.preventDefault();
+var element=jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('href');
+
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).length){
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().destroy();
+var offset=jquery__WEBPACK_IMPORTED_MODULE_0___default()('.site-header').height()+jquery__WEBPACK_IMPORTED_MODULE_0___default()('.sticky-nav').height()-1;
+Foundation.SmoothScroll.scrollToLoc(element,{
+threshold:0,
+offset:offset},
+function(){
+console.log('scrolled');
+});
+}
+});
 }};
 
 

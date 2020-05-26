@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import ScrollReveal from 'scrollreveal';
+import { SmoothScroll } from 'foundation-sites/js/foundation.smoothScroll';
 
 export default {
 	init() {
@@ -673,6 +674,29 @@ export default {
         ScrollReveal().reveal( '.is-desktop.archive .facetwp-pager', { 
             delay: 200,
             distance: '100%'
+        });
+        
+        $('a[href^="#"]').on('click', function(event) {
+            event.preventDefault();
+            
+            let element = $(this).attr('href');
+            
+            if( $(element).length ) {
+                                
+                ScrollReveal().destroy();
+                
+                let offset = $('.site-header').height() + $('.sticky-nav').height() -1;
+                                
+                Foundation.SmoothScroll.scrollToLoc( element, {
+                    threshold: 0,
+                    offset: offset,
+                }, function() {
+                   console.log('scrolled');
+                });
+                
+            }
+                
+            
         });
                                   
 	},

@@ -1,6 +1,41 @@
 // Service
 
-.single-service {    
+.single-service {  
+
+    .sticky-nav {
+
+        background-color: $navy;
+        color: #fff;   
+        display: none;
+        
+        @include breakpoint(xlarge) {
+            display: block;   
+        }
+        
+        &.fixed {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            width: 100%;  
+            z-index: 9; 
+        }
+        
+        .menu {
+            justify-content: center;
+            text-align: center;
+            
+            li {
+                margin: rem-calc(6 12);   
+            }
+            
+            a {
+                color: #fff;
+                display: inline-block;
+                padding: rem-calc(11 0);
+                text-transform: uppercase;   
+            }
+        }
+    }
     
     .block-approach {
         padding-top: rem-calc(75); 
