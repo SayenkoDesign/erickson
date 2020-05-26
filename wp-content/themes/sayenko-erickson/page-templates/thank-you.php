@@ -21,7 +21,9 @@ _s_get_template_part( 'template-parts/thank-you', 'hero' );
         <div id="primary" class="cell content-area">
     
             <main id="main" class="site-main" role="main">
-            <?php		
+            <?php	
+            
+            var_dump( $_REQUEST );	
                     
             while ( have_posts() ) :
         
