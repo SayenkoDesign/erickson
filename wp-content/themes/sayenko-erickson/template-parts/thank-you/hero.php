@@ -40,19 +40,23 @@ if( ! class_exists( 'Thanks_Hero' ) ) {
         // Add content
         public function render() {
             
+            
+            // Sanitize things
+            $request = [];
+            
+            foreach( $_REQUEST as $key => $value ) {
+                $request[sanitize_text_field( $key )] = sanitize_text_field( $value ); 
+            }
+            
             $heading = $this->get_fields( 'heading' );
             
             
             // Replace any template tags
-            $variables = $_GET;
-            
-            if( ! empty( $heading ) && ! empty( $variables ) ) {
-                foreach($variables as $key => $value ){
-                    $value = sanitize_text_field( $value );
+            if( ! empty( $heading ) && ! empty( $request ) ) {
+                foreach($request as $key => $value ){
                     if( ! empty( $value ) ) {
                         $heading = str_replace('{'.$key.'}', $value, $heading );
                     }
-                    
                 }
             } else {
                 $heading = get_the_title();
