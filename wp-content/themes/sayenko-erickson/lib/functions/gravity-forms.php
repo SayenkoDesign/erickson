@@ -53,13 +53,22 @@ function input_to_button( $button, $form ) {
 
 
 
+add_filter( 'gform_confirmation_8', 'post_to_third_party', 10, 3 );
+function post_to_third_party( $confirmation, $form, $entry ) {
+ 
+    $post_url = 'https://go.ericksoninc.com/l/692223/2020-05-04/vqh4';
 
-//add_filter( 'gform_form_tag', 'form_tag', 10, 2 );
-function form_tag( $form_tag, $form ) {
-    //if ( $form['id'] != 1 ) {
-        //not the form whose tag you want to change, return the unchanged tag
-        //return $form_tag;
-    //}
-    $form_tag = preg_replace( "|enctype='(.*?)'|", "enctype='application/x-www-form-urlencoded'", $form_tag );
-    return $form_tag;
+    $body     = array(
+        'firstname' => rgar( $entry, '1.3' ),
+        'lastname'  => rgar( $entry, '1.6' ),
+        'company'    => rgar( $entry, '5' ),
+        'email'    => rgar( $entry, '3' ),
+    );
+    GFCommon::log_debug( 'gform_confirmation: body => ' . print_r( $body, true ) );
+ 
+    $request  = new WP_Http();
+    $response = $request->post( $post_url, array( 'body' => $body ) );
+    GFCommon::log_debug( 'gform_confirmation: response => ' . print_r( $response, true ) );
+ 
+    return $confirmation;
 }
