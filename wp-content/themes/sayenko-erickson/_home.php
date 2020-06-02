@@ -14,11 +14,6 @@
 add_filter( 'body_class', function ( $classes ) {
     $classes[] = 'blog';
     $classes[] = 'archive';
-    
-    if( ! empty( $_GET[ 'fwp_paged' ] ) ) {
-        $classes[] = 'is-paged';
-    }
-    
 	return $classes;
 }, 99 );
 
@@ -64,11 +59,24 @@ wp_reset_postdata();
                                                              
                     if ( have_posts() ) : 
                     
-                        printf( '<ul class="menu facetwp-filters"><li>%s</li><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
+                        /*printf( '<ul class="menu facetwp-filters"><li>%s</li><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
                             facetwp_display( 'facet', 'categories' ),
                             sprintf( '<div class="facet-wrap"><h5 class="facet-label">%s</h5>%s</div>', __( 'Order' ), facetwp_display( 'sort' ) ),
                             __( 'reset' )
                          );
+                         */
+                         
+                        
+                        // Add dropdowns 
+                         
+                        $args = array(
+                            'show_option_none' => __( 'Select one' ),
+                            'show_count'       => 1,
+                            'orderby'          => 'name',
+                            'echo'             => 0,
+                        );
+                        
+                        echo wp_dropdown_categories( $args );
                          
                         $classes[] = 'small-up-1 medium-up-2 large-up-4';
                 

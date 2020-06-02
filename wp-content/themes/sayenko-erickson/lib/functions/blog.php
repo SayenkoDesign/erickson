@@ -1,26 +1,27 @@
 <?php
 
-// Wrap category links with an inner span so that we can better style them if needed this created <a href=""><span></span></a>
-/*
-add_filter( 'the_category', function( $the_list ) {  
-
-    if( is_admin() || empty( $the_list ) ) {
-        return $the_list;
-    }
-  
-    $dom = new DOMDocument();
-    $dom->loadHTML( $the_list );
-    foreach( $dom->getElementsByTagName('a') as $a ) {
-        $span = $dom->createElement( 'span' );
-        $span->nodeValue = $a->nodeValue;
-        $a->nodeValue = '';
-        $a->appendChild( $span );
-    }
+function _s_posts_order_dropdown() {
     
-    return $dom->saveHtml();
-});
-*/
+    $order = get_query_var( 'order' );
+    
+    $onchange = ' onchange="document.location.search=this.options[this.selectedIndex].value;"';
+    
+    //$options = '<option value="">Select one</option>';
+    $options = '';
+    $options .= sprintf( '<option value="DESC"%s>Date (Newest)</option>', ( 'DESC' == $order ) ? ' selected' : '' );
+    $options .= sprintf( '<option value="ASC"%s>Date (Oldest)</option>', ( 'ASC' == $order ) ? ' selected' : '' );
+    
+    return sprintf( '<select name="order"%s>%s</select>', '', $options );
 
+}
+
+// 
+add_action( 'pre_get_posts', function( $query ) {
+    if ( !is_admin() && $query->is_main_query() && ( $query->is_home() || $query->is_category() ) ) {     
+        $order = get_query_var( 'order' );
+        $query->set( 'order', $order, 'ASC' );
+    }
+});
 
 // Custom paginate links function
 function _s_paginate_links( $args = [] ) {
@@ -112,26 +113,6 @@ function _s_get_the_post_navigation( $args = array() ) {
  
     return $navigation;
 }
-
-
-/*
-// adding custom post types to blog pagination
-add_action( 'get_previous_post_where', 'misha_posts_and_page', 20 );
-add_action( 'get_next_post_where', 'misha_posts_and_page', 20 );
- 
-function misha_posts_and_page( $where ){
-	// $where looks like WHERE p.post_date < '2017-08-02 09:07:03' AND p.post_type = 'post' AND ( p.post_status = 'publish' OR p.post_status = 'private' )
-	// In code $where looks like $wpdb->prepare( "WHERE p.post_date $op %s AND p.post_type = %s $where", $post->post_date, $post->post_type )
-	// Parameters $op and another $where can not be passed to this action hook
-	// So, I think the best way is to use str_replace()
-	return str_replace(
-		array( "p.post_type = 'post'", "p.post_type = 'story'", "p.post_type = 'event'" ),
-		"(p.post_type = 'post' OR p.post_type = 'story' OR p.post_type = 'event')",
-		$where
-	);
- 
-}
-*/
 
 
 function _s_get_post_terms( $args = array() ) {
@@ -268,4 +249,62 @@ foreach ( array( 'pre_term_description' ) as $filter ) {
  
 foreach ( array( 'term_description' ) as $filter ) {
 	remove_filter( $filter, 'wp_kses_data' );
+}
+
+
+
+/**
+ * Funtion to get post count from given term or terms and its/their children
+ *
+ * @param (string) $taxonomy
+ * @param (int|array|string) $term Single integer value, or array of integers or "all"
+ * @param (array) $args Array of arguments to pass to WP_Query
+ * @return $q->found_posts
+ *
+ */
+function get_term_post_count( $taxonomy = 'category', $term = '', $args = [] )
+{
+    // Lets first validate and sanitize our parameters, on failure, just return false
+    if ( !$term )
+        return false;
+
+    if ( $term !== 'all' ) {
+        if ( !is_array( $term ) ) {
+            $term = filter_var(       $term, FILTER_VALIDATE_INT );
+        } else {
+            $term = filter_var_array( $term, FILTER_VALIDATE_INT );
+        }
+    }
+
+    if ( $taxonomy !== 'category' ) {
+        $taxonomy = filter_var( $taxonomy, FILTER_SANITIZE_STRING );
+        if ( !taxonomy_exists( $taxonomy ) )
+            return false;
+    }
+
+    if ( $args ) {
+        if ( !is_array ) 
+            return false;
+    }
+
+    // Now that we have come this far, lets continue and wrap it up
+    // Set our default args
+    $defaults = [
+        'posts_per_page' => 1,
+        'fields'         => 'ids'
+    ];
+
+    if ( $term !== 'all' ) {
+        $defaults['tax_query'] = [
+            [
+                'taxonomy' => $taxonomy,
+                'terms'    => $term
+            ]
+        ];
+    }
+    $combined_args = wp_parse_args( $args, $defaults );
+    $q = new WP_Query( $combined_args );
+
+    // Return the post count
+    return $q->found_posts;
 }

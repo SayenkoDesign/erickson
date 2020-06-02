@@ -14,11 +14,6 @@
 add_filter( 'body_class', function ( $classes ) {
     $classes[] = 'blog';
     $classes[] = 'archive';
-    
-    if( ! empty( $_GET[ 'fwp_paged' ] ) ) {
-        $classes[] = 'is-paged';
-    }
-    
 	return $classes;
 }, 99 );
 
@@ -64,19 +59,52 @@ wp_reset_postdata();
                                                              
                     if ( have_posts() ) : 
                     
-                        // Only show filters on main blog page
-                        if( is_home() ) {
-                            printf( '<ul class="menu facetwp-filters"><li>%s</li><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
-                                facetwp_display( 'facet', 'categories' ),
-                                sprintf( '<div class="facet-wrap"><h5 class="facet-label">%s</h5>%s</div>', __( 'Order' ), facetwp_display( 'sort' ) ),
-                                __( 'reset' )
-                             );
-                             
+                        /*printf( '<ul class="menu facetwp-filters"><li>%s</li><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
+                            facetwp_display( 'facet', 'categories' ),
+                            sprintf( '<div class="facet-wrap"><h5 class="facet-label">%s</h5>%s</div>', __( 'Order' ), facetwp_display( 'sort' ) ),
+                            __( 'reset' )
+                         );
+                         */
+                        
+                                                
+                        // Add dropdowns 
+                         
+                        $args = array(
+                            'show_option_none' => __( 'Select one' ),
+                            'show_count'       => 1,
+                            'orderby'          => 'name',
+                            'hierarchical'     => 1,
+                            'hide_if_empty'    => false,
+                            'echo'             => 0,
+                        );
+                        
+                        if( is_category() ) {
+                            $count = get_term_post_count( 'category', get_queried_object_id() );
+                            $count = $count ? sprintf( ' (%d)', $count ) : '';
+                            $args['show_option_none'] = get_cat_name( get_queried_object_id() ) . $count;
+                            $args['option_none_value'] = get_queried_object_id();
+                            $args['child_of'] = get_queried_object_id();
                         }
+                        
+                        $url = home_url( '/' );
+                        /*if( is_category() ) {
+                            $url = get_category_link( get_queried_object_id() );
+                        } else {
+                            $url = get_post_type_archive_link( 'post' );
+                        }
+                        */
+                        
+                        printf( '<form id="category-select" class="category-select" action="%s" method="get">%s%s%s%s</form>',  
+                                esc_url( $url ),
+                                wp_dropdown_categories( $args ),
+                                _s_posts_order_dropdown(),
+                                '<button class="button" value="Search">Search</button>',
+                                sprintf( '<a href="%s" class="button">%s</a>', get_post_type_archive_link( 'post' ), __( 'Reset' ) )
+                              );
                          
                         $classes[] = 'small-up-1 medium-up-2 large-up-4';
                 
-                        printf( '<div class="grid-x grid-margin-x grid-margin-bottom %s facetwp-template">', join( ' ', $classes ) );
+                        printf( '<div class="grid-x grid-margin-x grid-margin-bottom facetwp-template %s">', join( ' ', $classes ) );
                                                       
                         while ( have_posts() ) :
             
@@ -88,10 +116,7 @@ wp_reset_postdata();
                         
                         echo '</div>';
                         
-                        if( function_exists( 'facetwp_display' ) ) {
-                            echo facetwp_display( 'pager' );
-                            //echo facetwp_display( 'facet', 'load_more' );
-                        } else if( function_exists( '_s_paginate_links' ) ) {
+                        if( function_exists( '_s_paginate_links' ) ) {
                             echo _s_paginate_links();
                         } else {
                             echo paginate_links();   
