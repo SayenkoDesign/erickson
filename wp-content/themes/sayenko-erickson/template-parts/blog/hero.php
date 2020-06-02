@@ -11,6 +11,10 @@ if( ! class_exists( 'Hero_Section' ) ) {
         
         public function __construct() {
             parent::__construct();
+            
+            $fields = get_field( 'hero' );
+                                               
+            $this->set_fields( 'heading', $fields['heading']  );
                                                 
             // print the section
             $this->print_element();        
@@ -32,9 +36,7 @@ if( ! class_exists( 'Hero_Section' ) ) {
         
         // Add content
         public function render() {
-            
-            $heading = ! empty( $this->get_fields( 'heading' ) ) ? $this->get_fields( 'heading' ) : get_the_title( get_option('page_for_posts') );
-            
+                        
             if( is_category() ) {
                 $heading = single_cat_title( '', false);
             }
@@ -46,18 +48,6 @@ if( ! class_exists( 'Hero_Section' ) ) {
             }
             else {
                 $heading = ! empty( $this->get_fields( 'heading' ) ) ? $this->get_fields( 'heading' ) : get_the_title( get_option('page_for_posts') );
-                
-                // facetwp?
-                
-                if( ! empty( $_GET['fwp_categories'] ) ) {
-                    
-                    $term = get_term_by('slug', $_GET['fwp_categories'], 'category');
-                    
-                    if( ! is_wp_error( $term ) && ! empty( $term ) ) {
-                       $heading = sanitize_text_field( $term->name ); 
-                    }
-                    
-                }
             }
             
             
