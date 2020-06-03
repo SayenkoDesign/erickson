@@ -11,7 +11,7 @@ function _s_posts_order_dropdown() {
     $options .= sprintf( '<option value="DESC"%s>Date (Newest)</option>', ( 'DESC' == $order ) ? ' selected' : '' );
     $options .= sprintf( '<option value="ASC"%s>Date (Oldest)</option>', ( 'ASC' == $order ) ? ' selected' : '' );
     
-    return sprintf( '<select name="order"%s>%s</select>', '', $options );
+    return sprintf( '<select class="sort-select" name="order"%s>%s</select>', '', $options );
 
 }
 

@@ -19,6 +19,19 @@
     .facetwp-filters.menu {
         max-width: none;   
     }
+    
+    .category-select {
+        
+        select {
+            width: rem-calc(240);    
+        }
+        
+        a,
+        button {
+            min-width: rem-calc(150);
+            padding: rem-calc(13.5 16);   
+        }
+    }
            
     .facetwp-template {
         

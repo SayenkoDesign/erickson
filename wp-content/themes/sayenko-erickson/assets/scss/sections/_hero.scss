@@ -1,5 +1,9 @@
 // Section Hero
 
+.page-template-default .section-hero {
+    margin-bottom: rem-calc(75);
+}
+
 .section-hero {
     background-color: $navy;
     position: relative;  

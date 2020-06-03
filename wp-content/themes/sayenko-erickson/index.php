@@ -59,14 +59,6 @@ wp_reset_postdata();
                                                              
                     if ( have_posts() ) : 
                     
-                        /*printf( '<ul class="menu facetwp-filters"><li>%s</li><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
-                            facetwp_display( 'facet', 'categories' ),
-                            sprintf( '<div class="facet-wrap"><h5 class="facet-label">%s</h5>%s</div>', __( 'Order' ), facetwp_display( 'sort' ) ),
-                            __( 'reset' )
-                         );
-                         */
-                        
-                                                
                         // Add dropdowns 
                          
                         $args = array(
@@ -75,32 +67,61 @@ wp_reset_postdata();
                             'orderby'          => 'name',
                             'hierarchical'     => 1,
                             'hide_if_empty'    => false,
+                            'class'            => '',
                             'echo'             => 0,
                         );
                         
                         if( is_category() ) {
-                            $count = get_term_post_count( 'category', get_queried_object_id() );
-                            $count = $count ? sprintf( ' (%d)', $count ) : '';
-                            $args['show_option_none'] = get_cat_name( get_queried_object_id() ) . $count;
-                            $args['option_none_value'] = get_queried_object_id();
-                            $args['child_of'] = get_queried_object_id();
+                            
+                            // is this a parent?
+                            $category = get_queried_object();
+                            
+                            if( $category->parent ) {
+                                // this is a child
+                                $ancestors = get_ancestors( get_queried_object_id(), 'category' ); 
+                                $last = $ancestors[ array_key_last( $ancestors ) ];
+                                $args['child_of'] = $last;
+                                $count = get_term_post_count( 'category', $last );
+                                $count = $count ? sprintf( ' (%d)', $count ) : '';
+                                $args['show_option_none'] = get_cat_name( $last ) . $count;
+                                $args['option_none_value'] = $last;
+                            } else {
+                                $args['child_of'] = get_queried_object_id();
+                            }
+                            
+                            $reset = get_category_link( $last );
+                            
+                        } else {
+                            $reset = get_post_type_archive_link( 'post' );
                         }
                         
                         $url = home_url( '/' );
-                        /*if( is_category() ) {
-                            $url = get_category_link( get_queried_object_id() );
-                        } else {
-                            $url = get_post_type_archive_link( 'post' );
-                        }
-                        */
                         
-                        printf( '<form id="category-select" class="category-select" action="%s" method="get">%s%s%s%s</form>',  
-                                esc_url( $url ),
-                                wp_dropdown_categories( $args ),
-                                _s_posts_order_dropdown(),
-                                '<button class="button" value="Search">Search</button>',
-                                sprintf( '<a href="%s" class="button">%s</a>', get_post_type_archive_link( 'post' ), __( 'Reset' ) )
-                              );
+                        $categories = wp_dropdown_categories( $args );
+                        //$categories = str_replace( '&nbsp;', '', $categories );
+                        //$categories = str_replace( '(', ' (', $categories );
+
+                        $filters = sprintf( '<form id="category-select" class="category-select" action="%s" method="get">
+                                <ul class="menu facetwp-filters">
+                                    <li><div class="facet-wrap"><h5 class="facet-label">Categories</h5>%s</div></li>
+                                    <li><div class="facet-wrap"><h5 class="facet-label">Order</h5>%s</div></li>
+                                    <li>%s</li>
+                                    <li>%s</li>
+                                </ul>
+                             </form>',  
+                            esc_url( $url ),
+                            $categories,
+                            _s_posts_order_dropdown(),
+                            '<button class="button" value="Search">Search</button>',
+                            sprintf( '<a href="%s" class="button reset">%s</a>', $reset, __( 'Reset' ) )
+                          );
+                        
+                        $children = get_categories( array(
+                                    'child_of' => get_queried_object_id(),
+                                    'hide_empty' => false
+                        ) );
+                        
+                        echo $filters;
                          
                         $classes[] = 'small-up-1 medium-up-2 large-up-4';
                 

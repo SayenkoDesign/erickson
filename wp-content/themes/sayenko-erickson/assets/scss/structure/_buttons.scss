@@ -7,6 +7,7 @@
     border: none;
     border-radius: 4px;
     // box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12);
+    color: #fff;
     font-size: rem-calc(13);
     font-weight: 900;
     text-transform: uppercase;
@@ -177,8 +178,8 @@ a.link {
     }
     
     @include breakpoint(xlarge) {
-        min-width: rem-calc(188);   
-        padding: $button-padding;
+        //min-width: rem-calc(188);   
+        //padding: $button-padding;
     }
 }
 
