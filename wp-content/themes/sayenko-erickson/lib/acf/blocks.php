@@ -375,7 +375,52 @@ add_action( 'acf/init', '_s_acf_register_blocks' );
 
 
 function _s_allowed_block_types( $allowed_blocks, $post ) {
-        
+            
+        /*$remove_blocks = [
+            'core/archives',
+            'core/audio',
+            'core/button',
+            'core/calendar',
+            'core/categories',
+            'core/code',
+            'core/column',
+            'core/columns',
+            'core/cover',
+            'core/embed',
+            'core/file ',
+            'core/gallery',
+            'core/heading',
+            'core/html',
+            'core/image',
+            'core/latestComments',
+            'core/latestPosts',
+            'core/legacyWidget',
+            'core/list',
+            'core/mediaText',
+            'core/missing', 
+            'core/more',
+            'core/nextpage', 
+            'core/paragraph',
+            'core/preformatted', 
+            'core/pullquote', 
+            'core/quote',
+            'core/reusableBlock', 
+            'core/rss', 
+            'core/search', 
+            'core/section', 
+            'core/separator', 
+            'core/shortcode', 
+            'core/spacer', 
+            'core/subhead', 
+            'core/table', 
+            'core/tagCloud', 
+            'core/template', 
+            'core/textColumns', 
+            'core/verse', 
+            'core/video'
+        ];
+     */
+    
     if ( $post->post_type == 'page' ) {
         
         /*
@@ -396,7 +441,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
         } 
         */
         
-       $allowed_blocks = array(
+       /*$allowed_blocks = array(
             'acf/awards',
             //'acf/button',
             'acf/case-studies',
@@ -427,12 +472,16 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'core/list',
             'core/button'
         );  
+        */
        
         
     }
     
     
     if( $post->post_type == 'service' ) {
+        
+        
+        
         $allowed_blocks = array(
             'acf/hero',
             'acf/approach',
@@ -446,14 +495,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/contracts',
             'acf/codes',
             'acf/quote',
-                        
-           // 'core/group',
-           // 'core/reusableBlock',
-            //'core/image',
-            //'core/paragraph',
-            //'core/heading',
-            //'core/list',
-            //'core/button'
+
         );      
     }
     
