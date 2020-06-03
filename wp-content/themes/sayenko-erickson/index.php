@@ -85,11 +85,13 @@ wp_reset_postdata();
                                 $count = $count ? sprintf( ' (%d)', $count ) : '';
                                 $args['show_option_none'] = get_cat_name( $last ) . $count;
                                 $args['option_none_value'] = $last;
+                                $reset = get_category_link( $last );
                             } else {
                                 $args['child_of'] = get_queried_object_id();
+                                $reset = get_category_link( get_queried_object_id() );
                             }
                             
-                            $reset = get_category_link( $last );
+                            
                             
                         } else {
                             $reset = get_post_type_archive_link( 'post' );
