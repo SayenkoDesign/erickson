@@ -178,8 +178,8 @@ a.link {
     }
     
     @include breakpoint(xlarge) {
-        //min-width: rem-calc(188);   
-        //padding: $button-padding;
+        min-width: rem-calc(188);   
+        padding: $button-padding;
     }
 }
 
