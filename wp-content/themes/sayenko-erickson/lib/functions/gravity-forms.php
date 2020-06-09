@@ -86,11 +86,13 @@ add_filter( 'gform_field_value_file', function() {
     if( is_singular( 'case_study' )) {
         $challenge = get_field( 'challenge' );
         if( ! empty( $challenge['file'] ) ) {
-            return $challenge['file'];
+            return $challenge['file']['url'];
         }
     }
 });
 
+
+// firstname={Name (First):1.3}&lastname={Name (Last):1.6}&company={Company:5}&email={Email:3}&file={File:7}
 add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
     
     $settings = get_field( 'case_study_archive', 'option' );
