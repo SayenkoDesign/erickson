@@ -10,7 +10,7 @@ if( ! class_exists( 'Challenge_Section' ) ) {
             $fields = get_field( 'challenge' );
             $this->set_fields( $fields );
                         
-            $settings = $this->get_fields( 'settings' );
+            $settings = get_field( 'case_study_archive', 'option' );
             $this->set_settings( $settings );
             
             // print the section
@@ -47,6 +47,7 @@ if( ! class_exists( 'Challenge_Section' ) ) {
             $image = _s_get_acf_image( $this->get_fields( 'image' ), 'thumbnail' );
             
             $button = '';
+            $modal = '';
             $file = $this->get_fields( 'file' );             
             if( ! empty( $file['url'] ) ) {
                 $args = [
@@ -55,6 +56,41 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                     'classes' => 'button',
                 ];
                 $button  = sprintf( '%s', _s_acf_button( $args ) );
+                
+                // Gated content?
+                $form_handler = $this->get_fields( 'form_handler' ); // get_field( 'form_handler' );
+                
+                $gated_form = $this->get_settings( 'gated_form' );
+                                
+                $form_id = ! empty( $gated_form['form_id'] ) ? $gated_form['form_id'] : false;
+                $form = GFAPI::get_form( $form_id );
+                                                
+                if( ! is_wp_error( $form ) && ! empty( $form_handler ) ) {
+                                        
+                    $slug = 'modal-' . sanitize_title_with_dashes( get_the_title() );
+                    
+                    $data = [
+                        'form_id' => $form_id,
+                        'slug'    => $slug,
+                        'content' => ! empty( $gated_form['content'] ) ? $gated_form['content'] : ''
+                    ];
+                    
+                    $options = [
+                        'src' => '#' . $slug,
+                        'modal' => true,
+                        'baseClass' => "full-screen",
+                        'closeExisting' => true,
+                        'touch' => false,
+                        'hash' => false,
+                        'backFocus' => false
+                    ];
+                    $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
+                
+                    $button =  sprintf( '<a class="button modal-form" data-fancybox %s href="javascript:;">%s</a>', $options, __( 'download' ) );
+                    
+                    $modal = _s_get_template_part( 'template-parts/modal', 'case-study', $data, true );
+                    
+                }
             }
                             
             return sprintf( '<div class="grid-container">
@@ -62,12 +98,13 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                                     <div class="cell large-6 xxlarge-7"><div class="panel">%s%s<footer>%s%s</footer></div></div>
                                     <div class="cell large-6 xxlarge-auto">%s</div>
                                 </div>
-                            </div>',
+                            </div>%s',
                             $heading,
                             $text,
                             $image, 
                             $button,
-                            $this->get_terms()
+                            $this->get_terms(),
+                            $modal
                          );  
         }
         

@@ -51,9 +51,7 @@ function input_to_button( $button, $form ) {
     return $button;
 }
 
-
-
-add_filter( 'gform_confirmation_8', 'post_to_third_party', 10, 3 );
+/*
 function post_to_third_party( $confirmation, $form, $entry ) {
  
     $post_url = 'https://go.ericksoninc.com/l/692223/2020-05-04/vqh4';
@@ -72,3 +70,38 @@ function post_to_third_party( $confirmation, $form, $entry ) {
  
     return $confirmation;
 }
+*/
+
+
+add_filter( 'gform_field_value_form_handler', function() {
+    if( is_singular( 'case_study' )) {
+        $challenge = get_field( 'challenge' );
+        if( ! empty( $challenge['form_handler'] ) ) {
+            return $challenge['form_handler'];
+        }
+    }
+});
+
+add_filter( 'gform_field_value_file', function() {
+    if( is_singular( 'case_study' )) {
+        $challenge = get_field( 'challenge' );
+        if( ! empty( $challenge['file'] ) ) {
+            return $challenge['file'];
+        }
+    }
+});
+
+add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
+    
+    $settings = get_field( 'case_study_archive', 'option' );
+    
+    if( ! empty( $settings['gated_form']['form_id']) ) {
+        $form_id = $settings['gated_form']['form_id'];
+        
+        if( $form_id === $form->id ) {
+            $confirmation['url'] = rgar( $entry, '6' );
+        }
+    }
+    
+    return $confirmation;
+}, 10, 3 );

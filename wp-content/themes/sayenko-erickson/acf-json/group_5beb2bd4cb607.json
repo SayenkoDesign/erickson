@@ -152,11 +152,11 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5ed72064b85b8",
-                    "label": "Modal",
-                    "name": "modal",
-                    "type": "page_link",
-                    "instructions": "",
+                    "key": "field_5edfd7ddf8464",
+                    "label": "Form Handler",
+                    "name": "form_handler",
+                    "type": "url",
+                    "instructions": "This will make the download gated.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -164,13 +164,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [
-                        "modal"
-                    ],
-                    "taxonomy": "",
-                    "allow_null": 1,
-                    "allow_archives": 0,
-                    "multiple": 0
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         },
@@ -501,5 +496,5 @@
     ],
     "active": 1,
     "description": "Single Case Study",
-    "modified": 1591156954
+    "modified": 1591729436
 }
