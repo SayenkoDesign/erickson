@@ -63,14 +63,14 @@ if( ! class_exists( 'Testimonial_Section' ) ) {
             
             $photo = get_the_post_thumbnail_url( $post_id, 'medium' );
             if( ! empty( $photo ) ) {
-                $photo = sprintf( '<div class="thumbnail" style="background-image: url(%s);"></div>', $photo );
+                $photo = sprintf( '<div class="cell large-3"><div class="thumbnail" style="background-image: url(%s);"></div></div>', $photo );
             }
             
             $quote_mark = sprintf( '<div class="quote-mark">%s</div>', 
                                     get_svg( 'left-quote' ) );
             
             return sprintf( '<div class="grid-container"><div class="grid-x grid-padding-x grid-margin-bottom">    
-            <div class="cell large-3">%s%s</div><div class="cell large-auto">%s</div></div></div>', $quote_mark, $photo, $quote );   
+            %s%s</div><div class="cell large-auto">%s</div></div></div>', $quote_mark, $photo, $quote );   
         }
         
     }
