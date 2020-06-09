@@ -86,7 +86,7 @@ add_filter( 'gform_field_value_file', function() {
     if( is_singular( 'case_study' )) {
         $challenge = get_field( 'challenge' );
         if( ! empty( $challenge['file'] ) ) {
-            return $challenge['file']['url'];
+            return $challenge['file']['ID'];
         }
     }
 });
