@@ -105,5 +105,8 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
         }
     }
     
+    GFCommon::log_debug( 'case study before: ' . print_r( $confirmation, 1 ) );
+    GFCommon::log_debug( 'case study after: ' . print_r( $confirmation, 1 ) );
+    
     return $confirmation;
 }, 10, 3 );
