@@ -100,7 +100,7 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
     if( ! empty( $settings['gated_form']['form_id']) ) {
         $form_id = $settings['gated_form']['form_id'];
         
-        if( $form_id == $form->id ) {
+        if( $form_id == $form['id'] ) {
             $confirmation['url'] = rgar( $entry, '6' );
         }
     }
