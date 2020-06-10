@@ -107,6 +107,8 @@ _s_get_template_part( 'template-parts/thank-you', 'hero' );
             
             $custom_message = get_field( 'custom_message' );
             $message = get_custom_message( $custom_message, $request );
+            
+            var_dump( $_REQUEST );
 
             
             //var_dump( $request );	
