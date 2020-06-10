@@ -100,11 +100,13 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
     if( ! empty( $settings['gated_form']['form_id']) ) {
         $form_id = $settings['gated_form']['form_id'];
         
-        if( $form_id === $form->id ) {
+        if( $form_id == $form->id ) {
             $confirmation['url'] = rgar( $entry, '6' );
         }
     }
     
+    GFCommon::log_debug( 'case study settings: ' . print_r( $settings, 1 ) );
+    GFCommon::log_debug( 'case study form: ' . print_r( $settings, 1 ) );
     GFCommon::log_debug( 'case study test: ' . print_r( $confirmation, 1 ) );
     
     return $confirmation;
