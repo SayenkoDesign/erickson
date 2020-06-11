@@ -108,7 +108,7 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
             $replace =  defined( 'JSON_HEX_TAG' ) ? json_encode( $redirect, JSON_HEX_TAG ) : json_encode( $redirect );
             GFCommon::log_debug( 'case study confirmation url new: ' . $replace );
             GFCommon::log_debug( 'case study old confirmation: ' . $confirmation );
-            $ajax_confirmation = str_ireplace( $find, $replace, $confirmation );
+            $ajax_confirmation = str_ireplace( 'xynh', $replace, $confirmation );
             GFCommon::log_debug( 'case study ajax confirmation: ' . $ajax_confirmation );
             GFCommon::log_debug( 'case study old confirmation type: ' . gettype( $confirmation ) );
             
