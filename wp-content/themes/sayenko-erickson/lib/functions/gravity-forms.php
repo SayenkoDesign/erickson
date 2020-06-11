@@ -102,16 +102,14 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
         
         if( $form_id == $form['id'] ) {
             $url = $form['confirmation']['url'];
-            $find =  defined( 'JSON_HEX_TAG' ) ? json_encode( $url, JSON_HEX_TAG ) : json_encode( $url );
+            $find =  addslashes( $url );
             GFCommon::log_debug( 'case study confirmation url old: ' . $find );
             $redirect = rgar( $entry, '6' );
-            $replace =  defined( 'JSON_HEX_TAG' ) ? json_encode( $redirect, JSON_HEX_TAG ) : json_encode( $redirect );
+            $replace =  addslashes( $redirect );
             GFCommon::log_debug( 'case study confirmation url new: ' . $replace );
             GFCommon::log_debug( 'case study old confirmation: ' . $confirmation );
             $ajax_confirmation = str_ireplace( 'xynh', $replace, $confirmation );
-            GFCommon::log_debug( 'case study ajax confirmation: ' . $ajax_confirmation );
-            GFCommon::log_debug( 'case study old confirmation type: ' . gettype( $confirmation ) );
-            
+            GFCommon::log_debug( 'case study ajax confirmation: ' . $ajax_confirmation );            
         }
     }
             
