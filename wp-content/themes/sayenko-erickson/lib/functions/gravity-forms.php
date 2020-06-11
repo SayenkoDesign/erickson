@@ -103,8 +103,8 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
         if( $form_id == $form['id'] ) {
             GFCommon::log_debug( 'case study confirmation url old: ' . json_encode( $form['confirmation']['url'] ) );
             GFCommon::log_debug( 'case study confirmation url new: ' . json_encode( rgar( $entry, '6' ) ) );
-            $confirmation = str_replace( json_encode( $form['confirmation']['url'] ), json_encode( rgar( $entry, '6' ) ), $confirmation );
-            GFCommon::log_debug( 'case study confirmation: ' . print_r( $confirmation, 1 ) );
+            $ajax_confirmation = str_replace( json_encode( $form['confirmation']['url'] ), json_encode( rgar( $entry, '6' ) ), $confirmation );
+            GFCommon::log_debug( 'case study ajax confirmation: ' . print_r( $ajax_confirmation, 1 ) );
         }
     }
             
