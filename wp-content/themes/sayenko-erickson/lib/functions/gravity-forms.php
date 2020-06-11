@@ -110,6 +110,8 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
             GFCommon::log_debug( 'case study old confirmation: ' . $confirmation );
             $ajax_confirmation = str_ireplace( $find, $replace, $confirmation );
             GFCommon::log_debug( 'case study ajax confirmation: ' . $ajax_confirmation );
+            GFCommon::log_debug( 'case study old confirmation type: ' . gettype( $confirmation ) );
+            
         }
     }
             
