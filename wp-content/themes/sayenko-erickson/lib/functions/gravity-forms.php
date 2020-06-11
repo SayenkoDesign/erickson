@@ -107,8 +107,8 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
             $redirect = rgar( $entry, '6' );
             $redirect =  defined( 'JSON_HEX_TAG' ) ? json_encode( $redirect, JSON_HEX_TAG ) : json_encode( $redirect );
             GFCommon::log_debug( 'case study confirmation url new: ' . $redirect );
-            $ajax_confirmation = str_replace( $url, $redirect, $confirmation );
-            GFCommon::log_debug( 'case study ajax confirmation: ' . print_r( $ajax_confirmation, 1 ) );
+            $ajax_confirmation = str_ireplace( $url, $redirect, $confirmation );
+            GFCommon::log_debug( 'case study ajax confirmation: ' . $ajax_confirmation );
         }
     }
             
