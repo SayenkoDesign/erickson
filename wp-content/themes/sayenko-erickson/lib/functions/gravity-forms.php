@@ -101,9 +101,13 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
         $form_id = $settings['gated_form']['form_id'];
         
         if( $form_id == $form['id'] ) {
-            GFCommon::log_debug( 'case study confirmation url old: ' . json_encode( $form['confirmation']['url'] ) );
-            GFCommon::log_debug( 'case study confirmation url new: ' . json_encode( rgar( $entry, '6' ) ) );
-            $ajax_confirmation = str_replace( json_encode( $form['confirmation']['url'] ), json_encode( rgar( $entry, '6' ) ), $confirmation );
+            $url = $form['confirmation']['url'];
+            $url =  defined( 'JSON_HEX_TAG' ) ? json_encode( $url, JSON_HEX_TAG ) : json_encode( $url );
+            GFCommon::log_debug( 'case study confirmation url old: ' . $url );
+            $redirect = rgar( $entry, '6' );
+            $redirect =  defined( 'JSON_HEX_TAG' ) ? json_encode( $redirect, JSON_HEX_TAG ) : json_encode( $redirect );
+            GFCommon::log_debug( 'case study confirmation url new: ' . $redirect );
+            $ajax_confirmation = str_replace( $url, $redirect, $confirmation );
             GFCommon::log_debug( 'case study ajax confirmation: ' . print_r( $ajax_confirmation, 1 ) );
         }
     }
