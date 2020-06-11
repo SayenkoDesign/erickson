@@ -101,14 +101,12 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
         $form_id = $settings['gated_form']['form_id'];
         
         if( $form_id == $form['id'] ) {
-            GFCommon::log_debug( 'case study confirmation url old: ' . $form['confirmation']['url'] );
-            GFCommon::log_debug( 'case study confirmation url new: ' . rgar( $entry, '6' ) );
+            GFCommon::log_debug( 'case study confirmation url old: ' . json_encode( $form['confirmation']['url'] ) );
+            GFCommon::log_debug( 'case study confirmation url new: ' . json_encode( rgar( $entry, '6' ) ) );
             $confirmation = str_replace( json_encode( $form['confirmation']['url'] ), json_encode( rgar( $entry, '6' ) ), $confirmation );
             GFCommon::log_debug( 'case study confirmation: ' . print_r( $confirmation, 1 ) );
         }
     }
-    
-    GFCommon::log_debug( 'case study confirmation: ' . print_r( $confirmation, 1 ) );
-        
+            
     return $confirmation;
 }, 10, 3 );
