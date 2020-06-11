@@ -110,7 +110,6 @@ _s_get_template_part( 'template-parts/thank-you', 'hero' );
             
             // var_dump( $_REQUEST );
 
-           
             
             //var_dump( $request );	
                     
