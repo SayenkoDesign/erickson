@@ -93,22 +93,8 @@ add_filter( 'gform_field_value_file', function() {
 
 
 // firstname={Name (First):1.3}&lastname={Name (Last):1.6}&company={Company:5}&email={Email:3}&file={File:7}
-add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
-    
-    GFCommon::log_debug( 'case study before: ' . print_r( $form, 1 ) );
-    
-    $settings = get_field( 'case_study_archive', 'option' );
-    
-    if( ! empty( $settings['gated_form']['form_id']) ) {
-        $form_id = $settings['gated_form']['form_id'];
-        
-        if( $form_id == $form['id'] ) {
-            $confirmation['redirect'] = rgar( $entry, '6' );
-        }
-    }
-    
-    
-    GFCommon::log_debug( 'case study after: ' . print_r( $confirmation, 1 ) );
+add_filter( 'gform_confirmation_8', function ( $confirmation, $form, $entry ) {
+    $confirmation['redirect'] = rgar( $entry, '6' );
     
     return $confirmation;
 }, 10, 3 );
