@@ -107,9 +107,8 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
             $redirect = rgar( $entry, '6' );
             $replace =  addslashes( $redirect );
             GFCommon::log_debug( 'case study confirmation url new: ' . $replace );
-            GFCommon::log_debug( 'case study old confirmation: ' . $confirmation );
-            $ajax_confirmation = str_ireplace( 'xynh', $replace, $confirmation );
-            GFCommon::log_debug( 'case study ajax confirmation: ' . $ajax_confirmation );            
+            $confirmation = str_replace( $find, $replace, $confirmation );
+            GFCommon::log_debug( 'case study new confirmation: ' . $confirmation );
         }
     }
             
