@@ -95,7 +95,7 @@ add_filter( 'gform_field_value_file', function() {
 // firstname={Name (First):1.3}&lastname={Name (Last):1.6}&company={Company:5}&email={Email:3}&file={File:7}
 add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
     
-    GFCommon::log_debug( 'case study before: ' . print_r( $confirmation, 1 ) );
+    GFCommon::log_debug( 'case study before: ' . print_r( $form, 1 ) );
     
     $settings = get_field( 'case_study_archive', 'option' );
     
