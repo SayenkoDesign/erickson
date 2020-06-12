@@ -40,7 +40,9 @@ if( ! class_exists( 'Challenge_Section' ) ) {
         
         // Add content
         public function render() {
-                                    
+            
+            global $post;
+                              
             $heading = _s_format_string( __( 'Challenge' ), 'h2' );
             $text = $this->get_fields( 'text' ); 
             
@@ -67,7 +69,7 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                                                 
                 if( ! is_wp_error( $form ) && ! empty( $form_handler ) ) {
                                         
-                    $slug = 'modal-' . sanitize_title_with_dashes( trim( get_the_title() ) );
+                    $slug = 'modal-' . $post->post_name;
                     
                     $data = [
                         'form_id' => $form_id,
