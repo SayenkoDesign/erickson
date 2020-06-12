@@ -67,7 +67,7 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                                                 
                 if( ! is_wp_error( $form ) && ! empty( $form_handler ) ) {
                                         
-                    $slug = 'modal-' . sanitize_title_with_dashes( get_the_title() );
+                    $slug = 'modal-' . sanitize_title_with_dashes( trim( get_the_title() ) );
                     
                     $data = [
                         'form_id' => $form_id,

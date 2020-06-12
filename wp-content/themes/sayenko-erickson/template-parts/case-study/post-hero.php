@@ -50,6 +50,7 @@ if( ! class_exists( 'Hero_Post' ) ) {
                     $background_image = get_field( 'post_image_fallback', 'option' );
                     if( ! empty( $background_image ) ) {
                         $background_image = wp_get_attachment_image_src( $background_image, 'hero' );
+                        $this->add_render_attribute( 'wrapper', 'class', 'has-background-image' );
                     }   
                 }
             }
