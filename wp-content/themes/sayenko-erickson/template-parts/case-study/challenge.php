@@ -87,8 +87,14 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                         'backFocus' => false
                     ];
                     $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
+                    
+                    $button_text = __( 'download' );
+                    
+                    if( ! empty( $this->get_fields( 'button_text' ) ) ) {
+                        $button_text = $this->get_fields( 'button_text' );
+                    }
                 
-                    $button =  sprintf( '<a class="button modal-form" data-fancybox %s href="javascript:;">%s</a>', $options, __( 'download' ) );
+                    $button =  sprintf( '<a class="button modal-form" data-fancybox %s href="javascript:;">%s</a>', $options, $button_text );
                     
                     $modal = _s_get_template_part( 'template-parts/modal', 'case-study', $data, true );
                     
