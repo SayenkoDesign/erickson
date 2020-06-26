@@ -2814,9 +2814,7 @@ offset:-100});
 }
 });
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('facetwp-refresh',function(){
-if(FWP.loaded){
-console.log('page loaded');
-}
+if(FWP.loaded);
 });
 /*
     $(document).on('click', '.section-people .facetwp-facet .checked', function() { 
@@ -3840,6 +3838,11 @@ visibility:'visible'});
 Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().reveal('.is-desktop.archive .facetwp-pager',{
 delay:200,
 distance:'100%'});
+
+
+if(jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').hasClass('paged')){
+Object(scrollreveal__WEBPACK_IMPORTED_MODULE_1__["default"])().destroy();
+}
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()('a[href^="#"]').on('click',function(event){
 event.preventDefault();

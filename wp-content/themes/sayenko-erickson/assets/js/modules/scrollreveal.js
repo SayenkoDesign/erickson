@@ -676,6 +676,12 @@ export default {
             distance: '100%'
         });
         
+        
+        
+        if($('body').hasClass('paged')) {
+            ScrollReveal().destroy();
+        }
+        
         $('a[href^="#"]').on('click', function(event) {
             event.preventDefault();
             

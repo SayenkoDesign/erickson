@@ -119,7 +119,7 @@ html.sr .is-desktop {
 
 // Fleet
 html.sr .is-desktop {
-    .post-type-archive-fleet {
+    &.post-type-archive-fleet {
         
         
         #secondary {
@@ -142,7 +142,7 @@ html.sr .is-desktop {
 
 // Archive 
 
-html.sr .is-desktop .archive {
+html.sr .is-desktop.archive {
     .section-hero,
     .facetwp-filters,
     .facetwp-type-pager {
@@ -158,7 +158,7 @@ html.sr .is-desktop .facetwp-template article {
 // Case Studies
 
 html.sr .is-desktop {
-    .post-type-archive-case_study {
+    &.post-type-archive-case_study {
         .section-hero header,
         .facetwp-filters,
         .facetwp-pager {
@@ -171,8 +171,8 @@ html.sr .is-desktop {
 // video/Photo Gallery
 
 html.sr .is-desktop {
-    .post-type-archive-video_gallery,
-    .template-photo-gallery {
+    &.post-type-archive-video_gallery,
+    &.template-photo-gallery {
         .facetwp-filters,
         .facetwp-type-pager {
             visibility: hidden;   
@@ -187,7 +187,7 @@ html.sr .is-desktop {
 // History
 
 html.sr .is-desktop {
-    .template-history {
+    &.template-history {
         .section-hero img,
         
         .section-introduction,
@@ -203,7 +203,7 @@ html.sr .is-desktop {
 // Team
 
 html.sr .is-desktop {
-    .template-team {
+    &.template-team {
         .facetwp-facet,
         .facetwp-template .cell,
         .facetwp-type-pager {
@@ -216,7 +216,7 @@ html.sr .is-desktop {
 // Multipurpose
 
 html.sr .is-desktop {
-    .template-multi-purpose {
+    &.template-multi-purpose {
         .section-block,
         .section-block .cell {
             visibility: hidden;
@@ -227,7 +227,7 @@ html.sr .is-desktop {
 // Contact
 
 html.sr .is-desktop {
-    .template-contact {
+    &.template-contact {
         .section-form-directory .cell,
         .section-clients,
         .section-clients header  {
