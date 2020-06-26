@@ -25,7 +25,7 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
                     $this->post_id = get_the_ID();
                 }
                                 
-                $hide_call_to_action = get_field( 'hide_call_to_action', $this->post_id );   
+                $hide_call_to_action = get_field( 'hide_call_to_action' );   
                 
             }
             

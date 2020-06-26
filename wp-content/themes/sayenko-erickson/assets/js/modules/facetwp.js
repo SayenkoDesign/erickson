@@ -39,7 +39,7 @@ export default {
         
         $(document).on('facetwp-refresh', function() {
             if (FWP.loaded) {
-            console.log('page loaded');
+             //console.log('page loaded');
             }
         });
         
