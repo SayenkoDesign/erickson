@@ -33,9 +33,11 @@
         position: absolute;
         bottom: -2px;
         left: 0;
-        width: 100%;
+        width: 100vw;
         height: 13%;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 13' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23#{$color}' points='0 0, 0 13,40 13'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
         z-index: 9;
     }
     
@@ -45,9 +47,12 @@
         position: absolute;
         bottom: -2px;
         right: 0;
-        width: 100%;
+        width: 100vw;
         height: 13%;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 8' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23#{$color}' points='60 8, 100 0,100 8'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 13' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon fill='%23#{$color}' points='0 0, 0 13,40 13'/%3E%3C/svg%3E");
+        background-size: contain;
+        transform: scaleX(-1);
+        background-repeat: no-repeat;
         z-index: 9;
     }   
 }
