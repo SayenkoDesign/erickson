@@ -90,9 +90,9 @@ _s_get_template_part( 'template-parts/fleet', 'hero' );
                             %s
                             <li><button class="button" onclick="FWP.reset()">%s</button></li>
                         </ul>', 
-                        __( 'Sort By' ),
+                        __( 'Sort By', '_s' ),
                         $filters,
-                        __( 'reset' )
+                        __( 'reset', '_s' )
                  );
             ?>
         </div><!-- #secondary -->

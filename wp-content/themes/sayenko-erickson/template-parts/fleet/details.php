@@ -89,7 +89,7 @@ if( ! class_exists( 'Details_Section' ) ) {
             $file = $this->get_fields( 'file' );             
             if( ! empty( $file['url'] ) ) {
                 $args = [
-                    'link' => [ 'title' => sprintf( '%s %s', __( 'download' ), $file['subtype'] ), 'url' => $file['url'], 'target' => '_blank' ],
+                    'link' => [ 'title' => sprintf( '%s %s', __( 'download', '_s' ), $file['subtype'] ), 'url' => $file['url'], 'target' => '_blank' ],
                     'echo' => false,
                     'classes' => 'button',
                 ];

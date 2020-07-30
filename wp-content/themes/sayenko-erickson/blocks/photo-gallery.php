@@ -33,7 +33,7 @@ if( ! class_exists( 'Gallery_Block' ) ) {
             $heading = _s_format_string( $this->get_fields( 'heading' ), 'h2' );
             $description = $this->get_fields( 'description' ); 
             $share = sprintf( '<div class="share"><h4>%s</h4>%s</div>', 
-                              __( 'Share This:' ),
+                              __( 'Share This:', '_s' ),
                               _s_get_addtoany_share_icons( sprintf( '%s#%s-service-gallery', trailingslashit( get_permalink() ), $this->get_name() ) )
                               );
             $heading = sprintf( '<header>%s%s%s%s</header>', get_svg( 'gallery-icon' ), $heading, $description, $share  );  

@@ -34,7 +34,8 @@
     .documents .date {
         display: inline-block;
         margin-right: rem-calc(20);
-        width: 80px;
+        white-space: nowrap;
+        width: 100px;
     }
     
     .documents .link {

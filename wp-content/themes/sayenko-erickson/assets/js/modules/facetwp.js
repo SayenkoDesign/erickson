@@ -2,9 +2,25 @@ import $ from 'jquery';
 
 export default {
 	init() {
-		$( document ).on( 'facetwp-loaded', function() {
+		        
+        $( document ).on( 'facetwp-loaded', function() {
             
-            $(document).find( '.facetwp-facet-years').append( '<div class="facetwp-reset"><span onclick="FWP.reset()">All</span></div>' );
+            var $years = $('.facetwp-facet-years');
+        
+            if($years.find('facetwp-reset').length == 0) {
+                $(document).find( '.facetwp-facet-years').append( '<div class="facetwp-reset"><button onclick="FWP.reset()">Reset</button></div>' );
+            }
+            
+            var query_string = FWP.build_query_string();
+            
+            if ( '' === query_string ) { // no facets are selected
+                $('.facetwp-facet-years .facetwp-reset').hide();
+            }
+            else {
+                $('.facetwp-facet-years .facetwp-reset').show();
+            }
+                
+            
             
             if( 'undefined' !== typeof FWP_HTTP.get.fwp_paged ) {
                 $('body').addClass('is-paged');

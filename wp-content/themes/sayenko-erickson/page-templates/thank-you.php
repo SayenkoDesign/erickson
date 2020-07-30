@@ -129,7 +129,7 @@ _s_get_template_part( 'template-parts/thank-you', 'hero' );
                 if( ! empty( $request['file'] ) && ! empty( wp_get_attachment_url( $request['file'] ) ) ) {
                     // is this a PDF?
                     $file = wp_get_attachment_url( $request['file'] );
-                    $button = sprintf( '<p><a href="%s" class="button" target="_blank">%s</a></p>', $file, __( 'download' ) );
+                    $button = sprintf( '<p><a href="%s" class="button" target="_blank">%s</a></p>', $file, __( 'download', '_s' ) );
                 }
                                 
                 printf( '<div class="entry-content">%s%s</div>',  wpautop( $output ), $button );

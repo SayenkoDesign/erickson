@@ -115,10 +115,10 @@ if( ! class_exists( 'Testimonials_Block' ) ) {
             
             $photo = get_the_post_thumbnail_url( $post_id, 'medium' );
             if( ! empty( $photo ) ) {
-                $photo = sprintf( '<div class="cell large-3"><div class="thumbnail" style="background-image: url(%s);"></div></div>', $photo );
+                $photo = sprintf( '<div class="cell large-4"><div class="thumbnail" style="background-image: url(%s);"></div></div>', $photo );
             }
             
-            return sprintf( '<div class="slide"><div class="grid-x grid-padding-x grid-margin-bottom">    
+            return sprintf( '<div class="slide"><div class="grid-x grid-padding-x grid-margin-bottom align-middle">    
             %s<div class="cell large-auto">%s</div></div></div>', $photo, $quote );   
         }
       

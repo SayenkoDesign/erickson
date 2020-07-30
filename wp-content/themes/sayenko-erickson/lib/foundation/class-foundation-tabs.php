@@ -44,11 +44,11 @@ class Foundation_Tabs extends Foundation {
     public function add_item( $args = array() ) {
                 
         if( !is_array( $args ) ) {
-            wp_die( __( 'It is required to pass an array of arguments: title, content, with optional href, active and id', 'foundation' ) );
+            wp_die( __( 'It is required to pass an array of arguments: title, content, with optional href, active and id', '_s' ) );
         }
         
         if( ! isset( $args['title'] ) && ! isset( $args['content'] ) ) {
-            wp_die( __( 'Tab title and content are required', 'foundation' ) );
+            wp_die( __( 'Tab title and content are required', '_s' ) );
         }
         
         $this->add_title( $args );
@@ -59,7 +59,7 @@ class Foundation_Tabs extends Foundation {
     private function add_title( $args = array() ) {
         
         if( !is_array( $args ) && ! isset( $args['title'] ) ) {
-            wp_die( __( 'It is required to pass a title', 'foundation' ) );
+            wp_die( __( 'It is required to pass a title', '_s' ) );
         }
         
         $defaults = array(

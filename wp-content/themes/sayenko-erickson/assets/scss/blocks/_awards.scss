@@ -20,11 +20,21 @@
         margin-bottom: rem-calc(60);   
     }
     
+    .cell {
+        position: relative;
+        cursor: pointer;
+        
+        &:hover {
+            z-index: 99;   
+        }
+    }
+    
     .panel {
         
-        cursor: pointer;
-        position: relative;
+        height: 100%;
         
+        
+                
         .grid-image {
             height: 120px;
             display: flex;

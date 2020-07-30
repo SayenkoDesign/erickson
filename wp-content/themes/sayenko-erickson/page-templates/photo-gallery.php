@@ -46,7 +46,7 @@ _s_get_template_part( 'template-parts/global', 'hero' );
                 
                     printf( '<ul class="menu facetwp-filters"><li>%s</li><li><button class="button" onclick="FWP.reset()">%s</button></li></ul>', 
                             facetwp_display( 'facet', 'photo_gallery_service' ),
-                            __( 'reset' )
+                            __( 'reset', '_s' )
                          );
                 
                     $classes[] = 'small-up-1 large-up-2';

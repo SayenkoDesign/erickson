@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
-    <defs>
-        <path id="a" d="M6.199 14l-.017-5.455H4V6.364h2.182V5c0-2.024 1.253-3 3.06-3 .864 0 1.608.064 1.825.093V4.21H9.814c-.982 0-1.172.467-1.172 1.152v1.003H11.5l-1.09 2.181H8.641V14H6.199z"/>
-    </defs>
-    <g fill="none" fill-rule="evenodd">
-        <path d="M0 0h16v16H0z"/>
-        <mask id="b" fill="#fff">
-            <use xlink:href="#a"/>
-        </mask>
-        <use fill="#3B5998" xlink:href="#a"/>
-        <g fill="#E9731F" mask="url(#b)">
-            <path d="M0 0h16v16H0z"/>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16"><defs><path id="a" d="M6.199 14l-.017-5.455H4V6.364h2.182V5c0-2.024 1.253-3 3.06-3 .864 0 1.608.064 1.825.093V4.21H9.814c-.982 0-1.172.467-1.172 1.152v1.003H11.5l-1.09 2.181H8.641V14H6.199z"/></defs><g fill="none" fill-rule="evenodd"><path d="M0 0h16v16H0z"/><mask id="b" fill="#fff"><use xlink:href="#a"/></mask><use fill="#3B5998" xlink:href="#a"/><g fill="#E9731F" mask="url(#b)"><path d="M0 0h16v16H0z"/></g></g></svg>

@@ -64,15 +64,15 @@ if( ! class_exists( 'Landing_Page_Form_V3' ) ) {
             
             $industry = $this->get_fields( 'industry' ); 
             if( ! empty( $industry ) ) {
-                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'industry' ), $industry );
+                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'industry', '_s' ), $industry );
             }
             $services = $this->get_fields( 'services' ); 
             if( ! empty( $services ) ) {
-                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'services' ), $services );
+                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'services', '_s' ), $services );
             }
             $location = $this->get_fields( 'location' ); 
             if( ! empty( $location ) ) {
-                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'location' ), $location );
+                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'location', '_s' ), $location );
             }
             
             

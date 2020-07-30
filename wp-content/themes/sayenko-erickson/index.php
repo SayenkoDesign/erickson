@@ -62,7 +62,7 @@ wp_reset_postdata();
                         // Add dropdowns 
                          
                         $args = array(
-                            'show_option_none' => __( 'Select one' ),
+                            'show_option_none' => __( 'Select one', '_s' ),
                             'show_count'       => 1,
                             'orderby'          => 'name',
                             'hierarchical'     => 1,
@@ -115,7 +115,7 @@ wp_reset_postdata();
                             $categories,
                             _s_posts_order_dropdown(),
                             '<button class="button" value="Search">Search</button>',
-                            sprintf( '<a href="%s" class="button reset">%s</a>', $reset, __( 'Reset' ) )
+                            sprintf( '<a href="%s" class="button reset">%s</a>', $reset, __( 'Reset', '_s' ) )
                           );
                         
                         $children = get_categories( array(

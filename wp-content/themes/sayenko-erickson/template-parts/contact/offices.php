@@ -77,7 +77,7 @@ if( ! class_exists( 'Contact_Offices_Section' ) ) {
                 
                 $directions = sprintf( '<p class="directions"><a href="https://www.google.com/maps/dir/?api=1&destination=%s,%s" target="_blank">%s [+]</a></p>',                                       $map['lat'], 
                                        $map['lng'] ,
-                                       _( 'Get Directions' )
+                                       _( 'Get Directions', '_s' )
                                      );
 
                 

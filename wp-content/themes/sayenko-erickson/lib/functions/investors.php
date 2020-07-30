@@ -8,7 +8,7 @@
  * @return string
  */
 function _s_reset_password_link() {
-    return sprintf( '<a href="%s/password-reset/">%s</a>', site_url(), __( 'Forgot your password?' ) );
+    return sprintf( '<a href="%s/password-reset/">%s</a>', site_url(), __( 'Forgot your password?', '_s' ) );
 }
 
 add_shortcode( 'reset_password_link', '_s_reset_password_link' );
@@ -32,12 +32,12 @@ function _s_reset_password_shortcode( $attr, $content = null ) {
     <div class="form-container">
     <form method="post" action="<?php echo wp_lostpassword_url() ?>" id="passwordform">
         <p class="username">
-            <label for="user_login" class=""><?php _e('Username or Email'); ?></label>
+            <label for="user_login" class=""><?php _e('Username or Email', '_s'); ?></label>
             <input type="text" name="user_login" value="" placeholder="Username or Email" size="20" id="user_login" tabindex="1001" />
         </p>
         <p class="login-submit">
             <?php do_action('login_form', 'resetpass'); ?>
-            <button class="button"><span><?php _e('Reset my password'); ?></span></button>
+            <button class="button"><span><?php _e('Reset my password', '_s'); ?></span></button>
          </p>
     </form>
     </div>
@@ -56,10 +56,10 @@ function ea_login_form( $args = array() ) {
         // Default 'redirect' value takes the user back to the request URI.
         'redirect'       => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
         'form_id'        => 'loginform',
-        'label_username' => __( 'Username or Email Address' ),
-        'label_password' => __( 'Password' ),
-        'label_remember' => __( 'Remember Me' ),
-        'label_log_in'   => __( 'Log In' ),
+        'label_username' => __( 'Username or Email Address', '_s' ),
+        'label_password' => __( 'Password', '_s' ),
+        'label_remember' => __( 'Remember Me', '_s' ),
+        'label_log_in'   => __( 'Log In', '_s' ),
         'id_username'    => 'user_login',
         'id_password'    => 'user_pass',
         'id_remember'    => 'rememberme',

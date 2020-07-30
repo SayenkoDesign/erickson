@@ -70,7 +70,7 @@ wp_reset_postdata();
                         // Add dropdowns 
                          
                         $args = array(
-                            'show_option_none' => __( 'Select one' ),
+                            'show_option_none' => __( 'Select one', '_s' ),
                             'show_count'       => 1,
                             'orderby'          => 'name',
                             'echo'             => 0,

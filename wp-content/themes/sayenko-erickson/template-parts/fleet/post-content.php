@@ -19,7 +19,7 @@ if( ! empty( $term ) ) {
             </div>', 
         the_title( '<h2>', '</h2>', false ),
         $term,
-        __( 'Share This:' ),
+        __( 'Share This:', '_s' ),
         _s_get_addtoany_share_icons() );
     ?>
     </header>

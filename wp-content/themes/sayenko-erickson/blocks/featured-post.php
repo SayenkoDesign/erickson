@@ -87,7 +87,7 @@ if( ! class_exists( 'Featured_Post_Block' ) ) {
                         $excerpt = sprintf( '<div class="excerpt">%s</div>', wpautop( $excerpt  ) );
                     }
                     
-                    $permalink = sprintf( '<p><a class="read-more" href="%s">%s</a></p>', get_permalink(), __( 'read more' )  );
+                    $permalink = sprintf( '<p><a class="read-more" href="%s">%s</a></p>', get_permalink(), __( 'read more', '_s' )  );
                     
                     $cells .= sprintf( '<div class="cell large-auto"><a href="%s" class="thumbnail"%s></a></div>', get_permalink(), $style );
                     $cells .= sprintf( '<div class="cell large-auto"><div class="panel"><h3>%s</h3>%s%s</div></div>', get_the_title(), $excerpt, $permalink  );

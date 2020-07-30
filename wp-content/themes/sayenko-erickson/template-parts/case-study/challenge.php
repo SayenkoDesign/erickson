@@ -43,7 +43,7 @@ if( ! class_exists( 'Challenge_Section' ) ) {
             
             global $post;
                               
-            $heading = _s_format_string( __( 'Challenge' ), 'h2' );
+            $heading = _s_format_string( __( 'Challenge', '_s' ), 'h2' );
             $text = $this->get_fields( 'text' ); 
             
             $image = _s_get_acf_image( $this->get_fields( 'image' ), 'thumbnail' );
@@ -53,7 +53,7 @@ if( ! class_exists( 'Challenge_Section' ) ) {
             $file = $this->get_fields( 'file' );             
             if( ! empty( $file['url'] ) ) {
                 $args = [
-                    'link' => [ 'title' => sprintf( '%s %s', __( 'download' ), $file['subtype'] ), 'url' => $file['url'], 'target' => '_blank' ],
+                    'link' => [ 'title' => sprintf( '%s %s', __( 'download', '_s' ), $file['subtype'] ), 'url' => $file['url'], 'target' => '_blank' ],
                     'echo' => false,
                     'classes' => 'button',
                 ];
@@ -88,7 +88,7 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                     ];
                     $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
                     
-                    $button_text = __( 'download' );
+                    $button_text = __( 'download', '_s' );
                     
                     if( ! empty( $this->get_fields( 'button_text' ) ) ) {
                         $button_text = $this->get_fields( 'button_text' );
@@ -123,15 +123,15 @@ if( ! class_exists( 'Challenge_Section' ) ) {
             
             $industry = _s_get_post_terms( [ 'taxonomy' => 'industry', 'link' => false, 'svg' => false ] ); 
             if( ! empty( $industry ) ) {
-                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'industry' ), $industry );
+                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'industry', '_s' ), $industry );
             }
             $services = _s_get_post_terms( [ 'taxonomy' => 'service_cat', 'link' => false, 'svg' => false ] ); 
             if( ! empty( $services ) ) {
-                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'services' ), $services );
+                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'services', '_s' ), $services );
             }
             $location = _s_get_post_terms( [ 'taxonomy' => 'location', 'link' => false, 'svg' => false ] );    
             if( ! empty( $location ) ) {
-                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'location' ), $location );
+                $columns .= sprintf( '<div class="cell"><h5>%s</h5>%s</div>', __( 'location', '_s' ), $location );
             }
             
             

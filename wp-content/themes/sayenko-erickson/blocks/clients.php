@@ -58,7 +58,7 @@ if( ! class_exists( 'Clients_Block' ) ) {
                 $address    = _s_format_string( $row['address'], 'p' ); 
                 $case_study = $row['case_study']; 
                 if( ! empty( $case_study ) ) {
-                    $case_study = sprintf( '<a href="%s">%s [+]</a>', get_permalink( $case_study ), __( 'See Case' ) );
+                    $case_study = sprintf( '<a href="%s">%s [+]</a>', get_permalink( $case_study ), __( 'See Case', '_s' ) );
                 }
                 
                 $active = !$key ? 'true' : 'false';

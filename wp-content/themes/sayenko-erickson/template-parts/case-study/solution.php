@@ -41,7 +41,7 @@ if( ! class_exists( 'Solution_Section' ) ) {
         // Add content
         public function render() {
                                     
-            $heading = _s_format_string( __( 'Solution' ), 'h2' );
+            $heading = _s_format_string( __( 'Solution', '_s' ), 'h2' );
             
             $text = $this->get_fields( 'text' ); 
             

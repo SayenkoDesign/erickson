@@ -41,7 +41,7 @@ if( ! class_exists( 'Results_Section' ) ) {
         // Add content
         public function render() {
                                     
-            $heading    = _s_format_string( __( 'Results' ), 'h2' );
+            $heading    = _s_format_string( __( 'Results', '_s' ), 'h2' );
             $heading    = sprintf( '<header>%s</header>', $heading  ); 
             $rows       = array_filter( $this->get_fields() );
             
