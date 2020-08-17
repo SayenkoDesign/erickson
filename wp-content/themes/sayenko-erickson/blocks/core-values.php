@@ -85,7 +85,7 @@ if( ! class_exists( 'Core_Values_Block' ) ) {
                              );
             }
             
-            return sprintf( '<div class="grid-x grid-margin-x small-up-1 medium-up-3 large-up-5 align-center grid" aria-hidden="true">%s</div>', 
+            return sprintf( '<div class="grid-x grid-margin-x grid-margin-bottom small-up-1 medium-up-2 large-up-4 align-center grid" aria-hidden="true">%s</div>', 
                                     $items );
         }
         
