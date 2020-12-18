@@ -88,6 +88,7 @@ wp_reset_postdata();
                                 $reset = get_category_link( $last );
                             } else {
                                 $args['child_of'] = get_queried_object_id();
+                                $args['option_none_value'] = get_queried_object_id();
                                 $reset = get_category_link( get_queried_object_id() );
                             }
                             
@@ -98,6 +99,9 @@ wp_reset_postdata();
                         }
                         
                         $url = home_url( '/' );
+                        
+                        //global $wp;
+                        //$url = home_url(add_query_arg(array(),$wp->request));
                         
                         $categories = wp_dropdown_categories( $args );
                         //$categories = str_replace( '&nbsp;', '', $categories );

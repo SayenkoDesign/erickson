@@ -96,44 +96,61 @@ export default {
         
         
         
-        let $coreValues = $('.block-core-values .slider');
+        let $coreValues = $('.block-core-values');
+                     
+        $coreValues.each( function() {
+            
+           let $this = $('#' + $(this).attr('id'));
         
-        if ( $('.slick', $coreValues).length ) {
-            
-            
-            
-            $coreValues.imagesLoaded()
-            
-                .done( function( instance ) {
-                                        
-                    $( '<div class="slick-arrows"></div>' ).insertAfter( '.block-core-values .slick' );
-            
-                    $('.slick', $coreValues).slick({
-                        fade: true,
-                        autoplay: false,
-                        infinite: true,
-                        adaptiveHeight: true,
-                        arrows: true,
-                        dots: true,
-                        rows: 0,
-                        speed: 300,
-                        appendArrows: $('.block-core-values .slick-arrows')
-                    });
+            if ( $('.slick', $this).length ) {
                 
-                    $('.block-core-values').addClass('images-loaded');
-                    
-                    
-                    $('.block-core-values .grid').on('click','.grid-item', function(e){
-                        //e.preventDefault();
-                        var slideIndex = $(this).parent().index();
-                        $('.slick', $coreValues).slick( 'slickGoTo', parseInt(slideIndex) );
-                    });
-                    
-             });
-             
-             
-        }        
+                console.log('slider exists');
+                                
+                $this.imagesLoaded()
                 
+                    .done( function( instance ) {
+                                            
+                        $( '<div class="slick-arrows"></div>' ).insertAfter( '.slick', $this );
+                
+                        $('.slick', $this).slick({
+                            fade: true,
+                            autoplay: false,
+                            infinite: true,
+                            adaptiveHeight: true,
+                            arrows: true,
+                            dots: true,
+                            rows: 0,
+                            speed: 300,
+                            appendArrows: $('.slick-arrows', $this)
+                        });
+                    
+                        $this.addClass('images-loaded');
+                        
+                        
+                        $('.grid', $this).on('click','.grid-item', function(e){
+                            var slideIndex = $(this).parent().index();
+                            $('.slick', $this).slick( 'slickGoTo', parseInt(slideIndex) );
+                            setTimeout(function() { 
+                                $('.grid', $this).addClass('is-hidden');
+                                $('.slider', $this).removeClass('invisible');
+                            }, 100);
+                            
+                        });
+                        
+                 });
+                 
+                 
+                 $('.slider .close-slider', $this).on("click", function() {
+                    $('.grid', $this).removeClass('is-hidden');
+                    $('.slider', $this).addClass('invisible');
+                });
+    
+                 
+                 
+            }        
+                
+        });
+        
         
         // Careers - Testimonials
         

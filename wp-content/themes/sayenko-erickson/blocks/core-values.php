@@ -25,13 +25,9 @@ if( ! class_exists( 'Core_Values_Block' ) ) {
             
             // use parent attributes
             parent::_add_render_attributes();
-            
+              
             $this->add_render_attribute(
-                'container', 'id', 'core-values-container' );
-            
-            $this->add_render_attribute(
-                'container', 'data-toggler', '.slider-show' );                  
-            
+                'wrapper', 'id', 'block-core-values-' . wp_unique_id() );
         }          
         
         // Add content
@@ -75,7 +71,7 @@ if( ! class_exists( 'Core_Values_Block' ) ) {
                 $title = _s_format_string( $row['grid_title'], 'h4' ); 
                                                           
                 $items .= sprintf( '<div class="cell">
-                                    <div class="grid-item" data-toggle="core-values-container">
+                                    <div class="grid-item">
                                         <div class="grid-image">%s</div>
                                         <footer>%s</footer>
                                     </div>
@@ -112,9 +108,9 @@ if( ! class_exists( 'Core_Values_Block' ) ) {
                                  $image, $title, $text );
             }
             
-            $button = '<button class="close-slider" data-toggle="core-values-container" aria-hidden="true"><span class="screen-reader-text">close</span></button>';
+            $button = '<button class="close-slider" aria-hidden="true"><span class="screen-reader-text">close</span></button>';
             
-            return sprintf( '<div class="slider" id="slider">%s<div class="slick">%s</div></div>', $button, $items );  
+            return sprintf( '<div class="slider invisible">%s<div class="slick">%s</div></div>', $button, $items );  
         }
         
     }

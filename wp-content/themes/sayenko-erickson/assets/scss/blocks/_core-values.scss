@@ -24,6 +24,12 @@
         margin-bottom: rem-calc(40);   
     }
     
+    .invisible {
+        height: 0;
+        overflow: hidden;
+        opacity: 0;   
+    }
+    
     .grid {
         position: relative;
         z-index: 2;
@@ -67,7 +73,6 @@
             
         .grid {
             display: flex;
-            //min-height: 320px;
         }
         
         &.images-loaded .grid {
@@ -79,11 +84,7 @@
     .slider {
         
         position: relative;
-                                
-        @include breakpoint(large) {
-            overflow-y: hidden;
-            height: 0;
-        }
+                               
         
         .slide-content {
             margin: 0 auto 60px;
@@ -115,26 +116,6 @@
         }
     }       
                     
-    .slider-show {
-        @include breakpoint(large) {
-            
-            .grid {
-                height: 0;
-                //min-height: 0;
-                overflow-y: hidden;
-            }
-            
-            .slider {
-                height: auto;
-                overflow-y: visible;
-            }
-        
-            .close-slider {
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-    }
     
             
     .slick-arrows {
@@ -209,6 +190,8 @@
     
         @include breakpoint(large) {
             display: block;
+            opacity: 1;
+            visibility: visible; 
         }  
         
         position: absolute;
