@@ -7,6 +7,7 @@
 *.bak
 *.swp
 Thumbs.db
+/public
 
 # wp core (as of 3.4.1)
 /db-config.php
@@ -184,3 +185,4 @@ node_modules
 db.php
 /wp-content/themes/sayenko-erickson/todo.txt
 #/email-templates
+/wp-content/themes/sayenko-erickson/public
