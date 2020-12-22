@@ -186,3 +186,10 @@ db.php
 /wp-content/themes/sayenko-erickson/todo.txt
 #/email-templates
 /wp-content/themes/sayenko-erickson/public
+/.wpe-push-ignore
+/apple-touch-icon-precomposed.png
+/apple-touch-icon.png
+/.wpe-devkit
+/.wpengine-conf
+/.wpe-pull-ignore
+/favicon.ico
