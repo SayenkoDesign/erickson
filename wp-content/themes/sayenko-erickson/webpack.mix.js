@@ -184,7 +184,7 @@ if ( process.env.sync ) {
 	 * @link https://laravel.com/docs/5.6/mix#browsersync-reloading
 	 */
 	mix.browserSync( {
-		proxy: 'https://ericksoninc.vanwp.ca',
+		proxy: 'https://erickson.local',
         port: 3000,
 		notify: false,
 		open: true,
