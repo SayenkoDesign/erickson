@@ -490,7 +490,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/case-studies',
             'acf/photo-gallery',
             'acf/content',
-            //'acf/button',
+            'acf/testimonials',
             'acf/fleet',
             'acf/contracts',
             'acf/codes',
