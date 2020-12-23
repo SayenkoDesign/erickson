@@ -351,7 +351,7 @@ function _s_acf_register_blocks() {
 			'category'        => 'theme-blocks',
 			'icon'            => 'admin-comments',
 			'keywords'        => array( 'testimonials' ),
-            'post_types'      => array('page'),
+            'post_types'      => array('page', 'service'),
             //'mode'          => 'edit',
             'supports'        => [ 'align' => false, 'anchor' => true ]
 		) );
