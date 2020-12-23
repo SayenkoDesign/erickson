@@ -378,6 +378,13 @@ export default {
                 map.setCenter(center);
             });	
             
+            var spacer = 150; // this is used to pad the space
+            
+            if($("#map-legend").length > 0 && $("#map-legend").parent().height() + spacer > 600 ) {
+                var height = $("#map-legend").parent().height();
+                $(this).css('min-height', height + spacer );
+            }
+            
             $("#map-legend").addClass('show');	
         
         });
