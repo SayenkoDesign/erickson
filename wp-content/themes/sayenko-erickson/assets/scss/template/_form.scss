@@ -1,0 +1,51 @@
+// Page Template Form
+
+
+.page-template-form {
+    
+    background-color: #f4f9f6;
+
+    .sticky-header,
+    .section-footer-cta,
+    .footer-widgets,
+    .site-footer,
+    #query-monitor-main {
+        display: none;   
+    }
+    
+    .site-content .grid-x {
+        height: 100vh;   
+    }
+    
+    .site-main {
+        margin: 0 auto;
+        //max-width: rem-calc(600);
+        padding-top: rem-calc(40);           
+        
+        
+        
+    }
+    
+    .modal-body {
+        max-width: rem-calc(600);
+        margin: 0 auto;
+        
+        .logo {
+            display: block;
+            margin: 0 auto rem-calc(10);
+            width: 215px;
+        }
+        
+        text-align: center;
+        
+        .gform_wrapper {
+            text-align: left;   
+            
+            .gform_footer {
+                margin-top: rem-calc(20);
+                text-align: center;   
+            }
+        }
+    }
+    
+}
