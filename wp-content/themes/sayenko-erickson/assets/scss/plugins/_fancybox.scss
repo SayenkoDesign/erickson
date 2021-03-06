@@ -98,5 +98,10 @@
                 text-align: center;   
             }
         }
+        
+        .wide-embed {
+            margin: 32px calc(25% - 25vw);
+            max-width: $global_width;
+        }
     }
 }

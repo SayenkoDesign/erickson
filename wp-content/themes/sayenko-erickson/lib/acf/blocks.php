@@ -368,6 +368,32 @@ function _s_acf_register_blocks() {
             //'mode'          => 'edit',
             'supports'        => [ 'align' => false, 'anchor' => true ]
 		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'webinars',
+			'title'           => __( 'Webinars', '_s' ),
+			'description'     => __( 'Erickson Webinars', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'webinar' ),
+            'post_types' => array('page'),
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
+        acf_register_block_type( array(
+			'name'            => 'webinar',
+			'title'           => __( 'Webinar', '_s' ),
+			'description'     => __( 'Erickson Webinar', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'webinar' ),
+            'post_types' => array('webinar'),
+            'multiple'        => false,
+            'supports' => [ 'align' => false, 'anchor' => true ]
+		) );
+        
 	}
 }
 
@@ -512,25 +538,6 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
  
 }
 add_filter( 'allowed_block_types', '_s_allowed_block_types', 10, 2 );
-
-
-
-// block templates
-function _s_maybe_add_block_template() {
-    if ( ! is_admin() || ! isset( $_GET['post'] ) || '1234' !== $_GET['post'] ) {
-        // This is not the post/page we want to limit things to.
-        return false;
-    }
-
-    $post_type_object = get_post_type_object( 'post' );
-    $post_type_object->template = array(
-        array( 'core/paragraph', array(
-            'placeholder' => 'Add Description...',
-        ) ),
-    );
-    $post_type_object->template_lock = 'all';
-}
-//add_action( 'init', '_s_maybe_add_block_template' );
 
 
 

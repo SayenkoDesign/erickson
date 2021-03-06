@@ -358,6 +358,13 @@ export default {
         }); 
         
         
+        ScrollReveal().reveal( '.is-desktop .block-webinar', { 
+            delay: 400,
+            origin: 'bottom',
+            distance: '100%'
+        }); 
+        
+        
         ScrollReveal().reveal( '.is-desktop .block-content .cell', { 
             delay: 800,
             origin: 'bottom',

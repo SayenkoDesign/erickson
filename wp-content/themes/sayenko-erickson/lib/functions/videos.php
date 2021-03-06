@@ -11,6 +11,7 @@ add_filter( 'wds_featured_images_from_video_filter_content', function( $content,
 function _s_get_video_embed( $url ) {
 	$youtube_id          = wds_check_for_youtube( $url );
 	$vimeo_id            = wds_check_for_vimeo( $url );
+    
 	$video_thumbnail_url = '';
 	if ( $youtube_id ) {
 		$youtube_details     = wds_get_youtube_details( $youtube_id );
@@ -186,6 +187,9 @@ function wds_get_youtube_details( $youtube_id ) {
 	$video_thumbnail_url_string = 'https://img.youtube.com/vi/%s/%s';
 
 	$video_check = wp_remote_head( 'https://www.youtube.com/oembed?format=json&url=http://www.youtube.com/watch?v=' . $youtube_id );
+    
+    var_dump( $video_check );
+    
 	if ( 200 === wp_remote_retrieve_response_code( $video_check ) ) {
 		$remote_headers               = wp_remote_head(
 			sprintf(

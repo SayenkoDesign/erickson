@@ -75,6 +75,7 @@
     
     include_once( 'functions/autoptimize.php' );
 
+    include_once( 'functions/webinars.php' );
 
 /****************************************
 	include_onces (Foundation)
@@ -100,10 +101,11 @@ include_once( 'foundation/class-foundation-accordion.php' );
     include_once( 'post-types/cpt-fleet.php' );
     include_once( 'post-types/cpt-history.php' );
     include_once( 'post-types/cpt-people.php' );
-    // include_once( 'post-types/cpt-photo-gallery.php' );
+    
     include_once( 'post-types/cpt-service.php' );
     include_once( 'post-types/cpt-testimonial.php' );
     include_once( 'post-types/cpt-video-gallery.php' );
+    include_once( 'post-types/cpt-webinar.php' );
     
     include_once( 'post-types/cpt-landing-page.php' );
     

@@ -108,6 +108,15 @@ if( function_exists('acf_add_options_sub_page') ) {
 		'capability' => 'edit_posts',
  		'redirect' 	=> false,
         'autoload' => true,
-	));      
+	));  
+    
+    
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Webinar Settings',
+		'menu_title' 	=> 'Webinar Settings',
+        'menu_slug' 	=> 'webinar-settings',
+		'parent'     => 'edit.php?post_type=webinar',
+		'capability' => 'manage_options'
+	));     
 
 }

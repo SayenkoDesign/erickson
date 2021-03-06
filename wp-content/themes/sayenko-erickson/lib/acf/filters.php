@@ -28,28 +28,6 @@ add_filter('acf/fields/relationship/query/name=related_posts', 'my_relationship_
 add_filter('acf/fields/relationship/query/name=related_products', 'my_relationship_query', 10, 3);
 
 
-function alter_specific_user_field( $result, $user, $field, $post_id ) {
-
-    $result = $user->user_email;
-
-    if( $user->first_name ) {
-        
-        $result .= ' (' .  $user->first_name;
-        
-        if( $user->last_name ) {
-            
-            $result .= ' ' . $user->last_name;
-            
-        }
-        
-        $result .= ')';
-    }
-
-    return $result;
-}
-// add_filter("acf/fields/user/result", 'alter_specific_user_field', 10, 4);
-
-
 
 /**
  * Populate ACF select field options with Gravity Forms forms
