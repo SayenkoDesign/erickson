@@ -3,6 +3,23 @@
     "title": "Webinar Fields",
     "fields": [
         {
+            "key": "field_60468a3f60711",
+            "label": "Webinar Date",
+            "name": "webinar_date",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "F j, Y",
+            "first_day": 1
+        },
+        {
             "key": "field_60427bdf9a4cd",
             "label": "Form Handler",
             "name": "form_handler",
@@ -52,5 +69,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614974935
+    "modified": 1615235693
 }

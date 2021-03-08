@@ -1,238 +1,236 @@
 // Scroll Reveal
 
 html.sr .load-hidden {
-    visibility: hidden;
+	visibility: hidden;
 }
 
-html.sr  .no-reveal {
-    visibility: inherit!important;
-    opacity: inherit!important;
+html.sr .no-reveal {
+	visibility: inherit !important;
+	opacity: inherit !important;
 }
 
 // Global
 
 html.sr .is-desktop {
- 
-    .section-hero,
-    .block-hero {
-        h1,
-        h3,
-        h4,
-        p,
-        .button,
-        .play-video {
-            visibility: hidden; 
-        }
-        
-        visibility: hidden; 
-    }
-        
-    .block-services .grid-item,
-    .block-customers header,
-    .block-customers .logos li, {
-        visibility: hidden;
-    }
-    
+
+	.section-hero,
+	.block-hero {
+		h1,
+		h3,
+		h4,
+		p,
+		.button,
+		.play-video {
+			visibility: hidden;
+		}
+
+		visibility: hidden;
+	}
+
+	.block-services .grid-item,
+	.block-customers header,
+	.block-customers .logos li, {
+		visibility: hidden;
+	}
+
 }
 
 
 // Blocks
-html.sr .is-desktop { 
-    .block-erickson-advantage header,
-    .block-erickson-advantage .slider,
-    
-    .block-case-studies header,
-    .block-case-studies article,
-    
-    .block-featured-post header,
-    .block-featured-post .grid .cell,
-    
-    .block-service-gallery header,
-    .block-service-gallery .slick,
-    
-    .block-mission-vision .wrap,
-    
-    .block-core-values header,
-    .block-core-values .grid .cell,
-    
-    .block-commitment,
-    .block-commitment header,
-    .block-commitment .grid .cell,
-    
-    .block-contracts,
-    .block-contracts header,
-    .block-contracts .grid,
-    
-    .block-codes,
-    .block-codes header,
-    .block-codes .grid .cell,
-    
-    .block-awards header,
-    .block-awards .grid .cell,
-
-    .block-benefits header,
-    .block-benefits .grid .cell,
-    
-    .block-testimonials,
-    .block-testimonials .slider,
-    
-    .block-values,
-    .block-values .cell,
-    
-    .block-jobs header,
-    .block-jobs .entry-content {
-        visibility: hidden;
-    }
+html.sr .is-desktop {
+	.block-erickson-advantage header,
+	.block-erickson-advantage .slider,
+	.block-case-studies header,
+	.block-case-studies article,
+	.block-featured-post header,
+	.block-featured-post .grid .cell,
+	.block-service-gallery header,
+	.block-service-gallery .slick,
+	.block-mission-vision .wrap,
+	.block-core-values header,
+	.block-core-values .grid .cell,
+	.block-commitment,
+	.block-commitment header,
+	.block-commitment .grid .cell,
+	.block-contracts,
+	.block-contracts header,
+	.block-contracts .grid,
+	.block-codes,
+	.block-codes header,
+	.block-codes .grid .cell,
+	.block-awards header,
+	.block-awards .grid .cell,
+	.block-benefits header,
+	.block-benefits .grid .cell,
+	.block-testimonials,
+	.block-testimonials .slider,
+	.block-values,
+	.block-values .cell,
+	.block-jobs header,
+	.block-jobs .entry-content {
+		visibility: hidden;
+	}
 }
-
 
 
 // Services
 html.sr .is-desktop {
- 
-    .block-approach {
-        header {
-            visibility: hidden; 
-        }
-        
-        .grid-margin-bottom .cell {
-            visibility: hidden; 
-        }
-    }
-    
-    .block-results .numbers {
-        header,
-        .cell {
-          // visibility: hidden;
-        }
-    }
-    
-    .block-clients {
-        visibility: hidden;
-        header {
-           visibility: hidden;
-        }
-    }
-    
+
+	.block-approach {
+		header {
+			visibility: hidden;
+		}
+
+		.grid-margin-bottom .cell {
+			visibility: hidden;
+		}
+	}
+
+	.block-results .numbers {
+		header,
+		.cell {
+			// visibility: hidden;
+		}
+	}
+
+	.block-clients {
+		visibility: hidden;
+
+		header {
+			visibility: hidden;
+		}
+	}
+
 }
 
 
 // Fleet
 html.sr .is-desktop {
-    &.post-type-archive-fleet {
-        
-        
-        #secondary {
-            h2  {
-               visibility: hidden; 
-            }
-            
-        }
-        
-        #primary .facetwp-template article {
-            visibility: hidden; 
-        }
-        
-        .facetwp-type-pager {
-            visibility: hidden; 
-        }
-    }
+	&.post-type-archive-fleet {
+
+
+		#secondary {
+			h2 {
+				visibility: hidden;
+			}
+
+		}
+
+		#primary .facetwp-template article {
+			visibility: hidden;
+		}
+
+		.facetwp-type-pager {
+			visibility: hidden;
+		}
+	}
 }
 
 
-// Archive 
+// Archive
 
 html.sr .is-desktop.archive {
-    .section-hero,
-    .facetwp-filters,
-    .facetwp-type-pager {
-        visibility: hidden;   
-    }
+	.section-hero,
+	.facetwp-filters,
+	.facetwp-type-pager {
+		visibility: hidden;
+	}
 }
 
 html.sr .is-desktop .facetwp-template article {
-    visibility: hidden; 
+	visibility: hidden;
 }
 
 
 // Case Studies
 
 html.sr .is-desktop {
-    &.post-type-archive-case_study {
-        .section-hero header,
-        .facetwp-filters,
-        .facetwp-pager {
-            visibility: hidden;   
-        }
-    }
+	&.post-type-archive-case_study {
+		.section-hero header,
+		.facetwp-filters,
+		.facetwp-pager {
+			visibility: hidden;
+		}
+	}
 }
 
 
 // video/Photo Gallery
 
 html.sr .is-desktop {
-    &.post-type-archive-video_gallery,
-    &.template-photo-gallery {
-        .facetwp-filters,
-        .facetwp-type-pager {
-            visibility: hidden;   
-        }
-    }
+	&.post-type-archive-video_gallery,
+	&.template-photo-gallery {
+		.facetwp-filters,
+		.facetwp-type-pager {
+			visibility: hidden;
+		}
+	}
 }
-
-
-
 
 
 // History
 
 html.sr .is-desktop {
-    &.template-history {
-        .section-hero img,
-        
-        .section-introduction,
-        .section-timeline .facetwp-facet,
-        .facetwp-template,
-        .section-timeline .event,
-        .section-timeline .facetwp-type-pager {
-            visibility: hidden;
-        } 
-    }
+	&.template-history {
+		.section-hero img,
+		.section-introduction,
+		.section-timeline .facetwp-facet,
+		.facetwp-template,
+		.section-timeline .event,
+		.section-timeline .facetwp-type-pager {
+			visibility: hidden;
+		}
+	}
 }
 
 // Team
 
 html.sr .is-desktop {
-    &.template-team {
-        .facetwp-facet,
-        .facetwp-template .cell,
-        .facetwp-type-pager {
-            visibility: hidden;
-        } 
-    }
+	&.template-team {
+		.facetwp-facet,
+		.facetwp-template .cell,
+		.facetwp-type-pager {
+			visibility: hidden;
+		}
+	}
 }
 
 
 // Multipurpose
 
 html.sr .is-desktop {
-    &.template-multi-purpose {
-        .section-block,
-        .section-block .cell {
-            visibility: hidden;
-        } 
-    }
+	&.template-multi-purpose {
+		.section-block,
+		.section-block .cell {
+			visibility: hidden;
+		}
+	}
 }
 
 // Contact
 
 html.sr .is-desktop {
-    &.template-contact {
-        .section-form-directory .cell,
-        .section-clients,
-        .section-clients header  {
-            visibility: hidden;
-        } 
-    }
+	&.template-contact {
+		.section-form-directory .cell,
+		.section-clients,
+		.section-clients header {
+			visibility: hidden;
+		}
+	}
 }
 
+// Webinars
+html.sr .is-desktop {
+	.block-webinars {
+
+		visibility: hidden;
+
+		.facetwp-template article {
+			visibility: hidden;
+		}
+
+		.facetwp-type-pager {
+			visibility: hidden;
+		}
+	}
+}
