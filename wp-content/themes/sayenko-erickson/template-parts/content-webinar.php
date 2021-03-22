@@ -33,6 +33,9 @@
             
             $('.block-webinar').removeClass('webinar-gated');
             $('.block-webinar').addClass('webinar-access-granted');
+            $('.modal-form .modal-message').addClass('hide');
+            $('.modal-form .gform_confirmation_message').addClass('hide');
+            
         });
     
         

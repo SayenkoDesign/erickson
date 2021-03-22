@@ -52,6 +52,8 @@ if( ! class_exists( 'Webinars_Block' ) ) {
 
         private function get_posts() {
 
+            $data = [];
+            
             $post_ids = $this->get_fields( 'posts' );
 
             $defaults = array(
@@ -69,6 +71,8 @@ if( ! class_exists( 'Webinars_Block' ) ) {
                     'posts_per_page' => count( $post_ids ),
                     'no_found_rows' => true
                 ];
+
+                $data['hide_date'] = true;
 
             } else {
                 $args = [
@@ -91,7 +95,7 @@ if( ! class_exists( 'Webinars_Block' ) ) {
 
                     $loop->the_post();
 
-                    $cells .=  _s_get_template_part( 'template-parts/webinar', 'post-column', false, true );
+                    $cells .=  _s_get_template_part( 'template-parts/webinar', 'post-column', $data, true );
 
                 endwhile;
 
