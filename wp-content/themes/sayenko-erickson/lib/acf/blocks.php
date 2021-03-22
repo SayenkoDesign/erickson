@@ -148,7 +148,7 @@ function _s_acf_register_blocks() {
 			'category'        => 'theme-blocks',
 			'icon'            => 'admin-page',
 			'keywords'        => array( 'generic content, video, image' ),
-            'post_types' => array('page', 'service'),
+            'post_types' => array('page', 'service', 'webinar'),
             //'mode' => 'edit',
             'supports' => [ 'align' => false, 'anchor' => true ]
 		) );

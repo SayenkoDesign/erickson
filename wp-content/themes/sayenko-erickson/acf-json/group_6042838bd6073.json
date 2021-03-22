@@ -71,7 +71,7 @@
                 "id": ""
             },
             "post_type": [
-                "fleet"
+                "webinar"
             ],
             "taxonomy": "",
             "filters": [
@@ -88,7 +88,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/fleet"
+                "value": "acf\/webinars"
             }
         ]
     ],
@@ -102,5 +102,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1614972720
+    "modified": 1615235089
 }

@@ -12,9 +12,7 @@ Modal - Form Webinar
         <div class="modal-body">
         <?php
             
-        printf('<img src="%slogo.svg" alt="site logo" class="logo" />', trailingslashit( THEME_IMG ) ); 
-
-        echo $content;
+        printf('<div class="modal-message"><img src="%slogo.svg" alt="site logo" class="logo" />%s</div>', trailingslashit( THEME_IMG ), $content ); 
         
         // Settings heading/content
         echo do_shortcode( sprintf( '[gravityform id="%s" title="false" description="false" ajax="true"]', $form_id ) );
