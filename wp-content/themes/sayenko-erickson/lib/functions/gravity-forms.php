@@ -99,13 +99,16 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
     
     if( ! empty( $settings['gated_form']['form_id']) ) {
         $form_id = $settings['gated_form']['form_id'];
+
+        $challenge = get_field( 'challenge' );
         
         if( $form_id == $form['id'] ) {
             $url = $form['confirmation']['url'];
             $find =  defined( 'JSON_HEX_TAG' ) ? json_encode( $url, JSON_HEX_TAG ) : json_encode( $url );
             $find = str_replace( '"', '', $find );
             GFCommon::log_debug( 'case study confirmation url old: ' . $find );
-            $redirect = rgar( $entry, '6' );
+            // $redirect = rgar( $entry, '6' );
+            $redirect = $challenge['form_handler'];
             $replace =  defined( 'JSON_HEX_TAG' ) ? json_encode( $redirect, JSON_HEX_TAG ) : json_encode( $redirect );
             $replace = str_replace( '"', '', $replace );
             GFCommon::log_debug( 'case study confirmation url new: ' . $replace );
