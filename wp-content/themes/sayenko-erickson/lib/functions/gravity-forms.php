@@ -73,14 +73,14 @@ function post_to_third_party( $confirmation, $form, $entry ) {
 */
 
 
-add_filter( 'gform_field_value_form_handler', function() {
+/* add_filter( 'gform_field_value_form_handler', function() {
     if( is_singular( 'case_study' )) {
-        $challenge = get_field( 'challenge' );
+        $challenge = get_field( 'challenge', get_the_ID() );
         if( ! empty( $challenge['form_handler'] ) ) {
             return $challenge['form_handler'];
         }
     }
-});
+}); */
 
 add_filter( 'gform_field_value_file', function() {
     if( is_singular( 'case_study' )) {
@@ -100,7 +100,7 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
     if( ! empty( $settings['gated_form']['form_id']) ) {
         $form_id = $settings['gated_form']['form_id'];
 
-        $challenge = get_field( 'challenge' );
+        
         
         if( $form_id == $form['id'] ) {
             $url = $form['confirmation']['url'];
@@ -108,6 +108,7 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
             $find = str_replace( '"', '', $find );
             GFCommon::log_debug( 'case study confirmation url old: ' . $find );
             // $redirect = rgar( $entry, '6' );
+            $challenge = get_field( 'challenge' );
             $redirect = $challenge['form_handler'];
             $replace =  defined( 'JSON_HEX_TAG' ) ? json_encode( $redirect, JSON_HEX_TAG ) : json_encode( $redirect );
             $replace = str_replace( '"', '', $replace );
