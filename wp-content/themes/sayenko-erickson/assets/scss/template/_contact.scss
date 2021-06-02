@@ -64,12 +64,20 @@
                     line-height: 1.611111111; 
                     text-transform: uppercase;
                     font-family: $barlow; 
+
+                    
                 }
                 
                 &.red {
                     > a {
                         color: $red;
                     }   
+                }
+            }
+
+            .accordion-content {
+                a:hover {
+                    color: $orange;
                 }
             }
         }

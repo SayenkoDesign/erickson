@@ -142,7 +142,7 @@ if( ! class_exists( 'Contact_Directory' ) ) {
         
         
         private function get_email( $value = '' ) {
-            return sprintf( '<a href="%s">%s</a>', antispambot( $value ), antispambot( $value ) );
+            return sprintf( '<a href="mailto:%s">%s</a>', antispambot( $value ), antispambot( $value ) );
         }
         
         

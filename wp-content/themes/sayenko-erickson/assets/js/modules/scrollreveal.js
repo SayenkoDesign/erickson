@@ -727,14 +727,16 @@ export default {
 
 				ScrollReveal().destroy();
 
-				let offset = $('.site-header').height() + $('.sticky-nav').height() - 1;
+				// let offset = $('.site-header').height() + $('.sticky-nav').height() - 1;
 
-				Foundation.SmoothScroll.scrollToLoc(element, {
+				/* Foundation.SmoothScroll.scrollToLoc(element, {
 					threshold: 0,
 					offset: offset,
 				}, function () {
 					console.log('scrolled');
-				});
+				}); */
+
+				Foundation.SmoothScroll.scrollToLoc(element);
 
 			}
 

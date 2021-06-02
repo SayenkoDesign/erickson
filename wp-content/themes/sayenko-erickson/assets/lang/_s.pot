@@ -1,24 +1,20 @@
-# <!=Copyright (C) 2020 Sayenko Design
+# <!=Copyright (C) 2021 Sayenko Design
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
 "Project-Id-Version: Erickson Inc 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sayenko-erickson\n"
-"POT-Creation-Date: 2020-12-18 20:09:26+00:00\n"
+"POT-Creation-Date: 2021-06-02 15:23:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: node-wp-i18n 1.2.3\n"
 
 #: 404.php:28
 msgid "Back to home"
-msgstr ""
-
-#: _home.php:73 index.php:65
-msgid "Select one"
 msgstr ""
 
 #: archive-case_study.php:23 archive-fleet.php:95 archive-video_gallery.php:23
@@ -40,6 +36,10 @@ msgstr ""
 
 #: blocks/photo-gallery.php:36 template-parts/fleet/post-content.php:22
 msgid "Share This:"
+msgstr ""
+
+#: blocks/webinar.php:95
+msgid "watch full video"
 msgstr ""
 
 #: comments.php:40 comments.php:61
@@ -92,6 +92,10 @@ msgstr ""
 
 #: header-landing_page.php:28 header.php:42
 msgid "Skip to footer"
+msgstr ""
+
+#: index.php:65
+msgid "Select one"
 msgstr ""
 
 #: index.php:122
@@ -286,6 +290,22 @@ msgstr ""
 
 #: lib/acf/blocks.php:362
 msgid "values"
+msgstr ""
+
+#: lib/acf/blocks.php:374 lib/post-types/cpt-webinar.php:24
+msgid "Webinars"
+msgstr ""
+
+#: lib/acf/blocks.php:375
+msgid "Erickson Webinars"
+msgstr ""
+
+#: lib/acf/blocks.php:386 lib/post-types/cpt-webinar.php:23
+msgid "Webinar"
+msgstr ""
+
+#: lib/acf/blocks.php:387
+msgid "Erickson Webinar"
 msgstr ""
 
 #: lib/acf/gutenberg.php:42 lib/functions/gutenberg.php:27
@@ -721,6 +741,10 @@ msgstr ""
 msgid "Video Gallery"
 msgstr ""
 
+#: lib/post-types/cpt-webinar.php:73
+msgid "Webinar Date"
+msgstr ""
+
 #: lib/post-types/taxonomies.php:4
 msgid "Service Category"
 msgstr ""
@@ -809,7 +833,8 @@ msgstr ""
 msgid "Sorry no results found."
 msgstr ""
 
-#: template-parts/content-page.php:18 template-parts/content.php:34
+#: template-parts/content-page.php:18 template-parts/content-webinar.php:18
+#: template-parts/content.php:34
 msgid "Pages:"
 msgstr ""
 
@@ -830,7 +855,7 @@ msgstr ""
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: template-parts/fleet/hero.php:62
+#: template-parts/fleet/hero.php:62 template-parts/webinar/hero.php:62
 msgid "Our<br />Fleet"
 msgstr ""
 
@@ -852,6 +877,10 @@ msgstr ""
 
 #. Template Name of the plugin/theme
 msgid "Contact"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Form"
 msgstr ""
 
 #. Template Name of the plugin/theme

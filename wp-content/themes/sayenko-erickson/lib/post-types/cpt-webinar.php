@@ -70,7 +70,7 @@ new CPT_WEBINAR();
  */
  function add_acf_columns ( $columns ) {
    return array_merge ( $columns, array ( 
-     'webinar_date' => __ ( 'Webinar Date' ),
+     'webinar_date' => __ ( 'Webinar Date', '_s' ),
    ) );
  }
  add_filter ( 'manage_webinar_posts_columns', 'add_acf_columns' );

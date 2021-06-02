@@ -136,7 +136,7 @@ if( ! class_exists( 'Contact_Offices_Section' ) ) {
         
         
         private function get_email( $value = '' ) {
-            return sprintf( '<a href="%s">%s</a>', antispambot( $value ), antispambot( $value ) );
+            return sprintf( '<a href="mailto:%s">%s</a>', antispambot( $value ), antispambot( $value ) );
         }
         
         
