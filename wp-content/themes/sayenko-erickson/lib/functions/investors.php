@@ -213,9 +213,12 @@ function ea_printDocTable() {
 		while ( have_rows('documents') ) : the_row();
 
 			// display a sub field value
-			$document = get_sub_field('document');
+			$document = get_sub_field('download');
                         
-            $url = $document['url'];
+            
+            // $url = $document['url'];
+            $url = sprintf( '?investor_pdf=%d', $document['id'] );
+
             $icon = $document['icon'];
             if( $icon ) {
                 $icon = sprintf( '<img src="%s" />', $icon );
@@ -225,8 +228,11 @@ function ea_printDocTable() {
 			$title = get_sub_field('title');
 			$date = get_sub_field('date');
 	
-			$link = sprintf( '<a href="%s" title="Download %s" target="_blank">%3$s<span>%2$s</span></a>', $url , $title, $icon );
-			printf( '<li><span class="date">%s</span><span class="file">%s</span></li>', $date, $link );
+			//$link = sprintf( '<a href="%s" title="Download %s" target="_blank">%3$s<span>%2$s</span></a>', $url , $title, $icon );
+			$link = sprintf( '<a href="%s" title="Download %s">%3$s<span>%2$s</span></a>', $url , $title, $icon );
+            printf( '<li><span class="date">%s</span><span class="file">%s</span></li>', $date, $link );
+
+            
 
 		endwhile;
 

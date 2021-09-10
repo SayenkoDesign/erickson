@@ -30,8 +30,9 @@ input[type='tel'],
 input[type='number'],
 input[type='password'],
 select {
-    border: none;
-    border-bottom: solid 1px $dark-gray;
+    border: none!important;
+    border-radius: none!important;
+    border-bottom: solid 1px $dark-gray!important;
 }
 
 textarea {

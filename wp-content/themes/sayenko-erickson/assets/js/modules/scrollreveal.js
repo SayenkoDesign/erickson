@@ -531,6 +531,20 @@ export default {
 			distance: '100%'
 		});
 
+		ScrollReveal().reveal('.is-desktop .block-offices', {
+			distance: '100%',
+		});
+
+		ScrollReveal().reveal('.is-desktop .block-offices header', {
+			delay: 400,
+			distance: '100%'
+		});
+
+		ScrollReveal().reveal('.is-desktop article.page', {
+			delay: 400,
+			distance: '100%'
+		});
+
 
 		// Related Posts
 		ScrollReveal().reveal('.is-desktop .section-related-posts');

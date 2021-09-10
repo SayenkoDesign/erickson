@@ -29,7 +29,16 @@ html.sr .is-desktop {
 
 	.block-services .grid-item,
 	.block-customers header,
-	.block-customers .logos li, {
+	.block-customers .logos li {
+		visibility: hidden;
+	}
+
+	.block-offices,
+	.block-offices header {
+		visibility: hidden;
+	}
+
+	article.page {
 		visibility: hidden;
 	}
 
