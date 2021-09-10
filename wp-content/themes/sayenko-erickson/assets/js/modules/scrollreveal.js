@@ -732,7 +732,7 @@ export default {
 			ScrollReveal().destroy();
 		}
 
-		$('a[href^="#"]').on('click', function (event) {
+		$('a[href^="#"]').on('click', function(event) {
 			event.preventDefault();
 
 			let element = $(this).attr('href');
@@ -740,15 +740,6 @@ export default {
 			if ($(element).length) {
 
 				ScrollReveal().destroy();
-
-				// let offset = $('.site-header').height() + $('.sticky-nav').height() - 1;
-
-				/* Foundation.SmoothScroll.scrollToLoc(element, {
-					threshold: 0,
-					offset: offset,
-				}, function () {
-					console.log('scrolled');
-				}); */
 
 				Foundation.SmoothScroll.scrollToLoc(element);
 
