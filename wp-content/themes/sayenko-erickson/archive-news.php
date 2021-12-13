@@ -36,7 +36,7 @@ $loop = new WP_Query( $args );
 if ( $loop->have_posts() ) : 
 	while ( $loop->have_posts() ) : $loop->the_post(); 
 	
-		_s_get_template_part( 'template-parts/blog', 'hero' );
+		_s_get_template_part( 'template-parts/news', 'hero' );
          
 	endwhile;
 endif;
@@ -59,7 +59,7 @@ wp_reset_postdata();
                                                              
                     if ( have_posts() ) : 
                     
-                        // Add dropdowns 
+                        
                          
                         $args = array(
                             'show_option_none' => __( 'Select one', '_s' ),
@@ -69,26 +69,21 @@ wp_reset_postdata();
                             'hide_if_empty'    => false,
                             'class'            => '',
                             'echo'             => 0,
+							'taxonomy'         => 'news_cat',
+                            'name'            => 'news_cat', // same as the "taxonomy" above
+                            'value_field'     => 'slug',  // use the term slug
                         );
+
+                        if( is_tax() ) {
+                            $category = get_queried_object();
+                            $args['selected'] =  $category->slug;                            
+                        }
                         
-                        if( is_category() ) {
-                            
-                            // is this a parent?
-                            $category = get_category( get_query_var( 'cat' ) );
-                            $args['selected'] =  $category->cat_ID;                            
-                        } 
-                        
-                        $reset = get_post_type_archive_link( 'post' );
-                     
+                        $reset = get_post_type_archive_link( 'news' );
                         
                         $url = home_url( '/' );
                         
-                        //global $wp;
-                        //$url = home_url(add_query_arg(array(),$wp->request));
-                        
                         $categories = wp_dropdown_categories( $args );
-                        //$categories = str_replace( '&nbsp;', '', $categories );
-                        //$categories = str_replace( '(', ' (', $categories );
 
                         $filters = sprintf( '<form id="category-select" class="category-select" action="%s" method="get">
                                 <ul class="menu facetwp-filters">
@@ -116,11 +111,15 @@ wp_reset_postdata();
                 
                         printf( '<div class="grid-x grid-margin-x grid-margin-bottom facetwp-template %s">', join( ' ', $classes ) );
                                                       
+                        $links = '';
+                        
                         while ( have_posts() ) :
             
                             the_post();
                                                                    
                             _s_get_template_part( 'template-parts', 'content-post-column' );
+
+                            $links .= get_the_permalink() . "\n";
                             
                         endwhile;
                         
@@ -131,6 +130,8 @@ wp_reset_postdata();
                         } else {
                             echo paginate_links();   
                         }
+
+                        echo $links;
                    
                     endif; 
                     ?>

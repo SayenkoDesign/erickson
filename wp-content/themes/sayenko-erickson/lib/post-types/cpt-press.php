@@ -1,12 +1,12 @@
 <?php
  
 /**
- * Create new CPT - Case Studies
+ * Create new CPT - Press
  */
  
-class CPT_CASE_STUDY extends CPT_Core {
+class CPT_Press extends CPT_Core {
 
-    const POST_TYPE = 'case_study';
+    const POST_TYPE = 'press';
 	const TEXTDOMAIN = '_s';
 	
 	/**
@@ -20,8 +20,8 @@ class CPT_CASE_STUDY extends CPT_Core {
         parent::__construct(
         
         	array(
-				__( 'Case Study', self::TEXTDOMAIN, '_s' ), // Singular
-				__( 'Case Studies', self::TEXTDOMAIN, '_s' ), // Plural
+				__( 'Press Release', self::TEXTDOMAIN, '_s' ), // Singular
+				__( 'Press Releases', self::TEXTDOMAIN, '_s' ), // Plural
 				self::POST_TYPE // Registered name/slug
 			),
 			array( 
@@ -30,13 +30,15 @@ class CPT_CASE_STUDY extends CPT_Core {
 				'show_ui'             => true,
 				'query_var'           => true,
 				'capability_type'     => 'post',
-				'has_archive'         => true,
+				'has_archive' 		  => 'press-releases',
 				'hierarchical'        => false,
 				'show_ui'             => true,
 				'show_in_menu'        => true,
 				'show_in_nav_menus'   => true,
 				'exclude_from_search' => false,
-				'rewrite'             => array( 'with_front' => false, 'slug' => 'case-studies' ),
+				'show_in_rest' 		  => true,
+				// 'taxonomies' => array( 'category' ),
+				'rewrite'             => array( 'with_front' => false, 'slug' => 'press-release' ),
 				'supports' => array( 'title', 'editor', 'thumbnail' ),
 				 )
 
@@ -51,12 +53,27 @@ class CPT_CASE_STUDY extends CPT_Core {
      
     public function pre_get_posts( $query ){
     
-        if ( $query->is_main_query() && ! is_admin() && ( is_post_type_archive( 'case_study' ) ) ) {
-            $query->set( 'posts_per_page', '8' );
+        if ( $query->is_main_query() && ! is_admin() && ( is_post_type_archive( 'press' ) ) ) {
+            $query->set( 'posts_per_page', '10' );
         }
         
     }
  
 }
 
-new CPT_CASE_STUDY();
+new CPT_Press();
+
+
+$press_categories = array(
+    __( 'Press Category', '_s' ), // Singular
+    __( 'Press Categories', '_s' ), // Plural
+    'press_cat' // Registered name
+);
+
+register_via_taxonomy_core( $press_categories, 
+	array(
+		'show_in_rest' => true,
+        'rewrite' => array( 'with_front' => false, 'slug' => 'press-releases' ),
+	), 
+	array( 'press' ) 
+);

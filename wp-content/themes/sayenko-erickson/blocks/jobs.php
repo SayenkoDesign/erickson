@@ -8,6 +8,7 @@ if( ! class_exists( 'Jobs_Block' ) ) {
             parent::__construct( $data );
                                     
             $this->set_fields( 'heading', get_field( 'heading' ) );
+            $this->set_fields( 'text', get_field( 'text' ) );
             $this->set_fields( 'code', get_field( 'code' ) );
             
             /*
@@ -36,6 +37,8 @@ if( ! class_exists( 'Jobs_Block' ) ) {
             $heading = $this->get_fields( 'heading' );
             $heading = sprintf( '<header>%s%s</header>', get_svg( 'search-icon' ),  _s_format_string( $heading, 'h2' ) );
             
+            $text = $this->get_fields( 'text' ); 
+            
             $code = $this->get_fields( 'code' );
             
             if( ! $heading && ! $code ) {
@@ -43,9 +46,10 @@ if( ! class_exists( 'Jobs_Block' ) ) {
             }
             
             return sprintf( '<div class="grid-x grid-margin-x grid-margin-bottom">
-                                <div class="cell">%s<div class="entry-content">%s</div></div>
+                                <div class="cell">%s<div class="entry-content">%s%s</div></div>
                             </div>',
                             $heading,
+                            $text,
                             $code
                          );
             

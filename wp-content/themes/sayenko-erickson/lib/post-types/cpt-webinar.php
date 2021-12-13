@@ -36,8 +36,8 @@ class CPT_WEBINAR extends CPT_Core {
 				'show_in_menu'        => true,
 				'show_in_nav_menus'   => true,
 				'exclude_from_search' => false,
-                'show_in_rest'        => true,
-				'rewrite'             => array( 'slug' => 'webinars' ),
+        'show_in_rest'        => true,
+				'rewrite'             => array( 'with_front' => false, 'slug' => 'webinars' ),
 				'supports' => array( 'title', 'editor', 'thumbnail' ),
 				 )
 

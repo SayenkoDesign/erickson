@@ -53,9 +53,11 @@ if( ! class_exists( 'Services_Block' ) ) {
             foreach( $rows as $key => $row ) {  
                 $items .= $this->get_item( $row );
             }
+
+            $columns = (count( $rows ) % 2 == 0) ? 4 : 3;
             
-            return sprintf( '<div class="grid-x grid-padding-x small-up-1 medium-up-2 medium-large-up-3 align-center grid">%s</div>', 
-                                    $items );
+            return sprintf( '<div class="grid-x grid-padding-x small-up-1 medium-up-2 medium-large-up-%d align-center grid">%s</div>', 
+                                    $columns, $items );
         }
         
         

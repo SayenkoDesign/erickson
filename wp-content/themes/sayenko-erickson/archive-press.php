@@ -36,7 +36,7 @@ $loop = new WP_Query( $args );
 if ( $loop->have_posts() ) : 
 	while ( $loop->have_posts() ) : $loop->the_post(); 
 	
-		_s_get_template_part( 'template-parts/blog', 'hero' );
+		_s_get_template_part( 'template-parts/press', 'hero' );
          
 	endwhile;
 endif;
@@ -69,26 +69,21 @@ wp_reset_postdata();
                             'hide_if_empty'    => false,
                             'class'            => '',
                             'echo'             => 0,
+							'taxonomy'         => 'press_cat',
+                            'name'            => 'press_cat', // same as the "taxonomy" above
+                            'value_field'     => 'slug',  // use the term slug
                         );
                         
-                        if( is_category() ) {
+                        if( is_tax() ) {
+                            $category = get_queried_object();
+                            $args['selected'] =  $category->slug;
+                        }
                             
-                            // is this a parent?
-                            $category = get_category( get_query_var( 'cat' ) );
-                            $args['selected'] =  $category->cat_ID;                            
-                        } 
-                        
-                        $reset = get_post_type_archive_link( 'post' );
-                     
+                        $reset = get_post_type_archive_link( 'press' );
                         
                         $url = home_url( '/' );
                         
-                        //global $wp;
-                        //$url = home_url(add_query_arg(array(),$wp->request));
-                        
                         $categories = wp_dropdown_categories( $args );
-                        //$categories = str_replace( '&nbsp;', '', $categories );
-                        //$categories = str_replace( '(', ' (', $categories );
 
                         $filters = sprintf( '<form id="category-select" class="category-select" action="%s" method="get">
                                 <ul class="menu facetwp-filters">

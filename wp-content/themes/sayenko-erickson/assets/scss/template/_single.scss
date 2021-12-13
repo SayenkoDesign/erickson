@@ -40,14 +40,8 @@
             }
         }
         
-        .nav-previous,
-        .nav-next {
-            @include breakpoint(medium) {
-                //position: absolute; 
-                //top: 50%;
-                //transform: translateY(-50%); 
-                //margin-top: rem-calc(-20); 
-            }   
+        .nav-next:only-child {
+            margin-left: auto;
         }
         
         
