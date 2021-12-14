@@ -61,7 +61,7 @@
 //  55. Top Bar
 //  56. Xy Grid
 
-@import '../../../node_modules/foundation-sites/scss/util/util';
+@import '~foundation-sites/scss/util/util';
 
 
 // 0. Custom
@@ -923,5 +923,5 @@ $grid-container-max: $global-width;
 $xy-block-grid-max: 8;
 
 
-$slick-loader-path: "../images/slick/";
-$slick-font-path: "../images/slick/fonts/";
+//$slick-loader-path: "../images/slick/";
+//$slick-font-path: "../images/slick/fonts/";

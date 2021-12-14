@@ -11,7 +11,7 @@ export default {
                 $(document).find( '.facetwp-facet-years').append( '<div class="facetwp-reset"><button onclick="FWP.reset()">Reset</button></div>' );
             }
             
-            var query_string = FWP.build_query_string();
+            var query_string = FWP.buildQueryString();
             
             if ( '' === query_string ) { // no facets are selected
                 $('.facetwp-facet-years .facetwp-reset').hide();
@@ -69,7 +69,7 @@ export default {
         
         
         $(document).on('facetwp-refresh', function() {
-            if ( $('.section-people').length && '' == FWP.build_query_string()) {
+            if ( $('.section-people').length && '' == FWP.buildQueryString()) {
                 FWP.facets['departments'] = ['all'];
                 delete FWP.facets['paged']; // remove "paged" from URL
             }
