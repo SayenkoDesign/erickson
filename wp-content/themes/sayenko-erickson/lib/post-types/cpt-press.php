@@ -54,7 +54,7 @@ class CPT_Press extends CPT_Core {
     public function pre_get_posts( $query ){
     
         if ( $query->is_main_query() && ! is_admin() && ( is_post_type_archive( 'press' ) ) ) {
-            $query->set( 'posts_per_page', '10' );
+            $query->set( 'posts_per_page', '15' );
         }
         
     }

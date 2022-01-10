@@ -735,11 +735,17 @@ export default {
 		$('a[href^="#"]').on('click', function(event) {
 			event.preventDefault();
 
+			
+
 			let element = $(this).attr('href');
 
 			if ($(element).length) {
 
-				ScrollReveal().destroy();
+				//console.log( 'clicked button' );
+
+				//ScrollReveal().destroy();
+				//$('.block').css({ visibility: 'visible', opacity: 1 });
+
 
 				Foundation.SmoothScroll.scrollToLoc(element);
 
