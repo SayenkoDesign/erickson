@@ -115,12 +115,16 @@ wp_reset_postdata();
                         $classes[] = 'small-up-1 medium-up-2 large-up-4';
                 
                         printf( '<div class="grid-x grid-margin-x grid-margin-bottom facetwp-template %s">', join( ' ', $classes ) );
-                                                      
+                        
+                        $links = '';
+                        
                         while ( have_posts() ) :
             
                             the_post();
                                                                    
                             _s_get_template_part( 'template-parts', 'content-post-column' );
+
+                            $links .= get_the_permalink() . "\n";
                             
                         endwhile;
                         
@@ -131,6 +135,8 @@ wp_reset_postdata();
                         } else {
                             echo paginate_links();   
                         }
+
+                        //echo $links;
                    
                     endif; 
                     ?>

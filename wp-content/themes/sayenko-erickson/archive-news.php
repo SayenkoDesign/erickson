@@ -131,7 +131,7 @@ wp_reset_postdata();
                             echo paginate_links();   
                         }
 
-                        echo $links;
+                        // echo $links;
                    
                     endif; 
                     ?>

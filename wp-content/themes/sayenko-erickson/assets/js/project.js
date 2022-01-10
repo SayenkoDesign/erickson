@@ -1,4 +1,5 @@
 import $ from 'jquery';
+
 import ModuleLoader from './loader/ModuleLoader';
 
 // Foundation
@@ -30,11 +31,7 @@ import smoothScroll from './modules/smooth-scroll';
 // import menuToggle from './modules/menu-toggle';
 import accordionFix from './modules/accordion-fix';
 
-//import isotope from './modules/isotope';
-
 import fancyBox from './modules/fancybox';
-
-//import infiniteScroll from './modules/infinite-scroll';
 
 import scrollReveal from './modules/scrollreveal';
 

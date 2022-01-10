@@ -2,7 +2,7 @@
 @import "settings";
 
 // Import Foundation
-@import "../../../node_modules/foundation-sites/scss/foundation";
+@import "~foundation-sites/scss/foundation";
 
 // Global styles
 @include foundation-global-styles;
