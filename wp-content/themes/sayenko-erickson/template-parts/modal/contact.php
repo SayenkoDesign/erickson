@@ -26,11 +26,27 @@ function modal_contact() {
       
         <div class="modal-body">
         <?php
-        if( !empty( $form['description'] ) ) {
-          printf( '<div class="modal-description">%s</div>', wpautop( $form['description'] ) );
-        }
-        
-        echo do_shortcode( sprintf( '[gravityform id="%s" title="false" description="false" ajax="true" tabindex="99"]', $form_id ) );
+        printf( '<div class="hubspot-form"><!--[if lte IE 8]>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+        <![endif]-->
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+        <script>
+        (function($) {
+            hbspt.forms.create({
+                region: "na1",
+                portalId: "21030106",
+                formId: "961fd2ef-9809-4ece-8b5d-30a0294633dc",
+                onFormReady($form){
+                    $("input[name=\"form_source\"]", $form).val("%s").change();
+                }
+            });
+            
+        })(jQuery);
+        </script>
+         </div>', 
+         esc_url( rtrim( get_permalink(), '/' ) )
+        );  
+    
         ?>
       </div>
    </div>
