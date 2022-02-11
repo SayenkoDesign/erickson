@@ -71,8 +71,7 @@ if( ! class_exists( 'Webinar_Block' ) ) {
             $form_id = ! empty( $gated_form['gravity_form'] ) ? $gated_form['gravity_form'] : false;
             $form = GFAPI::get_form( absint( $form_id ) );
             
-            
-                                            
+                                        
             if( false === $this->enable_hubspot && ! is_wp_error( $form ) && ! empty( $form_handler ) && ! empty( $this->get_fields( 'video' ) ) ) {
                 
                 global $post;
@@ -119,41 +118,15 @@ if( ! class_exists( 'Webinar_Block' ) ) {
                 
                 $modal = _s_get_template_part( 'template-parts/modal', 'webinar', $data, true );
 
-                $content = $button;
+                $content = $button . $modal;
+
+                if( false !== $this->enable_hubspot ) {
+                    $content = _s_get_template_part( 'template-parts/webinar', 'hubspot', [], true );
+                }
                 
             } else {
-                $hubspot = '<div class="hubspot-form"><!--[if lte IE 8]>
-                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-                <![endif]-->
-                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-                <script>
-                    hbspt.forms.create({
-                        region: "na1",
-                        portalId: "21030106",
-                        formId: "752976d6-191d-4722-9a4e-55bffb1468ef"
-                    });
-                    
-                </script>
-                 </div>';
-    
-                $hubspot .= '
-                <script>
-                window.addEventListener("message", function (event) {
-                    if (event.data.type === "hsFormCallback" && event.data.eventName === "onFormReady") {
-                        var url = window.location.href;
-                        url = url.replace(/\/$/, "");
-                        document.getElementById("hs-form-iframe-0").contentDocument.querySelector("input[name=\"form_source\"]").value = url;
-                    }
-                });
-                </script>
-                ';
-
-                $content = $hubspot;
-                
+                $content = _s_get_template_part( 'template-parts/webinar', 'hubspot', [], true );
             }
-
-
-
 
             
             $cells .= sprintf( '<div class="cell%s"><div class="panel">%s%s</div></div>', $columns, $this->get_fields( 'text' ), $content  );

@@ -33,6 +33,14 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                 ]
             );   
 
+            if( false !== $this->enable_hubspot ) {
+                $this->add_render_attribute(
+                    'wrapper', 'class', [
+                         'hubspot-enabled'
+                    ]
+                );  
+            }
+
             $this->add_render_attribute(
                 'wrapper', 'id', [
                      $this->get_name() . '-challenge'
@@ -51,13 +59,22 @@ if( ! class_exists( 'Challenge_Section' ) ) {
             $text = $this->get_fields( 'text' ); 
             
             $image = _s_get_acf_image( $this->get_fields( 'image' ), 'thumbnail' );
+
+            $classes = [];
+
+            if( false !== $this->enable_hubspot ) {
+                $image = '';
+            } else {
+                $classes[] = 'panel';
+            }
             
             $button = '';
             $modal = '';
 
             $right_column = $this->get_terms();
             
-            $file = $this->get_fields( 'file' );             
+            $file = $this->get_fields( 'file' );    
+                     
             if( false === $this->enable_hubspot && ! empty( $file['url'] ) && ! empty( $this->get_fields( 'form_handler' ) ) ) {
                 $args = [
                     'link' => [ 'title' => sprintf( '%s %s', __( 'download', '_s' ), $file['subtype'] ), 'url' => $file['url'], 'target' => '_blank' ],
@@ -103,19 +120,25 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                     $button =  sprintf( '<a class="button modal-form" data-fancybox %s href="javascript:;">%s</a>', $options, $button_text );
                     
                     $modal = _s_get_template_part( 'template-parts/modal', 'case-study', $data, true );
+
+                    if( false !== $this->enable_hubspot ) {
+                        $right_column = _s_get_template_part( 'template-parts/case-study', 'hubspot', [], true );
+        
+                    }
                     
                 }
             } else {
-                $right_column = $this->get_hubspot_form();
+                $right_column = _s_get_template_part( 'template-parts/case-study', 'hubspot', [], true );
             }
             
                             
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-padding-x">
-                                    <div class="cell large-6 xxlarge-7"><div class="panel">%s%s<footer>%s%s</footer></div></div>
+                                    <div class="cell large-6 xxlarge-7"><div class="%s">%s%s<footer>%s%s</footer></div></div>
                                     <div class="cell large-6 xxlarge-auto">%s</div>
                                 </div>
                             </div>%s',
+                            join( '', $classes ),
                             $heading,
                             $text,
                             $image, 
