@@ -4,7 +4,7 @@
 if( ! class_exists( 'Challenge_Section' ) ) {
     class Challenge_Section extends Element_Section {
 
-        private $enable_hubspot = false;
+        private $enable_hubspot = true;
                 
         public function __construct() {
             parent::__construct();
@@ -134,7 +134,7 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                             
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-padding-x">
-                                    <div class="cell large-6 xxlarge-7"><div class="%s">%s%s<footer>%s%s</footer></div></div>
+                                    <div class="cell large-6 xxlarge-6"><div class="%s">%s%s<footer>%s%s</footer></div></div>
                                     <div class="cell large-6 xxlarge-auto">%s</div>
                                 </div>
                             </div>%s',

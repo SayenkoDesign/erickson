@@ -4,7 +4,7 @@
 if( ! class_exists( 'Webinar_Block' ) ) {
     class Webinar_Block extends Element_Block {
 
-        private $enable_hubspot = false;
+        private $enable_hubspot = true;
         
         static public $section_count;
                 
