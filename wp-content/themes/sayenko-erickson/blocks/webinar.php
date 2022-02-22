@@ -3,6 +3,8 @@
 
 if( ! class_exists( 'Webinar_Block' ) ) {
     class Webinar_Block extends Element_Block {
+
+        private $enable_hubspot = true;
         
         static public $section_count;
                 
@@ -47,6 +49,8 @@ if( ! class_exists( 'Webinar_Block' ) ) {
         public function render() {
                         
             $cells = '';
+            $button = '';
+            $modal = '';
             
             $image = $this->get_fields( 'image' );
             
@@ -67,9 +71,8 @@ if( ! class_exists( 'Webinar_Block' ) ) {
             $form_id = ! empty( $gated_form['gravity_form'] ) ? $gated_form['gravity_form'] : false;
             $form = GFAPI::get_form( absint( $form_id ) );
             
-            $modal = '';
-                                            
-            if( ! is_wp_error( $form ) && ! empty( $form_handler ) && ! empty( $this->get_fields( 'video' ) ) ) {
+                                        
+            if( false === $this->enable_hubspot && ! is_wp_error( $form ) && ! empty( $form_handler ) && ! empty( $this->get_fields( 'video' ) ) ) {
                 
                 global $post;
                                     
@@ -114,20 +117,27 @@ if( ! class_exists( 'Webinar_Block' ) ) {
                 }
                 
                 $modal = _s_get_template_part( 'template-parts/modal', 'webinar', $data, true );
+
+                $content = $button . $modal;
+
+                if( false !== $this->enable_hubspot ) {
+                    $content = _s_get_template_part( 'template-parts/webinar', 'hubspot', [], true );
+                }
                 
+            } else {
+                $content = _s_get_template_part( 'template-parts/webinar', 'hubspot', [], true );
             }
+
             
-            
-            $cells .= sprintf( '<div class="cell%s"><div class="panel">%s%s</div></div>', $columns, $this->get_fields( 'text' ), $button  );
+            $cells .= sprintf( '<div class="cell%s"><div class="panel">%s%s</div></div>', $columns, $this->get_fields( 'text' ), $content  );
                                                 
             return sprintf( '
                                 <div class="grid-x grid-padding-x grid-margin-bottom">
                                 %s
                                 </div>
-                                %s
+                              
                             ',
-                            $cells,
-                            $modal
+                            $cells
                          );  
             
         }

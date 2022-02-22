@@ -3,6 +3,8 @@
 
 if( ! class_exists( 'Challenge_Section' ) ) {
     class Challenge_Section extends Element_Section {
+
+        private $enable_hubspot = true;
                 
         public function __construct() {
             parent::__construct();
@@ -14,7 +16,9 @@ if( ! class_exists( 'Challenge_Section' ) ) {
             $this->set_settings( $settings );
             
             // print the section
-            $this->print_element();        
+            $this->print_element();    
+            
+            
         }
               
         // Add default attributes to section        
@@ -28,6 +32,14 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                      $this->get_name() . '-challenge'
                 ]
             );   
+
+            if( false !== $this->enable_hubspot ) {
+                $this->add_render_attribute(
+                    'wrapper', 'class', [
+                         'hubspot-enabled'
+                    ]
+                );  
+            }
 
             $this->add_render_attribute(
                 'wrapper', 'id', [
@@ -47,11 +59,23 @@ if( ! class_exists( 'Challenge_Section' ) ) {
             $text = $this->get_fields( 'text' ); 
             
             $image = _s_get_acf_image( $this->get_fields( 'image' ), 'thumbnail' );
+
+            $classes = [];
+
+            if( false !== $this->enable_hubspot ) {
+                $image = '';
+            } else {
+                $classes[] = 'panel';
+            }
             
             $button = '';
             $modal = '';
-            $file = $this->get_fields( 'file' );             
-            if( ! empty( $file['url'] ) ) {
+
+            $right_column = $this->get_terms();
+            
+            $file = $this->get_fields( 'file' );    
+                     
+            if( false === $this->enable_hubspot && ! empty( $file['url'] ) && ! empty( $this->get_fields( 'form_handler' ) ) ) {
                 $args = [
                     'link' => [ 'title' => sprintf( '%s %s', __( 'download', '_s' ), $file['subtype'] ), 'url' => $file['url'], 'target' => '_blank' ],
                     'echo' => false,
@@ -59,7 +83,6 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                 ];
                 $button  = sprintf( '%s', _s_acf_button( $args ) );
                 
-                // Gated content?
                 $form_handler = $this->get_fields( 'form_handler' ); // get_field( 'form_handler' );
                 
                 $gated_form = $this->get_settings( 'gated_form' );
@@ -97,26 +120,68 @@ if( ! class_exists( 'Challenge_Section' ) ) {
                     $button =  sprintf( '<a class="button modal-form" data-fancybox %s href="javascript:;">%s</a>', $options, $button_text );
                     
                     $modal = _s_get_template_part( 'template-parts/modal', 'case-study', $data, true );
+
+                    if( false !== $this->enable_hubspot ) {
+                        $right_column = _s_get_template_part( 'template-parts/case-study', 'hubspot', [], true );
+        
+                    }
                     
                 }
+            } else {
+                $right_column = _s_get_template_part( 'template-parts/case-study', 'hubspot', [], true );
             }
+            
                             
             return sprintf( '<div class="grid-container">
                                 <div class="grid-x grid-padding-x">
-                                    <div class="cell large-6 xxlarge-7"><div class="panel">%s%s<footer>%s%s</footer></div></div>
+                                    <div class="cell large-6 xxlarge-6"><div class="%s">%s%s<footer>%s%s</footer></div></div>
                                     <div class="cell large-6 xxlarge-auto">%s</div>
                                 </div>
                             </div>%s',
+                            join( '', $classes ),
                             $heading,
                             $text,
                             $image, 
                             $button,
-                            $this->get_terms(),
+                            $right_column,
                             $modal
                          );  
         }
+
         
+
         
+        private function get_hubspot_form() {
+            
+            $out = '<div class="hubspot-form" style="margin-top: 30px;"><!--[if lte IE 8]>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <![endif]-->
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script>
+                hbspt.forms.create({
+                    region: "na1",
+                    portalId: "21030106",
+                    formId: "a1f0e4b5-3725-44a0-a074-af5ed3d2b83c"
+                });
+                
+            </script>
+             </div>';
+
+            $out .= '
+            <script>
+            window.addEventListener("message", function (event) {
+                if (event.data.type === "hsFormCallback" && event.data.eventName === "onFormReady") {
+                    var url = window.location.href;
+                    url = url.replace(/\/$/, "");
+                    document.getElementById("hs-form-iframe-0").contentDocument.querySelector("input[name=\"form_source\"]").value = url;
+                }
+            });
+            </script>
+            ';
+
+            return $out;
+        }
+
         private function get_terms() {
             
             $columns = '';
