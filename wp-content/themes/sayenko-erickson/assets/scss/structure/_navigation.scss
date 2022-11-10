@@ -16,6 +16,10 @@
         padding-right: 0!important;   
     }
 
+    @include breakpoint(xlarge) {
+        padding-left: 0!important;
+    }
+
 	@include breakpoint(xlarge) {
 		background-color: #ffffff;
         display: block;
@@ -26,6 +30,7 @@
         flex-flow: row nowrap;
         align-items: center;  
         justify-content: flex-end;
+
         
         .menu-secondary {
             order: 2;
@@ -33,11 +38,13 @@
         
         .menu-primary {
             order: 1;
+            margin-left: auto;
             
         }
 	}
 
 	.menu-primary {
+        
 		position: static;
 
 		@include breakpoint(xlarge) {
@@ -50,7 +57,7 @@
 		}
         
         @include breakpoint(xxlarge) {
-            margin-left: rem-calc(60);
+            //margin-left: rem-calc(60);
 		}
         
         
@@ -60,8 +67,8 @@
                 text-transform: uppercase;     
                 
                 @include breakpoint(xlarge only) {
-                    padding-left: rem-calc(10)!important;
-                    padding-right: rem-calc(10)!important;
+                    padding-left: rem-calc(5)!important;
+                    padding-right: rem-calc(5)!important;
                 } 
             }
         }
@@ -92,13 +99,17 @@
                 }
                 
                 @include breakpoint(large) {
-                    padding-left: rem-calc(map-get($grid-column-gutter, large)); 
-                    padding-right: rem-calc(map-get($grid-column-gutter, large));
+                    // padding-left: rem-calc(map-get($grid-column-gutter, large)); 
+                    // padding-right: rem-calc(map-get($grid-column-gutter, large));
+                    padding-left: 12px;
+                    padding-right: 12px;
                 }
                 
                 @include breakpoint(xlarge) {
                     color: $dark-gray;
                     padding: $global-menu-padding;
+                    padding-left: 12px;
+                    padding-right: 12px;
                     font-size: rem-calc(15);
                     
                     &:hover {
@@ -108,7 +119,8 @@
                 }
                 
                 @include breakpoint(xxlarge) {
-                    font-size: rem-calc(16);
+                    //font-size: rem-calc(16);
+                    
                 }
                 
                 

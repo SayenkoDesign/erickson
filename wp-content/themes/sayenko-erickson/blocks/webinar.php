@@ -16,11 +16,7 @@ if( ! class_exists( 'Webinar_Block' ) ) {
             $this->set_fields( 'text', get_field( 'text' ) );
             $this->set_fields( 'button_text', get_field( 'button_text' ) );
             
-            $this->set_fields( 'form_handler', get_field( 'form_handler', get_the_ID() ) );
-            $this->set_fields( 'video', get_field( 'video', get_the_ID() ) );
-            
-            $settings = get_field( 'webinar_settings', 'option' );
-            $this->set_settings( $settings );
+            $this->set_fields( 'hubspot', get_field( 'hubspot', get_the_ID() ) );
             
             // print the section
             $this->print_element();        
@@ -32,98 +28,26 @@ if( ! class_exists( 'Webinar_Block' ) ) {
             // use parent attributes
             parent::_add_render_attributes();
             
-            
-            $access_granted = _s_get_webinar_transient();
-            
-            if( ! $access_granted ) {                                                              
-                $this->add_render_attribute( 'wrapper', 'class', 'webinar-gated' ); 
-            }
-            else {
-                $this->add_render_attribute( 'wrapper', 'class', 'webinar-access-granted' ); 
-            }
-            
         } 
 
         
         // Add content
         public function render() {
-                        
+            
+            $columns = '';        
             $cells = '';
             $button = '';
-            $modal = '';
             
             $image = $this->get_fields( 'image' );
-            
-            $columns = '';
-            
+                        
             if( ! empty($image ) ) {
-                                                
                 $columns = ' large-auto';
                 $cell_order = '';
                 $cells .= sprintf( '<div class="cell%s%s"><div class="image-wrapper">%s</div></div>', $columns, $cell_order, _s_get_acf_image( $image, 'large' ) );
             }
             
-            // Gated content?            
-            $form_handler = $this->get_fields( 'form_handler' ); // get_field( 'form_handler' );
-                
-            $gated_form = $this->get_settings( 'gated_form' );
-                                        
-            $form_id = ! empty( $gated_form['gravity_form'] ) ? $gated_form['gravity_form'] : false;
-            $form = GFAPI::get_form( absint( $form_id ) );
-            
-                                        
-            if( false === $this->enable_hubspot && ! is_wp_error( $form ) && ! empty( $form_handler ) && ! empty( $this->get_fields( 'video' ) ) ) {
-                
-                global $post;
-                                    
-                $slug = 'modal-' . $post->post_name;
-                
-                $data = [
-                    'form_id' => $form_id,
-                    'slug'    => $slug,
-                    'content' => ! empty( $gated_form['content'] ) ? $gated_form['content'] : ''
-                ];
-                
-                $options = [
-                    'src' => '#' . $slug,
-                    'modal' => true,
-                    'baseClass' => "full-screen",
-                    'closeExisting' => true,
-                    'touch' => false,
-                    'hash' => false,
-                    'backFocus' => false
-                ];
-                $options = sprintf( "data-options='{%s}'", _parse_data_attribute( $options, ':', ', ' ) );
-                
-                $button_text = __( 'watch full video', '_s' );
-                
-                if( ! empty( $this->get_fields( 'button_text' ) ) ) {
-                    $button_text = $this->get_fields( 'button_text' );
-                }
-                
-                $access_granted = ''; //_s_get_webinar_transient();
-                
-                $video_button = sprintf( '<a class="button video-button" data-fancybox href="%s">%s</a>', $this->get_fields( 'video' ), $button_text );
-                
-                if( $access_granted ) {
-                    
-                    $button = $video_button;
-                    
-                } else {
-                    
-                    $button =  sprintf( '<a class="button modal-form" data-fancybox %s href="javascript:;">%s</a>', $options, $button_text );
-                    
-                    $button .= $video_button;
-                }
-                
-                $modal = _s_get_template_part( 'template-parts/modal', 'webinar', $data, true );
-
-                $content = $button . $modal;
-
-                if( false !== $this->enable_hubspot ) {
-                    $content = _s_get_template_part( 'template-parts/webinar', 'hubspot', [], true );
-                }
-                
+            if( ! empty( $this->get_fields( 'hubspot' ) ) ) {
+                $content = sprintf( '<h4>Fill out form below to view this webinar:</h4>%s', $this->get_fields( 'hubspot' ) );
             } else {
                 $content = _s_get_template_part( 'template-parts/webinar', 'hubspot', [], true );
             }

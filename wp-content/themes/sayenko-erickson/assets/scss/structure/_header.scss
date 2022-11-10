@@ -87,6 +87,17 @@ Header
     }
 
 	.site-branding {
+
+        @include breakpoint(xlarge only) {
+            .logo {
+                max-width: 150px;
+            }
+        }
+
+        @include breakpoint(xlarge) {
+
+                padding-right: 0!important;
+            }
         
         @include breakpoint(xxxlarge) {
             max-width: 100%;
