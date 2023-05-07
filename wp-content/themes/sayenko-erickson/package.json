@@ -34,7 +34,7 @@
 		"@fancyapps/fancybox": "^3.5.7",
 		"@wordpress/babel-preset-default": "^4.10.0",
 		"@wordpress/dependency-extraction-webpack-plugin": "^2.4.0",
-		"browser-sync": "^2.26.7",
+		"browser-sync": "^2.29.1",
 		"browser-sync-webpack-plugin": "2.2.2",
 		"classnames": "^2.2.6",
 		"clip-path": "^1.2.0",
