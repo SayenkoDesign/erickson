@@ -35,3 +35,10 @@
         margin-bottom: rem-calc(75); 
     }
 }
+
+.block {
+    &.background-color-gray {
+        background-color: #EFF3F0;
+        @include full-width;
+    }
+}

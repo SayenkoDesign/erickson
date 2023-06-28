@@ -14,6 +14,8 @@ if( ! class_exists( 'Customers_Block' ) ) {
             $this->set_settings( 'padding', get_field( 'padding' )  );
             $this->set_settings( 'margin', get_field( 'margin' )  );
             */
+
+            $this->set_settings( 'background_color', get_field( 'background_color' ) );
             
             // print the section
             $this->print_element();        
@@ -23,7 +25,11 @@ if( ! class_exists( 'Customers_Block' ) ) {
         protected function _add_render_attributes() {
             
             // use parent attributes
-            parent::_add_render_attributes();         
+            parent::_add_render_attributes(); 
+            
+            if( ! empty( $this->get_settings( 'background_color' ) ) ) {                                                              
+                $this->add_render_attribute( 'wrapper', 'class', 'background-color-' . strtolower( $this->get_settings( 'background_color' ) ) ); 
+            }   
             
         }  
                 

@@ -33,7 +33,7 @@ if( ! class_exists( 'Offices_Block' ) ) {
                 'wrapper', 'id', [
                      $this->get_name() . '-offices'
                 ], true
-            );            
+            );   
             
         }  
                 

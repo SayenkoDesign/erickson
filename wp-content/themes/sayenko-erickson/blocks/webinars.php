@@ -11,6 +11,8 @@ if( ! class_exists( 'Webinars_Block' ) ) {
 	        $this->set_fields( 'description', get_field( 'description' ) );
             $this->set_fields( 'posts', get_field( 'posts' ) );
 
+            $this->set_settings( 'background_color', get_field( 'background_color' ) );
+
             // print the section
             $this->print_element();
         }
@@ -20,6 +22,10 @@ if( ! class_exists( 'Webinars_Block' ) ) {
 
             // use parent attributes
             parent::_add_render_attributes();
+
+            if( ! empty( $this->get_settings( 'background_color' ) ) ) {                                                              
+                $this->add_render_attribute( 'wrapper', 'class', 'background-color-' . strtolower( $this->get_settings( 'background_color' ) ) ); 
+            }   
 
         }
 

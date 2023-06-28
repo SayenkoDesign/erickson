@@ -17,6 +17,8 @@ if( ! class_exists( 'Webinar_Block' ) ) {
             $this->set_fields( 'button_text', get_field( 'button_text' ) );
             
             $this->set_fields( 'hubspot', get_field( 'hubspot', get_the_ID() ) );
+
+            $this->set_settings( 'background_color', get_field( 'background_color' ) );
             
             // print the section
             $this->print_element();        
