@@ -1,24 +1,6 @@
 /*
 Header
 ---------------------------------------------- */
-
-// Fix for sticky header
-.logged-in .site-header.fixed {
-
-    @include breakpoint(xlarge) {
-        top: 32px!important;
-    } 
- }
- 
- .sticky-header {
-    height: rem-calc(47);
-    
-    @include breakpoint(xlarge) {
-        height: rem-calc(65);
-    }
- }
- 
- 
  
  .section-notification-bar {
      
@@ -44,46 +26,44 @@ Header
         }
      }
      
-     @include breakpoint(xlarge) {
+     /* @include breakpoint(xlarge) {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;   
-     }
+     } */
      
      .close-button {
         right: 5px;   
      }
  }
 
+.admin-bar .site-header.sticky {
+
+    @media screen and (max-width: 782px) {
+        top: 46px;
+    }
+    
+    top: 32px;
+}
 
 .site-header {
     
-    background: $white!important;
+    background: rgba($white, .8)!important;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
 
-    position: relative;
     z-index: 999;
-        
-    @include breakpoint(xlarge) {
-        
-        &.fixed {
-            position: fixed!important;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;
-        }
-            
+
+    &.sticky {
+        position: sticky;
+        width: 100%;
+        top: -1px;
     }
-    
     
     .wrap {
         max-width: $global-width;
         margin: 0 auto;  
-        position: relative;
-        
-        
+        position: relative; 
     }
 
 	.site-branding {

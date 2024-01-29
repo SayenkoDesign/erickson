@@ -57,7 +57,7 @@ function _s_add_mega_menu_image( $items ) {
         'url'              => '',
         'classes'          => ['menu-item',  'menu-item-image']
     );
-    array_unshift( $items, (object) $link );
+    // array_unshift( $items, (object) $link );
   }
   
   if( $menu_item_parent && _s_emergency_message() ) {

@@ -48,8 +48,7 @@ if( ! is_user_logged_in() ) {
 }
 ?>
 
-<div class="sticky-header">
-        <header id="masthead" class="site-header <?php empty( $notification_bar ) ? 'fixed' : ''; ?>" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+        <header id="masthead" class="site-header sticky" role="banner" itemscope itemtype="https://schema.org/WPHeader">
                         
             <div class="wrap">
             
@@ -118,23 +117,7 @@ if( ! is_user_logged_in() ) {
             </div><!-- wrap -->
                          
         </header><!-- #masthead -->
-    </div>
-    
-    <script>
-        /*(function (document, window, $) {
-    
-        'use strict';
-        
-        var $stickyHeaderWrapper = $(".sticky-header");
-		var $stickyHeader = $(".site-header.fixed");
-        var $window = $(window);
-        $window.on("load resize", function(){
-            console.log($stickyHeader.height());
-            $stickyHeaderWrapper.height($stickyHeader.height());
-        });
-        
-    }(document, window, jQuery));*/
-    </script>
+
 
 <div id="page" class="site-container">
 
