@@ -1,0 +1,45 @@
+// Footer CTA
+
+.section-footer-cta {
+    padding: rem-calc(70 0 40);
+    text-align: center;
+    
+    .large-5 {
+        a {
+            min-width: rem-calc(250); 
+            margin-bottom: 0;  
+        }
+    }
+    
+    .large-7 {
+        h3 {
+            margin-bottom: 0;   
+        }   
+    }
+    
+    p {
+        font-size: rem-calc(20);   
+    }
+    
+    .no-touchevents & {
+        a[href*="tel"]:not(.button) {
+            color: $dark-gray;   
+        }
+    }
+    
+    @include breakpoint(large) {
+        .large-7 {
+            text-align: right;
+        }
+        
+        .large-5 {
+            text-align: left;
+            
+            a {
+                margin-left: rem-calc(60);  
+                margin-bottom: 0; 
+            }
+        }
+    }
+    
+}

@@ -183,10 +183,14 @@ a.link {
     }
 }
 
-
+.gb-button.gb-button-text,
 .wp-block-button__link {
     @include primary-button;
     padding: rem-calc(13.5 16);
+}
+
+.gb-button.gb-button-text {
+    text-align: center;
 }
 
 .facetwp-load-more {

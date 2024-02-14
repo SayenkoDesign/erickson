@@ -1,0 +1,61 @@
+// Forms
+
+input[type="search"] {
+    @include box-sizing(border-box);
+}
+
+[data-whatintent='mouse'] *:focus {
+  outline: none;
+}
+
+input[type='text'],
+input[type='url'],
+input[type='email'],
+input[type='tel'],
+input[type='number'],
+input[type='password'],
+input[type='file'],
+textarea,
+select {
+    background: transparent;
+    color: $dark-gray;
+    font-size: rem-calc(16);
+    padding: rem-calc(10 10 10 10) !important;
+}
+
+input[type='text'],
+input[type='url'],
+input[type='email'],
+input[type='tel'],
+input[type='number'],
+input[type='password'],
+select {
+    border: none!important;
+    border-radius: none!important;
+    border-bottom: solid 1px $dark-gray!important;
+}
+
+textarea {
+    border: 1px solid #dbd9d9;
+    width: 100%;
+}
+
+
+select {
+    color: $dark-gray;
+    font-size: rem-calc(16);
+    border-radius: 0;
+    border: none;
+    border-bottom: solid 1px $dark-gray;
+    padding: rem-calc(10 24 10 10)!important;
+    font-family: $source-sans;
+    outline-style: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+    background-position: 99.8% 50%;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    width: 100%;
+}

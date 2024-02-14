@@ -1,0 +1,107 @@
+// FancyBox
+
+
+.fancybox-slide--iframe {
+    padding: 6px!important;
+    
+    .fancybox-content {
+        cursor: auto;
+        width: calc(100vw - 12px)!important;
+        height: calc(100vh - 12px)!important;  
+    }
+}
+
+
+.fancybox-content {
+    @include breakpoint(medium down) {
+        padding-left: rem-calc(10)!important;
+        padding-right: rem-calc(10)!important;
+    }
+}
+
+
+.fancybox-button--close,
+.fancybox-close-small {
+    background: transparent;
+    width: 50px!important;
+    height: 50px!important;
+    padding: 0!important;
+    right: 0;
+    top: 0;
+    
+    @include breakpoint(large) {
+        right: 40px!important;
+        top: 40px!important;
+        width: 65px!important;
+        height: 65px!important;
+    }
+}
+
+.fancybox-container.single-fleet {
+    .fancybox-button--close,
+    .fancybox-close-small {
+        color: $dark-gray!important;
+    }
+}
+
+.fancybox-container.single-fleet {
+    .fancybox-slide--html {
+        padding: 0;
+    }
+    
+    .fancybox-content {
+        cursor: auto;
+        width: 100vw;
+        height: 100vh;  
+        
+    }
+}
+
+
+.fancybox-container.full-screen {
+    .fancybox-slide--html {
+        padding: 0;
+    }
+    
+    .fancybox-content {
+        cursor: auto;
+        width: 100vw;
+        height: 100vh;  
+        background-color: #f4f9f6;  
+        
+        @include breakpoint(xxlarge) {
+            .wrap {
+                display: flex;
+                align-items: center;
+                min-height: 100%;   
+            }   
+        }
+    }
+    
+    .modal-body {
+        max-width: rem-calc(600);
+        margin: 0 auto;
+        
+        .logo {
+            display: block;
+            margin: 0 auto rem-calc(10);
+            width: 215px;
+        }
+        
+        text-align: center;
+        
+        .gform_wrapper {
+            text-align: left;   
+            
+            .gform_footer {
+                margin-top: rem-calc(20);
+                text-align: center;   
+            }
+        }
+        
+        .wide-embed {
+            margin: 32px calc(25% - 25vw);
+            max-width: $global_width;
+        }
+    }
+}

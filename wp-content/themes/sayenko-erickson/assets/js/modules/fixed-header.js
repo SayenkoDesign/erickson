@@ -25,18 +25,18 @@ export default {
             if(typeof e.originalEvent.detail == 'number' && e.originalEvent.detail !== 0) {
               if(e.originalEvent.detail > 0) {
                 // console.log('Down');
-                $siteHeader.addClass('sticky');
+                $siteHeader.removeClass('sticky');
               } else if(e.originalEvent.detail < 0){
                   // console.log('Up');
-                  $siteHeader.removeClass('sticky');
+                  $siteHeader.addClass('sticky');
               }
             } else if (typeof e.originalEvent.wheelDelta == 'number') {
               if(e.originalEvent.wheelDelta < 0) {
                  // console.log('Down');
-                 $siteHeader.addClass('sticky');
+                 $siteHeader.removeClass('sticky');
               } else if(e.originalEvent.wheelDelta > 0) {
                  // console.log('Up');
-                 $siteHeader.removeClass('sticky');
+                 $siteHeader.addClass('sticky');
               }
             }
           });

@@ -1,0 +1,437 @@
+# <!=Copyright (C) 2019 Sayenko Design
+# This file is distributed under the GNU General Public License v2 or later.=!>
+msgid ""
+msgstr ""
+"Project-Id-Version: _s 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/_s\n"
+"POT-Creation-Date: 2019-06-25 13:05:42+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: node-wp-i18n 1.2.3\n"
+
+#: comments.php:40 comments.php:61
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:43 comments.php:64
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:44 comments.php:65
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:77
+msgid "Comments are closed."
+msgstr ""
+
+#: exhale/functions.php:68 functions.php:68
+msgid "Primary Menu"
+msgstr ""
+
+#: exhale/functions.php:69 functions.php:69
+msgid "Secondary Menu"
+msgstr ""
+
+#: exhale/functions.php:70 functions.php:70
+msgid "Footer Menu"
+msgstr ""
+
+#: exhale/functions.php:118 functions.php:118
+msgid "Footer 1"
+msgstr ""
+
+#: exhale/functions.php:119 functions.php:119
+msgid "Footer 2"
+msgstr ""
+
+#: exhale/functions.php:120 functions.php:120
+msgid "Footer 3"
+msgstr ""
+
+#: exhale/functions.php:128 functions.php:128
+msgid "Widget area for %s"
+msgstr ""
+
+#: header.php:32
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:33
+msgid "Skip to footer"
+msgstr ""
+
+#: lib/functions/blog.php:27
+msgid "<span>« Previous Page</span>"
+msgstr ""
+
+#: lib/functions/blog.php:28
+msgid "<span>Next Page »</span>"
+msgstr ""
+
+#: lib/functions/blog.php:79
+msgid "Post navigation"
+msgstr ""
+
+#: lib/functions/facetwp.php:38 lib/functions/facetwp.php:42
+msgid "Previous Page"
+msgstr ""
+
+#: lib/functions/facetwp.php:70 lib/functions/facetwp.php:74
+msgid "Next Page"
+msgstr ""
+
+#: lib/functions/scripts.php:22 lib/functions/scripts.php:23
+msgid "Menu"
+msgstr ""
+
+#: lib/functions/template-tags.php:9 lib/functions/template-tags.php:62
+#: lib/functions/template-tags.php:192
+#. translators: %s template
+msgid "%s does not exist."
+msgstr ""
+
+#: lib/functions/template-tags.php:252 lib/functions/template-tags.php:258
+#. translators: used between list items, there is a space after the comma
+msgid ", "
+msgstr ""
+
+#: lib/functions/template-tags.php:254
+msgid "Posted in %1$s"
+msgstr ""
+
+#: lib/functions/template-tags.php:260
+msgid "Tagged %1$s"
+msgstr ""
+
+#: lib/functions/template-tags.php:266
+msgid "Leave a comment"
+msgstr ""
+
+#: lib/functions/template-tags.php:266
+msgid "1 Comment"
+msgstr ""
+
+#: lib/functions/template-tags.php:266
+msgid "% Comments"
+msgstr ""
+
+#: lib/functions/template-tags.php:273 lib/includes/cpt-core/CPT_Core.php:144
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:128
+#: template-parts/content-page.php:31 template-parts/home/section.php:29
+#. translators: %s: Name of current post
+msgid "Edit %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:77 lib/includes/cpt-core/CPT_Core.php:81
+#: lib/includes/cpt-core/CPT_Core.php:85
+msgid "It is required to pass a single, plural and slug string to CPT_Core"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:142
+#: lib/includes/cpt-core/CPT_Core.php:143
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:131
+msgid "Add New %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:145
+msgid "New %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:146
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:127
+msgid "All %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:147
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:129
+msgid "View %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:148
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:126
+msgid "Search %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:149
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:134
+msgid "No %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:150
+msgid "No %s found in Trash"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:151
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:138
+msgid "Parent %s:"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:153
+msgid "Insert into %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:154
+msgid "Uploaded to this %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:155
+msgid "%s list"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:156
+msgid "%s list navigation"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:157
+msgid "Filter %s list"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:207
+msgid "Custom field updated."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:208
+msgid "Custom field deleted."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:209
+#: lib/includes/cpt-core/CPT_Core.php:226
+msgid "%1$s updated."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:211
+#. translators: %s: date and time of the revision
+msgid "%1$s restored to revision from %2$s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:212
+msgid "%1$s saved."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:217
+msgid "%1$s updated. <a href=\"%2$s\">View %1$s</a>"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:218
+msgid "%1$s published. <a href=\"%2$s\">View %1$s</a>"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:219
+msgid "%1$s submitted. <a target=\"_blank\" href=\"%2$s\">Preview %1$s</a>"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:221
+#. translators: Publish box date format, see http:php.net/date
+msgid ""
+"%1$s scheduled for: <strong>%2$s</strong>. <a target=\"_blank\" "
+"href=\"%3$s\">Preview %1$s</a>"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:221
+#: lib/includes/cpt-core/CPT_Core.php:230
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:222
+msgid "%1$s draft updated. <a target=\"_blank\" href=\"%2$s\">Preview %1$s</a>"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:227
+msgid "%1$s published."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:228
+msgid "%1$s submitted."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:230
+#. translators: Publish box date format, see http:php.net/date
+msgid "%1$s scheduled for: <strong>%2$s</strong>."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:231
+msgid "%1$s draft updated."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:249
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %3$s updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/includes/cpt-core/CPT_Core.php:250
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %3$s not updated, somebody is editing them."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/includes/cpt-core/CPT_Core.php:251
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %3$s permanently deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/includes/cpt-core/CPT_Core.php:252
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %3$s moved to the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/includes/cpt-core/CPT_Core.php:253
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %3$s restored from the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/includes/cpt-core/CPT_Core.php:305
+msgid "%s Title"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:84
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:88
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:92
+msgid "It is required to pass a single, plural and slug string to Taxonomy_Core"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:130
+msgid "Update %s"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:132
+msgid "New %s Name"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:133
+msgid "No %s found."
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:137
+msgid "Parent %s"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:141
+msgid "Popular %s"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:142
+msgid "Separate %s with commas"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:143
+msgid "Add or remove %s"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:144
+msgid "Choose from the most used %s"
+msgstr ""
+
+#: lib/includes/taxonomy-single-term/class.taxonomy-single-term.php:246
+msgid "None"
+msgstr ""
+
+#: lib/includes/taxonomy-single-term/class.taxonomy-single-term.php:282
+msgid "Clear"
+msgstr ""
+
+#: lib/includes/taxonomy-single-term/class.taxonomy-single-term.php:334
+msgid "Add New"
+msgstr ""
+
+#: lib/includes/taxonomy-single-term/class.taxonomy-single-term.php:363
+msgid "There was a problem adding a new %s"
+msgstr ""
+
+#: lib/includes/taxonomy-single-term/class.taxonomy-single-term.php:394
+msgid "Cheatin' Huh? Could not verify security token"
+msgstr ""
+
+#: lib/post-types/cpt-history.php:23 lib/post-types/cpt-history.php:24
+msgid "History"
+msgstr ""
+
+#: lib/post-types/cpt-people.php:23
+msgid "Person"
+msgstr ""
+
+#: lib/post-types/cpt-people.php:24
+msgid "People"
+msgstr ""
+
+#: template-parts/content-none.php:13
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:19
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:23
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:26
+msgid "Sorry no results found."
+msgstr ""
+
+#: template-parts/content-page.php:20 template-parts/content.php:34
+#: template-parts/home/section.php:18
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-post.php:43
+msgid "Previous Post"
+msgstr ""
+
+#: template-parts/content-post.php:45
+msgid "Next Post"
+msgstr ""
+
+#: template-parts/content-post.php:50
+msgid "Share This"
+msgstr ""
+
+#: template-parts/content.php:27
+#. translators: %s: Name of current post.
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "_s"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Sayenko Design"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://sayenkodesign.com"
+msgstr ""
+
+#: comments.php:31
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/functions/template-tags.php:232
+msgctxt "post date"
+msgid "%s"
+msgstr ""
+
+#: searchform.php:13
+msgctxt "placeholder"
+msgid "Search&hellip;"
+msgstr ""
+
+#: searchform.php:18
+msgctxt "submit button"
+msgid "Search"
+msgstr ""

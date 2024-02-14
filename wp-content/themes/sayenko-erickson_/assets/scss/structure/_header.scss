@@ -1,0 +1,125 @@
+/*
+Header
+---------------------------------------------- */
+ 
+ .section-notification-bar {
+     
+     background-color: #ECECEC;
+     
+     .wrap {
+        padding: rem-calc(10 15);  
+        text-align: center; 
+     }
+     
+     p {
+        margin-bottom: 0;  
+        
+        a {
+            margin-left: rem-calc(10);  
+            font-size: 14px;
+            padding-right: 18px;
+            
+            &:after {
+                width: #{11 * .75}px;
+                height: #{19 * .75}px;
+            }
+        }
+     }
+     
+     /* @include breakpoint(xlarge) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;   
+     } */
+     
+     .close-button {
+        right: 5px;   
+     }
+ }
+
+.admin-bar .site-header.sticky {
+
+    @media screen and (max-width: 782px) {
+        top: 46px;
+    }
+    
+    top: 32px;
+}
+
+.site-header {
+    
+    background: rgba($white, .8)!important;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+
+    z-index: 999;
+
+    &.sticky {
+        position: sticky;
+        width: 100%;
+        top: -1px;
+    }
+    
+    .wrap {
+        max-width: $global-width;
+        margin: 0 auto;  
+        position: relative; 
+    }
+
+	.site-branding {
+
+        @include breakpoint(xlarge only) {
+            .logo {
+                max-width: 150px;
+            }
+        }
+
+        @include breakpoint(xlarge) {
+
+                padding-right: 0!important;
+            }
+        
+        @include breakpoint(xxxlarge) {
+            max-width: 100%;
+        }
+        
+        .site-title {
+            max-width: rem-calc(216);
+            margin-right: rem-calc(75);   
+            padding-top: rem-calc(10);
+            padding-bottom: rem-calc(10);
+            
+            @include breakpoint(large down) {
+                width: rem-calc(160);
+            }
+            
+            @include breakpoint(xlarge) {
+                margin-right: 0;   
+                padding-top: rem-calc(19);
+                padding-bottom: rem-calc(19);
+            }
+        }
+	}
+
+	.menu-toggle {
+		@include hamburger($black, $black, 28px, 24px, 3px, 3);
+		position: absolute;
+		top: 12px;
+		right: 20px;
+		@include breakpoint(medium) {
+			top: 12px;
+		    right: 20px;
+		}
+
+		@include breakpoint(xlarge) {
+			display: none;
+		}
+	}
+
+	.nav-secondary {
+		@include breakpoint(large) {
+			padding: 60px 0 0;
+		}
+	}
+	
+}

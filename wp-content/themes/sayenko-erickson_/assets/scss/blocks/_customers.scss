@@ -1,0 +1,40 @@
+// Customers
+
+.block-customers {
+        
+    //background: $light-gray;
+    //margin-top: rem-calc(25);
+    padding: rem-calc(75 0 50);
+    
+    header {
+        text-align: center; 
+        margin-bottom: rem-calc(15); 
+    }
+    
+    .logos {
+        @include list-reset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        flex-wrap: wrap;
+        
+        @include breakpoint(large) {
+            flex-wrap: no-wrap;
+        }
+        
+        li {
+            margin-bottom: rem-calc(25);   
+        }
+        
+        a {
+            dispay: block;   
+        }
+        
+        span {
+            display: block;
+            padding: rem-calc(15);
+        }
+    }
+}  
+    

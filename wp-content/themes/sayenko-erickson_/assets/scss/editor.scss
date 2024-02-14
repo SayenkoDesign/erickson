@@ -1,0 +1,101 @@
+/*!
+ * Gutenberg Editor Styles
+ */
+
+/** === Includes === */
+
+@charset 'utf-8';
+
+$content-width: 1260px;
+
+.has-light-gray-background-color {
+    background-color: #EFF3F0;   
+}
+
+
+.acf-block-component {
+    
+    .acf-block-preview .acf-block-placeholder {
+        text-align: center; 
+        color: #fff; 
+        background: #333; 
+        font-size: 20px;
+        padding: 50px 30px;
+    }
+    
+    .acf-field-message {
+        .acf-label {
+            font-size: 20px;   
+        }
+    }
+}
+
+/* Post title width */
+.editor-post-title__block.wp-block {
+	max-width: $content-width;
+
+	/* Post title styling */
+	.editor-post-title__input {
+	}
+}
+
+/* Main column width */
+.wp-block {
+    max-width: $content-width;
+
+	/* Wide column width */
+	&[data-align="wide"] {
+		max-width: none;
+
+		@media screen and (min-width: 640px) {
+			max-width: none;
+			margin-left: calc(25vw - 25%);
+			margin-right: calc(25vw - 25%);
+		}
+	}
+
+	/* Full column width */
+	&[data-align="full"] {
+		max-width: none;
+	}
+}
+
+
+/** === Base Typography === */
+.wp-block .acf-block-preview {
+}
+
+/** === Blocks === 
+.wp-block .acf-block-preview {
+	@import 'blocks';
+}
+*/
+
+
+
+/** === Button === */
+.wp-block-button {
+
+	// add general foundation button styling to button in editor
+	.wp-block-button__link {
+		
+	}
+
+	// add special styling for squared buttons
+	&.is-style-squared .wp-block-button__link {
+		border-radius: 0;
+	}
+
+	// add outline styles
+	&.is-style-outline .wp-block-button__link{
+		
+	}
+
+	// set transparent background to block for outline button
+	&.is-style-outline,
+	&.is-style-outline:hover,
+	&.is-style-outline:focus,
+	&.is-style-outline:active {
+		background: transparent;
+	}
+}

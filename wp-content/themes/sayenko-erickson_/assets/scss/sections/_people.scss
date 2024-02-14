@@ -1,0 +1,271 @@
+// People
+
+.section-people {
+    background-color: $gray; 
+    
+    padding: rem-calc(75 0 50);
+    
+    @include breakpoint(xxlarge) {
+        padding: rem-calc(175 0 150);
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: rem-calc(60); 
+        
+        @include breakpoint(xxlarge) {
+            margin-bottom: rem-calc(120); 
+        }  
+    }
+    
+    .grid {
+        .cell {
+            margin-bottom: rem-calc(map-get($grid-margin-gutters, small) );
+            
+            @include breakpoint(large) {
+                margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
+            } 
+            
+            @include breakpoint(xlarge) {
+                margin-bottom: rem-calc(map-get($grid-margin-gutters, large) + 40);
+            }   
+        }
+    }
+    
+    .grid-item {
+        
+        position: relative;
+        
+        .line {
+            position: relative;
+            
+            &:after {
+                content: '';
+                display: block;
+                width: 2px;
+                height: 80px;
+                background: $orange;
+                bottom: 0;
+                left: rem-calc(-10); 
+                z-index: 4; 
+                position: absolute; 
+                
+                @include breakpoint(xxlarge) {
+                    bottom: auto;
+                    top: rem-calc(-75);
+                    left: rem-calc(-25); 
+                }
+            }   
+        }
+                
+        .thumbnail {
+            background-size: cover;
+            padding-top: 124%;   
+        }
+        
+        &:not(.join-team) {
+        
+            header {
+                background-color: #fff;
+                position: relative;
+                margin-top: rem-calc(-40);  
+                padding: rem-calc(35 60 35 35);
+                z-index: 2;
+                
+                @include breakpoint(xlarge) {
+                    
+                    margin-top: 0;
+                    bottom: rem-calc(-40);
+                    //padding: rem-calc(35 60 35 35);
+                     
+                    width: 100%;
+                    position: absolute;
+                    //top: 100%; 
+                    z-index: 3;
+                }
+                
+                
+                @include breakpoint(xxlarge) {
+                    margin-left: rem-calc(40); 
+                    padding: rem-calc(35 60 35 60);
+                    width: calc(100% - 40px);
+                }
+                
+                      
+                h3  {
+                    margin-bottom: rem-calc(5);   
+                    font-weight: 700;
+                }
+                
+                p {
+                    color: $medium-gray;
+                    font-size: rem-calc(18);
+                    line-height: 1.2;
+                    margin-bottom: 0;
+                } 
+                
+                .linkedin {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    color: #fff;
+                    width: 42px;
+                    height: 42px;
+                    background-color: #2C2E32;
+                    
+                    &:hover {
+                        background-color: $orange;   
+                    }
+                    
+                    svg {
+                        fill: #fff;   
+                    }
+                }
+                
+            }
+        }
+        
+        &.join-team {
+            header {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);   
+                width: calc(100% - 20px);
+                text-align: center;
+                padding: 0 10px;
+                
+                h3 {
+                    @include breakpoint(xxlarge) {
+                        font-size: rem-calc(42);
+                    }
+                }
+            }
+            
+            .button {
+                position: absolute;
+                bottom: -50px;
+                right: 0;   
+            }
+        }
+    }
+}
+
+
+.person {
+    .grid-item {
+        
+        position: relative;
+        
+        .line {
+            position: relative;
+            
+            &:after {
+                content: '';
+                display: block;
+                width: 2px;
+                height: 80px;
+                background: $orange;
+                bottom: 0;
+                left: rem-calc(-10); 
+                z-index: 4; 
+                position: absolute; 
+                
+                @include breakpoint(xxlarge) {
+                    bottom: auto;
+                    top: rem-calc(-75);
+                    left: rem-calc(-25); 
+                }
+            }   
+        }
+                
+        .thumbnail {
+            background-size: cover;
+            padding-top: 124%;   
+        }
+        
+        &:not(.join-team) {
+        
+            header {
+                background-color: #fff;
+                position: relative;
+                margin-top: rem-calc(-40);  
+                padding: rem-calc(35 60 35 35);
+                z-index: 2;
+                
+                @include breakpoint(xlarge) {
+                    
+                    margin-top: 0;
+                    bottom: rem-calc(-40);
+                    //padding: rem-calc(35 60 35 35);
+                     
+                    width: 100%;
+                    position: absolute;
+                    //top: 100%; 
+                    z-index: 3;
+                }
+                
+                
+                @include breakpoint(xxlarge) {
+                    margin-left: rem-calc(40); 
+                    padding: rem-calc(35 60 35 60);
+                    width: calc(100% - 40px);
+                }
+                
+                      
+                h3  {
+                    margin-bottom: rem-calc(5);   
+                    font-weight: 700;
+                }
+                
+                p {
+                    color: $medium-gray;
+                    font-size: rem-calc(18);
+                    line-height: 1.2;
+                    margin-bottom: 0;
+                } 
+                
+                .linkedin {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    color: #fff;
+                    width: 42px;
+                    height: 42px;
+                    background-color: #2C2E32;
+                    
+                    &:hover {
+                        background-color: $orange;   
+                    }
+                    
+                    svg {
+                        fill: #fff;   
+                    }
+                }
+                
+            }
+        }
+        
+        &.join-team {
+            header {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);   
+                width: calc(100% - 20px);
+                text-align: center;
+                padding: 0 10px;
+                
+                h3 {
+                    @include breakpoint(xxlarge) {
+                        font-size: rem-calc(42);
+                    }
+                }
+            }
+            
+            .button {
+                position: absolute;
+                bottom: -50px;
+                right: 0;   
+            }
+        }
+    }   
+}

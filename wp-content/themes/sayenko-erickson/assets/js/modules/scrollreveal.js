@@ -385,14 +385,15 @@ export default {
 		*/
 
 
-		ScrollReveal().reveal('.is-desktop .section-hero', {
+		ScrollReveal().reveal('.is-desktop .section-hero.has-background-image', {
 			delay: 200
 		});
 
-		ScrollReveal().reveal('.is-desktop .section-hero:not(.has-background-image) h1:not(.no-reveal)', {
+		// ScrollReveal().reveal('.is-desktop .section-hero:not(.has-background-image) h1:not(.no-reveal)', {
+		/* ScrollReveal().reveal('.is-desktop .section-hero:not(.has-background-image) h1:not(.no-reveal)', {
 			delay: 400,
 			distance: '100%',
-		});
+		}); */
 
 		ScrollReveal().reveal('.is-desktop .section-hero.has-background-image h1', {
 			delay: 400,
@@ -540,10 +541,10 @@ export default {
 			distance: '100%'
 		});
 
-		ScrollReveal().reveal('.is-desktop article.page', {
+		/* ScrollReveal().reveal('.is-desktop article.page', {
 			delay: 400,
 			distance: '100%'
-		});
+		}); */
 
 
 		// Related Posts
@@ -726,6 +727,66 @@ export default {
 			delay: 200,
 			distance: '100%'
 		});
+
+		function getParentDelay() {
+			const container = document.querySelector('.container');
+
+			// Check if the container element has a data attribute named "data-attribute-name"
+			if (container && container.getAttribute('data-attribute-name')) {
+				
+			}
+		}
+
+		// GeneratePress Blocks
+		$('[data-animation]').each( function() {
+			console.log( $(this) );
+	
+			var settings = {
+				'origin' : 'bottom',
+				'distance' : '100%',
+				'duration': 500,
+				'delay': 200,
+				'opacity': 0,
+				'scale': 1,
+				'reset': false
+			}
+
+			if ( $(this).data('origin') ) {
+				settings.origin = $(this).data('origin');
+			}
+	
+			if ( $(this).data('distance') ) {
+				settings.distance = $(this).data('distance');
+			}
+	
+			if ( $(this).data('duration') ) {
+				settings.duration = $(this).data('duration');
+			}
+	
+			if ( $(this).data('delay') ) {
+				settings.delay = $(this).data('delay');
+			}
+	
+			if ( $(this).data('opacity') ) {
+				settings.scale = $(this).data('opacity');
+			}
+	
+			if ( $(this).data('scale') ) {
+				settings.scale = $(this).data('scale');
+			}
+
+			console.log(settings);
+	
+			ScrollReveal().reveal( $(this), settings );
+		});	
+		
+
+		ScrollReveal().reveal('.is-desktop .gb-container-animate', {
+			delay: 400,
+			distance: '100%',
+			interval: 200
+		});
+
 
 
 		if ($('body').hasClass('paged')) {

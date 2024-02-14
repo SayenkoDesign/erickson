@@ -1,0 +1,21 @@
+// Webinar
+
+.block-webinar {
+    background: #fff;
+    padding-top: rem-calc(75);
+    
+    
+    
+    &.webinar-gated {
+        .video-button {
+            display: none;
+        }
+    }
+    
+    &.webinar-access-granted {
+        .modal-form {
+            display: none;
+        }
+    }
+    
+}

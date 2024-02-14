@@ -1,0 +1,21 @@
+// Case Studies
+
+.block-case-studies {
+    padding-top: rem-calc(75);  
+    padding-bottom: rem-calc(55);
+    
+    header {
+        margin-bottom: rem-calc(60);   
+    }
+    
+    .grid {
+        @include breakpoint(large) {
+            @include xy-grid-layout(2, '.cell', true, 10);
+            @include xy-gutters(10, 'margin', $negative:true); // negative for the nested grid
+            
+            .cell {
+                margin-bottom: rem-calc(10);   
+            }
+        }   
+    }
+}

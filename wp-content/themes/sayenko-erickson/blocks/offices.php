@@ -74,11 +74,19 @@ if( ! class_exists( 'Offices_Block' ) ) {
                         $lines = sprintf( '<div class="details">%s</div>', $lines );
                     }
                 }
+
+
+               $directions = '';
+
+               if(!empty($map)) {
                 
-                $directions = sprintf( '<p class="directions"><a href="https://www.google.com/maps/dir/?api=1&destination=%s,%s" target="_blank">%s [+]</a></p>',                                       $map['lat'], 
-                                       $map['lng'] ,
-                                       _( 'Get Directions', '_s' )
-                                     );
+                    $directions = sprintf( 
+                        '<p class="directions"><a href="https://www.google.com/maps/dir/?api=1&destination=%s,%s" target="_blank">%s [+]</a></p>', 
+                        $map['lat'], 
+                        $map['lng'] ,
+                        __( 'Get Directions', '_s' )
+                    );
+                }
 
                 
                 $active = !$key ? 'true' : 'false';

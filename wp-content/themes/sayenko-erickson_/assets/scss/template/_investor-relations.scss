@@ -1,0 +1,112 @@
+// Investor Relations  
+
+.template-investor-relations {
+    
+    main {
+        padding-top: rem-calc(75); 
+    }
+    
+    .documents .title {
+        font-family: $barlow;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .documents {
+        list-style: none outside none;
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+    
+    .documents .header {
+        border-bottom:  2px solid $light-gray;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
+    
+    .documents li {
+        list-style: inherit;
+        padding-bottom: rem-calc(10);
+    }
+    
+    .documents .date {
+        display: inline-block;
+        margin-right: rem-calc(20);
+        white-space: nowrap;
+        width: 100px;
+    }
+    
+    .documents .link {
+        display: inline-block;
+    }
+    
+    .ndi-text {
+        margin-bottom: rem-calc(30);   
+    }
+    
+    #nondisclosure-agreement {
+        
+        label {
+            padding-left: rem-calc(10);   
+        }
+        
+        button {
+            margin-top: rem-calc(10);   
+        }
+    }
+
+}
+
+.error {
+    background-color: #fce4e4;
+    border: 1px solid $red;
+    color: $red;   
+    padding: rem-calc(15);
+    margin-bottom: rem-calc(20);
+    
+    p:last-child {
+        margin-bottom: 0;   
+    }
+}
+
+.form-container {
+    
+    margin-top: rem-calc(50);
+    
+    &.border-top {
+        border-top: 2px solid $light-gray;   
+        padding-top: rem-calc(30);
+    }
+    
+    form {
+        
+       label {
+            color: $dark-gray;
+            font-size: 13px!important;
+            font-weight: 900!important;
+            letter-spacing: 1px;
+            line-height: 16px!important;
+            text-transform: uppercase;   
+       }
+       
+       input[type="text"],
+       input[type="password"] {
+           width: 280px;
+       }
+        
+    }
+    
+    label {
+        display: block;   
+    }
+    
+    .login-submit {
+        padding-top: rem-calc(10); 
+        
+        button {
+            margin-bottom: 0;   
+        }
+    }
+}

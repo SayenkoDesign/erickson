@@ -1,0 +1,186 @@
+/* CSS Document */
+
+.blog {
+    
+    .section-hero {
+        background-color: #f8f9f9;   
+        padding-top: rem-calc(45);   
+        
+        h1 {
+            margin-bottom: 0;   
+        }
+    } 
+    
+    .site-content {
+        background-color: #f8f9f9; 
+        padding-bottom: rem-calc(50);  
+    }
+    
+    .facetwp-filters.menu {
+        max-width: none;   
+    }
+    
+    .category-select {
+        
+        select {
+            width: rem-calc(240);    
+        }
+        
+        a,
+        button {
+            min-width: rem-calc(150);
+            padding: rem-calc(13.5 16);   
+        }
+    }
+           
+    .facetwp-template {
+        
+        //margin-left: -20px;
+        //margin-right: -20px;
+        
+        //@include xy-grid-layout(1, '.cell', true, 20);
+        //@include xy-gutters(20, 'margin', $negative:true); // negative for the nested grid
+        
+        @include breakpoint(medium) {
+            @include xy-grid-layout(2, '.cell', true, 20);
+            @include xy-gutters(20, 'margin', $negative:true); // negative for the nested grid
+        }
+        
+        
+        @include breakpoint(large) {
+            @include xy-grid-layout(4, '.cell', true, 20);
+            @include xy-gutters(20, 'margin', $negative:true); // negative for the nested grid
+        }
+        
+        .cell {
+            margin-bottom: 20px!important;
+                
+            background-color: #fff;
+            box-shadow: $box-shadow;
+            
+            margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
+            
+            @include breakpoint(large) {
+                margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
+            }   
+        }
+        
+                        
+        article {
+            
+            .post-hero {
+                display: block;
+                background: $gray;
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+                position: relative;        
+                padding-top: 93%;
+                
+                &:hover {
+                    opacity: .8;   
+                }
+            }
+                    
+            header {
+                padding: 15px 20px 40px;   
+            }
+            
+            .posted-on {
+                color: #4A4A4A;
+                display: block;
+                font-size: 15px;
+                letter-spacing: 0.5px;
+                line-height: 1.666666667;
+                margin-bottom: 10px;
+            }
+            
+            h3 {
+                a {
+                    color: $dark-gray;   
+                }
+                
+                margin-bottom: rem-calc(30);
+            }
+            
+            .more {
+                display: none;
+                margin-top: rem-calc(30);
+            }
+            
+            
+            &:nth-child(5n+1) {
+                
+                //.blog:not(.is-paged) & {
+                
+                    @include breakpoint(medium) {
+                        display: flex;
+                        //width: calc(100% - #{rem-calc(map-get($grid-margin-gutters, medium))}); 
+                        width: calc(100% - 20px); 
+                        
+                        .post-hero {
+                            padding-top: 25%;
+                            width: 50%;
+                        }
+                        
+                        header {
+                            padding: rem-calc(15 15 25 25); 
+                            width: 50%;
+                        }
+                    }
+                    
+                    @include breakpoint(large) {
+                        width: calc(100% - 20px); 
+                        
+                        header {
+                            padding: rem-calc(30 30 50 50); 
+                        }
+                    }
+    
+                    
+                    h3 {
+                        
+                        font-size: rem-calc(32);
+                        
+                        @include breakpoint(large) {
+                            font-size: rem-calc(32);
+                        }
+                        
+                        margin-bottom: rem-calc(30);
+                    }
+                    
+                    .more {
+                        display: block;   
+                    }
+                
+                //}
+            }
+            
+            &:nth-child(11n) {
+                @include breakpoint(medium) {                    
+                    .post-hero {
+                        order: 2;
+                    }
+                    
+                    header {
+                        order: 1;
+                    }
+                }
+            }
+            
+            &.sticky {
+                .post-hero {
+                    padding-top: 33%;   
+                }
+                
+                h6 {
+                    text-transform: none;   
+                }
+            }
+                        
+        }
+    
+    }
+
+    
+}

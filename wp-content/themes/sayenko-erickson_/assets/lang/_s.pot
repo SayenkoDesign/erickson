@@ -1,0 +1,922 @@
+# <!=Copyright (C) 2021 Sayenko Design
+# This file is distributed under the GNU General Public License v2 or later.=!>
+msgid ""
+msgstr ""
+"Project-Id-Version: Erickson Inc 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/sayenko-erickson\n"
+"POT-Creation-Date: 2021-06-02 15:23:01+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: node-wp-i18n 1.2.3\n"
+
+#: 404.php:28
+msgid "Back to home"
+msgstr ""
+
+#: archive-case_study.php:23 archive-fleet.php:95 archive-video_gallery.php:23
+#: page-templates/photo-gallery.php:49
+msgid "reset"
+msgstr ""
+
+#: archive-fleet.php:93
+msgid "Sort By"
+msgstr ""
+
+#: blocks/clients.php:61
+msgid "See Case"
+msgstr ""
+
+#: blocks/featured-post.php:90 template-parts/content-post-column.php:31
+msgid "read more"
+msgstr ""
+
+#: blocks/photo-gallery.php:36 template-parts/fleet/post-content.php:22
+msgid "Share This:"
+msgstr ""
+
+#: blocks/webinar.php:95
+msgid "watch full video"
+msgstr ""
+
+#: comments.php:40 comments.php:61
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:43 comments.php:64
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:44 comments.php:65
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:77
+msgid "Comments are closed."
+msgstr ""
+
+#: footer-landing_page.php:19 footer.php:97
+msgid "All rights reserved."
+msgstr ""
+
+#: functions.php:75
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:76
+msgid "Secondary Menu"
+msgstr ""
+
+#: functions.php:77
+msgid "Services Menu"
+msgstr ""
+
+#: functions.php:78
+msgid "Copyright Menu"
+msgstr ""
+
+#: functions.php:126
+msgid "Footer"
+msgstr ""
+
+#: functions.php:134
+msgid "Widget area for %s"
+msgstr ""
+
+#: header-landing_page.php:27 header.php:41
+msgid "Skip to content"
+msgstr ""
+
+#: header-landing_page.php:28 header.php:42
+msgid "Skip to footer"
+msgstr ""
+
+#: index.php:65
+msgid "Select one"
+msgstr ""
+
+#: index.php:122
+msgid "Reset"
+msgstr ""
+
+#: lib/acf/blocks.php:21
+msgid "Erickson Custom Blocks"
+msgstr ""
+
+#: lib/acf/blocks.php:38
+msgid "Approach"
+msgstr ""
+
+#: lib/acf/blocks.php:39 lib/acf/blocks.php:267
+msgid "approach"
+msgstr ""
+
+#: lib/acf/blocks.php:51
+msgid "Awrds & Accolades"
+msgstr ""
+
+#: lib/acf/blocks.php:52
+msgid "awards & accolades block"
+msgstr ""
+
+#: lib/acf/blocks.php:64
+msgid "Benefits"
+msgstr ""
+
+#: lib/acf/blocks.php:65
+msgid "benefits"
+msgstr ""
+
+#: lib/acf/blocks.php:92 lib/post-types/cpt-case-study.php:24
+#: template-parts/case-study/hero.php:39
+msgid "Case Studies"
+msgstr ""
+
+#: lib/acf/blocks.php:93
+msgid "Case Studies grid"
+msgstr ""
+
+#: lib/acf/blocks.php:105
+msgid "Clients"
+msgstr ""
+
+#: lib/acf/blocks.php:106
+msgid "clients"
+msgstr ""
+
+#: lib/acf/blocks.php:119
+msgid "Columns"
+msgstr ""
+
+#: lib/acf/blocks.php:120
+msgid "Columns block"
+msgstr ""
+
+#: lib/acf/blocks.php:132
+msgid "Commitment"
+msgstr ""
+
+#: lib/acf/blocks.php:133
+msgid "Commitment block"
+msgstr ""
+
+#: lib/acf/blocks.php:145
+msgid "Generic Content"
+msgstr ""
+
+#: lib/acf/blocks.php:146
+msgid "generic content block"
+msgstr ""
+
+#: lib/acf/blocks.php:159
+msgid "NAIC Codes"
+msgstr ""
+
+#: lib/acf/blocks.php:160
+msgid "NAIC Codes block"
+msgstr ""
+
+#: lib/acf/blocks.php:173
+msgid "Prime Contracts"
+msgstr ""
+
+#: lib/acf/blocks.php:174
+msgid "Prime Contracts block"
+msgstr ""
+
+#: lib/acf/blocks.php:186
+msgid "Core Values"
+msgstr ""
+
+#: lib/acf/blocks.php:187
+msgid "Core values block"
+msgstr ""
+
+#: lib/acf/blocks.php:199
+msgid "Customers"
+msgstr ""
+
+#: lib/acf/blocks.php:200
+msgid "Customer logos"
+msgstr ""
+
+#: lib/acf/blocks.php:212
+msgid "Erickson Advantage"
+msgstr ""
+
+#: lib/acf/blocks.php:213
+msgid "Erickson Advantage slideshow"
+msgstr ""
+
+#: lib/acf/blocks.php:226
+msgid "Featured Post"
+msgstr ""
+
+#: lib/acf/blocks.php:227
+msgid "Erickson featured post"
+msgstr ""
+
+#: lib/acf/blocks.php:239 lib/post-types/cpt-fleet.php:23
+#: lib/post-types/cpt-fleet.php:24
+msgid "Fleet"
+msgstr ""
+
+#: lib/acf/blocks.php:240
+msgid "Services Fleet block"
+msgstr ""
+
+#: lib/acf/blocks.php:252 lib/acf/blocks.php:253
+msgid "Hero"
+msgstr ""
+
+#: lib/acf/blocks.php:266
+msgid "Jobs"
+msgstr ""
+
+#: lib/acf/blocks.php:279
+msgid "Mission & Vision"
+msgstr ""
+
+#: lib/acf/blocks.php:280
+msgid "Mission & Vision block"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Photo Gallery"
+msgstr ""
+
+#: lib/acf/blocks.php:293
+msgid "photo gallery"
+msgstr ""
+
+#: lib/acf/blocks.php:307
+msgid "Service Quote"
+msgstr ""
+
+#: lib/acf/blocks.php:308
+msgid "service quote"
+msgstr ""
+
+#: lib/acf/blocks.php:321 template-parts/case-study/results.php:44
+msgid "Results"
+msgstr ""
+
+#: lib/acf/blocks.php:322
+msgid "results"
+msgstr ""
+
+#: lib/acf/blocks.php:335
+msgid "Services List"
+msgstr ""
+
+#: lib/acf/blocks.php:336
+msgid "list of services by category"
+msgstr ""
+
+#: lib/acf/blocks.php:348 lib/post-types/cpt-testimonial.php:24
+msgid "Testimonials"
+msgstr ""
+
+#: lib/acf/blocks.php:349
+msgid "testimonials"
+msgstr ""
+
+#: lib/acf/blocks.php:361
+msgid "Values"
+msgstr ""
+
+#: lib/acf/blocks.php:362
+msgid "values"
+msgstr ""
+
+#: lib/acf/blocks.php:374 lib/post-types/cpt-webinar.php:24
+msgid "Webinars"
+msgstr ""
+
+#: lib/acf/blocks.php:375
+msgid "Erickson Webinars"
+msgstr ""
+
+#: lib/acf/blocks.php:386 lib/post-types/cpt-webinar.php:23
+msgid "Webinar"
+msgstr ""
+
+#: lib/acf/blocks.php:387
+msgid "Erickson Webinar"
+msgstr ""
+
+#: lib/acf/gutenberg.php:42 lib/functions/gutenberg.php:27
+msgid "Light Gray"
+msgstr ""
+
+#: lib/acf/gutenberg.php:43 lib/acf/gutenberg.php:88
+#: lib/functions/gutenberg.php:32
+msgid "White"
+msgstr ""
+
+#: lib/acf/gutenberg.php:44
+msgid "Navy"
+msgstr ""
+
+#: lib/acf/gutenberg.php:89
+msgid "Gray"
+msgstr ""
+
+#: lib/acf/gutenberg.php:90
+msgid "Dark Blue"
+msgstr ""
+
+#: lib/acf/gutenberg.php:102
+msgid "Homepage Thumb"
+msgstr ""
+
+#: lib/acf/gutenberg.php:103
+msgid "Search Thumb"
+msgstr ""
+
+#: lib/foundation/class-foundation-accordion.php:36
+msgid "It is required to pass an array of arguments: title, content"
+msgstr ""
+
+#: lib/foundation/class-foundation-accordion.php:40
+#: lib/foundation/class-foundation-tabs.php:51
+msgid "Tab title and content are required"
+msgstr ""
+
+#: lib/foundation/class-foundation-tabs.php:47
+msgid ""
+"It is required to pass an array of arguments: title, content, with optional "
+"href, active and id"
+msgstr ""
+
+#: lib/foundation/class-foundation-tabs.php:62
+msgid "It is required to pass a title"
+msgstr ""
+
+#: lib/functions/blog.php:30
+msgid "<span>« Previous Page</span>"
+msgstr ""
+
+#: lib/functions/blog.php:31
+msgid "<span>Next Page »</span>"
+msgstr ""
+
+#: lib/functions/blog.php:82
+msgid "Post navigation"
+msgstr ""
+
+#: lib/functions/facetwp.php:112 lib/functions/facetwp.php:116
+msgid "Previous Page"
+msgstr ""
+
+#: lib/functions/facetwp.php:144 lib/functions/facetwp.php:148
+msgid "Next Page"
+msgstr ""
+
+#: lib/functions/gutenberg.php:22
+msgid "Dark Gray"
+msgstr ""
+
+#: lib/functions/investors.php:11
+msgid "Forgot your password?"
+msgstr ""
+
+#: lib/functions/investors.php:35
+msgid "Username or Email"
+msgstr ""
+
+#: lib/functions/investors.php:40
+msgid "Reset my password"
+msgstr ""
+
+#: lib/functions/investors.php:59
+msgid "Username or Email Address"
+msgstr ""
+
+#: lib/functions/investors.php:60
+msgid "Password"
+msgstr ""
+
+#: lib/functions/investors.php:61
+msgid "Remember Me"
+msgstr ""
+
+#: lib/functions/investors.php:62
+msgid "Log In"
+msgstr ""
+
+#: lib/functions/template-tags.php:9 lib/functions/template-tags.php:62
+#: lib/functions/template-tags.php:192
+#. translators: %s template
+msgid "%s does not exist."
+msgstr ""
+
+#: lib/functions/template-tags.php:252 lib/functions/template-tags.php:258
+#. translators: used between list items, there is a space after the comma
+msgid ", "
+msgstr ""
+
+#: lib/functions/template-tags.php:254
+msgid "Posted in %1$s"
+msgstr ""
+
+#: lib/functions/template-tags.php:260
+msgid "Tagged %1$s"
+msgstr ""
+
+#: lib/functions/template-tags.php:266
+msgid "Leave a comment"
+msgstr ""
+
+#: lib/functions/template-tags.php:266
+msgid "1 Comment"
+msgstr ""
+
+#: lib/functions/template-tags.php:266
+msgid "% Comments"
+msgstr ""
+
+#: lib/functions/template-tags.php:273 lib/includes/cpt-core/CPT_Core.php:144
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:128
+#. translators: %s: Name of current post
+msgid "Edit %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:77 lib/includes/cpt-core/CPT_Core.php:81
+#: lib/includes/cpt-core/CPT_Core.php:85
+msgid "It is required to pass a single, plural and slug string to CPT_Core"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:142
+#: lib/includes/cpt-core/CPT_Core.php:143
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:131
+msgid "Add New %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:145
+msgid "New %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:146
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:127
+msgid "All %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:147
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:129
+msgid "View %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:148
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:126
+msgid "Search %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:149
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:134
+msgid "No %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:150
+msgid "No %s found in Trash"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:151
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:138
+msgid "Parent %s:"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:153
+msgid "Insert into %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:154
+msgid "Uploaded to this %s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:155
+msgid "%s list"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:156
+msgid "%s list navigation"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:157
+msgid "Filter %s list"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:207
+msgid "Custom field updated."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:208
+msgid "Custom field deleted."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:209
+#: lib/includes/cpt-core/CPT_Core.php:226
+msgid "%1$s updated."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:211
+#. translators: %s: date and time of the revision
+msgid "%1$s restored to revision from %2$s"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:212
+msgid "%1$s saved."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:217
+msgid "%1$s updated. <a href=\"%2$s\">View %1$s</a>"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:218
+msgid "%1$s published. <a href=\"%2$s\">View %1$s</a>"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:219
+msgid "%1$s submitted. <a target=\"_blank\" href=\"%2$s\">Preview %1$s</a>"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:221
+#. translators: Publish box date format, see http:php.net/date
+msgid ""
+"%1$s scheduled for: <strong>%2$s</strong>. <a target=\"_blank\" "
+"href=\"%3$s\">Preview %1$s</a>"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:221
+#: lib/includes/cpt-core/CPT_Core.php:230
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:222
+msgid "%1$s draft updated. <a target=\"_blank\" href=\"%2$s\">Preview %1$s</a>"
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:227
+msgid "%1$s published."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:228
+msgid "%1$s submitted."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:230
+#. translators: Publish box date format, see http:php.net/date
+msgid "%1$s scheduled for: <strong>%2$s</strong>."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:231
+msgid "%1$s draft updated."
+msgstr ""
+
+#: lib/includes/cpt-core/CPT_Core.php:249
+msgid "%1$s %2$s updated."
+msgid_plural "%1$s %3$s updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/includes/cpt-core/CPT_Core.php:250
+msgid "%1$s %2$s not updated, somebody is editing it."
+msgid_plural "%1$s %3$s not updated, somebody is editing them."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/includes/cpt-core/CPT_Core.php:251
+msgid "%1$s %2$s permanently deleted."
+msgid_plural "%1$s %3$s permanently deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/includes/cpt-core/CPT_Core.php:252
+msgid "%1$s %2$s moved to the Trash."
+msgid_plural "%1$s %3$s moved to the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/includes/cpt-core/CPT_Core.php:253
+msgid "%1$s %2$s restored from the Trash."
+msgid_plural "%1$s %3$s restored from the Trash."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/includes/cpt-core/CPT_Core.php:305
+msgid "%s Title"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:84
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:88
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:92
+msgid "It is required to pass a single, plural and slug string to Taxonomy_Core"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:130
+msgid "Update %s"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:132
+msgid "New %s Name"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:133
+msgid "No %s found."
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:137
+msgid "Parent %s"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:141
+msgid "Popular %s"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:142
+msgid "Separate %s with commas"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:143
+msgid "Add or remove %s"
+msgstr ""
+
+#: lib/includes/taxonomy-core/Taxonomy_Core.php:144
+msgid "Choose from the most used %s"
+msgstr ""
+
+#: lib/includes/taxonomy-single-term/class.taxonomy-single-term.php:246
+msgid "None"
+msgstr ""
+
+#: lib/includes/taxonomy-single-term/class.taxonomy-single-term.php:282
+msgid "Clear"
+msgstr ""
+
+#: lib/includes/taxonomy-single-term/class.taxonomy-single-term.php:334
+msgid "Add New"
+msgstr ""
+
+#: lib/includes/taxonomy-single-term/class.taxonomy-single-term.php:363
+msgid "There was a problem adding a new %s"
+msgstr ""
+
+#: lib/includes/taxonomy-single-term/class.taxonomy-single-term.php:394
+msgid "Cheatin' Huh? Could not verify security token"
+msgstr ""
+
+#: lib/post-types/cpt-case-study.php:23
+msgid "Case Study"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "History"
+msgstr ""
+
+#: lib/post-types/cpt-history.php:98
+msgid "History Category"
+msgstr ""
+
+#: lib/post-types/cpt-history.php:99
+msgid "History Categories"
+msgstr ""
+
+#: lib/post-types/cpt-landing-page.php:23
+msgid "Landing Page"
+msgstr ""
+
+#: lib/post-types/cpt-landing-page.php:24
+msgid "Landing Pages"
+msgstr ""
+
+#: lib/post-types/cpt-modal.php:23
+msgid "Modal"
+msgstr ""
+
+#: lib/post-types/cpt-modal.php:24
+msgid "Modals"
+msgstr ""
+
+#: lib/post-types/cpt-people.php:23
+msgid "Person"
+msgstr ""
+
+#: lib/post-types/cpt-people.php:24
+msgid "People"
+msgstr ""
+
+#: lib/post-types/cpt-people.php:145
+msgid "Department"
+msgstr ""
+
+#: lib/post-types/cpt-people.php:146
+msgid "Departments"
+msgstr ""
+
+#: lib/post-types/cpt-photo-gallery.php:23
+msgid "Photo"
+msgstr ""
+
+#: lib/post-types/cpt-service.php:23
+msgid "Service"
+msgstr ""
+
+#: lib/post-types/cpt-service.php:24
+msgid "Services"
+msgstr ""
+
+#: lib/post-types/cpt-testimonial.php:23
+msgid "Testimonial"
+msgstr ""
+
+#: lib/post-types/cpt-video-gallery.php:23
+msgid "Video"
+msgstr ""
+
+#: lib/post-types/cpt-video-gallery.php:24
+#: template-parts/video-gallery/hero.php:40
+msgid "Video Gallery"
+msgstr ""
+
+#: lib/post-types/cpt-webinar.php:73
+msgid "Webinar Date"
+msgstr ""
+
+#: lib/post-types/taxonomies.php:4
+msgid "Service Category"
+msgstr ""
+
+#: lib/post-types/taxonomies.php:5
+msgid "Service Categories"
+msgstr ""
+
+#: lib/post-types/taxonomies.php:22
+msgid "Industry"
+msgstr ""
+
+#: lib/post-types/taxonomies.php:23
+msgid "Industries"
+msgstr ""
+
+#: lib/post-types/taxonomies.php:38
+msgid "Location"
+msgstr ""
+
+#: lib/post-types/taxonomies.php:39
+msgid "Locations"
+msgstr ""
+
+#: page-templates/thank-you.php:132 template-parts/case-study/challenge.php:56
+#: template-parts/case-study/challenge.php:91
+#: template-parts/fleet/details.php:92
+msgid "download"
+msgstr ""
+
+#: single-post.php:31
+msgid "Share This"
+msgstr ""
+
+#: template-parts/blog/related-posts.php:47
+#: template-parts/fleet/related-posts.php:48
+#: template-parts/thank-you/related-posts.php:47
+msgid "You might also be interested in"
+msgstr ""
+
+#: template-parts/case-study/challenge.php:46
+msgid "Challenge"
+msgstr ""
+
+#: template-parts/case-study/challenge.php:126
+#: template-parts/landing-page/details.php:65
+#: template-parts/landing-page/form-v3.php:67
+msgid "industry"
+msgstr ""
+
+#: template-parts/case-study/challenge.php:130
+#: template-parts/landing-page/details.php:69
+#: template-parts/landing-page/form-v3.php:71
+msgid "services"
+msgstr ""
+
+#: template-parts/case-study/challenge.php:134
+#: template-parts/landing-page/details.php:73
+#: template-parts/landing-page/form-v3.php:75
+msgid "location"
+msgstr ""
+
+#: template-parts/case-study/solution.php:44
+msgid "Solution"
+msgstr ""
+
+#: template-parts/contact/offices.php:80
+msgid "Get Directions"
+msgstr ""
+
+#: template-parts/content-none.php:13
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:19
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:23
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:26
+msgid "Sorry no results found."
+msgstr ""
+
+#: template-parts/content-page.php:18 template-parts/content-webinar.php:18
+#: template-parts/content.php:34
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-post-column.php:28
+msgid "Featured"
+msgstr ""
+
+#: template-parts/content-post.php:40
+msgid "Previous Post"
+msgstr ""
+
+#: template-parts/content-post.php:42
+msgid "Next Post"
+msgstr ""
+
+#: template-parts/content.php:27
+#. translators: %s: Name of current post.
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: template-parts/fleet/hero.php:62 template-parts/webinar/hero.php:62
+msgid "Our<br />Fleet"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Erickson Inc"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Sayenko Design"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://sayenkodesign.com"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "About"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Contact"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Form"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Investor Relations"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "No Blocks"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Team"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Thank You"
+msgstr ""
+
+#: comments.php:31
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/functions/template-tags.php:232
+msgctxt "post date"
+msgid "%s"
+msgstr ""
+
+#: searchform.php:13
+msgctxt "placeholder"
+msgid "Search&hellip;"
+msgstr ""
+
+#: searchform.php:18
+msgctxt "submit button"
+msgid "Search"
+msgstr ""

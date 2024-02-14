@@ -1,0 +1,192 @@
+// FacetWP
+
+.facetwp-overlay {
+    background-color: transparent!important;
+}
+
+.facetwp-counter {
+    display: none;   
+}
+
+.facetwp-filters {    
+    
+    &.menu {
+        
+        margin: 0 auto rem-calc(40);
+        max-width: rem-calc(600);
+        text-align: center;
+        justify-content: center;
+        align-items: flex-end;
+        
+        li {
+            padding: rem-calc(0 20 20);
+        }
+        
+        .facet-label {
+            color: #4A4A4A;
+            font-family: $barlow;
+            font-size: rem-calc(12);
+            text-transform: uppercase;
+            font-weight: 900;
+            margin-bottom: 0;  
+            text-align: left; 
+        }
+        
+        .facetwp-facet {
+            margin-bottom: 0;   
+        }
+        
+        .facetwp-dropdown,
+        .facetwp-sort-select {
+            width: rem-calc(240);
+        }
+    }
+    
+    .facet-label {
+        font-family: $barlow;
+        font-size: rem-calc(18);
+        font-weight: 700;
+        margin-bottom: rem-calc(18);  
+        text-align: left; 
+    }
+    
+    button {
+        padding: rem-calc(13.5 16)!important;
+        min-width: rem-calc(150);   
+    }
+                    
+}   
+
+
+.facetwp-checkbox {
+    background: none!important;
+    padding-left: 30px!important;
+    position: relative;
+    
+    font-family: $barlow;
+    font-size: rem-calc(18);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+    margin-bottom: 8px!important;
+    
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        margin: auto;
+        left: 2px;
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #000;
+        border-radius: 2px;
+    }
+    
+    &:after {
+        left: 0;
+        top: 4px;
+        content: '';
+        position: absolute;
+        z-index: 1;
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        border-radius: 2px;
+    }
+    
+    &.checked {
+        background-image: none;
+        
+        &:before {
+            border-color: #fff;
+        }
+        
+        &:after {
+            background-color: $orange;
+        }
+    }
+}
+
+.facetwp-reset {
+    font-family: $barlow;
+    font-size: rem-calc(18);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+    margin-bottom: 8px!important; 
+    cursor: pointer;
+    
+    &:hover {
+        color: $orange;
+    }  
+}
+
+.facetwp-radio {
+    background: none!important;
+    padding-left: 30px!important;
+    position: relative;
+    
+    font-family: $barlow;
+    font-size: rem-calc(18);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+    margin-bottom: 8px!important;
+    
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        margin: auto;
+        left: 2px;
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #000;
+        border-radius: 50%;
+    }
+    
+    &:after {
+        left: 0;
+        top: 4px;
+        content: '';
+        position: absolute;
+        z-index: 1;
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        border-radius: 50%;
+    }
+    
+    &.checked {
+        background-image: none;
+        
+        &:before {
+            border-color: #fff;
+        }
+        
+        &:after {
+            background-color: $orange;
+        }
+    }
+    
+    &:not(.disabled):hover {
+        color: $orange;
+    }
+}
+
+
+.facetwp-type-fselect .fs-wrap.multiple .fs-option.selected .fs-checkbox i {
+	 background-color: $orange;
+}
+
+.facetwp-facet.facetwp-facet-load_more {
+    margin-bottom: 0; 
+    padding: rem-calc(40 0 25); 
+    text-align: center;
+    
+    button {
+        margin: rem-calc(40 auto 25); 
+    }
+}

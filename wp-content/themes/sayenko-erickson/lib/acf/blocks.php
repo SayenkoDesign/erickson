@@ -521,7 +521,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
         
         
         
-        $allowed_blocks = array(
+        /* $allowed_blocks = array(
             'acf/hero',
             'acf/approach',
             'acf/clients',
@@ -535,7 +535,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/codes',
             'acf/quote',
 
-        );      
+        );       */
     }
     
     // Remove blocks if array exists
@@ -550,7 +550,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
     return $allowed_blocks;
  
 }
-add_filter( 'allowed_block_types', '_s_allowed_block_types', 10, 2 );
+// add_filter( 'allowed_block_types', '_s_allowed_block_types', 10, 2 );
 
 
 

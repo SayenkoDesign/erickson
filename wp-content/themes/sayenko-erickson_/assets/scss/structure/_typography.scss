@@ -1,0 +1,34 @@
+// Typography
+
+h1,
+h2,
+h3,
+h4,
+h5, 
+h6 {
+    letter-spacing: 0.7px; 
+    text-transform: uppercase; 
+}
+
+h1 {
+    letter-spacing: 0.7px;   
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 500;   
+}
+
+ol {
+ 
+ li {
+    margin: rem-calc(0 auto 10 0);   
+    
+    ol {
+        margin-top: rem-calc(12);   
+    }
+ }
+    
+}

@@ -1,0 +1,98 @@
+//
+// Footer
+// --------------------------------------------------
+
+.site-footer {
+    
+    .wrap {
+        margin: 0 auto;
+        max-width: $global-width;
+        position: relative;   
+        
+        @include breakpoint(xxlarge) {
+            //padding-right: rem-calc(50);
+        }
+    }
+    
+    .cell {
+        padding-top: rem-calc(16); 
+        text-align: center;  
+        
+        @include breakpoint(large) {
+            text-align: left;
+        }
+    }
+         
+    p {
+        color: $dark-gray;
+        font-size: rem-calc(11);
+        line-height: (16/11); 
+        margin-bottom: rem-calc(16); 
+        
+        a {
+            text-decoration: underline;
+            color: $dark-gray;
+            
+            &:hover {
+                color: lighten($dark-gray, 20%);   
+            }
+        }
+        
+        span {
+            display: block; 
+            
+            @include breakpoint(xlarge) {
+                display: inline;
+            }
+        }
+    }
+    
+}
+
+
+.social-icons {
+        
+    display: flex;
+    justify-content: center;
+    @include list-reset;
+    margin: 0 rem-calc(-10);
+
+    li {
+        display: inline-block;
+        margin-bottom: 16px;
+        padding: 0 rem-calc(10);
+    }
+
+    a {
+        color: $orange;
+        transition: 250ms;
+        width: 32px;
+        height: 32px;
+        display: block;
+        border: 2px solid $orange;
+        border-radius: 50%;
+        position: relative;
+
+        &:hover {
+            background-color: $orange;
+            color: $white;
+
+            &:hover {
+                svg {
+                    fill: $white;
+                }
+            }
+        }
+    }
+
+    svg {
+        width: 22px;
+        height: auto;
+        fill: $orange;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+}

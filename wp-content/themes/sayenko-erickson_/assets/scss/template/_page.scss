@@ -1,0 +1,61 @@
+// Page
+body {
+	//max-width: 2560px;
+	//margin: 0 auto;
+    position: relative;
+}
+
+@include breakpoint(xlarge) {
+    .compensate-for-scrollbar .site-header {
+        width: calc(100% - 15px);
+    }   
+}
+
+
+.template-no-blocks {
+    
+    .site-main {
+        margin: 0 auto;
+        max-width: rem-calc(900);   
+    }
+    
+    .entry-content {
+        padding-top: rem-calc(75);
+        padding-bottom: rem-calc(75);
+    }
+    
+}
+
+
+.page-template-default {
+    
+    .entry-content {
+        .gform_body {
+            margin-top: -17px;   
+        }
+    }
+    
+}
+
+.error404 {
+
+    .site-main {
+        padding-top: rem-calc(75);
+            
+        @include breakpoint(large) {
+            padding-top: rem-calc(150);
+        } 
+        
+        
+        padding-bottom: rem-calc(50);
+        
+        @include breakpoint(xxlarge) {
+            padding-bottom: rem-calc(100);
+        } 
+        
+        .button-wrapper {
+            padding-top: rem-calc(40);   
+        }
+    }
+    
+ }

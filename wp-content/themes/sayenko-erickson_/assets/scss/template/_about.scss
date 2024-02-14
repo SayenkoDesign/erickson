@@ -1,0 +1,45 @@
+// About
+
+
+.page-template-about {
+    
+    .block-hero {
+        z-index: 0;
+        
+        .hero-content {
+            padding-bottom: rem-calc(150);
+            
+        }
+        
+    }
+        
+    .block-mission-vision { 
+        
+        &.block-2 {
+             @include full-width; 
+             //background-color: #EFF3F0;
+             
+             .container {
+                position: relative;
+                z-index: 2;
+                margin: rem-calc(-100) auto 0!important;
+                
+                @include breakpoint(large) {
+                    margin: rem-calc(-100) auto 0!important;
+                }          
+            }   
+        }
+    
+    
+        
+    }
+    
+    .block-core-values { 
+        &.block-3 {
+             @include full-width; 
+             //background-color: #EFF3F0;   
+        }
+    }
+    
+            
+}

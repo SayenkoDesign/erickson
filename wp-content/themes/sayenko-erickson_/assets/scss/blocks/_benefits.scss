@@ -1,0 +1,24 @@
+// Benefits
+
+.block-benefits {
+        
+    padding-top: rem-calc(75);
+    padding-bottom: rem-calc(75);
+    
+    @include full-width;
+    
+    header {
+        margin-bottom: rem-calc(45);   
+    }
+    
+    .grid {
+        text-align: center;
+        .grid-image {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            height: rem-calc(110);
+            margin-bottom: rem-calc(35);
+        }
+    }
+}
