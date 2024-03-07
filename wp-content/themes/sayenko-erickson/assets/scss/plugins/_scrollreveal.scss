@@ -13,7 +13,7 @@ html.sr .no-reveal {
 
 html.sr .is-desktop {
 
-	.section-hero,
+	.section-hero.has-background-image,
 	.block-hero {
 		h1,
 		h3,
@@ -29,8 +29,17 @@ html.sr .is-desktop {
 
 	.block-services .grid-item,
 	.block-customers header,
-	.block-customers .logos li, {
+	.block-customers .logos li {
 		visibility: hidden;
+	}
+
+	.block-offices,
+	.block-offices header {
+		visibility: hidden;
+	}
+
+	article.page {
+		//visibility: hidden;
 	}
 
 }
@@ -237,4 +246,11 @@ html.sr .is-desktop {
 	.block-webinar {
 		visibility: hidden;
 	}
+}
+
+
+// GeneratePress
+
+html.sr .is-desktop [data-animation] {
+	visibility: hidden;
 }

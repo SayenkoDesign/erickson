@@ -92,12 +92,12 @@ echo $footer_cta;
                 
                 // © 2019 Erickson Incorporated. All rights reserved. Web Design by Sayenko Design
         
-                printf( '<div class="copyright"><p>&copy; %s Erickson Incorporated. %s %s <span><a href="%s">Web Design</a> by <a href="%s">Sayenko Design</a></span></p></div>', 
+                printf( '<div class="copyright"><p>&copy; %s Erickson Incorporated. %s %s <span><a href="%s">Professional Web Design</a> by <a href="%s">Sayenko Design</a></span></p></div>', 
                           date( 'Y' ), 
                           __( 'All rights reserved.', '_s' ),
                           $menu, 
-                          'https://www.sayenkodesign.com',
-                          'https://www.sayenkodesign.com'
+                          'https://www.sayenkodesign.com/professional-web-design/',
+                          'https://www.sayenkodesign.com/professional-web-design/'
                                
                     );
                 ?>

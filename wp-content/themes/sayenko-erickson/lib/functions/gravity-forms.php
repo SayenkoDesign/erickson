@@ -103,18 +103,24 @@ add_filter( 'gform_confirmation', function ( $confirmation, $form, $entry ) {
         
         
         if( $form_id == $form['id'] ) {
-            $url = $form['confirmation']['url'];
-            $find =  defined( 'JSON_HEX_TAG' ) ? json_encode( $url, JSON_HEX_TAG ) : json_encode( $url );
-            $find = str_replace( '"', '', $find );
-            GFCommon::log_debug( 'case study confirmation url old: ' . $find );
+            
+            // $find =  defined( 'JSON_HEX_TAG' ) ? json_encode( $url, JSON_HEX_TAG ) : json_encode( $url );
+            // $find = str_replace( '"', '', $find );
+            // GFCommon::log_debug( 'case study confirmation url old: ' . $find );
             // $redirect = rgar( $entry, '6' );
+            // $challenge = get_field( 'challenge' );
+            // $redirect = $challenge['form_handler'];
+            // $replace =  defined( 'JSON_HEX_TAG' ) ? json_encode( $redirect, JSON_HEX_TAG ) : json_encode( $redirect );
+            // $replace = str_replace( '"', '', $replace );
+            // GFCommon::log_debug( 'case study confirmation url new: ' . $replace );
+            // GFCommon::log_debug( 'case study old confirmation: ' . $confirmation );
+            // $confirmation = str_replace( $find, $replace, $confirmation );
+
+            $url = $form['confirmation']['url'];
             $challenge = get_field( 'challenge' );
             $redirect = $challenge['form_handler'];
-            $replace =  defined( 'JSON_HEX_TAG' ) ? json_encode( $redirect, JSON_HEX_TAG ) : json_encode( $redirect );
-            $replace = str_replace( '"', '', $replace );
-            GFCommon::log_debug( 'case study confirmation url new: ' . $replace );
-            GFCommon::log_debug( 'case study old confirmation: ' . $confirmation );
-            $confirmation = str_replace( $find, $replace, $confirmation );
+            $confirmation['redirect'] = str_replace( $url, $redirect, $confirmation['redirect'] );
+            GFCommon::log_debug( 'case study new confirmation: ' . print_r( $confirmation, 1) );
         }
     }
             

@@ -246,6 +246,19 @@ function _s_acf_register_blocks() {
             //'mode' => 'edit',
             'supports' => [ 'align' => false, 'anchor' => true ]
 		) );	
+
+		acf_register_block_type( array(
+			'name'            => 'offices',
+			'title'           => __( 'Offices', '_s' ),
+			'description'     => __( 'Offices block', '_s' ),
+			'render_callback' => '_s_acf_block_render_callback',
+			'category'        => 'theme-blocks',
+			'icon'            => 'admin-comments',
+			'keywords'        => array( 'office block' ),
+            'post_types' => array('page', 'service' ),
+            //'mode' => 'edit',
+            'supports' => [ 'align' => false, 'anchor' => true, 'multiple' => false ]
+		) );
         
         acf_register_block_type( array(
 			'name'            => 'hero',
@@ -508,7 +521,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
         
         
         
-        $allowed_blocks = array(
+        /* $allowed_blocks = array(
             'acf/hero',
             'acf/approach',
             'acf/clients',
@@ -522,7 +535,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
             'acf/codes',
             'acf/quote',
 
-        );      
+        );       */
     }
     
     // Remove blocks if array exists
@@ -537,7 +550,7 @@ function _s_allowed_block_types( $allowed_blocks, $post ) {
     return $allowed_blocks;
  
 }
-add_filter( 'allowed_block_types', '_s_allowed_block_types', 10, 2 );
+// add_filter( 'allowed_block_types', '_s_allowed_block_types', 10, 2 );
 
 
 

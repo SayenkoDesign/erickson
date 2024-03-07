@@ -36,7 +36,7 @@ class CPT_Video_GALLERY extends CPT_Core {
 				'show_in_menu'        => true,
 				'show_in_nav_menus'   => true,
 				'exclude_from_search' => false,
-				'rewrite'             => array( 'slug' => 'video-gallery' ),
+				'rewrite'             => array( 'with_front' => false, 'slug' => 'video-gallery' ),
 				'supports' => array( 'title', 'thumbnail', 'revisions' ),
 				 )
 

@@ -36,7 +36,7 @@ class CPT_Landing_Page extends CPT_Core {
 				'show_in_menu'        => true,
 				'show_in_nav_menus'   => true,
 				'exclude_from_search' => true,
-				'rewrite'             => array( 'slug' => 'landing-pages' ),
+				'rewrite'             => array( 'with_front' => false, 'slug' => 'landing-pages' ),
 				'supports' => array( 'title', 'thumbnail' )
 			)
 

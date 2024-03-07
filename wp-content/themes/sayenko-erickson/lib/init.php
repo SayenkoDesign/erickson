@@ -101,6 +101,9 @@ include_once( 'foundation/class-foundation-accordion.php' );
     include_once( 'post-types/cpt-fleet.php' );
     include_once( 'post-types/cpt-history.php' );
     include_once( 'post-types/cpt-people.php' );
+
+    include_once( 'post-types/cpt-press.php' );
+    include_once( 'post-types/cpt-news.php' );
     
     include_once( 'post-types/cpt-service.php' );
     include_once( 'post-types/cpt-testimonial.php' );

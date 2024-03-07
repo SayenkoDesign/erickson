@@ -74,29 +74,12 @@ wp_reset_postdata();
                         if( is_category() ) {
                             
                             // is this a parent?
-                            $category = get_queried_object();
-                            
-                            if( $category->parent ) {
-                                // this is a child
-                                $ancestors = get_ancestors( get_queried_object_id(), 'category' ); 
-                                $last = $ancestors[ array_key_last( $ancestors ) ];
-                                $args['child_of'] = $last;
-                                $count = get_term_post_count( 'category', $last );
-                                $count = $count ? sprintf( ' (%d)', $count ) : '';
-                                $args['show_option_none'] = get_cat_name( $last ) . $count;
-                                $args['option_none_value'] = $last;
-                                $reset = get_category_link( $last );
-                            } else {
-                                $args['child_of'] = get_queried_object_id();
-                                $args['option_none_value'] = get_queried_object_id();
-                                $reset = get_category_link( get_queried_object_id() );
-                            }
-                            
-                            
-                            
-                        } else {
-                            $reset = get_post_type_archive_link( 'post' );
-                        }
+                            $category = get_category( get_query_var( 'cat' ) );
+                            $args['selected'] =  $category->cat_ID;                            
+                        } 
+                        
+                        $reset = get_post_type_archive_link( 'post' );
+                     
                         
                         $url = home_url( '/' );
                         
@@ -132,12 +115,16 @@ wp_reset_postdata();
                         $classes[] = 'small-up-1 medium-up-2 large-up-4';
                 
                         printf( '<div class="grid-x grid-margin-x grid-margin-bottom facetwp-template %s">', join( ' ', $classes ) );
-                                                      
+                        
+                        $links = '';
+                        
                         while ( have_posts() ) :
             
                             the_post();
                                                                    
                             _s_get_template_part( 'template-parts', 'content-post-column' );
+
+                            $links .= get_the_permalink() . "\n";
                             
                         endwhile;
                         
@@ -148,6 +135,8 @@ wp_reset_postdata();
                         } else {
                             echo paginate_links();   
                         }
+
+                        //echo $links;
                    
                     endif; 
                     ?>

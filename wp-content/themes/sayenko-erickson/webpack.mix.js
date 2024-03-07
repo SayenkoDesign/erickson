@@ -10,10 +10,11 @@
 
 // Import required packages.
 const mix = require( 'laravel-mix' );
-const ImageminPlugin = require( 'imagemin-webpack-plugin' ).default;
-const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
-const imageminMozjpeg = require( 'imagemin-mozjpeg' );
-const TargetsPlugin = require("targets-webpack-plugin"); // added
+require('laravel-mix-polyfill');
+require('laravel-mix-copy-watched');
+require('laravel-mix-imagemin');
+const TargetsPlugin = require("targets-webpack-plugin");
+
 
 //require('laravel-mix-polyfill');
 
@@ -55,17 +56,6 @@ const devPath = 'assets';
 mix.setPublicPath( 'public' );
 
 /*
- * Set Laravel Mix options.
- *
- * @link https://laravel.com/docs/5.6/mix#postcss
- * @link https://laravel.com/docs/5.6/mix#url-processing
- */
-mix.options( {
-	postCss: [ require( 'postcss-preset-env' )() ],
-	processCssUrls: false,
-} );
-
-/*
  * Builds sources maps for assets.
  *
  * @link https://laravel.com/docs/5.6/mix#css-source-maps
@@ -88,42 +78,25 @@ if (mix.inProduction()) {
  *
  * @link https://laravel.com/docs/5.6/mix#working-with-scripts
  */
- mix.js( `${ devPath }/js/project.js`, 'js' )
-    
+ 
+mix.js( `${ devPath }/js/modernizr-custom.js`, 'js' )
+	.js( `${ devPath }/js/infobox.js`, 'js' )
+	.js( `${ devPath }/js/project.js`, 'js' )
+	.polyfill({
+		targets: "firefox 50, IE 11",
+		debug: true
+	})
 	.extract();
 
- mix.js( `${ devPath }/js/modernizr-custom.js`, 'js' )
-    .js( `${ devPath }/js/infobox.js`, 'js' );
-
-//mix.react( `${devPath}/js/editor.js`, 'js' );
-
-
-/*
- * Compile CSS. Mix supports Sass, Less, Stylus, and plain CSS, and has functions
- * for each of them.
- *
- * @link https://laravel.com/docs/5.6/mix#working-with-stylesheets
- * @link https://laravel.com/docs/5.6/mix#sass
- * @link https://github.com/sass/node-sass#options
- */
-
-// Sass configuration. [compressed, expanded ]
-var sassConfig = {
-	outputStyle: 'compressed',
-	indentType: 'tab',
-	indentWidth: 1
-};
-
-var sassEditorConfig = {
-	outputStyle: 'compressed',
-	indentType: 'tab',
-	indentWidth: 1
-};
 
 // Compile SASS/CSS.
-mix.sass( `${ devPath }/scss/style.scss`, 'css', sassConfig );
-mix.sass( `${ devPath }/scss/login.scss`, 'css', sassEditorConfig );
-mix.sass( `${ devPath }/scss/editor.scss`, 'css', sassEditorConfig );
+ mix.sass( `${ devPath }/scss/style.scss`, 'css' )
+	.sass( `${ devPath }/scss/login.scss`, 'css' )
+	.sass( `${ devPath }/scss/editor.scss`, 'css' )
+	.copyWatched('assets/images/**', 'public/images', { base: 'assets/images' })
+
+
+
 
 /*
  * Add custom Webpack configuration.
@@ -141,38 +114,11 @@ mix.webpackConfig( {
 	performance: { hints: false },
 	externals: { jquery: 'jQuery' },
 	plugins: [
-		// @link https://github.com/webpack-contrib/copy-webpack-plugin
-		new CopyWebpackPlugin( [
-			{ from: `${ devPath }/images`, to: 'images' },
-			{ from: `${ devPath }/svg`, to: 'svg' },
-			{ from: `${ devPath }/languages`, to: 'languages', ignore: [ '*.pot', '*.po' ] },
-		] ),
-		// @link https://github.com/Klathmon/imagemin-webpack-plugin
-		new ImageminPlugin( {
-			test: /\.(jpe?g|png|gif|svg)$/i,
-			disable: process.env.NODE_ENV !== 'production',
-			optipng: { optimizationLevel: 3 },
-			gifsicle: { optimizationLevel: 3 },
-			pngquant: {
-				quality: '65-90',
-				speed: 4,
-			},
-			svgo: {
-				plugins: [
-					{ cleanupIDs: false },
-					{ removeViewBox: false },
-					{ removeUnknownsAndDefaults: false },
-				],
-			},
-			plugins: [
-				// @link https://github.com/imagemin/imagemin-mozjpeg
-				imageminMozjpeg( { quality: 75 } ),
-			],
-		} ),
         new TargetsPlugin({
           browsers: ['last 2 versions', 'chrome >= 41', 'IE 11'],
         }),
 	],
+
 } );
 
 

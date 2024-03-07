@@ -36,7 +36,7 @@ class CPT_FLEET extends CPT_Core {
 				'show_in_menu'        => true,
 				'show_in_nav_menus'   => true,
 				'exclude_from_search' => false,
-				'rewrite'             => array( 'slug' => 'fleet' ),
+				'rewrite'             => array( 'with_front' => false, 'slug' => 'fleet' ),
 				'supports' => array( 'title', 'thumbnail', 'revisions' ),
 				 )
 

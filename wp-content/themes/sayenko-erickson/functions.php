@@ -158,3 +158,68 @@ function _s_login_logo() {
 }
 
 add_action( 'login_head', '_s_login_logo' );
+
+
+
+// ACF upload prefilter
+function gist_acf_upload_dir_prefilter( $errors ) {
+    
+    // Only allow editors and admins, change capability as you see fit
+    if( !current_user_can('edit_pages') ) {
+        $errors[] = 'Only Editors and Administrators may upload attachments';
+    }
+    
+    // This filter changes directory just for item being uploaded
+    add_filter('upload_dir', 'gist_acf_upload_dir');
+    
+}
+
+// ACF hook, set to field key of your file upload field
+add_filter('acf/upload_prefilter/key=field_5ceae3d5065cd', 'gist_acf_upload_dir_prefilter');
+add_filter('acf/upload_prefilter/key=field_611aecbcc244f', 'gist_acf_upload_dir_prefilter');
+
+
+// Custom upload directory
+function gist_acf_upload_dir($param) {
+    
+    // Set to whatever directory you want the ACF file field to upload to
+    $custom_dir = '/uploads/edd';
+    $param['path'] = WP_CONTENT_DIR . $custom_dir;
+    $param['url'] = WP_CONTENT_URL . $custom_dir;
+
+    return $param;
+    
+}
+
+
+
+// add_filter( 'acf/prepare_field/key=field_5ceae3d5065cd', 'secure_files_field_display' );
+// add_filter( 'acf/prepare_field/key=field_611aecbcc244f', 'secure_files_field_display' );
+
+function secure_files_field_display( $field ) {
+
+  // update paths accordingly before displaying link to file
+  add_filter( 'upload_dir', 'secure_upload_directory' );
+
+  return $field;
+
+}
+
+if (isset($_GET['investor_pdf'])) {
+
+	if( !is_user_logged_in() ) {
+		wp_redirect(home_url(), 301 );
+		exit;
+	}
+
+    $id = absint( $_GET['investor_pdf'] );
+
+	$url = get_attached_file( $id );
+
+    // Force download
+    header('Content-type: application/octet-stream');
+    header("Content-Disposition: attachment; filename=".basename($url));
+    ob_end_clean();
+    readfile($url);
+    exit;
+}

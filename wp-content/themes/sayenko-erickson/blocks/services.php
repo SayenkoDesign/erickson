@@ -15,6 +15,8 @@ if( ! class_exists( 'Services_Block' ) ) {
             $this->set_settings( 'padding', get_field( 'padding' )  );
             $this->set_settings( 'margin', get_field( 'margin' )  );
             */
+
+            $this->set_settings( 'background_color', get_field( 'background_color' ) );
             
             // print the section
             $this->print_element();        
@@ -23,7 +25,11 @@ if( ! class_exists( 'Services_Block' ) ) {
         // Add default attributes to section        
         protected function _add_render_attributes() {
             // use parent attributes
-            parent::_add_render_attributes();         
+            parent::_add_render_attributes();
+            
+            if( ! empty( $this->get_settings( 'background_color' ) ) ) {                                                              
+                $this->add_render_attribute( 'wrapper', 'class', 'background-color-' . strtolower( $this->get_settings( 'background_color' ) ) ); 
+            }   
         }          
         
         // Add content
@@ -53,9 +59,11 @@ if( ! class_exists( 'Services_Block' ) ) {
             foreach( $rows as $key => $row ) {  
                 $items .= $this->get_item( $row );
             }
+
+            $columns = (count( $rows ) % 2 == 0) ? 4 : 3;
             
-            return sprintf( '<div class="grid-x grid-padding-x small-up-1 medium-up-2 medium-large-up-3 align-center grid">%s</div>', 
-                                    $items );
+            return sprintf( '<div class="grid-x grid-padding-x small-up-1 medium-up-2 medium-large-up-%d align-center grid">%s</div>', 
+                                    $columns, $items );
         }
         
         
