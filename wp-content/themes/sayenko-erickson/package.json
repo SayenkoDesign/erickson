@@ -22,7 +22,7 @@
 	},
 	"devDependencies": {
 		"@fancyapps/fancybox": "^3.5.7",
-		"browser-sync": "^2.27.7",
+		"browser-sync": "^3.0.2",
 		"browser-sync-webpack-plugin": "^2.3.0",
 		"classnames": "^2.2.6",
 		"clip-path": "^1.2.0",
