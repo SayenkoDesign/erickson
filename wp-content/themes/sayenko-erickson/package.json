@@ -46,7 +46,7 @@
 		"sass-loader": "^12.3.0",
 		"slick-carousel": "^1.8.1",
 		"targets-webpack-plugin": "^4.0.0",
-		"webpack": "^5.64.4",
+		"webpack": "^5.76.0",
 		"what-input": "^5.2.7"
 	},
 	"dependencies": {
